@@ -16,7 +16,7 @@ def schild_import_csv_single(request, csv, cols, converters):
     all_ok = True
 
     for person_row in persons.transpose().to_dict().values():
-        if person_row['is_active']:
+        if 'is_active' not in person_row or person_row['is_active']:
             try:
                 person, created = Person.objects.get_or_create(
                     import_ref=person_row['import_ref'], defaults=person_row)
