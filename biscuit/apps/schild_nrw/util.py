@@ -11,7 +11,7 @@ import phonenumbers
 
 def schild_import_csv_single(request, csv, cols, converters):
     persons = pandas.read_csv(csv, sep=';', names=cols.keys(), dtype=cols, usecols=lambda k: not k.startswith('_'), keep_default_na=False,
-                              converters=converters, parse_dates=True, quotechar='"', encoding='utf-8-sig', true_values=['+', 'Ja'], false_values=['-', 'Nein'])
+                              converters=converters, parse_dates=['date_of_birth'], quotechar='"', encoding='utf-8-sig', true_values=['+', 'Ja'], false_values=['-', 'Nein'])
 
     all_ok = True
 
@@ -51,7 +51,7 @@ def schild_import_csv(request, teachers_csv, students_csv, guardians_csv):
                                'sex': lambda v: 'f' if v == 'w' else v}
 
     schild_import_csv_single(
-        request, teachers_csv_cols, csv_converters)
+        request, teachers_csv, teachers_csv_cols, csv_converters)
 
     students_csv_cols = OrderedDict([('import_ref', str), ('_internal_id', int), ('_class', str),
                                      ('last_name', str), ('first_name',
@@ -63,4 +63,4 @@ def schild_import_csv(request, teachers_csv, students_csv, guardians_csv):
                                      ('postal_code', str), ('place', str), ('phone_number', str)])
 
     schild_import_csv_single(
-        request, students_csv_cols, csv_converters)
+        request, students_csv, students_csv_cols, csv_converters)
