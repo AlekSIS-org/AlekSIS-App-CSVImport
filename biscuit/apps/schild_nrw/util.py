@@ -34,6 +34,10 @@ def schild_import_csv_single(request, csv, cols, converters):
 
 
 def schild_import_csv(request, teachers_csv, students_csv, guardians_csv):
+    csv_converters = {'phone_number': lambda v: phonenumbers.parse(v, 'DE') if v else '',
+                      'mobile_number': lambda v: phonenumbers.parse(v, 'DE') if v else '',
+                      'sex': lambda v: 'f' if v == 'w' else v}
+
     teachers_csv_cols = OrderedDict([('import_ref', str), ('email', str), ('_email_business', str),
                                      ('date_of_birth', str), ('sex',
                                                               str), ('_abbrev', str),
@@ -47,4 +51,16 @@ def schild_import_csv(request, teachers_csv, students_csv, guardians_csv):
                                'sex': lambda v: 'f' if v == 'w' else v}
 
     schild_import_csv_single(
-        request, teachers_csv_cols, teachers_csv_converters)
+        request, teachers_csv_cols, csv_converters)
+
+    students_csv_cols = OrderedDict([('import_ref', str), ('_internal_id', int), ('_class', str),
+                                     ('last_name', str), ('first_name',
+                                                          str), ('additional_name', str),
+                                     ('date_of_birth', str), ('email',
+                                                              str), ('_email_business', str),
+                                     ('sex', str), ('street',
+                                                    str), ('housenumber', str),
+                                     ('postal_code', str), ('place', str), ('phone_number', str)])
+
+    schild_import_csv_single(
+        request, students_csv_cols, csv_converters)
