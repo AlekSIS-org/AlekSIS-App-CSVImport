@@ -22,7 +22,7 @@ def schild_import(request):
 
         if upload_form.is_valid():
             schild_import_csv(
-                request.FILES['teachers_csv'], request.FILES['students_csv'], request.FILES['guardians_csv'])
+                request, request.FILES['teachers_csv'], request.FILES['students_csv'], request.FILES['guardians_csv'])
 
     context['upload_form'] = upload_form
 
