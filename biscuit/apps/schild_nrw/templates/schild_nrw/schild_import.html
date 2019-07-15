@@ -1,0 +1,14 @@
+{# -*- engine:django -*- #}
+{% extends "core/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_title %}Import SchILD-NRW data{% endblock %}
+
+{% block content %}
+ <form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {% bootstrap_form upload_form %}
+
+  <input type="submit" value="Process" />
+ </form>
+{% endblock %}

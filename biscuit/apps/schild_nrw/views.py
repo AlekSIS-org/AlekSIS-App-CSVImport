@@ -2,10 +2,10 @@ import io
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
 from django.shortcuts import render
 
-from openpyxl import load_workbook
+from .forms import SchILDNRWUploadForm
+from .util import schild_import_csv
 
 from biscuit.core.decorators import admin_required
 
@@ -13,4 +13,15 @@ from biscuit.core.decorators import admin_required
 @login_required
 @admin_required
 def schild_import(request):
-    pass
+    context = {}
+
+    upload_form = SchILDNRWUploadForm()
+
+    if request.method == 'POST':
+        upload_form = SchILDNRWUploadForm(request.POST, request.FILES)
+
+        if upload_form.is_valid():
+            schild_import_csv(
+                request.FILES['teachers_csv'], request.FILES['students_csv'], request.FILES['guardians_csv'])
+
+    return render(request, 'schild_nrw/schild_import.html', context)
