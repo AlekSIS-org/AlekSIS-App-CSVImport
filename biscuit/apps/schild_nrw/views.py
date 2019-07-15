@@ -24,4 +24,6 @@ def schild_import(request):
             schild_import_csv(
                 request.FILES['teachers_csv'], request.FILES['students_csv'], request.FILES['guardians_csv'])
 
+    context['upload_form'] = upload_form
+
     return render(request, 'schild_nrw/schild_import.html', context)
