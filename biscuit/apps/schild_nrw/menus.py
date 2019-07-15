@@ -14,4 +14,4 @@ app_menu = MenuItem('SchILD-NRW',
                     '#',
                     children=menu_items)
 
-Menu.add_item('interfaces', app_menu)
+Menu.add_item(_('Interfaces'), app_menu)
