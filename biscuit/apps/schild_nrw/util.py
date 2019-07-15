@@ -15,8 +15,8 @@ def schild_import_csv(teachers_csv, students_csv, guardians_csv):
                                      ('postal_code', str), ('place',
                                                             str), ('phone_number', str),
                                      ('mobile_number', str), ('is_active', 'bool')])
-    teachers_csv_converters = {'phone_number': lambda v: phonenumbers.parse(v, 'DE') if v else None,
-                               'mobile_number': lambda v: phonenumbers.parse(v, 'DE') if v else None,
+    teachers_csv_converters = {'phone_number': lambda v: phonenumbers.parse(v, 'DE') if v else '',
+                               'mobile_number': lambda v: phonenumbers.parse(v, 'DE') if v else '',
                                'sex': lambda v: 'f' if v == 'w' else v}
 
     teachers = pandas.read_csv(teachers_csv, sep=';', names=teachers_csv_cols.keys(), dtype=teachers_csv_cols, usecols=lambda k: not k.startswith('_'), keep_default_na=False, converters=teachers_csv_converters,
