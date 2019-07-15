@@ -37,9 +37,9 @@ def schild_import_csv(request, teachers_csv, students_csv, guardians_csv):
                     'Failed to import person %s %s: %s') % (teacher_row['first_name'], teacher_row['last_name'], err), fail_silently=True)
                 all_ok = False
 
-            if all_ok:
-                messages.success(request, _(
-                    'All persons were imported successfully.'))
-            else:
-                messages.warning(request, _(
-                    'Some persons failed to be imported.'))
+    if all_ok:
+        messages.success(request, _(
+            'All persons were imported successfully.'))
+    else:
+        messages.warning(request, _(
+            'Some persons failed to be imported.'))
