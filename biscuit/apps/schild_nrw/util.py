@@ -13,3 +13,4 @@ def schild_import_csv(teachers_csv, students_csv, guardians_csv):
         if teacher_row['visible']:
             person, created = Person.objects.get_or_create(
                 guid=teacher_row['guid'], defaults=teacher_row)
+            person.save()
