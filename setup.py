@@ -3,7 +3,7 @@
 from setuptools import setup
 
 setup(
-    name='BiscuIT-App-Schild-NRW',
+    name='BiscuIT-App-SchILD-NRW',
     version='1.0dev0',
     url='https://edugit.org/Teckids/BiscuIT/BiscuIT-App-SchILD-NRW',
     author="Teckids e.V.",
