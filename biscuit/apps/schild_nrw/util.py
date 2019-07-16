@@ -40,7 +40,7 @@ def schild_import_csv(request, teachers_csv, students_csv, guardians_csv):
 
     teachers_csv_cols = OrderedDict([('import_ref', str), ('email', str), ('_email_business', str),
                                      ('date_of_birth', str), ('sex',
-                                                              str), ('_abbrev', str),
+                                                              str), ('short_name', str),
                                      ('last_name', str), ('first_name',
                                                           str), ('street', str),
                                      ('postal_code', str), ('place',
