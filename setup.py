@@ -9,7 +9,8 @@ setup(
     author="Teckids e.V.",
     author_email="verein@teckids.org",
     packages=[
-        'biscuit.apps.schild_nrw'
+        'biscuit.apps.schild_nrw',
+        'biscuit.apps.schild_nrw.management.commands'
     ],
     namespace_packages=[
         'biscuit',

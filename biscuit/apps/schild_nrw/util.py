@@ -2,7 +2,7 @@ from biscuit.core.models import Person
 
 from collections import OrderedDict
 
-from django.contrib import messages
+from biscuit.core.util import messages
 from django.utils.translation import gettext as _
 
 import pandas
