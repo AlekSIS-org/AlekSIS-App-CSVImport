@@ -46,9 +46,6 @@ def schild_import_csv(request, teachers_csv, students_csv, guardians_csv):
                                      ('postal_code', str), ('place',
                                                             str), ('phone_number', str),
                                      ('mobile_number', str), ('is_active', 'bool')])
-    teachers_csv_converters = {'phone_number': lambda v: phonenumbers.parse(v, 'DE') if v else '',
-                               'mobile_number': lambda v: phonenumbers.parse(v, 'DE') if v else '',
-                               'sex': lambda v: 'f' if v == 'w' else v}
 
     schild_import_csv_single(
         request, teachers_csv, teachers_csv_cols, csv_converters)
