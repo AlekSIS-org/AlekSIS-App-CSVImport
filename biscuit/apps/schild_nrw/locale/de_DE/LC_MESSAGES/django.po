@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-17 13:39+0200\n"
-"PO-Revision-Date: 2019-08-17 13:43+0200\n"
+"POT-Creation-Date: 2019-08-18 21:43+0200\n"
+"PO-Revision-Date: 2019-08-18 21:43+0200\n"
 "Last-Translator: Tom Teichler <tom.teichler@teckids.org>\n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -45,13 +45,13 @@ msgstr "Pfad zur CSV-Datei mit den exportierten Schülern"
 msgid "Path to CSV file with exported guardians"
 msgstr "Pfad zur CSV-Datei mit den exportierten Erziehungsberechtigten"
 
-#: menus.py:8
-msgid "Import of data"
-msgstr "Datenimport"
-
-#: menus.py:17
+#: menus.py:6
 msgid "Interfaces"
 msgstr "Schnittstellen"
+
+#: menus.py:12
+msgid "SchILD-NRW import"
+msgstr "SchILD-NRW-Import"
 
 #: templates/schild_nrw/schild_import.html:10
 msgid ""
@@ -72,14 +72,13 @@ msgstr ""
 #: templates/schild_nrw/schild_import.html:18
 msgid ""
 "\n"
-"    To generate CSV files in the correct format, please use the "
-"following\n"
+"    To generate CSV files in the correct format, please use the following\n"
 "    templates:\n"
 "   "
 msgstr ""
 "\n"
-"    Um die CSV-Dateien im richtigen Format zu generieren, nutzen Sie "
-"bitte die folgenden\n"
+"    Um die CSV-Dateien im richtigen Format zu generieren, nutzen Sie bitte "
+"die folgenden\n"
 "    Vorlagen:\n"
 "   "
 
@@ -107,3 +106,6 @@ msgstr "Alle Personen wurden erfolgreich importiert."
 #: util.py:33
 msgid "Some persons failed to be imported."
 msgstr "Einige Personen konnten nicht importiert werden."
+
+#~ msgid "Import of data"
+#~ msgstr "Datenimport"
