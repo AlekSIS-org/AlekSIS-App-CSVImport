@@ -1,17 +1,19 @@
-from django.urls import reverse
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 
-from menu import Menu, MenuItem
-
-
-menu_items = [
-    MenuItem(_('Import of data'),
-             reverse('schild_import'),
-             check=lambda request: request.user.is_authenticated and request.user.is_superuser),
-]
-
-app_menu = MenuItem('SchILD-NRW',
-                    '#',
-                    children=menu_items)
-
-Menu.add_item(_('Interfaces'), app_menu)
+MENUS = {
+    'NAV_MENU_CORE': [
+        {
+            'name': _('Interfaces'),
+            'url': '#',
+            'root': True,
+            'validators': ['menu_generator.validators.is_authenticated', 'menu_generator.validators.is_superuser'],
+            'submenu': [
+                {
+                    'name': _('SchILD-NRW import'),
+                    'url': 'schild_import',
+                    'validators': ['menu_generator.validators.is_authenticated', 'menu_generator.validators.is_superuser']
+                }
+            ]
+        }
+    ]
+}
