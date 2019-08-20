@@ -13,6 +13,10 @@ def schild_import_csv_single(request, csv, cols, converters):
     persons = pandas.read_csv(csv, sep=';', names=cols.keys(), dtype=cols, usecols=lambda k: not k.startswith('_'), keep_default_na=False,
                               converters=converters, parse_dates=['date_of_birth'], quotechar='"', encoding='utf-8-sig', true_values=['+', 'Ja'], false_values=['-', 'Nein'])
 
+    # Clean up invalid date values
+    persons.date_of_birth = persons.date_of_birth.astype(object)
+    persons = persons.where(persons.notnull(), None)
+
     all_ok = True
 
     for person_row in persons.transpose().to_dict().values():
