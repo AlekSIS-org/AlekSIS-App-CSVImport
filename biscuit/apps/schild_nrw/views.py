@@ -2,6 +2,7 @@ import io
 
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
 from .forms import SchILDNRWUploadForm
@@ -12,7 +13,7 @@ from biscuit.core.decorators import admin_required
 
 @login_required
 @admin_required
-def schild_import(request):
+def schild_import(request: HttpRequest) -> HttpResponse:
     context = {}
 
     upload_form = SchILDNRWUploadForm()
