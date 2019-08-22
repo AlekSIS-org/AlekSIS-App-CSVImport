@@ -56,7 +56,7 @@ def schild_import_csv(request: HttpRequest, teachers_csv: Union[BinaryIO, str], 
     schild_import_csv_single(
         request, teachers_csv, teachers_csv_cols, csv_converters)
 
-    students_csv_cols = OrderedDict([('import_ref', str), ('_internal_id', int), ('_class', str),
+    students_csv_cols = OrderedDict([('import_ref', str), ('_internal_id', int), ('primary_group_short_name', str),
                                      ('last_name', str), ('first_name',
                                                           str), ('additional_name', str),
                                      ('date_of_birth', str), ('email',
