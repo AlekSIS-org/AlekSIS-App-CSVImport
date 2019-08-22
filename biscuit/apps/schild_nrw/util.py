@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from typing import Any, ByteIO, Dict, Optional, Union
+from typing import Any, BinaryIO, Dict, Optional, Union
 
 from django.http import HttpRequest
 from django.utils.translation import ugettext as _
@@ -11,7 +11,7 @@ from biscuit.core.models import Person
 from biscuit.core.util import messages
 
 
-def schild_import_csv_single(request: HttpRequest, csv: Union[ByteIO, str], cols: Dict[str, Any], converters: Dict[str, Callable[[Optional[str]], Any]]) -> None:
+def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], cols: Dict[str, Any], converters: Dict[str, Callable[[Optional[str]], Any]]) -> None:
     persons = pandas.read_csv(csv, sep=';', names=cols.keys(), dtype=cols, usecols=lambda k: not k.startswith('_'), keep_default_na=False,
                               converters=converters, parse_dates=['date_of_birth'], quotechar='"', encoding='utf-8-sig', true_values=['+', 'Ja'], false_values=['-', 'Nein'])
 
@@ -39,7 +39,7 @@ def schild_import_csv_single(request: HttpRequest, csv: Union[ByteIO, str], cols
             'Some persons failed to be imported.'))
 
 
-def schild_import_csv(request: HttpRequest, teachers_csv: Union[ByteIO, str], students_csv: Union[ByteIO, str], guardians_csv: Union[ByteIO, str]) -> None:
+def schild_import_csv(request: HttpRequest, teachers_csv: Union[BinaryIO, str], students_csv: Union[BinaryIO, str], guardians_csv: Union[BinaryIO, str]) -> None:
     csv_converters = {'phone_number': lambda v: phonenumbers.parse(v, 'DE') if v else '',
                       'mobile_number': lambda v: phonenumbers.parse(v, 'DE') if v else '',
                       'sex': lambda v: 'f' if v == 'w' else v}
