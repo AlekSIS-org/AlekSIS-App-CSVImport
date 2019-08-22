@@ -1,5 +1,5 @@
 from collections import OrderedDict
-from typing import Any, BinaryIO, Dict, Optional, Union
+from typing import Any, BinaryIO, Callable, Dict, Optional, Union
 
 from django.http import HttpRequest
 from django.utils.translation import ugettext as _
