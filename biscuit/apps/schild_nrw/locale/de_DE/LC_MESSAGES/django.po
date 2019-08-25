@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-18 21:43+0200\n"
+"POT-Creation-Date: 2019-08-26 00:31+0200\n"
 "PO-Revision-Date: 2019-08-18 21:43+0200\n"
 "Last-Translator: Tom Teichler <tom.teichler@teckids.org>\n"
 "Language-Team: \n"
@@ -57,8 +57,7 @@ msgstr "SchILD-NRW-Import"
 msgid ""
 "\n"
 "    SchILD-NRW provides export functions for basic data of students,\n"
-"    teachers and guardians as CSV files. You can import a set of such "
-"files\n"
+"    teachers and guardians as CSV files. You can import a set of such files\n"
 "    here.\n"
 "   "
 msgstr ""
@@ -94,16 +93,16 @@ msgstr "SchILD-NRW-CSV-Exportvorlage für Lehrer"
 msgid "SchILD-NRW CSV export template for guardians"
 msgstr "SchILD-NRW-CSV-Exportvorlage für Erziehungsberechtigte"
 
-#: util.py:25
+#: util.py:31
 #, python-format
 msgid "Failed to import person %s %s: %s"
 msgstr "Fehler beim Importieren der Person %s %s: %s"
 
-#: util.py:30
+#: util.py:36
 msgid "All persons were imported successfully."
 msgstr "Alle Personen wurden erfolgreich importiert."
 
-#: util.py:33
+#: util.py:39
 msgid "Some persons failed to be imported."
 msgstr "Einige Personen konnten nicht importiert werden."
 
