@@ -3,55 +3,56 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-27 15:23+0200\n"
-"PO-Revision-Date: 2019-08-18 21:43+0200\n"
-"Last-Translator: Tom Teichler <tom.teichler@teckids.org>\n"
-"Language-Team: \n"
-"Language: de_DE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.3\n"
-
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 #: biscuit/apps/schild_nrw/apps.py:7
 msgid "BiscuIT - SchILD-NRW interface"
-msgstr "BiscuIT - SchILD-NRW-Schnittstelle"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/forms.py:6
 msgid "CSV export of teachers"
-msgstr "CSV-Export der Lehrer"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/forms.py:7
 msgid "CSV export of students"
-msgstr "CSV-Export der Schüler"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/forms.py:8
 msgid "CSV export of guardians/parents"
-msgstr "CSV-Export der Erziehungsberechtigten/Eltern"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/management/commands/schild_import.py:10
 msgid "Path to CSV file with exported teachers"
-msgstr "Pfad zur CSV-Datei mit den exportierten Lehrern"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/management/commands/schild_import.py:12
 msgid "Path to CSV file with exported students"
-msgstr "Pfad zur CSV-Datei mit den exportierten Schülern"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/management/commands/schild_import.py:14
 msgid "Path to CSV file with exported guardians"
-msgstr "Pfad zur CSV-Datei mit den exportierten Erziehungsberechtigten"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/menus.py:6
 msgid "Interfaces"
-msgstr "Schnittstellen"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/menus.py:12
 msgid "SchILD-NRW import"
-msgstr "SchILD-NRW-Import"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/templates/schild_nrw/schild_import.html:10
 msgid ""
@@ -61,12 +62,6 @@ msgid ""
 "    here.\n"
 "   "
 msgstr ""
-"\n"
-"    SchILD-NRW bietet Exportfunktionen für die Grunddaten von Schülern,\n"
-"    Lehrern und Erziehungsberechtigten als CSV-Dateien. Sie können eine "
-"Reihe solcher Dateien hier\n"
-"    importieren.\n"
-"   "
 
 #: biscuit/apps/schild_nrw/templates/schild_nrw/schild_import.html:18
 msgid ""
@@ -75,36 +70,28 @@ msgid ""
 "    templates:\n"
 "   "
 msgstr ""
-"\n"
-"    Um die CSV-Dateien im richtigen Format zu generieren, nutzen Sie bitte "
-"die folgenden\n"
-"    Vorlagen:\n"
-"   "
 
 #: biscuit/apps/schild_nrw/templates/schild_nrw/schild_import.html:26
 msgid "SchILD-NRW CSV export template for students"
-msgstr "SchILD-NRW-CSV-Exportvorlage für Schüler"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/templates/schild_nrw/schild_import.html:31
 msgid "SchILD-NRW CSV export template for teachers"
-msgstr "SchILD-NRW-CSV-Exportvorlage für Lehrer"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/templates/schild_nrw/schild_import.html:36
 msgid "SchILD-NRW CSV export template for guardians"
-msgstr "SchILD-NRW-CSV-Exportvorlage für Erziehungsberechtigte"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/util.py:31
 #, python-format
 msgid "Failed to import person %s %s: %s"
-msgstr "Fehler beim Importieren der Person %s %s: %s"
+msgstr ""
 
 #: biscuit/apps/schild_nrw/util.py:36
 msgid "All persons were imported successfully."
-msgstr "Alle Personen wurden erfolgreich importiert."
+msgstr ""
 
 #: biscuit/apps/schild_nrw/util.py:39
 msgid "Some persons failed to be imported."
-msgstr "Einige Personen konnten nicht importiert werden."
-
-#~ msgid "Import of data"
-#~ msgstr "Datenimport"
+msgstr ""
