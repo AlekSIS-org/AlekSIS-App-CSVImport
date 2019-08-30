@@ -1,19 +1,11 @@
 from django.utils.translation import ugettext_lazy as _
 
 MENUS = {
-    'NAV_MENU_CORE': [
+    'DATA_MANAGEMENT_MENU': [
         {
-            'name': _('Interfaces'),
-            'url': '#',
-            'root': True,
+            'name': _('SchILD-NRW import'),
+            'url': 'schild_import',
             'validators': ['menu_generator.validators.is_authenticated', 'menu_generator.validators.is_superuser'],
-            'submenu': [
-                {
-                    'name': _('SchILD-NRW import'),
-                    'url': 'schild_import',
-                    'validators': ['menu_generator.validators.is_authenticated', 'menu_generator.validators.is_superuser']
-                }
-            ]
         }
     ]
 }
