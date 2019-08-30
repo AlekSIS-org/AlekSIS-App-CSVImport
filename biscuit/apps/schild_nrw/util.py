@@ -31,6 +31,11 @@ def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], co
                     'Failed to import person %s %s: %s') % (person_row['first_name'], person_row['last_name'], err), fail_silently=True)
                 all_ok = False
 
+            # Ensure that newly set primary group is also in member_of
+            if person.primary_group and person.primary_group not in person.member_of.all():
+                person.member_of.add(person.primary_group)
+                person.save()
+
     if all_ok:
         messages.success(request, _(
             'All persons were imported successfully.'))
