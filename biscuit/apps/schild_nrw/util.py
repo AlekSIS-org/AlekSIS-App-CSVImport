@@ -28,7 +28,7 @@ def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], co
                     import_ref=person_row['import_ref'], defaults=person_row)
             except ValueError as err:
                 messages.error(request, _(
-                    'Failed to import person %s %s: %s') % (person_row['first_name'], person_row['last_name'], err), fail_silently=True)
+                    'Failed to import person %s' % ('%s, %s' % (person_row['last_name'], person_row['first_name']))) + ': %s' % err, fail_silently=True)
                 all_ok = False
 
             # Ensure that newly set primary group is also in member_of

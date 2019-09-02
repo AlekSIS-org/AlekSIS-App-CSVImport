@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-27 15:23+0200\n"
+"POT-Creation-Date: 2019-09-02 13:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,43 +17,40 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-#: biscuit/apps/schild_nrw/apps.py:7
+
+#: apps.py:7
 msgid "BiscuIT - SchILD-NRW interface"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/forms.py:6
+#: forms.py:6
 msgid "CSV export of teachers"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/forms.py:7
+#: forms.py:7
 msgid "CSV export of students"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/forms.py:8
+#: forms.py:8
 msgid "CSV export of guardians/parents"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/management/commands/schild_import.py:10
+#: management/commands/schild_import.py:10
 msgid "Path to CSV file with exported teachers"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/management/commands/schild_import.py:12
+#: management/commands/schild_import.py:12
 msgid "Path to CSV file with exported students"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/management/commands/schild_import.py:14
+#: management/commands/schild_import.py:14
 msgid "Path to CSV file with exported guardians"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/menus.py:6
-msgid "Interfaces"
-msgstr ""
-
-#: biscuit/apps/schild_nrw/menus.py:12
+#: menus.py:6
 msgid "SchILD-NRW import"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/templates/schild_nrw/schild_import.html:10
+#: templates/schild_nrw/schild_import.html:10
 msgid ""
 "\n"
 "    SchILD-NRW provides export functions for basic data of students,\n"
@@ -62,7 +59,7 @@ msgid ""
 "   "
 msgstr ""
 
-#: biscuit/apps/schild_nrw/templates/schild_nrw/schild_import.html:18
+#: templates/schild_nrw/schild_import.html:18
 msgid ""
 "\n"
 "    To generate CSV files in the correct format, please use the following\n"
@@ -70,27 +67,27 @@ msgid ""
 "   "
 msgstr ""
 
-#: biscuit/apps/schild_nrw/templates/schild_nrw/schild_import.html:26
+#: templates/schild_nrw/schild_import.html:26
 msgid "SchILD-NRW CSV export template for students"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/templates/schild_nrw/schild_import.html:31
+#: templates/schild_nrw/schild_import.html:31
 msgid "SchILD-NRW CSV export template for teachers"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/templates/schild_nrw/schild_import.html:36
+#: templates/schild_nrw/schild_import.html:36
 msgid "SchILD-NRW CSV export template for guardians"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/util.py:31
+#: util.py:31
 #, python-format
-msgid "Failed to import person %s %s: %s"
+msgid "Failed to import person %s"
 msgstr ""
 
-#: biscuit/apps/schild_nrw/util.py:36
+#: util.py:41
 msgid "All persons were imported successfully."
 msgstr ""
 
-#: biscuit/apps/schild_nrw/util.py:39
+#: util.py:44
 msgid "Some persons failed to be imported."
 msgstr ""
