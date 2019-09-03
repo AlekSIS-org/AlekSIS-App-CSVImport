@@ -2,6 +2,9 @@
 {% extends "core/base.html" %}
 {% load bootstrap4 i18n static %}
 
+
+{% block bootstrap4_title %}{% blocktrans %}Import SchILD-NRW data{% endblocktrans %} - {{ block.super }}{% endblock %}
+
 {% block page_title %}Import SchILD-NRW data{% endblock %}
 
 {% block content %}
