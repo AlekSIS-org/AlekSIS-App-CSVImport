@@ -1,51 +1,51 @@
 {# -*- engine:django -*- #}
+
 {% extends "core/base.html" %}
 {% load bootstrap4 i18n static %}
-
 
 {% block bootstrap4_title %}{% blocktrans %}Import SchILD-NRW data{% endblocktrans %} - {{ block.super }}{% endblock %}
 
 {% block page_title %}Import SchILD-NRW data{% endblock %}
 
 {% block content %}
- <div class="jumbotron">
-  <p class="lead">
-   {% blocktrans %}
-    SchILD-NRW provides export functions for basic data of students,
-    teachers and guardians as CSV files. You can import a set of such files
-    here.
-   {% endblocktrans %}
-  </p>
-  <hr />
-  <p>
-   {% blocktrans %}
-    To generate CSV files in the correct format, please use the following
-    templates:
-   {% endblocktrans %}
-  </p>
-  <ul>
-   <li>
-    <a href="{% static 'schild_nrw/schild_biscuit_schueler.txt' %}">
-     {% blocktrans %}SchILD-NRW CSV export template for students{% endblocktrans %}
-    </a>
-   </li>
-   <li>
-    <a href="{% static 'schild_nrw/schild_biscuit_lehrer.txt' %}">
-     {% blocktrans %}SchILD-NRW CSV export template for teachers{% endblocktrans %}
-    </a>
-   </li>
-   <li>
-    <a href="{% static 'schild_nrw/schild_biscuit_eltern.txt' %}">
-     {% blocktrans %}SchILD-NRW CSV export template for guardians{% endblocktrans %}
-    </a>
-   </li>
-  </ul>
- </div>
+  <div class="jumbotron">
+    <p class="lead">
+      {% blocktrans %}
+        SchILD-NRW provides export functions for basic data of students,
+        teachers and guardians as CSV files. You can import a set of such files
+        here.
+      {% endblocktrans %}
+    </p>
+    <hr />
+    <p>
+      {% blocktrans %}
+        To generate CSV files in the correct format, please use the following
+        templates:
+      {% endblocktrans %}
+    </p>
+    <ul>
+      <li>
+        <a href="{% static 'schild_nrw/schild_biscuit_schueler.txt' %}">
+          {% blocktrans %}SchILD-NRW CSV export template for students{% endblocktrans %}
+        </a>
+      </li>
+      <li>
+        <a href="{% static 'schild_nrw/schild_biscuit_lehrer.txt' %}">
+          {% blocktrans %}SchILD-NRW CSV export template for teachers{% endblocktrans %}
+        </a>
+      </li>
+      <li>
+        <a href="{% static 'schild_nrw/schild_biscuit_eltern.txt' %}">
+          {% blocktrans %}SchILD-NRW CSV export template for guardians{% endblocktrans %}
+        </a>
+      </li>
+    </ul>
+  </div>
 
- <form method="post" enctype="multipart/form-data">
-  {% csrf_token %}
-  {% bootstrap_form upload_form %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% bootstrap_form upload_form %}
 
-  <input type="submit" value="Process" />
- </form>
+    <input type="submit" value="Process" />
+  </form>
 {% endblock %}
