@@ -46,6 +46,8 @@
     {% csrf_token %}
     {% bootstrap_form upload_form %}
 
-    <input type="submit" value="Process" />
+    <button type="submit" class="btn btn-primary">
+      {% blocktrans %}Process{% endblocktrans %}
+    </button>
   </form>
 {% endblock %}
