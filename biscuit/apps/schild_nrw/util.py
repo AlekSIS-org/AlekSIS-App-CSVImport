@@ -97,7 +97,7 @@ def schild_import_csv(request: HttpRequest, teachers_csv: Union[BinaryIO, str], 
                                                               str), ('_email_business', str),
                                      ('sex', str), ('street',
                                                     str), ('housenumber', str),
-                                     ('postal_code', str), ('place', str), ('phone_number', str), ('_status': int)])
+                                     ('postal_code', str), ('place', str), ('phone_number', str), ('_status', int)])
 
     schild_import_csv_single(
         request, students_csv, students_csv_cols, csv_converters)
