@@ -34,12 +34,12 @@ def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], co
     persons = persons.where(persons.notnull(), None)
 
     all_ok = True
+    inactive_refs = []
 
     for person_row in persons.transpose().to_dict().values():
         # Fill the is_active field from other fields if necessary
         person_row['is_active'] = is_active(person_row)
 
-        inactive_refs = []
         if person_row['is_active']:
             try:
                 person, created = Person.objects.update_or_create(
@@ -57,11 +57,17 @@ def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], co
             # Store import refs to deactivate later
             inactive_refs.append(person_row['import_ref'])
 
-        # Deactivate all persons that existed but are now inactive
-        if inactive_refs:
-            affected = Person.objects.filter(import_ref__in=inactive_refs).update(is_active=False)
-            if affected:
-                messages.warning(request, _('%d existing persons were deactivated.') % affected)
+    # Deactivate all persons that existed but are now inactive
+    if inactive_refs:
+        affected = Person.objects.filter(
+            import_ref__in=inactive_refs,
+            is_active=True
+        ).update(
+            is_active=False
+        )
+
+        if affected:
+            messages.warning(request, _('%d existing persons were deactivated.') % affected)
 
     if all_ok:
         messages.success(request, _(
