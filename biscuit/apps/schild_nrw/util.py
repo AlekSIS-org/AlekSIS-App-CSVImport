@@ -35,6 +35,7 @@ def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], co
 
     all_ok = True
     inactive_refs = []
+    created_count = 0
 
     for person_row in persons.transpose().to_dict().values():
         # Fill the is_active field from other fields if necessary
@@ -53,6 +54,9 @@ def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], co
             if person.primary_group and person.primary_group not in person.member_of.all():
                 person.member_of.add(person.primary_group)
                 person.save()
+
+            if created:
+                created_count += 1
         else:
             # Store import refs to deactivate later
             inactive_refs.append(person_row['import_ref'])
@@ -68,6 +72,9 @@ def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], co
 
         if affected:
             messages.warning(request, _('%d existing persons were deactivated.') % affected)
+
+    if created_count:
+        messages.success(request, _('%d persons were newly created.') % created_count)
 
     if all_ok:
         messages.success(request, _(
