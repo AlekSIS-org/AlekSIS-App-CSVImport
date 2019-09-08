@@ -11,7 +11,7 @@ from biscuit.core.models import Person
 from biscuit.core.util import messages
 
 
-SCHILD_STATE_ACTIVE = 2
+SCHILD_STATE_ACTIVE = (True, 2)
 
 
 def is_active(person_row: dict) -> bool:
@@ -20,9 +20,7 @@ def is_active(person_row: dict) -> bool:
     """
 
     if 'is_active' in person_row:
-        return person_row['is_active']
-    elif '_status' in person_row:
-        return person_row['_status'] == SCHILD_STATE_ACTIVE
+        return person_row['is_active'] in SCHILD_STATE_ACTIVE
 
     return True
 
@@ -97,7 +95,7 @@ def schild_import_csv(request: HttpRequest, teachers_csv: Union[BinaryIO, str], 
                                                               str), ('_email_business', str),
                                      ('sex', str), ('street',
                                                     str), ('housenumber', str),
-                                     ('postal_code', str), ('place', str), ('phone_number', str), ('_status', int)])
+                                     ('postal_code', str), ('place', str), ('phone_number', str), ('is_active', int)])
 
     schild_import_csv_single(
         request, students_csv, students_csv_cols, csv_converters)
