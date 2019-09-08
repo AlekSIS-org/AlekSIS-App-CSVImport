@@ -11,6 +11,22 @@ from biscuit.core.models import Person
 from biscuit.core.util import messages
 
 
+SCHILD_STATE_ACTIVE = 2
+
+
+def is_active(person_row: dict) -> bool:
+    """ Find out whether an imported person is active by looking
+    at different attributes.
+    """
+
+    if 'is_active' in person_row:
+        return person_row['is_active']
+    elif '_status' in person_row:
+        return person_row['_status'] == SCHILD_STATE_ACTIVE
+
+    return True
+
+
 def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], cols: Dict[str, Any], converters: Dict[str, Callable[[Optional[str]], Any]]) -> None:
     persons = pandas.read_csv(csv, sep=';', names=cols.keys(), dtype=cols, usecols=lambda k: not k.startswith('_'), keep_default_na=False,
                               converters=converters, parse_dates=['date_of_birth'], quotechar='"', encoding='utf-8-sig', true_values=['+', 'Ja'], false_values=['-', 'Nein'])
@@ -22,7 +38,11 @@ def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], co
     all_ok = True
 
     for person_row in persons.transpose().to_dict().values():
-        if 'is_active' not in person_row or person_row['is_active']:
+        # Fill the is_active field from other fields if necessary
+        person_row['is_active'] = is_active(person_row)
+
+        inactive_refs = []
+        if person_row['is_active']:
             try:
                 person, created = Person.objects.update_or_create(
                     import_ref=person_row['import_ref'], defaults=person_row)
@@ -35,6 +55,15 @@ def schild_import_csv_single(request: HttpRequest, csv: Union[BinaryIO, str], co
             if person.primary_group and person.primary_group not in person.member_of.all():
                 person.member_of.add(person.primary_group)
                 person.save()
+        else:
+            # Store import refs to deactivate later
+            inactive_refs.append(person_row['import_ref'])
+
+        # Deactivate all persons that existed but are now inactive
+        if inactive_refs:
+            affected = Person.objects.filter(import_ref__in=inactive_refs).update(is_active=False)
+            if affected:
+                messages.warning(request, _('%d existing persons were deactivated.') % affected)
 
     if all_ok:
         messages.success(request, _(
@@ -68,7 +97,7 @@ def schild_import_csv(request: HttpRequest, teachers_csv: Union[BinaryIO, str], 
                                                               str), ('_email_business', str),
                                      ('sex', str), ('street',
                                                     str), ('housenumber', str),
-                                     ('postal_code', str), ('place', str), ('phone_number', str)])
+                                     ('postal_code', str), ('place', str), ('phone_number', str), ('_status': int)])
 
     schild_import_csv_single(
         request, students_csv, students_csv_cols, csv_converters)

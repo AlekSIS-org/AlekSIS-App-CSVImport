@@ -8,5 +8,5 @@ Nein
 FALSE
 FALSE
 
-eindeutige Nummer (GUID);Interne ID-Nummer;Klasse;Nachname;Vorname;Namenszusatz;Geburtsdatum;E-Mail (privat);E-Mail schulisch);Geschlecht;Straﬂenname;Hausnummer;Postleitzahl;Ortsname;Telefon-Nr.;
+eindeutige Nummer (GUID);Interne ID-Nummer;Klasse;Nachname;Vorname;Namenszusatz;Geburtsdatum;E-Mail (privat);E-Mail schulisch);Geschlecht;Straﬂenname;Hausnummer;Postleitzahl;Ortsname;Telefon-Nr.;Status;
 3
