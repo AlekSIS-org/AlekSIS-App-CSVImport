@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 23:32+0200\n"
+"POT-Creation-Date: 2019-09-15 14:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -86,15 +86,25 @@ msgstr ""
 msgid "Process"
 msgstr ""
 
-#: util.py:31
+#: util.py:50
 #, python-format
 msgid "Failed to import person %s"
 msgstr ""
 
-#: util.py:41
+#: util.py:74
+#, python-format
+msgid "%d existing persons were deactivated."
+msgstr ""
+
+#: util.py:77
+#, python-format
+msgid "%d persons were newly created."
+msgstr ""
+
+#: util.py:81
 msgid "All persons were imported successfully."
 msgstr ""
 
-#: util.py:44
+#: util.py:84
 msgid "Some persons failed to be imported."
 msgstr ""

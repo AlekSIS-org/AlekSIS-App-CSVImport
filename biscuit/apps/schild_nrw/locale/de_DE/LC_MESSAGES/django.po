@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-07 23:32+0200\n"
+"POT-Creation-Date: 2019-09-15 14:09+0200\n"
 "PO-Revision-Date: 2019-09-07 22:04+0000\n"
 "Last-Translator: Tom Teichler <tom.teichler@teckids.org>\n"
 "Language-Team: German <https://translate.edugit.org/projects/biscuit-sis/"
@@ -97,16 +97,26 @@ msgstr "SchILD-NRW-CSV-Exportvorlage für Erziehungsberechtigte"
 msgid "Process"
 msgstr "Importieren"
 
-#: util.py:31
+#: util.py:50
 #, python-format
 msgid "Failed to import person %s"
 msgstr "Fehler beim Importieren der Person %s"
 
-#: util.py:41
+#: util.py:74
+#, python-format
+msgid "%d existing persons were deactivated."
+msgstr ""
+
+#: util.py:77
+#, python-format
+msgid "%d persons were newly created."
+msgstr ""
+
+#: util.py:81
 msgid "All persons were imported successfully."
 msgstr "Alle Personen wurden erfolgreich importiert."
 
-#: util.py:44
+#: util.py:84
 msgid "Some persons failed to be imported."
 msgstr "Einige Personen konnten nicht importiert werden."
 
