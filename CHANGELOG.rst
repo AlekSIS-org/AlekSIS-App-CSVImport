@@ -1,6 +1,15 @@
 Changelog
 =========
 
+`1.0a2`_
+--------
+
+Bugfixes
+~~~~~~~~
+
+* Handle PhoneNumberParseErrors gracefully.
+
+
 `1.0a1`_
 --------
 
@@ -15,4 +24,6 @@ Minor changes
 * Use bootstrap buttons everywhere
 * Show number of created and deactivated persons after import
 
+
 _`1.0a1`: https://edugit.org/Teckids/BiscuIT/BiscuIT-App-SchILD-NRW/-/tags/1.0a1
+_`1.0a2`: https://edugit.org/Teckids/BiscuIT/BiscuIT-App-SchILD-NRW/-/tags/1.0a2
