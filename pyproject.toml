@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "BiscuIT-App-SchILD-NRW"
-version = "1.0a3"
+version = "1.0a4.dev0"
 packages = [
     { include = "biscuit" }
 ]
