@@ -6,12 +6,8 @@ from biscuit.apps.schild_nrw.util import schild_import_csv
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
-        parser.add_argument(
-            "teachers_csv_path", help=_("Path to CSV file with exported teachers")
-        )
-        parser.add_argument(
-            "students_csv_path", help=_("Path to CSV file with exported students")
-        )
+        parser.add_argument("teachers_csv_path", help=_("Path to CSV file with exported teachers"))
+        parser.add_argument("students_csv_path", help=_("Path to CSV file with exported students"))
         parser.add_argument(
             "guardians_csv_path", help=_("Path to CSV file with exported guardians")
         )

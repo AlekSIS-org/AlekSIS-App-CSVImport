@@ -67,10 +67,7 @@ def schild_import_csv_single(
                     request,
                     _(
                         "Failed to import person %s"
-                        % (
-                            "%s, %s"
-                            % (person_row["last_name"], person_row["first_name"])
-                        )
+                        % ("%s, %s" % (person_row["last_name"], person_row["first_name"]))
                     )
                     + ": %s" % err,
                     fail_silently=True,
@@ -78,10 +75,7 @@ def schild_import_csv_single(
                 all_ok = False
 
             # Ensure that newly set primary group is also in member_of
-            if (
-                person.primary_group
-                and person.primary_group not in person.member_of.all()
-            ):
+            if person.primary_group and person.primary_group not in person.member_of.all():
                 person.member_of.add(person.primary_group)
                 person.save()
 
@@ -93,14 +87,12 @@ def schild_import_csv_single(
 
     # Deactivate all persons that existed but are now inactive
     if inactive_refs:
-        affected = Person.objects.filter(
-            import_ref__in=inactive_refs, is_active=True
-        ).update(is_active=False)
+        affected = Person.objects.filter(import_ref__in=inactive_refs, is_active=True).update(
+            is_active=False
+        )
 
         if affected:
-            messages.warning(
-                request, _("%d existing persons were deactivated.") % affected
-            )
+            messages.warning(request, _("%d existing persons were deactivated.") % affected)
 
     if created_count:
         messages.success(request, _("%d persons were newly created.") % created_count)
