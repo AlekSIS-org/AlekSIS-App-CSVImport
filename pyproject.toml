@@ -20,7 +20,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-BiscuIT-ng = {version = "^1.0a3.dev0", allows-prereleases = true, path = "../../.."}
+BiscuIT-ng = { path = "../../.." }
 pandas = "^0.25.0"
 phonenumbers = "^8.10"
 
