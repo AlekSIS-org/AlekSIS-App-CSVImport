@@ -1,0 +1,12 @@
+SCHILD-NRW-TEXTEXPORTVORLAGE
+AlekSIS Lehrer
+Lehrer
+;
+"
+Ja
+Nein
+FALSE
+FALSE
+
+eindeutige Nummer (GUID);E-Mail;E-Mail (Dienstlich);Geburtsdatum;Geschlecht;Kürzel;Nachname;Vorname;Straße;Postleitzahl;Ortsname;Telefon (Festnetz);Telefon (Mobil);Sichtbar?;
+3
