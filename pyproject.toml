@@ -2,16 +2,16 @@
 name = "BiscuIT-App-SchILD-NRW"
 version = "1.0a4.dev0"
 packages = [
-    { include = "biscuit" }
+    { include = "aleksis" }
 ]
 readme = "README.rst"
 
-description = "BiscuIT School Information System (SIS) - App for SchILD-NRW interaction"
+description = "AlekSIS School Information System (SIS) - App for SchILD-NRW interaction"
 authors = ["Dominik George <dominik.george@teckids.org>"]
 license = "EUPL-1.2"
-homepage = "https://biscuit.edugit.io/"
+homepage = "https://aleksis.edugit.io/"
 repository = "https://edugit.org/BiscuIT/BiscuIT-App-SchILD-NRW"
-documentation = "https://biscuit.edugit.io/BiscuIT-ng/docs/html/"
+documentation = "https://aleksis.edugit.io/AlekSIS/docs/html/"
 classifiers = [
     "Environment :: Web Environment",
     "Intended Audience :: Education",
@@ -20,7 +20,7 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-BiscuIT-ng = { path = "../../.." }
+AlekSIS = { path = "../../.." }
 pandas = "^0.25.0"
 phonenumbers = "^8.10"
 
