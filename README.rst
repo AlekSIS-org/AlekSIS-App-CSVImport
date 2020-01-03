@@ -1,5 +1,5 @@
-AlekSIS (School Information System) - App for SchILD-NRW interaction
-=============================================================================
+AlekSIS (School Information System) — App for SchILD-NRW interaction
+====================================================================
 
 AlekSIS
 -------
