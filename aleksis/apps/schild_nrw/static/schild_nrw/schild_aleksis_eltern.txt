@@ -1,0 +1,12 @@
+SCHILD-NRW-TEXTEXPORTVORLAGE
+AlekSIS Eltern
+ErzAdr
+;
+"
+Ja
+Nein
+FALSE
+FALSE
+
+Schüler-Klasse;Schüler-Nachname;Schüler-Vorname;1. Person: Anrede;1. Person: Nachname;1. Person: Vorname;1. Person: E-Mail;2. Person: Anrede;2. Person: Nachname;2. Person: Vorname;2. Person: E-Mail;
+3
