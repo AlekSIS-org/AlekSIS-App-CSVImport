@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 
-from biscuit.core.decorators import admin_required
+from aleksis.core.decorators import admin_required
 
 from .forms import SchILDNRWUploadForm
 from .util import schild_import_csv

@@ -7,8 +7,8 @@ from django.utils.translation import ugettext as _
 import pandas
 import phonenumbers
 
-from biscuit.core.models import Person
-from biscuit.core.util import messages
+from aleksis.core.models import Person
+from aleksis.core.util import messages
 
 SCHILD_STATE_ACTIVE = (True, 2)
 

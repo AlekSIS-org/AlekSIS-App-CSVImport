@@ -25,5 +25,5 @@ Minor changes
 * Show number of created and deactivated persons after import
 
 
-_`1.0a1`: https://edugit.org/Teckids/BiscuIT/BiscuIT-App-SchILD-NRW/-/tags/1.0a1
-_`1.0a2`: https://edugit.org/Teckids/BiscuIT/BiscuIT-App-SchILD-NRW/-/tags/1.0a2
+_`1.0a1`: https://edugit.org/Teckids/AlekSIS/AlekSIS-App-SchILD-NRW/-/tags/1.0a1
+_`1.0a2`: https://edugit.org/Teckids/AlekSIS/AlekSIS-App-SchILD-NRW/-/tags/1.0a2

@@ -1,16 +1,16 @@
 [tool.poetry]
-name = "BiscuIT-App-SchILD-NRW"
+name = "AlekSIS-App-SchILD-NRW"
 version = "1.0a4.dev0"
 packages = [
     { include = "aleksis" }
 ]
 readme = "README.rst"
 
-description = "AlekSIS School Information System (SIS) - App for SchILD-NRW interaction"
+description = "AlekSIS (School Information System) - App for SchILD-NRW interaction"
 authors = ["Dominik George <dominik.george@teckids.org>"]
 license = "EUPL-1.2"
 homepage = "https://aleksis.edugit.io/"
-repository = "https://edugit.org/BiscuIT/BiscuIT-App-SchILD-NRW"
+repository = "https://edugit.org/AlekSIS/AlekSIS-App-SchILD-NRW"
 documentation = "https://aleksis.edugit.io/AlekSIS/docs/html/"
 classifiers = [
     "Environment :: Web Environment",

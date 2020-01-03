@@ -8,7 +8,7 @@ MENUS = {
             "validators": [
                 "menu_generator.validators.is_authenticated",
                 "menu_generator.validators.is_superuser",
-                "biscuit.core.util.core_helpers.has_person",
+                "aleksis.core.util.core_helpers.has_person",
             ],
         }
     ]

@@ -1,4 +1,4 @@
 include LICENCE
-recursive-include biscuit/apps/schild_nrw/static *
-recursive-include biscuit/apps/schild_nrw/templates *
-recursive-include biscuit/apps/schild_nrw/migrations *
+recursive-include aleksis/apps/schild_nrw/static *
+recursive-include aleksis/apps/schild_nrw/templates *
+recursive-include aleksis/apps/schild_nrw/migrations *
