@@ -43,6 +43,8 @@
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% form form=upload_form %}{% endform %}
-    {% include "core/save_button.html" %}
+    <button type="submit" class="btn waves-effect waves-light green">
+     <i class="material-icons left">cloud_upload</i> {% trans "Import" %}
+    </button>
   </form>
 {% endblock %}
