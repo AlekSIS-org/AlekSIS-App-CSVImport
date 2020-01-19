@@ -43,6 +43,7 @@
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {% form form=upload_form %}{% endform %}
-    {% include "core/save_button.html" %}
+    {% trans "Import" as caption %}
+    {% include "core/save_button.html" with icon="cloud_upload" caption=caption %}
   </form>
 {% endblock %}
