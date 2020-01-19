@@ -1,15 +1,13 @@
 {# -*- engine:django -*- #}
 
 {% extends "core/base.html" %}
-{% load bootstrap4 i18n static %}
+{% load material_form i18n static %}
 
-{% block bootstrap4_title %}{% blocktrans %}Import SchILD-NRW data{% endblocktrans %} - {{ block.super }}{% endblock %}
 
 {% block page_title %}Import SchILD-NRW data{% endblock %}
 
 {% block content %}
-  <div class="jumbotron">
-    <p class="lead">
+    <p class="flow-text">
       {% blocktrans %}
         SchILD-NRW provides export functions for basic data of students,
         teachers and guardians as CSV files. You can import a set of such files
@@ -44,10 +42,7 @@
 
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {% bootstrap_form upload_form %}
-
-    <button type="submit" class="btn btn-dark">
-      {% blocktrans %}Process{% endblocktrans %}
-    </button>
+    {% form form=upload_form %}{% endform %}
+    {% include "core/save_button.html" %}
   </form>
 {% endblock %}
