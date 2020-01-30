@@ -21,7 +21,7 @@ classifiers = [
 [tool.poetry.dependencies]
 python = "^3.7"
 AlekSIS = { path = "../../.." }
-pandas = "^0.25.0"
+pandas = "^1.0.0"
 phonenumbers = "^8.10"
 
 [build-system]
