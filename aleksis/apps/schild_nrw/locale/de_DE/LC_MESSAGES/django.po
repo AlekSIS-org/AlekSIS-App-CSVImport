@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-15 14:09+0200\n"
+"POT-Creation-Date: 2020-04-01 13:25+0200\n"
 "PO-Revision-Date: 2019-09-17 19:44+0000\n"
 "Last-Translator: Tom Teichler <tom.teichler@teckids.org>\n"
 "Language-Team: German <https://translate.edugit.org/projects/aleksis-sis/"
@@ -31,15 +31,15 @@ msgstr "CSV-Export der Schüler"
 msgid "CSV export of guardians/parents"
 msgstr "CSV-Export der Erziehungsberechtigten/Eltern"
 
-#: management/commands/schild_import.py:10
+#: management/commands/schild_import.py:9
 msgid "Path to CSV file with exported teachers"
 msgstr "Pfad zur CSV-Datei mit den exportierten Lehrern"
 
-#: management/commands/schild_import.py:12
+#: management/commands/schild_import.py:10
 msgid "Path to CSV file with exported students"
 msgstr "Pfad zur CSV-Datei mit den exportierten Schülern"
 
-#: management/commands/schild_import.py:14
+#: management/commands/schild_import.py:12
 msgid "Path to CSV file with exported guardians"
 msgstr "Pfad zur CSV-Datei mit den exportierten Erziehungsberechtigten"
 
@@ -47,11 +47,7 @@ msgstr "Pfad zur CSV-Datei mit den exportierten Erziehungsberechtigten"
 msgid "SchILD-NRW import"
 msgstr "SchILD-NRW-Import"
 
-#: templates/schild_nrw/schild_import.html:6
-msgid "Import SchILD-NRW data"
-msgstr "SchILD-NRW-Daten importieren"
-
-#: templates/schild_nrw/schild_import.html:13
+#: templates/schild_nrw/schild_import.html:12
 msgid ""
 "\n"
 "        SchILD-NRW provides export functions for basic data of students,\n"
@@ -67,7 +63,7 @@ msgstr ""
 "    importieren.\n"
 "      "
 
-#: templates/schild_nrw/schild_import.html:21
+#: templates/schild_nrw/schild_import.html:20
 msgid ""
 "\n"
 "        To generate CSV files in the correct format, please use the "
@@ -81,44 +77,50 @@ msgstr ""
 "    Vorlagen:\n"
 "      "
 
-#: templates/schild_nrw/schild_import.html:29
+#: templates/schild_nrw/schild_import.html:28
 msgid "SchILD-NRW CSV export template for students"
 msgstr "SchILD-NRW-CSV-Exportvorlage für Schüler"
 
-#: templates/schild_nrw/schild_import.html:34
+#: templates/schild_nrw/schild_import.html:33
 msgid "SchILD-NRW CSV export template for teachers"
 msgstr "SchILD-NRW-CSV-Exportvorlage für Lehrer"
 
-#: templates/schild_nrw/schild_import.html:39
+#: templates/schild_nrw/schild_import.html:38
 msgid "SchILD-NRW CSV export template for guardians"
 msgstr "SchILD-NRW-CSV-Exportvorlage für Erziehungsberechtigte"
 
-#: templates/schild_nrw/schild_import.html:50
-msgid "Process"
-msgstr "Importieren"
+#: templates/schild_nrw/schild_import.html:47
+msgid "Import"
+msgstr ""
 
-#: util.py:50
+#: util.py:69
 #, python-format
 msgid "Failed to import person %s"
 msgstr "Fehler beim Importieren der Person %s"
 
-#: util.py:74
+#: util.py:95
 #, python-format
 msgid "%d existing persons were deactivated."
 msgstr "%d existierende Personen wurden deaktiviert."
 
-#: util.py:77
+#: util.py:98
 #, python-format
 msgid "%d persons were newly created."
 msgstr "%d Personen wurden erstellt."
 
-#: util.py:81
+#: util.py:101
 msgid "All persons were imported successfully."
 msgstr "Alle Personen wurden erfolgreich importiert."
 
-#: util.py:84
+#: util.py:103
 msgid "Some persons failed to be imported."
 msgstr "Einige Personen konnten nicht importiert werden."
+
+#~ msgid "Import SchILD-NRW data"
+#~ msgstr "SchILD-NRW-Daten importieren"
+
+#~ msgid "Process"
+#~ msgstr "Importieren"
 
 #~ msgid "AlekSIS - SchILD-NRW interface"
 #~ msgstr "AlekSIS - SchILD-NRW-Schnittstelle"

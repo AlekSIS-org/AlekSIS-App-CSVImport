@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-15 14:09+0200\n"
+"POT-Creation-Date: 2020-04-01 13:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,15 +29,15 @@ msgstr ""
 msgid "CSV export of guardians/parents"
 msgstr ""
 
-#: management/commands/schild_import.py:10
+#: management/commands/schild_import.py:9
 msgid "Path to CSV file with exported teachers"
 msgstr ""
 
-#: management/commands/schild_import.py:12
+#: management/commands/schild_import.py:10
 msgid "Path to CSV file with exported students"
 msgstr ""
 
-#: management/commands/schild_import.py:14
+#: management/commands/schild_import.py:12
 msgid "Path to CSV file with exported guardians"
 msgstr ""
 
@@ -45,11 +45,7 @@ msgstr ""
 msgid "SchILD-NRW import"
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:6
-msgid "Import SchILD-NRW data"
-msgstr ""
-
-#: templates/schild_nrw/schild_import.html:13
+#: templates/schild_nrw/schild_import.html:12
 msgid ""
 "\n"
 "        SchILD-NRW provides export functions for basic data of students,\n"
@@ -59,7 +55,7 @@ msgid ""
 "      "
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:21
+#: templates/schild_nrw/schild_import.html:20
 msgid ""
 "\n"
 "        To generate CSV files in the correct format, please use the "
@@ -68,41 +64,41 @@ msgid ""
 "      "
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:29
+#: templates/schild_nrw/schild_import.html:28
 msgid "SchILD-NRW CSV export template for students"
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:34
+#: templates/schild_nrw/schild_import.html:33
 msgid "SchILD-NRW CSV export template for teachers"
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:39
+#: templates/schild_nrw/schild_import.html:38
 msgid "SchILD-NRW CSV export template for guardians"
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:50
-msgid "Process"
+#: templates/schild_nrw/schild_import.html:47
+msgid "Import"
 msgstr ""
 
-#: util.py:50
+#: util.py:69
 #, python-format
 msgid "Failed to import person %s"
 msgstr ""
 
-#: util.py:74
+#: util.py:95
 #, python-format
 msgid "%d existing persons were deactivated."
 msgstr ""
 
-#: util.py:77
+#: util.py:98
 #, python-format
 msgid "%d persons were newly created."
 msgstr ""
 
-#: util.py:81
+#: util.py:101
 msgid "All persons were imported successfully."
 msgstr ""
 
-#: util.py:84
+#: util.py:103
 msgid "Some persons failed to be imported."
 msgstr ""
