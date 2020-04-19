@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-04-01 13:25+0200\n"
-"PO-Revision-Date: 2019-09-17 19:44+0000\n"
-"Last-Translator: Tom Teichler <tom.teichler@teckids.org>\n"
-"Language-Team: German <https://translate.edugit.org/projects/aleksis-sis/"
+"PO-Revision-Date: 2020-08-25 17:42+0000\n"
+"Last-Translator: Jonathan Weth <teckids@jonathanweth.de>\n"
+"Language-Team: German <https://translate.edugit.org/projects/aleksis/"
 "aleksis-app-schild-nrw/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 3.8\n"
+"X-Generator: Weblate 4.1.1\n"
 
 #: forms.py:6
 msgid "CSV export of teachers"
@@ -91,7 +91,7 @@ msgstr "SchILD-NRW-CSV-Exportvorlage für Erziehungsberechtigte"
 
 #: templates/schild_nrw/schild_import.html:47
 msgid "Import"
-msgstr ""
+msgstr "Import"
 
 #: util.py:69
 #, python-format
