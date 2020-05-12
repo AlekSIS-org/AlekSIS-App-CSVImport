@@ -1,8 +1,11 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
+from aleksis.apps.csv_import.models import ImportTemplate
+
 
 class CSVUploadForm(forms.Form):
-    teachers_csv = forms.FileField(label=_("CSV export of teachers"))
-    students_csv = forms.FileField(label=_("CSV export of students"))
-    guardians_csv = forms.FileField(label=_("CSV export of guardians/parents"))
+    csv = forms.FileField(label=_("CSV file"))
+    template = forms.ModelChoiceField(
+        queryset=ImportTemplate.objects.all(), label=_("Import template")
+    )
