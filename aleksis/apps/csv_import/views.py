@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rules.contrib.views import permission_required
 
 from .forms import CSVUploadForm
-from .util import schild_import_csv
+from .util.process import schild_import_csv
 
 
 @permission_required("csv_import.import_data")
