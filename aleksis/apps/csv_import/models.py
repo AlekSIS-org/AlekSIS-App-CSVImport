@@ -8,7 +8,7 @@ from aleksis.core.models import Person, Group
 
 class FieldType(models.TextChoices):
     UNIQUE_REFERENCE = "unique_reference", _("Unique reference")
-    IS_ACTIVE = "is_active", _("Is active?")
+    IS_ACTIVE = "is_active", _("Is active? (0/1)")
     FIRST_NAME = "first_name", _("First name")
     LAST_NAME = "last_name", _("Last name")
     ADDITIONAL_NAME = "additional_name", _("Additional name")
@@ -24,6 +24,37 @@ class FieldType(models.TextChoices):
     MOBILE_NUMBER = "mobile_number", _("Mobile number")
     IGNORE = "ignore", _("Ignore data in this field")
 
+    IS_ACTIVE_SCHILD_NRW_STUDENTS = (
+        "is_active_schild_nrw_students",
+        _("Is active? (SchILD-NRW: students)"),
+    )
+
+
+# All fields that can be mapped directly to database
+FIELD_MAPPINGS = {
+    FieldType.UNIQUE_REFERENCE: "import_ref_csv",
+    FieldType.IS_ACTIVE: "is_active",
+    FieldType.FIRST_NAME: "first_name",
+    FieldType.LAST_NAME: "last_name",
+    FieldType.ADDITIONAL_NAME: "additional_name",
+    FieldType.SHORT_NAME: "short_name",
+    FieldType.EMAIL: "email",
+    FieldType.DATE_OF_BIRTH: "date_of_birth",
+    FieldType.SEX: "sex",
+    FieldType.STREET: "street",
+    FieldType.HOUSENUMBER: "housenumber",
+    FieldType.POSTAL_CODE: "postal_code",
+    FieldType.PLACE: "place",
+    FieldType.PHONE_NUMBER: "phone_number",
+    FieldType.MOBILE_NUMBER: "mobile_number",
+    FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS: "is_active",
+}
+
+# All other fields will use str
+DATA_TYPES = {
+    FieldType.IS_ACTIVE: bool,
+    FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS: int,
+}
 
 ALLOWED_CONTENT_TYPES = [Person, Group]
 

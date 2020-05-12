@@ -1,5 +1,6 @@
 from collections import OrderedDict
 from typing import Any, BinaryIO, Callable, Dict, Optional, Union
+from uuid import uuid4
 
 from django.http import HttpRequest
 from django.utils.translation import gettext as _
@@ -7,7 +8,7 @@ from django.utils.translation import gettext as _
 import pandas
 import phonenumbers
 
-from aleksis.apps.csv_import.models import ImportTemplate
+from aleksis.apps.csv_import.models import ImportTemplate, FieldType, DATA_TYPES
 from aleksis.core.models import Person
 from aleksis.core.util import messages
 
@@ -60,47 +61,26 @@ def import_csv(
         "sex": parse_sex,
     }
 
-    teachers_csv_cols = OrderedDict(
-        [
-            ("import_ref", str),
-            ("email", str),
-            ("_email_business", str),
-            ("date_of_birth", str),
-            ("sex", str),
-            ("short_name", str),
-            ("last_name", str),
-            ("first_name", str),
-            ("street", str),
-            ("postal_code", str),
-            ("place", str),
-            ("phone_number", str),
-            ("mobile_number", str),
-            ("is_active", "bool"),
-        ]
-    )
+    cols = []
+    for field in template.fields.all():
+        # Get data type
+        if field.field_type in DATA_TYPES:
+            data_type = DATA_TYPES[field.field_type]
+        else:
+            # Use string if no data type is provided
+            data_type = str
 
-    students_csv_cols = OrderedDict(
-        [
-            ("import_ref", str),
-            ("_internal_id", int),
-            ("primary_group_short_name", str),
-            ("last_name", str),
-            ("first_name", str),
-            ("additional_name", str),
-            ("date_of_birth", str),
-            ("email", str),
-            ("_email_business", str),
-            ("sex", str),
-            ("street", str),
-            ("housenumber", str),
-            ("postal_code", str),
-            ("place", str),
-            ("phone_number", str),
-            ("is_active", int),
-        ]
-    )
+        # Get column header
+        if field.field_type == FieldType.IGNORE:
+            # Create random header for ignoring (leading _)
+            key = f"_ignore_{uuid4()}"
+        else:
+            # Use key of enum for other data types
+            key = field.field_type.value
 
-    cols = students_csv_cols
+        cols.append((key, data_type))
+
+    cols = OrderedDict(cols)
 
     data = pandas.read_csv(
         csv,
