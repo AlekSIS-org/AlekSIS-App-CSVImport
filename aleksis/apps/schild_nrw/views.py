@@ -1,15 +1,12 @@
-from django.contrib.auth.decorators import login_required
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
-
-from aleksis.core.decorators import admin_required
+from rules.contrib.views import permission_required
 
 from .forms import SchILDNRWUploadForm
 from .util import schild_import_csv
 
 
-@login_required
-@admin_required
+@permission_required("schild_nrw.import_data")
 def schild_import(request: HttpRequest) -> HttpResponse:
     context = {}
 
