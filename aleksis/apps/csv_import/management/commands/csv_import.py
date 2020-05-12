@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 from aleksis.apps.csv_import.util import schild_import_csv
 

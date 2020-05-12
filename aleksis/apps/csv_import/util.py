@@ -2,7 +2,7 @@ from collections import OrderedDict
 from typing import Any, BinaryIO, Callable, Dict, Optional, Union
 
 from django.http import HttpRequest
-from django.utils.translation import ugettext as _
+from django.utils.translation import gettext as _
 
 import pandas
 import phonenumbers
