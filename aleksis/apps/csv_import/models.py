@@ -1,4 +1,5 @@
 from django.contrib.contenttypes.models import ContentType
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext as _
 
@@ -57,6 +58,28 @@ DATA_TYPES = {
 }
 
 ALLOWED_CONTENT_TYPES = [Person, Group]
+ALLOWED_FIELD_TYPES = {
+    Person: {
+        FieldType.UNIQUE_REFERENCE,
+        FieldType.IS_ACTIVE,
+        FieldType.FIRST_NAME,
+        FieldType.LAST_NAME,
+        FieldType.ADDITIONAL_NAME,
+        FieldType.SHORT_NAME,
+        FieldType.EMAIL,
+        FieldType.DATE_OF_BIRTH,
+        FieldType.SEX,
+        FieldType.STREET,
+        FieldType.HOUSENUMBER,
+        FieldType.POSTAL_CODE,
+        FieldType.PLACE,
+        FieldType.PHONE_NUMBER,
+        FieldType.MOBILE_NUMBER,
+        FieldType.IGNORE,
+        FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS,
+    },
+    Group: {FieldType.SHORT_NAME, FieldType.IGNORE, },
+}
 
 
 def limit_content_types():
@@ -100,6 +123,14 @@ class ImportTemplateField(ExtensibleModel):
     field_type = models.CharField(
         max_length=255, verbose_name=_("Field type"), choices=FieldType.choices
     )
+
+    def clean(self):
+        """Validates correct usage of field types."""
+        model = self.template.content_type.model_class()
+        if self.field_type not in ALLOWED_FIELD_TYPES[model]:
+            raise ValidationError(
+                _("You are not allowed to use this field type in this model.")
+            )
 
     class Meta:
         ordering = ["template", "index"]
