@@ -15,6 +15,13 @@ STATE_ACTIVE = (True, 2)
 TRUE_VALUES = ["+", "Ja"]
 FALSE_VALUES = ["-", "Nein"]
 DATE_FIELDS = ["date_of_birth"]
+PHONE_NUMBER_COUNTRY = "DE"
+SEXES = {
+    "w": "f",
+    "m": "m",
+    "weiblich": "f",
+    "männlich": "m",
+}
 
 
 def is_active(row: dict) -> bool:
@@ -26,15 +33,31 @@ def is_active(row: dict) -> bool:
     return True
 
 
+def parse_phone_number(value: Optional[str]):
+    if value:
+        return phonenumbers.parse(value, PHONE_NUMBER_COUNTRY)
+    else:
+        ""
+
+
+def parse_sex(value: Optional[str]):
+    if value:
+        value = value.lower()
+        if value in SEXES:
+            return SEXES[value]
+
+    return ""
+
+
 def import_csv(
     request: Union[HttpRequest, None],
     template: ImportTemplate,
     csv: Union[BinaryIO, str],
 ) -> None:
     csv_converters = {
-        "phone_number": lambda v: phonenumbers.parse(v, "DE") if v else "",
-        "mobile_number": lambda v: phonenumbers.parse(v, "DE") if v else "",
-        "sex": lambda v: "f" if v == "w" else v,
+        "phone_number": parse_phone_number,
+        "mobile_number": parse_phone_number,
+        "sex": parse_sex,
     }
 
     teachers_csv_cols = OrderedDict(
