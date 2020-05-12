@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "AlekSIS-App-SchILD-NRW"
-version = "1.0a4.dev0"
+name = "AlekSIS-App-CSVImport"
+version = "2.0a1"
 packages = [
     { include = "aleksis" }
 ]
@@ -9,8 +9,8 @@ readme = "README.rst"
 description = "AlekSIS (School Information System) — App for SchILD-NRW interaction"
 authors = ["Dominik George <dominik.george@teckids.org>"]
 license = "EUPL-1.2"
-homepage = "https://aleksis.edugit.io/"
-repository = "https://edugit.org/AlekSIS/AlekSIS-App-SchILD-NRW"
+homepage = "https://aleksis.org/"
+repository = "https://edugit.org/AlekSIS/Onboarding/AlekSIS-App-CSVImport"
 documentation = "https://aleksis.edugit.io/AlekSIS/docs/html/"
 classifiers = [
     "Environment :: Web Environment",

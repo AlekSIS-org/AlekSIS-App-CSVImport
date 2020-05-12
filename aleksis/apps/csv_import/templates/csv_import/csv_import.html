@@ -4,8 +4,8 @@
 {% load material_form i18n static %}
 
 
-{% block browser_title %}Import SchILD-NRW data{% endblock %}
-{% block page_title %}Import SchILD-NRW data{% endblock %}
+{% block browser_title %}{% trans "Import CSV data" %}{% endblock %}
+{% block page_title %}{% trans "Import CSV data" %}{% endblock %}
 
 {% block content %}
     <p class="flow-text">
@@ -24,17 +24,17 @@
     </p>
     <ul>
       <li>
-        <a href="{% static 'schild_nrw/schild_aleksis_schueler.txt' %}">
+        <a href="{% static 'csv_import/schild_nrw/schild_aleksis_schueler.txt' %}">
           {% blocktrans %}SchILD-NRW CSV export template for students{% endblocktrans %}
         </a>
       </li>
       <li>
-        <a href="{% static 'schild_nrw/schild_aleksis_lehrer.txt' %}">
+        <a href="{% static 'csv_import/schild_nrw/schild_aleksis_lehrer.txt' %}">
           {% blocktrans %}SchILD-NRW CSV export template for teachers{% endblocktrans %}
         </a>
       </li>
       <li>
-        <a href="{% static 'schild_nrw/schild_aleksis_eltern.txt' %}">
+        <a href="{% static 'csv_import/schild_nrw/schild_aleksis_eltern.txt' %}">
           {% blocktrans %}SchILD-NRW CSV export template for guardians{% endblocktrans %}
         </a>
       </li>

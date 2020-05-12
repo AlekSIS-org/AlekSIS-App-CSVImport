@@ -3,8 +3,8 @@ from django.utils.translation import ugettext_lazy as _
 MENUS = {
     "DATA_MANAGEMENT_MENU": [
         {
-            "name": _("SchILD-NRW import"),
-            "url": "schild_import",
+            "name": _("CSV import"),
+            "url": "csv_import",
             "validators": [
                 "menu_generator.validators.is_authenticated",
                 "menu_generator.validators.is_superuser",

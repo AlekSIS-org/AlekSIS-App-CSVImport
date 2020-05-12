@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.utils.translation import ugettext as _
 
-from aleksis.apps.schild_nrw.util import schild_import_csv
+from aleksis.apps.csv_import.util import schild_import_csv
 
 
 class Command(BaseCommand):

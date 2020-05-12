@@ -2,18 +2,18 @@ from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
 from rules.contrib.views import permission_required
 
-from .forms import SchILDNRWUploadForm
+from .forms import CSVUploadForm
 from .util import schild_import_csv
 
 
-@permission_required("schild_nrw.import_data")
-def schild_import(request: HttpRequest) -> HttpResponse:
+@permission_required("csv_import.import_data")
+def csv_import(request: HttpRequest) -> HttpResponse:
     context = {}
 
-    upload_form = SchILDNRWUploadForm()
+    upload_form = CSVUploadForm()
 
     if request.method == "POST":
-        upload_form = SchILDNRWUploadForm(request.POST, request.FILES)
+        upload_form = CSVUploadForm(request.POST, request.FILES)
 
         if upload_form.is_valid():
             schild_import_csv(
@@ -25,4 +25,4 @@ def schild_import(request: HttpRequest) -> HttpResponse:
 
     context["upload_form"] = upload_form
 
-    return render(request, "schild_nrw/schild_import.html", context)
+    return render(request, "csv_import/csv_import.html", context)

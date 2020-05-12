@@ -1,12 +1,12 @@
 from aleksis.core.util.apps import AppConfig
 
 
-class SchILDNRWConfig(AppConfig):
-    name = "aleksis.apps.schild_nrw"
-    verbose_name = "AlekSIS — SchILD-NRW interface"
+class CSVImportConfig(AppConfig):
+    name = "aleksis.apps.csv_import"
+    verbose_name = "AlekSIS — CSV import"
 
     urls = {
-        "Repository": "https://edugit.org/AlekSIS/official/AlekSIS-App-SchILD/",
+        "Repository": "https://edugit.org/AlekSIS/Onboarding/AlekSIS-App-CSVImport/",
     }
     licence = "EUPL-1.2+"
     copyright = (
