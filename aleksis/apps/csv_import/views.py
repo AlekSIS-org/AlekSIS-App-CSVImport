@@ -3,7 +3,7 @@ from django.shortcuts import render
 from rules.contrib.views import permission_required
 
 from .forms import CSVUploadForm
-from .util.process import schild_import_csv
+from .util.process import import_csv
 
 
 @permission_required("csv_import.import_data")
@@ -16,11 +16,10 @@ def csv_import(request: HttpRequest) -> HttpResponse:
         upload_form = CSVUploadForm(request.POST, request.FILES)
 
         if upload_form.is_valid():
-            schild_import_csv(
+            import_csv(
                 request,
-                request.FILES["teachers_csv"],
-                request.FILES["students_csv"],
-                request.FILES["guardians_csv"],
+                upload_form.cleaned_data["template"],
+                request.FILES["csv"],
             )
 
     context["upload_form"] = upload_form

@@ -7,6 +7,7 @@ from django.utils.translation import gettext as _
 import pandas
 import phonenumbers
 
+from aleksis.apps.csv_import.models import ImportTemplate
 from aleksis.core.models import Person
 from aleksis.core.util import messages
 
@@ -24,7 +25,7 @@ def is_active(person_row: dict) -> bool:
     return True
 
 
-def schild_import_csv_single(
+def import_csv_single(
     request: HttpRequest,
     csv: Union[BinaryIO, str],
     cols: Dict[str, Any],
@@ -103,11 +104,10 @@ def schild_import_csv_single(
         messages.warning(request, _("Some persons failed to be imported."))
 
 
-def schild_import_csv(
-    request: HttpRequest,
-    teachers_csv: Union[BinaryIO, str],
-    students_csv: Union[BinaryIO, str],
-    guardians_csv: Union[BinaryIO, str],
+def import_csv(
+    request: Union[HttpRequest, None],
+    template: ImportTemplate,
+    csv: Union[BinaryIO, str],
 ) -> None:
     csv_converters = {
         "phone_number": lambda v: phonenumbers.parse(v, "DE") if v else "",
@@ -134,7 +134,7 @@ def schild_import_csv(
         ]
     )
 
-    schild_import_csv_single(request, teachers_csv, teachers_csv_cols, csv_converters)
+    import_csv_single(request, csv, teachers_csv_cols, csv_converters)
 
     students_csv_cols = OrderedDict(
         [
@@ -157,4 +157,4 @@ def schild_import_csv(
         ]
     )
 
-    schild_import_csv_single(request, students_csv, students_csv_cols, csv_converters)
+    import_csv_single(request, csv, students_csv_cols, csv_converters)
