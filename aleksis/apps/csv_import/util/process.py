@@ -98,7 +98,8 @@ def import_csv(
     )
 
     # Clean up invalid date values
-    data.date_of_birth = data.date_of_birth.astype(object)
+    if template.fields.filter(field_type=FieldType.DATE_OF_BIRTH).exists():
+        data.date_of_birth = data.date_of_birth.astype(object)
 
     # Exclude all empty rows
     data = data.where(data.notnull(), None)
