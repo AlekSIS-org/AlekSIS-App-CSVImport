@@ -3,6 +3,7 @@ from typing import BinaryIO, Optional, Union
 from uuid import uuid4
 
 from django.core.exceptions import ValidationError
+from django.db.models import Model
 from django.http import HttpRequest
 from django.utils.translation import gettext as _
 
@@ -14,8 +15,9 @@ from aleksis.apps.csv_import.models import (
     ImportTemplate,
     FieldType,
     DATA_TYPES,
-    FIELD_MAPPINGS,
+    FIELD_MAPPINGS, ALLOWED_FIELD_TYPES,
 )
+from aleksis.core.models import Person
 from aleksis.core.util import messages
 
 STATE_ACTIVE = (True, 2)
@@ -61,6 +63,14 @@ def parse_dd_mm_yyyy(value: Optional[str]) -> Optional[date]:
     if value:
         return datetime.strptime(value, "%d.%m.%Y").date()
     return None
+
+
+def has_is_active_field(model: Model) -> bool:
+    """Check if this model allows importing the is_active status."""
+    if model in ALLOWED_FIELD_TYPES:
+        if FieldType.IS_ACTIVE in ALLOWED_FIELD_TYPES[model]:
+            return True
+    return False
 
 
 CSV_CONVERTERS = {
@@ -127,16 +137,13 @@ def import_csv(
         # Fill the is_active field from other fields if necessary
         row["is_active"] = is_active(row)
 
+        # Build dict with all fields that should be directly updated
         update_dict = {}
-
         for key, value in row.items():
             enum_key = FieldType.value_dict[key]
             if enum_key in FIELD_MAPPINGS:
                 update_dict[FIELD_MAPPINGS[enum_key]] = value
 
-        print(update_dict)
-
-        print(row)
         if row["is_active"]:
             created = False
 
@@ -172,27 +179,27 @@ def import_csv(
     #             person.member_of.add(person.primary_group)
     #             person.save()
     #
-    #         if created:
-    #             created_count += 1
-    #     else:
-    #         # Store import refs to deactivate later
-    #         inactive_refs.append(person_row["import_ref"])
-    #
-    # # Deactivate all persons that existed but are now inactive
-    # if inactive_refs:
-    #     affected = Person.objects.filter(
-    #         import_ref_csv__in=inactive_refs, is_active=True
-    #     ).update(is_active=False)
-    #
-    #     if affected:
-    #         messages.warning(
-    #             request, _("%d existing persons were deactivated.") % affected
-    #         )
-    #
-    # if created_count:
-    #     messages.success(request, _("%d persons were newly created.") % created_count)
-    #
-    # if all_ok:
-    #     messages.success(request, _("All persons were imported successfully."))
-    # else:
-    #     messages.warning(request, _("Some persons failed to be imported."))
+            if created:
+                created_count += 1
+        else:
+            # Store import refs to deactivate later
+            inactive_refs.append(row[FieldType.UNIQUE_REFERENCE.value])
+
+    # Deactivate all persons that existed but are now inactive
+    if inactive_refs and has_is_active_field(model):
+        affected = model.objects.filter(
+            import_ref_csv__in=inactive_refs, is_active=True
+        ).update(is_active=False)
+
+        if affected:
+            messages.warning(
+                request, _(f"{affected} existing {model._meta.verbose_name_plural} were deactivated.")
+            )
+
+    if created_count:
+        messages.success(request, _(f"{created_count} {model._meta.verbose_name_plural} were newly created."))
+
+    if all_ok:
+        messages.success(request, _(f"All {model._meta.verbose_name_plural} were imported successfully."))
+    else:
+        messages.warning(request, _(f"Some {model._meta.verbose_name_plural} failed to be imported."))
