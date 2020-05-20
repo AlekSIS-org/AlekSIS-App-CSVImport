@@ -30,7 +30,7 @@ class FieldType(models.TextChoices):
         "is_active_schild_nrw_students",
         _("Is active? (SchILD-NRW: students)"),
     )
-    SUBJECTS = "subjects", _("Comma-separated list of subjects")
+    DEPARTMENTS = "departments", _("Comma-separated list of departments")
     DATE_OF_BIRTH_DD_MM_YYYY = (
         "date_of_birth_dd_mm_yyy",
         _("Date of birth (DD.MM.YYYY)"),
@@ -88,7 +88,7 @@ ALLOWED_FIELD_TYPES = {
         FieldType.MOBILE_NUMBER,
         FieldType.IGNORE,
         FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS,
-        FieldType.SUBJECTS,
+        FieldType.DEPARTMENTS,
         FieldType.DATE_OF_BIRTH_DD_MM_YYYY,
     },
     Group: {FieldType.UNIQUE_REFERENCE, FieldType.SHORT_NAME, FieldType.IGNORE,},

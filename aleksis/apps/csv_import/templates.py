@@ -45,7 +45,7 @@ def update_or_create_default_templates():
             FieldType.FIRST_NAME,
             FieldType.DATE_OF_BIRTH_DD_MM_YYYY,
             FieldType.SEX,
-            FieldType.SUBJECTS,
+            FieldType.DEPARTMENTS,
             FieldType.IGNORE,
         ],
     )

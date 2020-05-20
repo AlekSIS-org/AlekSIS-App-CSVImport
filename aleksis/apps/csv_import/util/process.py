@@ -2,6 +2,7 @@ from datetime import datetime, date
 from typing import BinaryIO, Optional, Union
 from uuid import uuid4
 
+from aleksis.apps.chronos.models import Subject
 from django.core.exceptions import ValidationError
 from django.db.models import Model
 from django.http import HttpRequest
@@ -17,8 +18,9 @@ from aleksis.apps.csv_import.models import (
     DATA_TYPES,
     FIELD_MAPPINGS, ALLOWED_FIELD_TYPES,
 )
-from aleksis.core.models import Person
+from aleksis.core.models import Group
 from aleksis.core.util import messages
+from aleksis.core.util.core_helpers import get_site_preferences
 
 STATE_ACTIVE = (True, 2)
 TRUE_VALUES = ["+", "Ja"]
@@ -73,11 +75,20 @@ def has_is_active_field(model: Model) -> bool:
     return False
 
 
+def with_prefix(prefix: Optional[str], value: str) -> str:
+    """If prefix is not empty, this function will add a prefix to a string, delimited by a white space."""
+    prefix = prefix.strip()
+    if prefix:
+        return f"{prefix} {value}"
+    else:
+        return value
+
+
 CSV_CONVERTERS = {
     FieldType.PHONE_NUMBER.value: parse_phone_number,
     FieldType.MOBILE_NUMBER.value: parse_phone_number,
     FieldType.SEX.value: parse_sex,
-    FieldType.SUBJECTS.value: lambda val: val.split(","),
+    FieldType.DEPARTMENTS.value: lambda val: val.split(","),
     FieldType.DATE_OF_BIRTH_DD_MM_YYYY.value: parse_dd_mm_yyyy,
 }
 
@@ -171,14 +182,40 @@ def import_csv(
                 )
                 all_ok = False
 
-    #         # Ensure that newly set primary group is also in member_of
-    #         if (
-    #             person.primary_group
-    #             and person.primary_group not in person.member_of.all()
-    #         ):
-    #             person.member_of.add(person.primary_group)
-    #             person.save()
-    #
+            # Create department groups
+            if (
+                FieldType.DEPARTMENTS.value in row
+                and get_site_preferences()["csv_import__group_type_departments"]
+            ):
+                subjects = row[FieldType.DEPARTMENTS.value]
+
+                for subject_name in subjects:
+                    # Get department subject
+                    subject, __ = Subject.objects.get_or_create(
+                        short_name=subject_name, defaults={"name": subject_name}
+                    )
+
+                    # Get department group
+                    group, __ = Group.objects.get_or_create(
+                        subject__subject=subject,
+                        group_type=get_site_preferences()[
+                            "csv_import__group_type_departments"
+                        ],
+                        defaults={
+                            "short_name": subject.short_name,
+                            "name": with_prefix(
+                                get_site_preferences()[
+                                    "csv_import__group_prefix_departments"
+                                ],
+                                subject.name,
+                            ),
+                        },
+                    )
+
+                    # Set current person as member of this department
+                    if group not in instance.member_of.all():
+                        instance.member_of.add(group)
+
             if created:
                 created_count += 1
         else:
