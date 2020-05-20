@@ -1,5 +1,6 @@
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render
+
 from rules.contrib.views import permission_required
 
 from .forms import CSVUploadForm
@@ -17,9 +18,7 @@ def csv_import(request: HttpRequest) -> HttpResponse:
 
         if upload_form.is_valid():
             import_csv(
-                request,
-                upload_form.cleaned_data["template"],
-                request.FILES["csv"],
+                request, upload_form.cleaned_data["template"], request.FILES["csv"],
             )
 
     context["upload_form"] = upload_form

@@ -5,7 +5,7 @@ from django.utils.decorators import classproperty
 from django.utils.translation import gettext as _
 
 from aleksis.core.mixins import ExtensibleModel
-from aleksis.core.models import Person, Group
+from aleksis.core.models import Group, Person
 
 
 class FieldType(models.TextChoices):

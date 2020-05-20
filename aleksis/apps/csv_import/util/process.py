@@ -1,8 +1,7 @@
-from datetime import datetime, date
+from datetime import date, datetime
 from typing import BinaryIO, Optional, Union
 from uuid import uuid4
 
-from aleksis.apps.chronos.models import Subject
 from django.core.exceptions import ValidationError
 from django.db.models import Model
 from django.http import HttpRequest
@@ -12,11 +11,13 @@ import pandas
 import phonenumbers
 from pandas.errors import ParserError
 
+from aleksis.apps.chronos.models import Subject
 from aleksis.apps.csv_import.models import (
-    ImportTemplate,
-    FieldType,
+    ALLOWED_FIELD_TYPES,
     DATA_TYPES,
-    FIELD_MAPPINGS, ALLOWED_FIELD_TYPES,
+    FIELD_MAPPINGS,
+    FieldType,
+    ImportTemplate,
 )
 from aleksis.core.models import Group
 from aleksis.core.util import messages
@@ -134,7 +135,9 @@ def import_csv(
             false_values=FALSE_VALUES,
         )
     except ParserError as e:
-        messages.error(request, _(f"There was an error while parsing the CSV file:\n{e}"))
+        messages.error(
+            request, _(f"There was an error while parsing the CSV file:\n{e}")
+        )
         return
 
     # Exclude all empty rows
@@ -230,13 +233,24 @@ def import_csv(
 
         if affected:
             messages.warning(
-                request, _(f"{affected} existing {model._meta.verbose_name_plural} were deactivated.")
+                request,
+                _(
+                    f"{affected} existing {model._meta.verbose_name_plural} were deactivated."
+                ),
             )
 
     if created_count:
-        messages.success(request, _(f"{created_count} {model._meta.verbose_name_plural} were newly created."))
+        messages.success(
+            request,
+            _(f"{created_count} {model._meta.verbose_name_plural} were newly created."),
+        )
 
     if all_ok:
-        messages.success(request, _(f"All {model._meta.verbose_name_plural} were imported successfully."))
+        messages.success(
+            request,
+            _(f"All {model._meta.verbose_name_plural} were imported successfully."),
+        )
     else:
-        messages.warning(request, _(f"Some {model._meta.verbose_name_plural} failed to be imported."))
+        messages.warning(
+            request, _(f"Some {model._meta.verbose_name_plural} failed to be imported.")
+        )
