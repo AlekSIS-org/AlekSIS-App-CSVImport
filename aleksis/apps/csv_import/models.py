@@ -81,6 +81,13 @@ ALLOWED_FIELD_TYPES = {
     Group: {FieldType.SHORT_NAME, FieldType.IGNORE, },
 }
 
+SEPARATOR_CHOICES = [
+    (",", ","),
+    (";", ";"),
+    ("\s+", _("Whitespace")),
+    ("\t", _("Tab")),
+]
+
 
 def limit_content_types():
     """Get all allowed content types."""
@@ -105,6 +112,15 @@ class ImportTemplate(ExtensibleModel):
     has_header_row = models.BooleanField(
         default=True, verbose_name=_("Has the CSV file a own header row?")
     )
+    separator = models.CharField(
+        max_length=255,
+        choices=SEPARATOR_CHOICES,
+        default=",",
+        verbose_name=_("CSV separator"),
+    )
+
+    def __str__(self):
+        return self.verbose_name
 
     class Meta:
         ordering = ["name"]
