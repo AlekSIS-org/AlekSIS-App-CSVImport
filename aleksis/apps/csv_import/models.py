@@ -1,6 +1,7 @@
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 from django.db import models
+from django.utils.decorators import classproperty
 from django.utils.translation import gettext as _
 
 from aleksis.core.mixins import ExtensibleModel
@@ -29,6 +30,15 @@ class FieldType(models.TextChoices):
         "is_active_schild_nrw_students",
         _("Is active? (SchILD-NRW: students)"),
     )
+    SUBJECTS = "subjects", _("Comma-separated list of subjects")
+    DATE_OF_BIRTH_DD_MM_YYYY = (
+        "date_of_birth_dd_mm_yyy",
+        _("Date of birth (DD.MM.YYYY)"),
+    )
+
+    @classproperty
+    def value_dict(cls):  # noqa
+        return {member.value: member for member in cls}
 
 
 # All fields that can be mapped directly to database
@@ -49,6 +59,7 @@ FIELD_MAPPINGS = {
     FieldType.PHONE_NUMBER: "phone_number",
     FieldType.MOBILE_NUMBER: "mobile_number",
     FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS: "is_active",
+    FieldType.DATE_OF_BIRTH_DD_MM_YYYY: "date_of_birth",
 }
 
 # All other fields will use str
@@ -77,8 +88,10 @@ ALLOWED_FIELD_TYPES = {
         FieldType.MOBILE_NUMBER,
         FieldType.IGNORE,
         FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS,
+        FieldType.SUBJECTS,
+        FieldType.DATE_OF_BIRTH_DD_MM_YYYY,
     },
-    Group: {FieldType.SHORT_NAME, FieldType.IGNORE, },
+    Group: {FieldType.UNIQUE_REFERENCE, FieldType.SHORT_NAME, FieldType.IGNORE,},
 }
 
 SEPARATOR_CHOICES = [
@@ -139,6 +152,10 @@ class ImportTemplateField(ExtensibleModel):
     field_type = models.CharField(
         max_length=255, verbose_name=_("Field type"), choices=FieldType.choices
     )
+
+    @property
+    def field_type_enum(self):
+        return FieldType.value_dict[self.field_type]
 
     def clean(self):
         """Validates correct usage of field types."""
