@@ -1,9 +1,7 @@
-from datetime import date, datetime
-from typing import BinaryIO, Optional, Union
+from typing import BinaryIO, Union
 from uuid import uuid4
 
 from django.core.exceptions import ValidationError
-from django.db.models import Model
 from django.http import HttpRequest
 from django.utils.translation import gettext as _
 
@@ -13,85 +11,21 @@ from pandas.errors import ParserError
 
 from aleksis.apps.chronos.models import Subject
 from aleksis.apps.csv_import.models import (
-    ALLOWED_FIELD_TYPES,
     DATA_TYPES,
     FIELD_MAPPINGS,
     FieldType,
     ImportTemplate,
 )
+from aleksis.apps.csv_import.settings import FALSE_VALUES, TRUE_VALUES
+from aleksis.apps.csv_import.util.converters import CONVERTERS
+from aleksis.apps.csv_import.util.import_helpers import (
+    has_is_active_field,
+    is_active,
+    with_prefix,
+)
 from aleksis.core.models import Group
 from aleksis.core.util import messages
 from aleksis.core.util.core_helpers import get_site_preferences
-
-STATE_ACTIVE = (True, 2)
-TRUE_VALUES = ["+", "Ja"]
-FALSE_VALUES = ["-", "Nein"]
-DATE_FIELDS = ["date_of_birth"]
-PHONE_NUMBER_COUNTRY = "DE"
-SEXES = {
-    "w": "f",
-    "m": "m",
-    "weiblich": "f",
-    "männlich": "m",
-}
-
-
-def is_active(row: dict) -> bool:
-    """Find out whether an imported object is active."""
-
-    if "is_active" in row:
-        return row["is_active"] in STATE_ACTIVE
-
-    return True
-
-
-def parse_phone_number(value: Optional[str]):
-    if value:
-        return phonenumbers.parse(value, PHONE_NUMBER_COUNTRY)
-    else:
-        ""
-
-
-def parse_sex(value: Optional[str]):
-    if value:
-        value = value.lower()
-        if value in SEXES:
-            return SEXES[value]
-
-    return ""
-
-
-def parse_dd_mm_yyyy(value: Optional[str]) -> Optional[date]:
-    """Parse string date (format: DD.MM.YYYY)."""
-    if value:
-        return datetime.strptime(value, "%d.%m.%Y").date()
-    return None
-
-
-def has_is_active_field(model: Model) -> bool:
-    """Check if this model allows importing the is_active status."""
-    if model in ALLOWED_FIELD_TYPES:
-        if FieldType.IS_ACTIVE in ALLOWED_FIELD_TYPES[model]:
-            return True
-    return False
-
-
-def with_prefix(prefix: Optional[str], value: str) -> str:
-    """If prefix is not empty, this function will add a prefix to a string, delimited by a white space."""
-    prefix = prefix.strip()
-    if prefix:
-        return f"{prefix} {value}"
-    else:
-        return value
-
-
-CSV_CONVERTERS = {
-    FieldType.PHONE_NUMBER.value: parse_phone_number,
-    FieldType.MOBILE_NUMBER.value: parse_phone_number,
-    FieldType.SEX.value: parse_sex,
-    FieldType.DEPARTMENTS.value: lambda val: val.split(","),
-    FieldType.DATE_OF_BIRTH_DD_MM_YYYY.value: parse_dd_mm_yyyy,
-}
 
 
 def import_csv(
@@ -128,7 +62,7 @@ def import_csv(
             dtype=data_types,
             usecols=lambda k: not k.startswith("_"),
             keep_default_na=False,
-            converters=CSV_CONVERTERS,
+            converters=CONVERTERS,
             quotechar='"',
             encoding="utf-8-sig",
             true_values=TRUE_VALUES,
