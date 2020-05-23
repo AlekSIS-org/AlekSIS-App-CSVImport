@@ -97,7 +97,7 @@ ALLOWED_FIELD_TYPES = {
 SEPARATOR_CHOICES = [
     (",", ","),
     (";", ";"),
-    ("\s+", _("Whitespace")),
+    ("\\s+", _("Whitespace")),
     ("\t", _("Tab")),
 ]
 
