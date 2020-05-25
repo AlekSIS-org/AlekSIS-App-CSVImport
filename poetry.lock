@@ -8,82 +8,76 @@ version = "0.7.12"
 
 [[package]]
 category = "main"
-description = ""
-develop = true
+description = "AlekSIS (School Information System) — Core"
 name = "aleksis"
 optional = false
-python-versions = "^3.7"
-version = "2.0a3.dev0"
+python-versions = ">=3.7,<4.0"
+version = "2.0a2"
 
 [package.dependencies]
-Django = "^3.0"
-Pillow = "^7.0"
-calendarweek = "^0.4.3"
-colour = "^0.1.5"
-django-any-js = "^1.0"
-django-bleach = "^0.6.1"
-django-cache-memoize = "^0.1.6"
-django-ckeditor = "^5.8.0"
-django-colorfield = "^0.3.0"
-django-dbbackup = "^3.3.0"
-django-debug-toolbar = "^2.0"
-django-dynamic-preferences = "^1.9"
-django-easy-audit = "^1.2rc1"
-django-favicon-plus-reloaded = "^1.0.4"
-django-filter = "^2.2.0"
-django-guardian = "^2.2.0"
-django-hattori = "^0.2"
+Django = ">=3.0,<4.0"
+Pillow = ">=7.0,<8.0"
+calendarweek = ">=0.4.3,<0.5.0"
+colour = ">=0.1.5,<0.2.0"
+django-any-js = ">=1.0,<2.0"
+django-bleach = ">=0.6.1,<0.7.0"
+django-cache-memoize = ">=0.1.6,<0.2.0"
+django-ckeditor = ">=5.8.0,<6.0.0"
+django-colorfield = ">=0.3.0,<0.4.0"
+django-dbbackup = ">=3.3.0,<4.0.0"
+django-debug-toolbar = ">=2.0,<3.0"
+django-dynamic-preferences = ">=1.9,<2.0"
+django-easy-audit = ">=1.2rc1,<2.0"
+django-favicon-plus-reloaded = ">=1.0.4,<2.0.0"
+django-filter = ">=2.2.0,<3.0.0"
+django-guardian = ">=2.2.0,<3.0.0"
+django-hattori = ">=0.2,<0.3"
 django-haystack = "3.0b1"
-django-image-cropping = "^1.2"
-django-impersonate = "^1.4"
-django-ipware = "^2.1"
-django-js-reverse = "^0.9.1"
-django-jsonstore = "^0.4.1"
-django-maintenance-mode = "^0.14.0"
-django-material = "^1.6.0"
-django-menu-generator = "^1.0.4"
-django-middleware-global-request = "^0.1.2"
+django-image-cropping = ">=1.2,<2.0"
+django-impersonate = ">=1.4,<2.0"
+django-ipware = ">=2.1,<3.0"
+django-js-reverse = ">=0.9.1,<0.10.0"
+django-jsonstore = ">=0.4.1,<0.5.0"
+django-maintenance-mode = ">=0.14.0,<0.15.0"
+django-material = ">=1.6.0,<2.0.0"
+django-menu-generator = ">=1.0.4,<2.0.0"
+django-middleware-global-request = ">=0.1.2,<0.2.0"
 django-otp = "0.9.0"
-django-polymorphic = "^2.1.2"
-django-pwa = "^1.0.8"
-django-reversion = "^3.0.7"
-django-sass-processor = "^0.8"
-django-settings-context-processor = "^0.2"
-django-tables2 = "^2.1"
-django-templated-email = "^2.3.0"
-django-yarnpkg = "^6.0"
-django_select2 = "^7.1"
-django_widget_tweaks = "^1.4.5"
-easy-thumbnails = "^2.6"
-html2text = "^2020.0.0"
-libsass = "^0.20.0"
-license-expression = "^1.2"
-psycopg2 = "^2.8"
-python-memcached = "^1.59"
-requests = "^2.22"
-rules = "^2.2"
-spdx-license-list = "^0.4.0"
+django-polymorphic = ">=2.1.2,<3.0.0"
+django-pwa = ">=1.0.8,<2.0.0"
+django-reversion = ">=3.0.7,<4.0.0"
+django-sass-processor = ">=0.8,<0.9"
+django-settings-context-processor = ">=0.2,<0.3"
+django-tables2 = ">=2.1,<3.0"
+django-templated-email = ">=2.3.0,<3.0.0"
+django-yarnpkg = ">=6.0,<7.0"
+django_select2 = ">=7.1,<8.0"
+django_widget_tweaks = ">=1.4.5,<2.0.0"
+easy-thumbnails = ">=2.6,<3.0"
+html2text = ">=2020.0.0,<2021.0.0"
+libsass = ">=0.20.0,<0.21.0"
+license-expression = ">=1.2,<2.0"
+psycopg2 = ">=2.8,<3.0"
+python-memcached = ">=1.59,<2.0"
+requests = ">=2.22,<3.0"
+rules = ">=2.2,<3.0"
+spdx-license-list = ">=0.4.0,<0.5.0"
 
 [package.dependencies.django-phonenumber-field]
 extras = ["phonenumbers"]
-version = ">=3.0, <4.0"
+version = ">=3.0,<4.0"
 
 [package.dependencies.django-two-factor-auth]
-extras = ["yubikey", "phonenumbers", "call", "sms"]
-version = "^1.11.0"
+extras = ["phonenumbers", "yubikey", "call", "sms"]
+version = ">=1.11.0,<2.0.0"
 
 [package.dependencies.dynaconf]
 extras = ["yaml", "toml", "ini"]
-version = "^2.0"
+version = ">=2.0,<3.0"
 
 [package.extras]
-celery = ["Celery (^4.4.0)", "django-celery-results (^1.1.2)", "django-celery-beat (^2.0.0)", "django-celery-email (^3.0.0)", "celery-haystack (^0.10.0)"]
-ldap = ["django-auth-ldap (^2.0)"]
-
-[package.source]
-reference = ""
-type = "directory"
-url = "../../.."
+celery = ["Celery (>=4.4.0,<5.0.0)", "celery-haystack (>=0.7.0,<0.8.0)", "django-celery-beat (>=2.0.0,<3.0.0)", "django-celery-email (>=3.0.0,<4.0.0)", "django-celery-results (>=1.1.2,<2.0.0)"]
+ldap = ["django-auth-ldap (>=2.0,<3.0)"]
 
 [[package]]
 category = "dev"
@@ -707,11 +701,14 @@ description = "Select2 option fields for Django"
 name = "django-select2"
 optional = false
 python-versions = "*"
-version = "7.3.0"
+version = "7.4.2"
 
 [package.dependencies]
 django = ">=2.2"
 django-appconf = ">=0.6.0"
+
+[package.extras]
+test = ["pytest", "pytest-cov", "pytest-django", "selenium"]
 
 [[package]]
 category = "main"
@@ -956,7 +953,7 @@ description = "Plugin to catch bad style specific to Django Projects"
 name = "flake8-django"
 optional = false
 python-versions = "*"
-version = "1.0.0"
+version = "1.1.0"
 
 [package.dependencies]
 flake8 = "*"
@@ -1965,7 +1962,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "f267db379ba017cdccab72d2559bcc2eee77fc1b5a76e63330e4482e1893bacd"
+content-hash = "ce1aa4ae504510ab5174e1f00a76b0dfe651bc0f211b34cf843983369e952dd6"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -1973,7 +1970,10 @@ alabaster = [
     {file = "alabaster-0.7.12-py2.py3-none-any.whl", hash = "sha256:446438bdcca0e05bd45ea2de1668c1d9b032e1a9154c2c259092d77031ddd359"},
     {file = "alabaster-0.7.12.tar.gz", hash = "sha256:a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"},
 ]
-aleksis = []
+aleksis = [
+    {file = "AlekSIS-2.0a2-py3-none-any.whl", hash = "sha256:cb7b699655b92398bde0cf0c4defaf2d196d70b10d7ce43ff67ca786049259bc"},
+    {file = "AlekSIS-2.0a2.tar.gz", hash = "sha256:717492b3a0078673a41529d18eef2733a8bfb70f3f0775e769daca883b165c06"},
+]
 appdirs = [
     {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"},
     {file = "appdirs-1.4.4.tar.gz", hash = "sha256:7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"},
@@ -2215,8 +2215,8 @@ django-sass-processor = [
     {file = "django-sass-processor-0.8.tar.gz", hash = "sha256:e039551994feaaba6fcf880412b25a772dd313162a34cbb4289814988cfae340"},
 ]
 django-select2 = [
-    {file = "django-select2-7.3.0.tar.gz", hash = "sha256:35d898c2d745a51b30446231474c9aaf5318ba69673baf20cf2aceb8bced553a"},
-    {file = "django_select2-7.3.0-py2.py3-none-any.whl", hash = "sha256:b213434d5f94db58fabb0d6f4ade427eff82f03f03f7c45c2db761d11db80f75"},
+    {file = "django-select2-7.4.2.tar.gz", hash = "sha256:9d3330fa0083a03fb69fceb5dcd2e78065cfd08e45c89d4fd727fce4673d3e08"},
+    {file = "django_select2-7.4.2-py2.py3-none-any.whl", hash = "sha256:06531d563ce33c3133682ae2bb9e6d762103a863d0054ffef51bae8b4cfcca6c"},
 ]
 django-settings-context-processor = [
     {file = "django-settings-context-processor-0.2.tar.gz", hash = "sha256:d37c853d69a3069f5abbf94c7f4f6fc0fac38bbd0524190cd5a250ba800e496a"},
@@ -2277,7 +2277,10 @@ flake8-builtins = [
     {file = "flake8_builtins-1.5.3-py2.py3-none-any.whl", hash = "sha256:7706babee43879320376861897e5d1468e396a40b8918ed7bccf70e5f90b8687"},
 ]
 flake8-django = [
-    {file = "flake8-django-1.0.0.tar.gz", hash = "sha256:2c9e4b8bdcad3084d3a335a0e305cbf66cd9a2af937d66c50c859c1f966036b2"},
+    {file = "flake8-django-1.1.0.tar.gz", hash = "sha256:93b101c6f683d94eeeb9c042261fda87e5e54c4f4e621549aade9ce39c1e4986"},
+    {file = "flake8_django-1.1.0-py3-none-any.whl", hash = "sha256:af88da63452b45e9bb5fdc2ddcdadbe0be13b0eaa55bd3e6906391f44f840e8f"},
+    {file = "flake8_django-1.1.0-py3.6.egg", hash = "sha256:510a75351d7fa8447a6d89a04128b1516ab3371738d3382c981151849d9ff53b"},
+    {file = "flake8_django-1.1.0-py3.7.egg", hash = "sha256:320f36bfe505e037e4609f93361f1024905dab48b7204d818dcd2863a55dccfd"},
 ]
 flake8-docstrings = [
     {file = "flake8-docstrings-1.5.0.tar.gz", hash = "sha256:3d5a31c7ec6b7367ea6506a87ec293b94a0a46c0bce2bb4975b7f1d09b6f3717"},
