@@ -1,5 +1,5 @@
 from datetime import date, datetime
-from typing import Union, Sequence
+from typing import Sequence, Union
 
 import phonenumbers
 

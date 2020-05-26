@@ -6,7 +6,5 @@ from aleksis.apps.csv_import.models import ALLOWED_CONTENT_TYPES
 
 for model in ALLOWED_CONTENT_TYPES:
     model.field(
-        import_ref_csv=CharField(
-            verbose_name=_("CSV import reference"), null=True, blank=True
-        )
+        import_ref_csv=CharField(verbose_name=_("CSV import reference"), blank=True)
     )

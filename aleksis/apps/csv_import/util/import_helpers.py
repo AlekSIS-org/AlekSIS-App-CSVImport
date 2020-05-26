@@ -8,7 +8,6 @@ from aleksis.apps.csv_import.settings import STATE_ACTIVE
 
 def is_active(row: dict) -> bool:
     """Find out whether an imported object is active."""
-
     if "is_active" in row:
         return row["is_active"] in STATE_ACTIVE
 
@@ -24,8 +23,11 @@ def has_is_active_field(model: Model) -> bool:
 
 
 def with_prefix(prefix: Optional[str], value: str) -> str:
-    """If prefix is not empty, this function will add a
-    prefix to a string, delimited by a white space."""
+    """Add prefix to string.
+
+    If prefix is not empty, this function will add a
+    prefix to a string, delimited by a white space.
+    """
     prefix = prefix.strip()
     if prefix:
         return f"{prefix} {value}"

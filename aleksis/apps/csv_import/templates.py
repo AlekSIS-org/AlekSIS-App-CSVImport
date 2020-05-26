@@ -16,7 +16,6 @@ def update_or_create_template(
     model: Model, name: str, verbose_name: str, extra_args: dict, fields: Sequence
 ):
     """Update or create an import template in database."""
-
     ct = ContentType.objects.get_for_model(model)
     template, updated = ImportTemplate.objects.update_or_create(
         name=name,
@@ -33,7 +32,6 @@ def update_or_create_template(
 
 def update_or_create_default_templates():
     """Update or create default import templates."""
-
     update_or_create_template(
         Person,
         name="pedasos_teachers",

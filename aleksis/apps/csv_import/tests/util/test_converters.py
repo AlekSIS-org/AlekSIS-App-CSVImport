@@ -3,10 +3,10 @@ from datetime import date
 from phonenumbers import PhoneNumber
 
 from aleksis.apps.csv_import.util.converters import (
+    parse_comma_separated_data,
+    parse_dd_mm_yyyy,
     parse_phone_number,
     parse_sex,
-    parse_dd_mm_yyyy,
-    parse_comma_separated_data,
 )
 
 

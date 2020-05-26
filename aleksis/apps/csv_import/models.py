@@ -158,7 +158,7 @@ class ImportTemplateField(ExtensibleModel):
         return FieldType.value_dict[self.field_type]
 
     def clean(self):
-        """Validates correct usage of field types."""
+        """Validate correct usage of field types."""
         model = self.template.content_type.model_class()
         if self.field_type not in ALLOWED_FIELD_TYPES[model]:
             raise ValidationError(
