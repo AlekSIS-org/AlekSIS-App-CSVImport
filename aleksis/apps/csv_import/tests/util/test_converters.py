@@ -19,7 +19,6 @@ def test_parse_phone_number():
 
 
 def test_parse_phone_number_none():
-    assert parse_phone_number(None) is None
     assert parse_phone_number("") is None
     assert parse_phone_number("foo") is None
 
@@ -36,7 +35,6 @@ def test_parse_sex():
 
 
 def test_parse_sex_none():
-    assert parse_sex(None) == ""
     assert parse_sex("") == ""
     assert parse_sex("foo") == ""
 
@@ -47,7 +45,6 @@ def test_parse_dd_mm_yyyy():
 
 
 def test_parse_dd_mm_yyyy_none():
-    assert parse_dd_mm_yyyy(None) is None
     assert parse_dd_mm_yyyy("") is None
     assert parse_dd_mm_yyyy("foo") is None
     assert parse_dd_mm_yyyy("12.14.1912") is None
@@ -64,4 +61,3 @@ def test_parse_comma_separated_data():
 def test_parse_comma_separated_data_none():
     assert parse_comma_separated_data(",") == []
     assert parse_comma_separated_data("") == []
-    assert parse_comma_separated_data(None) == []

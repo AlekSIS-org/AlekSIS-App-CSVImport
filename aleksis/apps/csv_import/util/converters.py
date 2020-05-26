@@ -1,5 +1,5 @@
 from datetime import date, datetime
-from typing import Optional
+from typing import Union, Sequence
 
 import phonenumbers
 
@@ -7,34 +7,34 @@ from aleksis.apps.csv_import.models import FieldType
 from aleksis.apps.csv_import.settings import PHONE_NUMBER_COUNTRY, SEXES
 
 
-def parse_phone_number(value: Optional[str]):
-    if value:
+def parse_phone_number(value: str) -> Union[phonenumbers.PhoneNumber, None]:
+    """Parse a phone number."""
+    try:
         return phonenumbers.parse(value, PHONE_NUMBER_COUNTRY)
-    else:
-        ""
+    except phonenumbers.NumberParseException:
+        return None
 
 
-def parse_sex(value: Optional[str]):
-    if value:
-        value = value.lower()
-        if value in SEXES:
-            return SEXES[value]
+def parse_sex(value: str) -> str:
+    """Parse sex via SEXES dictionary."""
+    value = value.lower()
+    if value in SEXES:
+        return SEXES[value]
 
     return ""
 
 
-def parse_dd_mm_yyyy(value: Optional[str]) -> Optional[date]:
+def parse_dd_mm_yyyy(value: str) -> Union[date, None]:
     """Parse string date (format: DD.MM.YYYY)."""
-    if value:
+    try:
         return datetime.strptime(value, "%d.%m.%Y").date()
-    return None
+    except ValueError:
+        return None
 
 
-def parse_comma_separated_data(value: Optional[str]) -> list:
+def parse_comma_separated_data(value: str) -> Sequence[str]:
     """Parse a string with comma-separated data."""
-    if value:
-        return value.split(",")
-    return []
+    return list(filter(lambda v: v, value.split(",")))
 
 
 CONVERTERS = {
