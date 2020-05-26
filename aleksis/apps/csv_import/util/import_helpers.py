@@ -28,7 +28,7 @@ def with_prefix(prefix: Optional[str], value: str) -> str:
     If prefix is not empty, this function will add a
     prefix to a string, delimited by a white space.
     """
-    prefix = prefix.strip()
+    prefix = prefix.strip() if prefix else ""
     if prefix:
         return f"{prefix} {value}"
     else:
