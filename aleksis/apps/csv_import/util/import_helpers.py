@@ -2,7 +2,7 @@ from typing import Optional
 
 from django.db.models import Model
 
-from aleksis.apps.csv_import.models import ALLOWED_FIELD_TYPES, FieldType
+from aleksis.apps.csv_import.models import ALLOWED_FIELD_TYPES_FOR_MODELS, FieldType
 from aleksis.apps.csv_import.settings import STATE_ACTIVE
 
 
@@ -16,8 +16,8 @@ def is_active(row: dict) -> bool:
 
 def has_is_active_field(model: Model) -> bool:
     """Check if this model allows importing the is_active status."""
-    if model in ALLOWED_FIELD_TYPES:
-        if FieldType.IS_ACTIVE in ALLOWED_FIELD_TYPES[model]:
+    if model in ALLOWED_FIELD_TYPES_FOR_MODELS:
+        if FieldType.IS_ACTIVE in ALLOWED_FIELD_TYPES_FOR_MODELS[model]:
             return True
     return False
 

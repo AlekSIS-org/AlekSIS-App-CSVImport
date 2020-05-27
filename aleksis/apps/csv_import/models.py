@@ -68,8 +68,8 @@ DATA_TYPES = {
     FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS: int,
 }
 
-ALLOWED_CONTENT_TYPES = [Person, Group]
-ALLOWED_FIELD_TYPES = {
+ALLOWED_MODELS = [Person, Group]
+ALLOWED_FIELD_TYPES_FOR_MODELS = {
     Person: {
         FieldType.UNIQUE_REFERENCE,
         FieldType.IS_ACTIVE,
@@ -102,10 +102,10 @@ SEPARATOR_CHOICES = [
 ]
 
 
-def limit_content_types():
+def get_allowed_content_types_query():
     """Get all allowed content types."""
     ids = []
-    for model in ALLOWED_CONTENT_TYPES:
+    for model in ALLOWED_MODELS:
         ct = ContentType.objects.get_for_model(model)
         ids.append(ct.pk)
 
@@ -117,7 +117,7 @@ class ImportTemplate(ExtensibleModel):
         ContentType,
         models.CASCADE,
         verbose_name=_("Content type"),
-        limit_choices_to=limit_content_types,
+        limit_choices_to=get_allowed_content_types_query,
     )
     name = models.CharField(max_length=255, verbose_name=_("Name"), unique=True)
     verbose_name = models.CharField(max_length=255, verbose_name=_("Name"))
@@ -160,7 +160,7 @@ class ImportTemplateField(ExtensibleModel):
     def clean(self):
         """Validate correct usage of field types."""
         model = self.template.content_type.model_class()
-        if self.field_type not in ALLOWED_FIELD_TYPES[model]:
+        if self.field_type not in ALLOWED_FIELD_TYPES_FOR_MODELS[model]:
             raise ValidationError(
                 _("You are not allowed to use this field type in this model.")
             )

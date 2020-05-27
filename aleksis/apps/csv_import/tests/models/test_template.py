@@ -3,10 +3,10 @@ from django.contrib.contenttypes.models import ContentType
 import pytest
 
 from aleksis.apps.csv_import.models import (
-    ALLOWED_CONTENT_TYPES,
+    ALLOWED_MODELS,
     FieldType,
     ImportTemplate,
-    limit_content_types,
+    get_allowed_content_types_query,
 )
 from aleksis.core.models import Person
 
@@ -14,13 +14,13 @@ pytestmark = pytest.mark.django_db
 
 
 def test_limit_content_types():
-    query = limit_content_types()
+    query = get_allowed_content_types_query()
     cts = ContentType.objects.filter(**query)
     model_classes = []
     for ct in cts:
         model_classes.append(ct.model_class())
-        assert ct.model_class() in ALLOWED_CONTENT_TYPES
-    for ct in ALLOWED_CONTENT_TYPES:
+        assert ct.model_class() in ALLOWED_MODELS
+    for ct in ALLOWED_MODELS:
         assert ct in model_classes
 
 

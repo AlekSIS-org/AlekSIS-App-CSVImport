@@ -50,7 +50,7 @@ class Migration(migrations.Migration):
                 (
                     "content_type",
                     models.ForeignKey(
-                        limit_choices_to=aleksis.apps.csv_import.models.limit_content_types,
+                        limit_choices_to=aleksis.apps.csv_import.models.get_allowed_content_types_query,
                         on_delete=django.db.models.deletion.CASCADE,
                         to="contenttypes.ContentType",
                         verbose_name="Content type",
