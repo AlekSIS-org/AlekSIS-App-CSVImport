@@ -68,16 +68,28 @@ extras = ["phonenumbers"]
 version = ">=3.0,<4.0"
 
 [package.dependencies.django-two-factor-auth]
-extras = ["phonenumbers", "yubikey", "call", "sms"]
+extras = ["yubikey", "phonenumbers", "call", "sms"]
 version = ">=1.11.0,<2.0.0"
 
 [package.dependencies.dynaconf]
-extras = ["yaml", "toml", "ini"]
+extras = ["ini", "toml", "yaml"]
 version = ">=2.0,<3.0"
 
 [package.extras]
 celery = ["Celery (>=4.4.0,<5.0.0)", "celery-haystack (>=0.7.0,<0.8.0)", "django-celery-beat (>=2.0.0,<3.0.0)", "django-celery-email (>=3.0.0,<4.0.0)", "django-celery-results (>=1.1.2,<2.0.0)"]
 ldap = ["django-auth-ldap (>=2.0,<3.0)"]
+
+[[package]]
+category = "main"
+description = "AlekSIS (School Information System) — App Χρόνος (digital timetables)"
+name = "aleksis-app-chronos"
+optional = false
+python-versions = ">=3.7,<4.0"
+version = "2.0a2"
+
+[package.dependencies]
+AlekSIS = ">=2.0a2,<3.0"
+calendarweek = ">=0.4.4,<0.5.0"
 
 [[package]]
 category = "dev"
@@ -953,7 +965,7 @@ description = "Plugin to catch bad style specific to Django Projects"
 name = "flake8-django"
 optional = false
 python-versions = "*"
-version = "1.1.0"
+version = "1.1.1"
 
 [package.dependencies]
 flake8 = "*"
@@ -1660,7 +1672,7 @@ description = "Python documentation generator"
 name = "sphinx"
 optional = false
 python-versions = ">=3.5"
-version = "3.0.3"
+version = "3.0.4"
 
 [package.dependencies]
 Jinja2 = ">=2.3"
@@ -1962,7 +1974,7 @@ docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
 testing = ["jaraco.itertools", "func-timeout"]
 
 [metadata]
-content-hash = "ce1aa4ae504510ab5174e1f00a76b0dfe651bc0f211b34cf843983369e952dd6"
+content-hash = "032050900098ee075bcd0e5d82c5847d8c51eb86ab21fbf436a4b7926e19cf8e"
 python-versions = "^3.7"
 
 [metadata.files]
@@ -1973,6 +1985,10 @@ alabaster = [
 aleksis = [
     {file = "AlekSIS-2.0a2-py3-none-any.whl", hash = "sha256:cb7b699655b92398bde0cf0c4defaf2d196d70b10d7ce43ff67ca786049259bc"},
     {file = "AlekSIS-2.0a2.tar.gz", hash = "sha256:717492b3a0078673a41529d18eef2733a8bfb70f3f0775e769daca883b165c06"},
+]
+aleksis-app-chronos = [
+    {file = "AlekSIS-App-Chronos-2.0a2.tar.gz", hash = "sha256:f12cc61249059eb2ccf8e905fb9889597c2c1312bfbf7a5a1b5f0a637a2a1278"},
+    {file = "AlekSIS_App_Chronos-2.0a2-py3-none-any.whl", hash = "sha256:2a974e67ca538bdf797a36be1072310789e66d389e32dd303e038f15982d4ba4"},
 ]
 appdirs = [
     {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"},
@@ -2277,10 +2293,8 @@ flake8-builtins = [
     {file = "flake8_builtins-1.5.3-py2.py3-none-any.whl", hash = "sha256:7706babee43879320376861897e5d1468e396a40b8918ed7bccf70e5f90b8687"},
 ]
 flake8-django = [
-    {file = "flake8-django-1.1.0.tar.gz", hash = "sha256:93b101c6f683d94eeeb9c042261fda87e5e54c4f4e621549aade9ce39c1e4986"},
-    {file = "flake8_django-1.1.0-py3-none-any.whl", hash = "sha256:af88da63452b45e9bb5fdc2ddcdadbe0be13b0eaa55bd3e6906391f44f840e8f"},
-    {file = "flake8_django-1.1.0-py3.6.egg", hash = "sha256:510a75351d7fa8447a6d89a04128b1516ab3371738d3382c981151849d9ff53b"},
-    {file = "flake8_django-1.1.0-py3.7.egg", hash = "sha256:320f36bfe505e037e4609f93361f1024905dab48b7204d818dcd2863a55dccfd"},
+    {file = "flake8-django-1.1.1.tar.gz", hash = "sha256:fb4e8f669d3cf44297bb6e1c5d0a358ab0aba373cd4c69268cf2798de6bcbd9b"},
+    {file = "flake8_django-1.1.1-py3-none-any.whl", hash = "sha256:c71da0e61b6119dae91cbffdbdb00f1d6ebe3f5d0c43f5bf136929997ab0b72d"},
 ]
 flake8-docstrings = [
     {file = "flake8-docstrings-1.5.0.tar.gz", hash = "sha256:3d5a31c7ec6b7367ea6506a87ec293b94a0a46c0bce2bb4975b7f1d09b6f3717"},
@@ -2709,8 +2723,8 @@ spdx-license-list = [
     {file = "spdx_license_list-0.4.0.tar.gz", hash = "sha256:f8b5eeda2a1c88d8ce15f6324d5a6128a462932a2e55b032f017ac9a0e61f1c7"},
 ]
 sphinx = [
-    {file = "Sphinx-3.0.3-py3-none-any.whl", hash = "sha256:f5505d74cf9592f3b997380f9bdb2d2d0320ed74dd69691e3ee0644b956b8d83"},
-    {file = "Sphinx-3.0.3.tar.gz", hash = "sha256:62edfd92d955b868d6c124c0942eba966d54b5f3dcb4ded39e65f74abac3f572"},
+    {file = "Sphinx-3.0.4-py3-none-any.whl", hash = "sha256:779a519adbd3a70fc7c468af08c5e74829868b0a5b34587b33340e010291856c"},
+    {file = "Sphinx-3.0.4.tar.gz", hash = "sha256:ea64df287958ee5aac46be7ac2b7277305b0381d213728c3a49d8bb9b8415807"},
 ]
 sphinx-autodoc-typehints = [
     {file = "sphinx-autodoc-typehints-1.10.3.tar.gz", hash = "sha256:a6b3180167479aca2c4d1ed3b5cb044a70a76cccd6b38662d39288ebd9f0dff0"},
