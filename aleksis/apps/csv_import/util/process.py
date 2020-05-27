@@ -6,10 +6,8 @@ from django.http import HttpRequest
 from django.utils.translation import gettext as _
 
 import pandas
-import phonenumbers
 from pandas.errors import ParserError
 
-from aleksis.apps.chronos.models import Subject
 from aleksis.apps.csv_import.models import (
     DATA_TYPES,
     FIELD_MAPPINGS,
@@ -19,11 +17,10 @@ from aleksis.apps.csv_import.models import (
 from aleksis.apps.csv_import.settings import FALSE_VALUES, TRUE_VALUES
 from aleksis.apps.csv_import.util.converters import CONVERTERS
 from aleksis.apps.csv_import.util.import_helpers import (
+    create_department_groups,
     has_is_active_field,
     is_active,
-    with_prefix,
 )
-from aleksis.core.models import Group
 from aleksis.core.util import messages
 from aleksis.core.util.core_helpers import get_site_preferences
 
@@ -107,11 +104,7 @@ def import_csv(
                     )
                 else:
                     raise ValueError(_("Missing import reference or short name."))
-            except (
-                ValueError,
-                phonenumbers.NumberParseException,
-                ValidationError,
-            ) as e:
+            except (ValueError, ValidationError) as e:
                 messages.error(
                     request,
                     _(f"Failed to import {model._meta.verbose_name} {row}:\n{e}"),
@@ -126,32 +119,10 @@ def import_csv(
             ):
                 subjects = row[FieldType.DEPARTMENTS.value]
 
-                for subject_name in subjects:
-                    # Get department subject
-                    subject, __ = Subject.objects.get_or_create(
-                        short_name=subject_name, defaults={"name": subject_name}
-                    )
+                departments = create_department_groups(subjects)
 
-                    # Get department group
-                    group, __ = Group.objects.get_or_create(
-                        subject__subject=subject,
-                        group_type=get_site_preferences()[
-                            "csv_import__group_type_departments"
-                        ],
-                        defaults={
-                            "short_name": subject.short_name,
-                            "name": with_prefix(
-                                get_site_preferences()[
-                                    "csv_import__group_prefix_departments"
-                                ],
-                                subject.name,
-                            ),
-                        },
-                    )
-
-                    # Set current person as member of this department
-                    if group not in instance.member_of.all():
-                        instance.member_of.add(group)
+                # Set current person as member of this department
+                instance.member_of.add(*departments)
 
             if created:
                 created_count += 1
