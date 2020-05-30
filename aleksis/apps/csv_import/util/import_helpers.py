@@ -52,11 +52,11 @@ def create_department_groups(subjects: Sequence[str]) -> Sequence[Group]:
 
         # Get department group
         group, __ = Group.objects.get_or_create(
-            subject__subject=subject,
             group_type=group_type,
+            short_name=subject.short_name,
             defaults={
-                "short_name": subject.short_name,
-                "name": with_prefix(group_prefix, subject.name,),
+                "subject__subject": subject,
+                "name": with_prefix(group_prefix, subject.name),
             },
         )
         groups.append(group)
