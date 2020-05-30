@@ -21,6 +21,7 @@ from aleksis.apps.csv_import.util.import_helpers import (
     has_is_active_field,
     is_active,
 )
+from aleksis.core.models import Person
 from aleksis.core.util import messages
 from aleksis.core.util.core_helpers import get_site_preferences
 
@@ -123,6 +124,9 @@ def import_csv(
 
                 # Set current person as member of this department
                 instance.member_of.add(*departments)
+
+            if template.group and isinstance(instance, Person):
+                instance.member_of.add(template.group)
 
             if created:
                 created_count += 1

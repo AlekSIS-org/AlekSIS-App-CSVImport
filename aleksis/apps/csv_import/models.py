@@ -132,6 +132,17 @@ class ImportTemplate(ExtensibleModel):
         verbose_name=_("CSV separator"),
     )
 
+    group = models.ForeignKey(
+        Group,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        verbose_name=_("Base group"),
+        help_text=_(
+            "If imported objects are persons, they all will be members of this group after import."
+        ),
+    )
+
     def __str__(self):
         return self.verbose_name
 
