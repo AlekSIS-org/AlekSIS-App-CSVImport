@@ -11,6 +11,7 @@ from aleksis.core.models import Group, Person
 class FieldType(models.TextChoices):
     UNIQUE_REFERENCE = "unique_reference", _("Unique reference")
     IS_ACTIVE = "is_active", _("Is active? (0/1)")
+    NAME = "name", _("Name")
     FIRST_NAME = "first_name", _("First name")
     LAST_NAME = "last_name", _("Last name")
     ADDITIONAL_NAME = "additional_name", _("Additional name")
@@ -45,6 +46,7 @@ class FieldType(models.TextChoices):
 FIELD_MAPPINGS = {
     FieldType.UNIQUE_REFERENCE: "import_ref_csv",
     FieldType.IS_ACTIVE: "is_active",
+    FieldType.NAME: "name",
     FieldType.FIRST_NAME: "first_name",
     FieldType.LAST_NAME: "last_name",
     FieldType.ADDITIONAL_NAME: "additional_name",
@@ -91,7 +93,12 @@ ALLOWED_FIELD_TYPES_FOR_MODELS = {
         FieldType.DEPARTMENTS,
         FieldType.DATE_OF_BIRTH_DD_MM_YYYY,
     },
-    Group: {FieldType.UNIQUE_REFERENCE, FieldType.SHORT_NAME, FieldType.IGNORE,},
+    Group: {
+        FieldType.UNIQUE_REFERENCE,
+        FieldType.NAME,
+        FieldType.SHORT_NAME,
+        FieldType.IGNORE,
+    },
 }
 
 SEPARATOR_CHOICES = [
