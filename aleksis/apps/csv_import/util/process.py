@@ -9,6 +9,7 @@ import pandas
 from pandas.errors import ParserError
 
 from aleksis.apps.csv_import.models import (
+    ALLOWED_FIELD_TYPES_FOR_MODELS,
     DATA_TYPES,
     FIELD_MAPPINGS,
     FieldType,
@@ -81,7 +82,9 @@ def import_csv(
 
     for i, row in enumerate(data.transpose().to_dict().values()):
         # Fill the is_active field from other fields if necessary
-        row["is_active"] = is_active(row)
+        obj_is_active = is_active(row)
+        if has_is_active_field(model):
+            row["is_active"] = obj_is_active
 
         # Build dict with all fields that should be directly updated
         update_dict = {}
@@ -90,7 +93,27 @@ def import_csv(
             if enum_key in FIELD_MAPPINGS:
                 update_dict[FIELD_MAPPINGS[enum_key]] = value
 
-        if row["is_active"]:
+        # Set name to short name if there is no name field
+        if (
+            FieldType.NAME in ALLOWED_FIELD_TYPES_FOR_MODELS[model]
+            and FieldType.NAME.value not in row
+            and FieldType.SHORT_NAME.value in row
+        ):
+            update_dict[FIELD_MAPPINGS[FieldType.NAME]] = row[
+                FieldType.SHORT_NAME.value
+            ]
+
+        # Set short name to name if there is no short name field
+        if (
+            FieldType.SHORT_NAME in ALLOWED_FIELD_TYPES_FOR_MODELS[model]
+            and FieldType.SHORT_NAME.value not in row
+            and FieldType.NAME.value in row
+        ):
+            update_dict[FIELD_MAPPINGS[FieldType.SHORT_NAME]] = row[
+                FieldType.NAME.value
+            ]
+
+        if obj_is_active:
             created = False
 
             try:
