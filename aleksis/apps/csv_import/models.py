@@ -36,6 +36,10 @@ class FieldType(models.TextChoices):
         "date_of_birth_dd_mm_yyy",
         _("Date of birth (DD.MM.YYYY)"),
     )
+    GROUP_OWNER_BY_SHORT_NAME = (
+        "group_owner_shortname",
+        _("Short name of a single group owner"),
+    )
 
     @classproperty
     def value_dict(cls):  # noqa
@@ -70,6 +74,9 @@ DATA_TYPES = {
     FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS: int,
 }
 
+# All field types that can be added multiple times
+FIELD_TYPES_MULTIPLE = [FieldType.GROUP_OWNER_BY_SHORT_NAME]
+
 ALLOWED_MODELS = [Person, Group]
 ALLOWED_FIELD_TYPES_FOR_MODELS = {
     Person: {
@@ -98,6 +105,7 @@ ALLOWED_FIELD_TYPES_FOR_MODELS = {
         FieldType.NAME,
         FieldType.SHORT_NAME,
         FieldType.IGNORE,
+        FieldType.GROUP_OWNER_BY_SHORT_NAME,
     },
 }
 

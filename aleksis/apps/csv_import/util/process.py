@@ -12,6 +12,7 @@ from aleksis.apps.csv_import.models import (
     ALLOWED_FIELD_TYPES_FOR_MODELS,
     DATA_TYPES,
     FIELD_MAPPINGS,
+    FIELD_TYPES_MULTIPLE,
     FieldType,
     ImportTemplate,
 )
@@ -36,11 +37,16 @@ def import_csv(
 
     data_types = {}
     cols = []
+    cols_for_multiple_fields = {}
     for field in template.fields.all():
         # Get column header
         if field.field_type_enum == FieldType.IGNORE:
             # Create random header for ignoring (leading _)
             key = f"_ignore_{uuid4()}"
+        elif field.field_type_enum in FIELD_TYPES_MULTIPLE:
+            key = f"{field.field_type}_{uuid4()}"
+            cols_for_multiple_fields.setdefault(field.field_type_enum, [])
+            cols_for_multiple_fields[field.field_type_enum].append(key)
         else:
             # Use key of enum for other data types
             key = field.field_type
@@ -89,9 +95,10 @@ def import_csv(
         # Build dict with all fields that should be directly updated
         update_dict = {}
         for key, value in row.items():
-            enum_key = FieldType.value_dict[key]
-            if enum_key in FIELD_MAPPINGS:
-                update_dict[FIELD_MAPPINGS[enum_key]] = value
+            if key in FieldType.value_dict:
+                enum_key = FieldType.value_dict[key]
+                if enum_key in FIELD_MAPPINGS:
+                    update_dict[FIELD_MAPPINGS[enum_key]] = value
 
         # Set name to short name if there is no name field
         if (
@@ -135,6 +142,14 @@ def import_csv(
                     fail_silently=True,
                 )
                 all_ok = False
+
+            # Get values for multiple fields
+            values_for_multiple_fields = {}
+            for field_type, cols_for_field_type in cols_for_multiple_fields.items():
+                values_for_multiple_fields[field_type] = []
+                for col in cols_for_field_type:
+                    value = row[col]
+                    values_for_multiple_fields[field_type].append(value)
 
             # Create department groups
             if (
