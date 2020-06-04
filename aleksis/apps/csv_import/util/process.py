@@ -19,6 +19,7 @@ from aleksis.apps.csv_import.models import (
 from aleksis.apps.csv_import.settings import FALSE_VALUES, TRUE_VALUES
 from aleksis.apps.csv_import.util.converters import CONVERTERS
 from aleksis.apps.csv_import.util.import_helpers import (
+    bulk_get_or_create,
     create_department_groups,
     has_is_active_field,
     is_active,
@@ -162,6 +163,20 @@ def import_csv(
 
                 # Set current person as member of this department
                 instance.member_of.add(*departments)
+
+            # Group owners
+            if FieldType.GROUP_OWNER_BY_SHORT_NAME in values_for_multiple_fields:
+                short_names = values_for_multiple_fields[
+                    FieldType.GROUP_OWNER_BY_SHORT_NAME
+                ]
+                group_owners = bulk_get_or_create(
+                    Person,
+                    short_names,
+                    attr="short_name",
+                    default_attrs="last_name",
+                    defaults={"first_name": "?"},
+                )
+                instance.owners.set(group_owners)
 
             if template.group and isinstance(instance, Person):
                 instance.member_of.add(template.group)
