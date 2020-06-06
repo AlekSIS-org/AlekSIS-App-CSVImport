@@ -9,7 +9,7 @@ from aleksis.apps.csv_import.models import (
     ImportTemplate,
     ImportTemplateField,
 )
-from aleksis.core.models import Person
+from aleksis.core.models import Group, Person
 
 
 def update_or_create_template(
@@ -45,5 +45,16 @@ def update_or_create_default_templates():
             FieldType.SEX,
             FieldType.DEPARTMENTS,
             FieldType.IGNORE,
+        ],
+    )
+    update_or_create_template(
+        Group,
+        name="pedasos_classes",
+        verbose_name=_("Pedasos: Classes"),
+        extra_args={"has_header_row": True, "separator": "\t"},
+        fields=[
+            FieldType.SHORT_NAME,
+            FieldType.GROUP_OWNER_BY_SHORT_NAME,
+            FieldType.GROUP_OWNER_BY_SHORT_NAME,
         ],
     )
