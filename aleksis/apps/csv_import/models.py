@@ -5,7 +5,7 @@ from django.utils.decorators import classproperty
 from django.utils.translation import gettext as _
 
 from aleksis.core.mixins import ExtensibleModel
-from aleksis.core.models import Group, Person
+from aleksis.core.models import Group, GroupType, Person
 
 
 class FieldType(models.TextChoices):
@@ -157,6 +157,23 @@ class ImportTemplate(ExtensibleModel):
             "If imported objects are persons, they all will be members of this group after import."
         ),
     )
+    group_type = models.ForeignKey(
+        GroupType,
+        on_delete=models.SET_NULL,
+        blank=True,
+        null=True,
+        verbose_name=_("Group type"),
+        help_text=_(
+            "If imported objects are groups, they all will get this group type after import."
+        ),
+    )
+
+    def save(self, *args, **kwargs):
+        if not self.content_type.model == "person":
+            self.group = None
+        if not self.content_type.model == "group":
+            self.group_type = None
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.verbose_name

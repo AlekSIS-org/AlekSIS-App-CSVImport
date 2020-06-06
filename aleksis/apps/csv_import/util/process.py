@@ -24,7 +24,7 @@ from aleksis.apps.csv_import.util.import_helpers import (
     has_is_active_field,
     is_active,
 )
-from aleksis.core.models import Person
+from aleksis.core.models import Group, Person
 from aleksis.core.util import messages
 from aleksis.core.util.core_helpers import get_site_preferences
 
@@ -120,6 +120,9 @@ def import_csv(
             update_dict[FIELD_MAPPINGS[FieldType.SHORT_NAME]] = row[
                 FieldType.NAME.value
             ]
+
+        if template.group_type and model == Group:
+            update_dict["group_type"] = template.group_type
 
         if obj_is_active:
             created = False
