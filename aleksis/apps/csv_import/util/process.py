@@ -219,6 +219,14 @@ def import_csv(
                 )
                 instance.parent_groups.set(classes)
 
+            # Group memberships
+            if FieldType.GROUP_BY_SHORT_NAME in values_for_multiple_fields:
+                short_names = values_for_multiple_fields[
+                    FieldType.GROUP_BY_SHORT_NAME
+                ]
+                groups = Group.objects.filter(short_name__in=short_names)
+                instance.member_of.add(*groups)
+
             if template.group and isinstance(instance, Person):
                 instance.member_of.add(template.group)
 

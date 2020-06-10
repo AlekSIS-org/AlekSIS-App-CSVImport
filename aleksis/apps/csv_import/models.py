@@ -45,6 +45,10 @@ class FieldType(models.TextChoices):
         "pedasos_class_range",
         _("Pedasos: Class range (e. g. 7a-d)"),
     )
+    GROUP_BY_SHORT_NAME = (
+        "group_short_name",
+        _("Short name of the group the person is a member of"),
+    )
 
     @classproperty
     def value_dict(cls):  # noqa
@@ -80,7 +84,10 @@ DATA_TYPES = {
 }
 
 # All field types that can be added multiple times
-FIELD_TYPES_MULTIPLE = [FieldType.GROUP_OWNER_BY_SHORT_NAME]
+FIELD_TYPES_MULTIPLE = [
+    FieldType.GROUP_OWNER_BY_SHORT_NAME,
+    FieldType.GROUP_BY_SHORT_NAME,
+]
 
 ALLOWED_MODELS = [Person, Group]
 ALLOWED_FIELD_TYPES_FOR_MODELS = {
@@ -104,6 +111,7 @@ ALLOWED_FIELD_TYPES_FOR_MODELS = {
         FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS,
         FieldType.DEPARTMENTS,
         FieldType.DATE_OF_BIRTH_DD_MM_YYYY,
+        FieldType.GROUP_BY_SHORT_NAME,
     },
     Group: {
         FieldType.UNIQUE_REFERENCE,
