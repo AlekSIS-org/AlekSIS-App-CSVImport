@@ -1,8 +1,8 @@
-from typing import BinaryIO, Union
+from typing import Union
 from uuid import uuid4
 
+from django.contrib import messages
 from django.core.exceptions import ValidationError
-from django.http import HttpRequest
 from django.utils.translation import gettext as _
 
 import pandas
@@ -25,15 +25,20 @@ from aleksis.apps.csv_import.util.import_helpers import (
     is_active,
 )
 from aleksis.core.models import Group, Person
-from aleksis.core.util import messages
-from aleksis.core.util.core_helpers import get_site_preferences
+from aleksis.core.util.core_helpers import (
+    DummyRecorder,
+    celery_optional_progress,
+    get_site_preferences,
+)
 
 
+@celery_optional_progress
 def import_csv(
-    request: Union[HttpRequest, None],
-    template: ImportTemplate,
-    csv: Union[BinaryIO, str],
+    recorder: Union["ProgressRecorder", DummyRecorder], template: int, filename: str,
 ) -> None:
+    csv = open(filename, "rb")
+
+    template = ImportTemplate.objects.get(pk=template)
     model = template.content_type.model_class()
 
     data_types = {}
@@ -75,8 +80,8 @@ def import_csv(
             false_values=FALSE_VALUES,
         )
     except ParserError as e:
-        messages.error(
-            request, _(f"There was an error while parsing the CSV file:\n{e}")
+        recorder.add_message(
+            messages.ERROR, _(f"There was an error while parsing the CSV file:\n{e}")
         )
         return
 
@@ -87,7 +92,10 @@ def import_csv(
     inactive_refs = []
     created_count = 0
 
-    for i, row in enumerate(data.transpose().to_dict().values()):
+    data_as_dict = data.transpose().to_dict().values()
+    recorder.total = len(data_as_dict)
+
+    for i, row in enumerate(data_as_dict):
         # Fill the is_active field from other fields if necessary
         obj_is_active = is_active(row)
         if has_is_active_field(model):
@@ -140,8 +148,8 @@ def import_csv(
                 else:
                     raise ValueError(_("Missing import reference or short name."))
             except (ValueError, ValidationError) as e:
-                messages.error(
-                    request,
+                recorder.add_message(
+                    messages.ERROR,
                     _(f"Failed to import {model._meta.verbose_name} {row}:\n{e}"),
                     fail_silently=True,
                 )
@@ -186,6 +194,8 @@ def import_csv(
 
             if created:
                 created_count += 1
+
+            recorder.set_progress(i + 1)
         else:
             # Store import refs to deactivate later
             inactive_refs.append(row[FieldType.UNIQUE_REFERENCE.value])
@@ -197,25 +207,26 @@ def import_csv(
         ).update(is_active=False)
 
         if affected:
-            messages.warning(
-                request,
+            recorder.add_message(
+                messages.WARNING,
                 _(
                     f"{affected} existing {model._meta.verbose_name_plural} were deactivated."
                 ),
             )
 
     if created_count:
-        messages.success(
-            request,
+        recorder.add_message(
+            messages.SUCCESS,
             _(f"{created_count} {model._meta.verbose_name_plural} were newly created."),
         )
 
     if all_ok:
-        messages.success(
-            request,
+        recorder.add_message(
+            messages.SUCCESS,
             _(f"All {model._meta.verbose_name_plural} were imported successfully."),
         )
     else:
-        messages.warning(
-            request, _(f"Some {model._meta.verbose_name_plural} failed to be imported.")
+        recorder.add_message(
+            messages.WARNING,
+            _(f"Some {model._meta.verbose_name_plural} failed to be imported."),
         )

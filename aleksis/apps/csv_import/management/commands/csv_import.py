@@ -20,11 +20,9 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         template_name = options["template"]
         try:
-            template = ImportTemplate.objects.get(name=template_name)
+            template = ImportTemplate.objects.get(name=template_name).pk
         except ImportTemplate.DoesNotExist:
             messages.error(None, _("The provided template does not exist."))
             return
 
-        csv = open(options["csv_path"], "rb")
-
-        import_csv(None, template, csv)
+        import_csv(None, template, options["csv_path"])
