@@ -38,6 +38,13 @@ def with_prefix(prefix: Optional[str], value: str) -> str:
         return value
 
 
+def get_subject_by_short_name(short_name: str) -> Subject:
+    subject, __ = Subject.objects.get_or_create(
+        short_name=short_name, defaults={"name": short_name}
+    )
+    return subject
+
+
 def create_department_groups(subjects: Sequence[str]) -> Sequence[Group]:
     """Create department groups for subjects."""
     group_type = get_site_preferences()["csv_import__group_type_departments"]
@@ -46,9 +53,7 @@ def create_department_groups(subjects: Sequence[str]) -> Sequence[Group]:
     groups = []
     for subject_name in subjects:
         # Get department subject
-        subject, __ = Subject.objects.get_or_create(
-            short_name=subject_name, defaults={"name": subject_name}
-        )
+        subject = get_subject_by_short_name(subject_name)
 
         # Get department group
         group, __ = Group.objects.get_or_create(

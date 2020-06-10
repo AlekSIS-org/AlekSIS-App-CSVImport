@@ -8,6 +8,7 @@ from django.utils.translation import gettext as _
 import pandas
 from pandas.errors import ParserError
 
+from aleksis.apps.chronos.models import GroupSubject
 from aleksis.apps.csv_import.models import (
     ALLOWED_FIELD_TYPES_FOR_MODELS,
     DATA_TYPES,
@@ -21,8 +22,14 @@ from aleksis.apps.csv_import.util.converters import CONVERTERS
 from aleksis.apps.csv_import.util.import_helpers import (
     bulk_get_or_create,
     create_department_groups,
+    get_subject_by_short_name,
     has_is_active_field,
     is_active,
+)
+from aleksis.apps.csv_import.util.pedasos_helpers import (
+    get_classes_per_grade,
+    get_classes_per_short_name,
+    parse_class_range,
 )
 from aleksis.core.models import Group, Person
 from aleksis.core.util.core_helpers import (
@@ -87,6 +94,11 @@ def import_csv(
 
     # Exclude all empty rows
     data = data.where(data.notnull(), None)
+
+    # Preload some data
+    if FieldType.PEDASOS_CLASS_RANGE.value in cols:
+        classes_per_short_name = get_classes_per_short_name()
+        classes_per_grade = get_classes_per_grade(classes_per_short_name.keys())
 
     all_ok = True
     inactive_refs = []
@@ -188,6 +200,24 @@ def import_csv(
                     defaults={"first_name": "?"},
                 )
                 instance.owners.set(group_owners)
+
+            # Group subject
+            if FieldType.SUBJECT_BY_SHORT_NAME.value in row:
+                subject = get_subject_by_short_name(
+                    row[FieldType.SUBJECT_BY_SHORT_NAME.value]
+                )
+                GroupSubject.objects.update_or_create(
+                    group=instance, defaults={"subject": subject}
+                )
+
+            # Class range
+            if FieldType.PEDASOS_CLASS_RANGE.value in row:
+                classes = parse_class_range(
+                    classes_per_short_name,
+                    classes_per_grade,
+                    row[FieldType.PEDASOS_CLASS_RANGE.value],
+                )
+                instance.parent_groups.set(classes)
 
             if template.group and isinstance(instance, Person):
                 instance.member_of.add(template.group)

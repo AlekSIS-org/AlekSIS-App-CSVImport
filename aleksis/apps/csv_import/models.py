@@ -40,6 +40,11 @@ class FieldType(models.TextChoices):
         "group_owner_shortname",
         _("Short name of a single group owner"),
     )
+    SUBJECT_BY_SHORT_NAME = ("subject_short_name", _("Short name of the subject"))
+    PEDASOS_CLASS_RANGE = (
+        "pedasos_class_range",
+        _("Pedasos: Class range (e. g. 7a-d)"),
+    )
 
     @classproperty
     def value_dict(cls):  # noqa
@@ -106,6 +111,8 @@ ALLOWED_FIELD_TYPES_FOR_MODELS = {
         FieldType.SHORT_NAME,
         FieldType.IGNORE,
         FieldType.GROUP_OWNER_BY_SHORT_NAME,
+        FieldType.SUBJECT_BY_SHORT_NAME,
+        FieldType.PEDASOS_CLASS_RANGE,
     },
 }
 
