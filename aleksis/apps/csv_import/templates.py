@@ -58,3 +58,15 @@ def update_or_create_default_templates():
             FieldType.GROUP_OWNER_BY_SHORT_NAME,
         ],
     )
+    update_or_create_template(
+        Group,
+        name="pedasos_courses",
+        verbose_name=_("Pedasos: Courses"),
+        extra_args={"has_header_row": True, "separator": "\t"},
+        fields=[
+            FieldType.SHORT_NAME,
+            FieldType.PEDASOS_CLASS_RANGE,
+            FieldType.SUBJECT_BY_SHORT_NAME,
+            FieldType.GROUP_OWNER_BY_SHORT_NAME,
+        ],
+    )
