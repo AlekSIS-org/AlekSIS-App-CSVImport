@@ -50,6 +50,10 @@ class FieldType(models.TextChoices):
         _("Short name of the group the person is a member of"),
     )
 
+    GUARDIAN_FIRST_NAME = ("parent_first_name", _("First name of a parent"))
+    GUARDIAN_LAST_NAME = ("parent_last_name", _("First name of a parent"))
+    GUARDIAN_EMAIL = ("parent_email", _("Email address of a parent"))
+
     @classproperty
     def value_dict(cls):  # noqa
         return {member.value: member for member in cls}
@@ -87,6 +91,9 @@ DATA_TYPES = {
 FIELD_TYPES_MULTIPLE = [
     FieldType.GROUP_OWNER_BY_SHORT_NAME,
     FieldType.GROUP_BY_SHORT_NAME,
+    FieldType.GUARDIAN_FIRST_NAME,
+    FieldType.GUARDIAN_LAST_NAME,
+    FieldType.GUARDIAN_EMAIL,
 ]
 
 ALLOWED_MODELS = [Person, Group]
@@ -112,6 +119,9 @@ ALLOWED_FIELD_TYPES_FOR_MODELS = {
         FieldType.DEPARTMENTS,
         FieldType.DATE_OF_BIRTH_DD_MM_YYYY,
         FieldType.GROUP_BY_SHORT_NAME,
+        FieldType.GUARDIAN_FIRST_NAME,
+        FieldType.GUARDIAN_LAST_NAME,
+        FieldType.GUARDIAN_EMAIL,
     },
     Group: {
         FieldType.UNIQUE_REFERENCE,

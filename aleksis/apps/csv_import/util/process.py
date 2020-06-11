@@ -22,6 +22,7 @@ from aleksis.apps.csv_import.util.converters import CONVERTERS
 from aleksis.apps.csv_import.util.import_helpers import (
     bulk_get_or_create,
     create_department_groups,
+    create_guardians,
     get_subject_by_short_name,
     has_is_active_field,
     is_active,
@@ -226,6 +227,33 @@ def import_csv(
                 ]
                 groups = Group.objects.filter(short_name__in=short_names)
                 instance.member_of.add(*groups)
+
+            # Guardians
+            if (
+                FieldType.GUARDIAN_FIRST_NAME in values_for_multiple_fields
+                and FieldType.GUARDIAN_LAST_NAME in values_for_multiple_fields
+            ):
+                first_names = values_for_multiple_fields[FieldType.GUARDIAN_FIRST_NAME]
+                last_names = values_for_multiple_fields[FieldType.GUARDIAN_LAST_NAME]
+
+                if len(first_names) != len(last_names):
+                    recorder.add_message(
+                        messages.ERROR,
+                        _(
+                            "Failed to import guardians: Each guardian needs a first and a last name."
+                        ),
+                    )
+
+                emails = []
+                if FieldType.GUARDIAN_EMAIL in values_for_multiple_fields:
+                    emails = values_for_multiple_fields[FieldType.GUARDIAN_EMAIL]
+
+                guardians = create_guardians(first_names, last_names, emails)
+                instance.guardians.set(guardians)
+
+                guardian_group = get_site_preferences()["csv_import__group_guardians"]
+                if guardian_group:
+                    guardian_group.members.add(*guardians)
 
             if template.group and isinstance(instance, Person):
                 instance.member_of.add(template.group)

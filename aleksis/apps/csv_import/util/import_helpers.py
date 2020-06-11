@@ -1,11 +1,11 @@
-from typing import Optional, Sequence, Union
+from typing import List, Optional, Sequence, Union
 
 from django.db.models import Model
 
 from aleksis.apps.chronos.models import Subject
 from aleksis.apps.csv_import.models import ALLOWED_FIELD_TYPES_FOR_MODELS, FieldType
 from aleksis.apps.csv_import.settings import STATE_ACTIVE
-from aleksis.core.models import Group
+from aleksis.core.models import Group, Person
 from aleksis.core.util.core_helpers import get_site_preferences
 
 
@@ -112,3 +112,24 @@ def bulk_get_or_create(
         instances.append(instance)
 
     return instances
+
+
+def create_guardians(
+    first_names: Sequence[str],
+    last_names: Sequence[str],
+    emails: Optional[Sequence[str]] = None,
+) -> List[Person]:
+    if not emails:
+        emails = []
+
+    if len(emails) != len(first_names):
+        emails = ["" for __ in first_names]
+
+    persons = []
+    for first_name, last_name, email in zip(first_names, last_names, emails):
+        person, created = Person.objects.get_or_create(
+            first_name=first_name, last_name=last_name, defaults={"email": email}
+        )
+        persons.append(person)
+
+    return persons
