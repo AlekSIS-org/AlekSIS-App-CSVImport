@@ -2,7 +2,7 @@ from typing import List, Optional, Sequence, Union
 
 from django.db.models import Model
 
-from aleksis.apps.chronos.models import Subject
+from aleksis.apps.chronos.models import GroupSubject, Subject
 from aleksis.apps.csv_import.models import ALLOWED_FIELD_TYPES_FOR_MODELS, FieldType
 from aleksis.apps.csv_import.settings import STATE_ACTIVE
 from aleksis.core.models import Group, Person
@@ -59,11 +59,12 @@ def create_department_groups(subjects: Sequence[str]) -> Sequence[Group]:
         group, __ = Group.objects.get_or_create(
             group_type=group_type,
             short_name=subject.short_name,
-            defaults={
-                "subject__subject": subject,
-                "name": with_prefix(group_prefix, subject.name),
-            },
+            defaults={"name": with_prefix(group_prefix, subject.name),},
         )
+        GroupSubject.objects.update_or_create(
+            group=group, defaults={"subject": subject}
+        )
+
         groups.append(group)
     return groups
 
