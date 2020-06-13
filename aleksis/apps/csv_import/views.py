@@ -43,7 +43,7 @@ def csv_import(request: HttpRequest) -> HttpResponse:
                         "error": _("There was a problem while importing data."),
                     },
                 }
-                return render(request, "core/progress.html", context)
+                return render(request, "core/pages/progress.html", context)
 
     context["upload_form"] = upload_form
 
