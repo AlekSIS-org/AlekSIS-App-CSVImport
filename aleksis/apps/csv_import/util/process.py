@@ -8,7 +8,6 @@ from django.utils.translation import gettext as _
 import pandas
 from pandas.errors import ParserError
 
-from aleksis.apps.chronos.models import GroupSubject
 from aleksis.apps.csv_import.models import (
     ALLOWED_FIELD_TYPES_FOR_MODELS,
     DATA_TYPES,
@@ -207,9 +206,8 @@ def import_csv(
                 subject = get_subject_by_short_name(
                     row[FieldType.SUBJECT_BY_SHORT_NAME.value]
                 )
-                GroupSubject.objects.update_or_create(
-                    group=instance, defaults={"subject": subject}
-                )
+                instance.subject = subject
+                instance.save()
 
             # Class range
             if FieldType.PEDASOS_CLASS_RANGE.value in row:
