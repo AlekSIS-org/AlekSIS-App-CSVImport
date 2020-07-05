@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Optional, Union
 from uuid import uuid4
 
 from django.contrib import messages
@@ -31,7 +31,7 @@ from aleksis.apps.csv_import.util.pedasos_helpers import (
     get_classes_per_short_name,
     parse_class_range,
 )
-from aleksis.core.models import Group, Person
+from aleksis.core.models import Group, Person, SchoolTerm
 from aleksis.core.util.core_helpers import (
     DummyRecorder,
     celery_optional_progress,
@@ -41,12 +41,18 @@ from aleksis.core.util.core_helpers import (
 
 @celery_optional_progress
 def import_csv(
-    recorder: Union["ProgressRecorder", DummyRecorder], template: int, filename: str,
+    recorder: Union["ProgressRecorder", DummyRecorder],
+    template: int,
+    filename: str,
+    school_term: Optional[int] = None,
 ) -> None:
     csv = open(filename, "rb")
 
     template = ImportTemplate.objects.get(pk=template)
     model = template.content_type.model_class()
+
+    if school_term:
+        school_term = SchoolTerm.objects.get(pk=school_term)
 
     data_types = {}
     cols = []
@@ -148,17 +154,18 @@ def import_csv(
             created = False
 
             try:
+                get_dict = {"defaults": update_dict}
                 if FieldType.UNIQUE_REFERENCE.value in row:
-                    instance, created = model.objects.update_or_create(
-                        import_ref_csv=row[FieldType.UNIQUE_REFERENCE.value],
-                        defaults=update_dict,
-                    )
+                    get_dict["import_ref_csv"] = row[FieldType.UNIQUE_REFERENCE.value]
                 elif FieldType.SHORT_NAME.value in row:
-                    instance, created = model.objects.update_or_create(
-                        short_name=row[FieldType.SHORT_NAME.value], defaults=update_dict
-                    )
+                    get_dict["short_name"] = row[FieldType.SHORT_NAME.value]
                 else:
                     raise ValueError(_("Missing import reference or short name."))
+
+                if model == Group and school_term:
+                    get_dict["school_term"] = school_term
+
+                instance, created = model.objects.update_or_create(**get_dict)
             except (ValueError, ValidationError) as e:
                 recorder.add_message(
                     messages.ERROR,
@@ -220,9 +227,7 @@ def import_csv(
 
             # Group memberships
             if FieldType.GROUP_BY_SHORT_NAME in values_for_multiple_fields:
-                short_names = values_for_multiple_fields[
-                    FieldType.GROUP_BY_SHORT_NAME
-                ]
+                short_names = values_for_multiple_fields[FieldType.GROUP_BY_SHORT_NAME]
                 groups = Group.objects.filter(short_name__in=short_names)
                 instance.member_of.add(*groups)
 

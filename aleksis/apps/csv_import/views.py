@@ -30,7 +30,11 @@ def csv_import(request: HttpRequest) -> HttpResponse:
             )
             handle_uploaded_file(request.FILES["csv"], filename)
 
-            result = import_csv(upload_form.cleaned_data["template"].pk, filename)
+            result = import_csv(
+                upload_form.cleaned_data["template"].pk,
+                filename,
+                school_term=upload_form.cleaned_data["school_term"].pk,
+            )
 
             if result:
                 context = {
