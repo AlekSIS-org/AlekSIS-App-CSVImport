@@ -81,7 +81,7 @@ def update_or_create_default_templates():
             FieldType.FIRST_NAME,
             FieldType.DATE_OF_BIRTH_DD_MM_YYYY,
             FieldType.SEX,
-            FieldType.GROUP_BY_SHORT_NAME,
+            FieldType.PRIMARY_GROUP_BY_SHORT_NAME,
             FieldType.GUARDIAN_LAST_NAME,  # Mother
             FieldType.GUARDIAN_FIRST_NAME,
             FieldType.GUARDIAN_EMAIL,

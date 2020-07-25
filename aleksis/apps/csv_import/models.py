@@ -49,6 +49,10 @@ class FieldType(models.TextChoices):
         "group_short_name",
         _("Short name of the group the person is a member of"),
     )
+    PRIMARY_GROUP_BY_SHORT_NAME = (
+        "primary_group_short_name",
+        _("Short name of the person's primary group"),
+    )
 
     GUARDIAN_FIRST_NAME = ("parent_first_name", _("First name of a parent"))
     GUARDIAN_LAST_NAME = ("parent_last_name", _("First name of a parent"))
@@ -131,6 +135,7 @@ ALLOWED_FIELD_TYPES_FOR_MODELS = {
         FieldType.GROUP_OWNER_BY_SHORT_NAME,
         FieldType.SUBJECT_BY_SHORT_NAME,
         FieldType.PEDASOS_CLASS_RANGE,
+        FieldType.PRIMARY_GROUP_BY_SHORT_NAME,
     },
 }
 
