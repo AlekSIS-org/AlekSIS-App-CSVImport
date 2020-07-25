@@ -11,8 +11,6 @@ class CSVUploadForm(forms.Form):
     school_term = forms.ModelChoiceField(
         queryset=SchoolTerm.objects.all(),
         label=_("Related school term"),
-        required=False,
-        help_text=_("Optional, only relevant for group imports")
     )
     template = forms.ModelChoiceField(
         queryset=ImportTemplate.objects.all(), label=_("Import template")

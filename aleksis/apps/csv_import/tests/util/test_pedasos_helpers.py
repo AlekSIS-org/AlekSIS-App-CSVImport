@@ -116,7 +116,7 @@ def test_get_grade_and_class_from_class_range():
 def test_get_classes_per_short_name():
     Group.objects.bulk_create([Group(short_name=name, name=name) for name in CLASSES])
 
-    classes_per_short_name = get_classes_per_short_name()
+    classes_per_short_name = get_classes_per_short_name(None)
 
     for class_ in CLASSES:
         assert class_ in classes_per_short_name
@@ -126,7 +126,7 @@ def test_get_classes_per_short_name():
 def test_parse_class_range():
     Group.objects.bulk_create([Group(short_name=name, name=name) for name in CLASSES])
 
-    classes_per_short_name = get_classes_per_short_name()
+    classes_per_short_name = get_classes_per_short_name(None)
 
     classes = parse_class_range(classes_per_short_name, CLASSES_PER_GRADE, "5-Q2")
     assert sorted([x.short_name for x in classes]) == CLASSES

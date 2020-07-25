@@ -103,7 +103,7 @@ def import_csv(
 
     # Preload some data
     if FieldType.PEDASOS_CLASS_RANGE.value in cols:
-        classes_per_short_name = get_classes_per_short_name()
+        classes_per_short_name = get_classes_per_short_name(school_term)
         classes_per_grade = get_classes_per_grade(classes_per_short_name.keys())
 
     all_ok = True
@@ -228,7 +228,7 @@ def import_csv(
             # Group memberships
             if FieldType.GROUP_BY_SHORT_NAME in values_for_multiple_fields:
                 short_names = values_for_multiple_fields[FieldType.GROUP_BY_SHORT_NAME]
-                groups = Group.objects.filter(short_name__in=short_names)
+                groups = Group.objects.filter(short_name__in=short_names, school_term=school_term)
                 instance.member_of.add(*groups)
 
             # Guardians

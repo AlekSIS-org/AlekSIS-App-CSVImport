@@ -34,9 +34,9 @@ def get_classes_per_grade(classes: Sequence[str]):
     return classes_per_grade
 
 
-def get_classes_per_short_name():
+def get_classes_per_short_name(school_term):
     """Get all groups which match the Pedasos schema and group them by their short names."""
-    qs = Group.objects.filter(short_name__regex=REGEX_CLASS_DB)
+    qs = Group.objects.filter(short_name__regex=REGEX_CLASS_DB, school_term=school_term)
 
     return {obj.short_name: obj for obj in qs}
 
