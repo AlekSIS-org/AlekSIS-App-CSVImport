@@ -229,7 +229,9 @@ def import_csv(
             if FieldType.PRIMARY_GROUP_BY_SHORT_NAME.value in row:
                 short_name = row[FieldType.PRIMARY_GROUP_BY_SHORT_NAME.value]
                 try:
-                    group = Group.objects.get(short_name=short_name, school_term=school_term)
+                    group = Group.objects.get(
+                        short_name=short_name, school_term=school_term
+                    )
                     instance.primary_group = group
                     instance.member_of.add(group)
                     instance.save()
@@ -245,7 +247,9 @@ def import_csv(
             # Group memberships
             if FieldType.GROUP_BY_SHORT_NAME in values_for_multiple_fields:
                 short_names = values_for_multiple_fields[FieldType.GROUP_BY_SHORT_NAME]
-                groups = Group.objects.filter(short_name__in=short_names, school_term=school_term)
+                groups = Group.objects.filter(
+                    short_name__in=short_names, school_term=school_term
+                )
                 instance.member_of.add(*groups)
 
             # Guardians

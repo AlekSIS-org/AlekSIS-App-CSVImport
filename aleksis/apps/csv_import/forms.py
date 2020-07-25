@@ -9,8 +9,7 @@ from aleksis.core.models import SchoolTerm
 class CSVUploadForm(forms.Form):
     csv = forms.FileField(label=_("CSV file"))
     school_term = forms.ModelChoiceField(
-        queryset=SchoolTerm.objects.all(),
-        label=_("Related school term"),
+        queryset=SchoolTerm.objects.all(), label=_("Related school term"),
     )
     template = forms.ModelChoiceField(
         queryset=ImportTemplate.objects.all(), label=_("Import template")

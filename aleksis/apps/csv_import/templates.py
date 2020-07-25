@@ -4,11 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models import Model
 from django.utils.translation import gettext as _
 
-from aleksis.apps.csv_import.models import (
-    FieldType,
-    ImportTemplate,
-    ImportTemplateField,
-)
+from aleksis.apps.csv_import.models import FieldType, ImportTemplate, ImportTemplateField
 from aleksis.core.models import Group, Person
 
 

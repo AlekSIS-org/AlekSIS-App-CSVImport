@@ -1,8 +1,4 @@
-from aleksis.apps.csv_import.util.import_helpers import (
-    has_is_active_field,
-    is_active,
-    with_prefix,
-)
+from aleksis.apps.csv_import.util.import_helpers import has_is_active_field, is_active, with_prefix
 from aleksis.core.models import Group, GroupType, Person
 
 
