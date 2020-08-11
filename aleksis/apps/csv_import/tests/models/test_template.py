@@ -43,8 +43,8 @@ def test_import_template_field():
     field_1 = template.fields.create(field_type=FieldType.SHORT_NAME, index=1)
     field_2 = template.fields.create(field_type=FieldType.IS_ACTIVE, index=2)
 
-    assert field_0.field_type_enum == FieldType.UNIQUE_REFERENCE
-    assert field_1.field_type_enum == FieldType.SHORT_NAME
-    assert field_2.field_type_enum == FieldType.IS_ACTIVE
+    assert field_0.field_type_class == FieldType.UNIQUE_REFERENCE
+    assert field_1.field_type_class == FieldType.SHORT_NAME
+    assert field_2.field_type_class == FieldType.IS_ACTIVE
 
     assert template.fields.count() == 3

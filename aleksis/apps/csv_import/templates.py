@@ -4,12 +4,25 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models import Model
 from django.utils.translation import gettext as _
 
-from aleksis.apps.csv_import.models import FieldType, ImportTemplate, ImportTemplateField
+from .field_types import (
+    ShortNameFieldType,
+    LastNameFieldType,
+    FirstNameFieldType,
+    DateOfBirthFieldType,
+    SexFieldType,
+    IgnoreFieldType,
+    UniqueReferenceFieldType, FieldType,
+)
+from .models import ImportTemplate, ImportTemplateField
 from aleksis.core.models import Group, Person
 
 
 def update_or_create_template(
-    model: Model, name: str, verbose_name: str, extra_args: dict, fields: Sequence
+    model: Model,
+    name: str,
+    verbose_name: str,
+    extra_args: dict,
+    fields: Sequence[FieldType],
 ):
     """Update or create an import template in database."""
     ct = ContentType.objects.get_for_model(model)
@@ -20,7 +33,7 @@ def update_or_create_template(
 
     for i, field in enumerate(fields):
         ImportTemplateField.objects.update_or_create(
-            template=template, index=i, defaults={"field_type": field},
+            template=template, index=i, defaults={"field_type": field.name},
         )
 
     ImportTemplateField.objects.filter(template=template, index__gt=i).delete()
@@ -34,13 +47,13 @@ def update_or_create_default_templates():
         verbose_name=_("Pedasos: Teachers"),
         extra_args={"has_header_row": True, "separator": "\t"},
         fields=[
-            FieldType.SHORT_NAME,
-            FieldType.LAST_NAME,
-            FieldType.FIRST_NAME,
-            FieldType.DATE_OF_BIRTH_DD_MM_YYYY,
-            FieldType.SEX,
-            FieldType.DEPARTMENTS,
-            FieldType.IGNORE,
+            ShortNameFieldType,
+            LastNameFieldType,
+            FirstNameFieldType,
+            DateOfBirthFieldType,
+            SexFieldType,
+            IgnoreFieldType,  # DEPARTMENTS
+            IgnoreFieldType,  # IGNORE
         ],
     )
     update_or_create_template(
@@ -49,9 +62,9 @@ def update_or_create_default_templates():
         verbose_name=_("Pedasos: Classes"),
         extra_args={"has_header_row": True, "separator": "\t"},
         fields=[
-            FieldType.SHORT_NAME,
-            FieldType.GROUP_OWNER_BY_SHORT_NAME,
-            FieldType.GROUP_OWNER_BY_SHORT_NAME,
+            ShortNameFieldType,
+            IgnoreFieldType,  # GROUP_OWNER_BY_SHORT_NAME
+            IgnoreFieldType,  # GROUP_OWNER_BY_SHORT_NAME
         ],
     )
     update_or_create_template(
@@ -60,10 +73,10 @@ def update_or_create_default_templates():
         verbose_name=_("Pedasos: Courses"),
         extra_args={"has_header_row": True, "separator": "\t"},
         fields=[
-            FieldType.SHORT_NAME,
-            FieldType.PEDASOS_CLASS_RANGE,
-            FieldType.SUBJECT_BY_SHORT_NAME,
-            FieldType.GROUP_OWNER_BY_SHORT_NAME,
+            ShortNameFieldType,
+            IgnoreFieldType,  # PEDASOS_CLASS_RANGE
+            IgnoreFieldType,  # SUBJECT_BY_SHORT_NAME
+            IgnoreFieldType,  # GROUP_OWNER_BY_SHORT_NAME
         ],
     )
     update_or_create_template(
@@ -72,38 +85,38 @@ def update_or_create_default_templates():
         verbose_name=_("Pedasos: Students"),
         extra_args={"has_header_row": True, "separator": "\t"},
         fields=[
-            FieldType.UNIQUE_REFERENCE,
-            FieldType.LAST_NAME,
-            FieldType.FIRST_NAME,
-            FieldType.DATE_OF_BIRTH_DD_MM_YYYY,
-            FieldType.SEX,
-            FieldType.PRIMARY_GROUP_BY_SHORT_NAME,
-            FieldType.GUARDIAN_LAST_NAME,  # Mother
-            FieldType.GUARDIAN_FIRST_NAME,
-            FieldType.GUARDIAN_EMAIL,
-            FieldType.GUARDIAN_LAST_NAME,  # Father
-            FieldType.GUARDIAN_FIRST_NAME,
-            FieldType.GUARDIAN_EMAIL,
-            FieldType.GROUP_BY_SHORT_NAME,  # Course 1
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,  # Course 5
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,  # Course 10
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,  # Course 15
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,
-            FieldType.GROUP_BY_SHORT_NAME,  # Course 20
-            FieldType.GROUP_BY_SHORT_NAME,  # Course 21
+            UniqueReferenceFieldType,
+            LastNameFieldType,
+            FirstNameFieldType,
+            DateOfBirthFieldType,
+            SexFieldType,
+            IgnoreFieldType,  # PRIMARY_GROUP_BY_SHORT_NAME
+            IgnoreFieldType,  # MOTHER GUARDIAN_LAST_NAME GUARDIAN_FIRST_NAME GUARDIAN_EMAIL
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # FATHER
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # Course 1
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # Course 5
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # Course 10
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # Course 15
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # Course 20
+            IgnoreFieldType,  # Course 21
         ],
     )

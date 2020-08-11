@@ -4,7 +4,7 @@ from phonenumbers import PhoneNumber
 
 from aleksis.apps.csv_import.util.converters import (
     parse_comma_separated_data,
-    parse_dd_mm_yyyy,
+    parse_date,
     parse_phone_number,
     parse_sex,
 )
@@ -40,14 +40,14 @@ def test_parse_sex_none():
 
 
 def test_parse_dd_mm_yyyy():
-    assert parse_dd_mm_yyyy("12.01.2020") == date(2020, 1, 12)
-    assert parse_dd_mm_yyyy("12.12.1912") == date(1912, 12, 12)
+    assert parse_date("12.01.2020") == date(2020, 1, 12)
+    assert parse_date("12.12.1912") == date(1912, 12, 12)
 
 
 def test_parse_dd_mm_yyyy_none():
-    assert parse_dd_mm_yyyy("") is None
-    assert parse_dd_mm_yyyy("foo") is None
-    assert parse_dd_mm_yyyy("12.14.1912") is None
+    assert parse_date("") is None
+    assert parse_date("foo") is None
+    assert parse_date("12.14.1912") is None
 
 
 def test_parse_comma_separated_data():

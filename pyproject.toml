@@ -24,6 +24,7 @@ AlekSIS = "^2.0a2"
 AlekSIS-App-Chronos = "^2.0a2"
 pandas = "^1.0.0"
 phonenumbers = "^8.10"
+dateparser = "^0.7.6"
 
 [tool.poetry.dev-dependencies]
 sphinx = "^3.0"

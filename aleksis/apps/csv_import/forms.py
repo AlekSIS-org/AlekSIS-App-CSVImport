@@ -17,8 +17,9 @@ class CSVUploadForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
         try:
+            school_terms = SchoolTerm.objects.on_day(timezone.now().date())
             kwargs["initial"] = {
-                "school_term": SchoolTerm.objects.on_day(timezone.now().date())[0]
+                "school_term": school_terms[0] if school_terms.exists() else None
             }
         except SchoolTerm.DoesNotExist:
             pass

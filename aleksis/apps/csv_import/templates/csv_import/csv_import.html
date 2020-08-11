@@ -45,6 +45,29 @@
         </div>
       </div>
     </li>
+    <li>
+      <div class="collapsible-header">{% trans "Pedasos" %}</div>
+      <div class="collapsible-body">
+        <div class="alert info">
+          <p>
+            <i class="material-icons left">info</i>
+            {% blocktrans %}
+              Pedasos has a tool called "List generator" which can be used to create own lists and export them in
+              various variants. Please define the following lists in your Pedasos instance to use the predefined import
+              templates and export them as CSV files:
+            {% endblocktrans %}
+          </p>
+        </div>
+        <table class="highlight">
+          <thead>
+          <tr>
+            <th>{% trans "Column number" %}</th>
+            <th>{% trans "Field value" %}</th>
+          </tr>
+          </thead>
+        </table>
+      </div>
+    </li>
   </ul>
 
   <form method="post" enctype="multipart/form-data">
