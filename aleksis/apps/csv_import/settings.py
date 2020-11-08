@@ -1,11 +1,11 @@
-PHONE_NUMBER_COUNTRY = "DE"
 STATE_ACTIVE = (True, 2)
-TRUE_VALUES = ["+", "Ja"]
-FALSE_VALUES = ["-", "Nein"]
-DATE_FIELDS = ["date_of_birth"]
+TRUE_VALUES = ["+", "Ja", "yes", "Yes", "ja"]
+FALSE_VALUES = ["-", "Nein", "no", "No", "nein"]
 SEXES = {
     "w": "f",
     "m": "m",
     "weiblich": "f",
     "männlich": "m",
+    "female": "f",
+    "male": "m",
 }

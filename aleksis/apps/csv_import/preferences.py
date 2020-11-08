@@ -1,7 +1,13 @@
+import pycountry
 from django.utils.translation import gettext as _
 
 from dynamic_preferences.preferences import Section
-from dynamic_preferences.types import ModelChoicePreference, StringPreference
+from dynamic_preferences.types import (
+    ModelChoicePreference,
+    StringPreference,
+    ChoicePreference,
+    MultipleChoicePreference,
+)
 
 from aleksis.core.models import Group, GroupType
 from aleksis.core.registries import site_preferences_registry
@@ -41,10 +47,20 @@ class GroupGuardians(ModelChoicePreference):
 
 
 @site_preferences_registry.register
-class DateLanguages(StringPreference):
+class DateLanguages(MultipleChoicePreference):
     section = csv_import
     name = "date_languages"
     required = False
     default = ""
     verbose_name = _("Languages for date parsing")
     help_text = _("e. g. en,es,zh-Hant")
+
+
+@site_preferences_registry.register
+class PhoneNumberCountry(ChoicePreference):
+    section = csv_import
+    name = "phone_number_country"
+    required = True
+    default = "GB"
+    choices = [(x.alpha_2, x.alpha_2) for x in pycountry.countries]
+    verbose_name = _("Country for phone number parsing")

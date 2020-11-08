@@ -25,6 +25,7 @@ AlekSIS-App-Chronos = { git = "https://edugit.org/AlekSIS/official/AlekSIS-App-C
 pandas = "^1.0.0"
 phonenumbers = "^8.10"
 dateparser = "^0.7.6"
+pycountry = "^20.7.3"
 
 [tool.poetry.dev-dependencies]
 sphinx = "^3.0"

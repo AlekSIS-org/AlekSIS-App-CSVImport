@@ -4,14 +4,16 @@ from typing import Sequence, Union
 import dateparser
 import phonenumbers
 
-from aleksis.apps.csv_import.settings import PHONE_NUMBER_COUNTRY, SEXES
+from aleksis.apps.csv_import.settings import SEXES
 from aleksis.core.util.core_helpers import get_site_preferences
 
 
 def parse_phone_number(value: str) -> Union[phonenumbers.PhoneNumber, None]:
     """Parse a phone number."""
     try:
-        return phonenumbers.parse(value, PHONE_NUMBER_COUNTRY)
+        return phonenumbers.parse(
+            value, get_site_preferences()["csv_import__phone_number_country"]
+        )
     except phonenumbers.NumberParseException:
         return None
 
