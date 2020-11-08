@@ -7,10 +7,14 @@ from django.utils.translation import gettext as _
 from aleksis.core.models import Group, Person
 
 from .field_types import (
+    ChildByUniqueReference,
     DateOfBirthFieldType,
     DepartmentsFieldType,
+    EmailFieldType,
     FieldType,
     FirstNameFieldType,
+    GroupMembershipByShortNameFieldType,
+    GroupOwnerByShortNameFieldType,
     GroupSubjectByShortNameFieldType,
     IgnoreFieldType,
     LastNameFieldType,
@@ -69,8 +73,8 @@ def update_or_create_default_templates():
         extra_args={"has_header_row": True, "separator": "\t"},
         fields=[
             ShortNameFieldType,
-            IgnoreFieldType,  # GROUP_OWNER_BY_SHORT_NAME
-            IgnoreFieldType,  # GROUP_OWNER_BY_SHORT_NAME
+            GroupOwnerByShortNameFieldType,
+            GroupOwnerByShortNameFieldType,
         ],
     )
     update_or_create_template(
@@ -82,7 +86,7 @@ def update_or_create_default_templates():
             ShortNameFieldType,
             PedasosClassRangeFieldType,
             GroupSubjectByShortNameFieldType,
-            IgnoreFieldType,  # GROUP_OWNER_BY_SHORT_NAME
+            GroupOwnerByShortNameFieldType,
         ],
     )
     update_or_create_template(
@@ -97,12 +101,94 @@ def update_or_create_default_templates():
             DateOfBirthFieldType,
             SexFieldType,
             PrimaryGroupByShortNameFieldType,
-            IgnoreFieldType,  # MOTHER GUARDIAN_LAST_NAME GUARDIAN_FIRST_NAME GUARDIAN_EMAIL
+            IgnoreFieldType,  # MOTHER
             IgnoreFieldType,
             IgnoreFieldType,
             IgnoreFieldType,  # FATHER
             IgnoreFieldType,
             IgnoreFieldType,
+            GroupMembershipByShortNameFieldType,  # Course 1
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,  # Course 5
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,  # Course 10
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,  # Course 15
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,
+            GroupMembershipByShortNameFieldType,  # Course 20
+            GroupMembershipByShortNameFieldType,  # Course 21
+        ],
+    )
+    update_or_create_template(
+        Person,
+        name="pedasos_guardians_1",
+        verbose_name=_("Pedasos: Guardians 1"),
+        extra_args={"has_header_row": True, "separator": "\t"},
+        fields=[
+            ChildByUniqueReference,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            LastNameFieldType,  # MOTHER
+            FirstNameFieldType,
+            EmailFieldType,
+            IgnoreFieldType,  # FATHER
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # Course 1
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # Course 5
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # Course 10
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # Course 15
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # Course 20
+            IgnoreFieldType,  # Course 21
+        ],
+    )
+    update_or_create_template(
+        Person,
+        name="pedasos_guardians_2",
+        verbose_name=_("Pedasos: Guardians 2"),
+        extra_args={"has_header_row": True, "separator": "\t"},
+        fields=[
+            ChildByUniqueReference,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,
+            IgnoreFieldType,  # MOTHER
+            IgnoreFieldType,
+            IgnoreFieldType,
+            LastNameFieldType,  # FATHER
+            FirstNameFieldType,
+            EmailFieldType,
             IgnoreFieldType,  # Course 1
             IgnoreFieldType,
             IgnoreFieldType,

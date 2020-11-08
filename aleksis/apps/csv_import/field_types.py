@@ -11,7 +11,11 @@ from aleksis.apps.csv_import.util.converters import (
     parse_phone_number,
     parse_sex,
 )
-from aleksis.apps.csv_import.util.import_helpers import get_subject_by_short_name, with_prefix
+from aleksis.apps.csv_import.util.import_helpers import (
+    bulk_get_or_create,
+    get_subject_by_short_name,
+    with_prefix,
+)
 from aleksis.apps.csv_import.util.pedasos_helpers import (
     get_classes_per_grade,
     get_classes_per_short_name,
@@ -187,11 +191,12 @@ class ShortNameFieldType(MatchFieldType):
 
 
 @field_type_registry.register
-class EmailFieldType(DirectMappingFieldType):
+class EmailFieldType(MatchFieldType):
     name = "email"
     verbose_name = _("Email")
     models = [Person]
     db_field = "email"
+    priority = 12
 
 
 @field_type_registry.register
@@ -353,3 +358,45 @@ class PrimaryGroupByShortNameFieldType(ProcessFieldType):
                     f"Group {value} does not exist in school term {self.school_term}."
                 )
             )
+
+
+@field_type_registry.register
+class GroupOwnerByShortNameFieldType(MultipleValuesFieldType):
+    name = "group_owner_short_name"
+    verbose_name = _("Short name of a single group owner")
+    models = [Group]
+
+    def process(self, instance: Model, values: Sequence):
+        group_owners = bulk_get_or_create(
+            Person,
+            values,
+            attr="short_name",
+            default_attrs="last_name",
+            defaults={"first_name": "?"},
+        )
+        instance.owners.set(group_owners)
+
+
+@field_type_registry.register
+class GroupMembershipByShortNameFieldType(MultipleValuesFieldType):
+    name = "group_membership_short_name"
+    verbose_name = _("Short name of the group the person is a member of")
+
+    models = [Person]
+
+    def process(self, instance: Model, values: Sequence):
+        groups = Group.objects.filter(
+            short_name__in=values, school_term=self.school_term
+        )
+        instance.member_of.add(*groups)
+
+
+@field_type_registry.register
+class ChildByUniqueReference(ProcessFieldType):
+    name = "child_by_unique_reference"
+    verbose_name = _("Child by unique reference (from students import)")
+    models = [Person]
+
+    def process(self, instance: Model, value):
+        child = Person.objects.get(import_ref_csv=value)
+        instance.children.add(child)

@@ -148,6 +148,11 @@ def import_csv(
                         value = row[col]
                         values_for_multiple_fields[field_type].append(value)
 
+                    # Process
+                    field_type().process(
+                        instance, values_for_multiple_fields[field_type]
+                    )
+
                 # Process field types with custom logic
                 for process_field_type in field_type_registry.process_field_types:
                     if process_field_type.name in row:
@@ -157,56 +162,6 @@ def import_csv(
                             )
                         except RuntimeError as e:
                             recorder.add_message(messages.ERROR, str(e))
-
-                # Group owners
-                # if FieldType.GROUP_OWNER_BY_SHORT_NAME in values_for_multiple_fields:
-                #     short_names = values_for_multiple_fields[
-                #         FieldType.GROUP_OWNER_BY_SHORT_NAME
-                #     ]
-                #     group_owners = bulk_get_or_create(
-                #         Person,
-                #         short_names,
-                #         attr="short_name",
-                #         default_attrs="last_name",
-                #         defaults={"first_name": "?"},
-                #     )
-                #     instance.owners.set(group_owners)
-                #
-
-                # Group memberships
-                # if FieldType.GROUP_BY_SHORT_NAME in values_for_multiple_fields:
-                #     short_names = values_for_multiple_fields[FieldType.GROUP_BY_SHORT_NAME]
-                #     groups = Group.objects.filter(
-                #         short_name__in=short_names, school_term=school_term
-                #     )
-                #     instance.member_of.add(*groups)
-
-                # Guardians
-                # if (
-                #     FieldType.GUARDIAN_FIRST_NAME in values_for_multiple_fields
-                #     and FieldType.GUARDIAN_LAST_NAME in values_for_multiple_fields
-                # ):
-                #     first_names = values_for_multiple_fields[FieldType.GUARDIAN_FIRST_NAME]
-                #     last_names = values_for_multiple_fields[FieldType.GUARDIAN_LAST_NAME]
-                #
-                #     if len(first_names) != len(last_names):
-                #         recorder.add_message(
-                #             messages.ERROR,
-                #             _(
-                #                 "Failed to import guardians: Each guardian needs a first and a last name."
-                #             ),
-                #         )
-                #
-                #     emails = []
-                #     if FieldType.GUARDIAN_EMAIL in values_for_multiple_fields:
-                #         emails = values_for_multiple_fields[FieldType.GUARDIAN_EMAIL]
-                #
-                #     guardians = create_guardians(first_names, last_names, emails)
-                #     instance.guardians.set(guardians)
-                #
-                #     guardian_group = get_site_preferences()["csv_import__group_guardians"]
-                #     if guardian_group:
-                #         guardian_group.members.add(*guardians)
 
                 if template.group and isinstance(instance, Person):
                     instance.member_of.add(template.group)
