@@ -1,0 +1,77 @@
+[pedasos_teachers]
+model = "core.Person"
+verbose_name = "Pedasos: Teachers"
+extra_args = { "has_header_row" = true, "separator" = "\t" }
+fields = ["short_name", "last_name", "first_name", "date_of_birth", "sex", "departments", "ignore"]
+
+[pedasos_classes]
+model = "core.Group"
+verbose_name = "Pedasos: Classes"
+extra_args = { "has_header_row" = true, "separator" = "\t" }
+fields = ["short_name", "group_owner_by_short_name", "group_owner_by_short_name"]
+
+[pedasos_courses]
+model = "core.Group"
+verbose_name = "Pedasos: Courses"
+extra_args = { "has_header_row" = true, "separator" = "\t" }
+fields = ["short_name", "pedasos_class_range", "group_subject_by_short_name", "group_owner_by_short_name"]
+
+[pedasos_students]
+model = "core.Person"
+verbose_name = "Pedasos: Students"
+extra_args = { "has_header_row" = true, "separator" = "\t" }
+fields = ["unique_reference",
+          "last_name", "first_name", "date_of_birth", "sex",
+	  "primary_group_by_short_name",
+	  "ignore", "ignore", "ignore", # MOTHER
+	  "ignore", "ignore", "ignore", # FATHER
+	  "group_membership_by_short_name", # Course 1
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name", # Course 5
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name", # Course 10
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name", # Course 15
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name",
+	  "group_membership_by_short_name", # Course 20
+	  "group_membership_by_short_name"  # Course 21
+	 ]
+
+[pedasos_guardians_1]
+model = "core.Person"
+verbose_name = "Pedasos: Guardians 1"
+extra_args = { "has_header_row" = true, "separator" = "\t" }
+fields = ["child_by_unique_reference",
+          "ignore", "ignore", "ignore", "ignore",
+	  "ignore",
+	  "last_name", "first_name", "email", # MOTHER
+	  "ignore", "ignore", "ignore",       # FATHER
+	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore",
+	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore",
+	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore"
+	 ]
+
+[pedasos_guardians_2]
+model = "core.Person"
+verbose_name = "Pedasos: Guardians 2"
+extra_args = { "has_header_row" = true, "separator" = "\t" }
+fields = ["child_by_unique_reference",
+          "ignore", "ignore", "ignore", "ignore",
+	  "ignore",
+	  "ignore", "ignore", "ignore",       # MOTHER
+	  "last_name", "first_name", "email", # FATHER
+	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore",
+	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore",
+	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore"
+	 ]
