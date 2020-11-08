@@ -20,8 +20,8 @@ classifiers = [
 
 [tool.poetry.dependencies]
 python = "^3.7"
-AlekSIS = "^2.0a2"
-AlekSIS-App-Chronos = "^2.0a2"
+AlekSIS = { git = "https://edugit.org/AlekSIS/official/AlekSIS" }
+AlekSIS-App-Chronos = { git = "https://edugit.org/AlekSIS/official/AlekSIS-App-Chronos" }
 pandas = "^1.0.0"
 phonenumbers = "^8.10"
 dateparser = "^0.7.6"
