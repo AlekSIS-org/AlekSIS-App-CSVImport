@@ -36,7 +36,7 @@ class ImportTemplate(ExtensibleModel):
     verbose_name = models.CharField(max_length=255, verbose_name=_("Name"))
 
     has_header_row = models.BooleanField(
-        default=True, verbose_name=_("Has the CSV file a own header row?")
+        default=True, verbose_name=_("Has the CSV file an own header row?")
     )
     separator = models.CharField(
         max_length=255,
