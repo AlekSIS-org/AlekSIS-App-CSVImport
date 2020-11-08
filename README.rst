@@ -1,4 +1,4 @@
-AlekSIS (School Information System) — App for SchILD-NRW interaction
+AlekSIS (School Information System) — App for CSV imports
 ====================================================================
 
 AlekSIS
@@ -9,15 +9,19 @@ This is an application for use with the `AlekSIS`_ platform.
 Features
 --------
 
-This app provides import and export functions to interact with SchILD-NRW,
-the obligatory school management software in North Rhine-Westphalia.
+This app provides general CSV imports functions to interact with school administration software.
+
+Supported systems:
+* SchILD-NRW (North Rhine-Westphalia, Germany)
+* Pedasos (Schleswig-Holstein, Germany
 
 Licence
 -------
 
 ::
 
-  Copyright © 2019 Dominik George <dominik.george@teckids.org>
+  Copyright © 2019, 2020 Dominik George <dominik.george@teckids.org>
+  Copyright © 2020 Jonathan Weth <dev@jonathanweth.de>
   Copyright © 2019 mirabilos <thorsten.glaser@teckids.org>
   Copyright © 2019 Tom Teichler <tom.teichler@teckids.org>
 

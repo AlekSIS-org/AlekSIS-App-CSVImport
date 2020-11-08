@@ -1,0 +1,28 @@
+{# -*- engine:django -*- #}
+
+{% extends "core/base.html" %}
+{% load material_form i18n static %}
+
+
+{% block browser_title %}{% trans "Import CSV data" %}{% endblock %}
+{% block page_title %}{% trans "Import CSV data" %}{% endblock %}
+
+{% block content %}
+  <div class="alert info">
+    <p>
+      <i class="material-icons left">info</i>
+      {% blocktrans %}
+        You can import data from several school administration software using this CSV importer. Please read the notes
+        according to your software in the documentation! Sometimes there is needed a special procedure to import the data correctly.
+      {% endblocktrans %}
+    </p>
+  </div>
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {% form form=upload_form %}{% endform %}
+
+    {% trans "Import data" as caption %}
+    {% include "core/partials/save_button.html" with icon="cloud_upload" caption=caption %}
+  </form>
+{% endblock %}

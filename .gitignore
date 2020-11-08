@@ -53,3 +53,8 @@ db.sqlite3
 
 # Sphinx
 docs/_build/
+
+# Testing
+.tox
+.coverage
+htmlcov/
