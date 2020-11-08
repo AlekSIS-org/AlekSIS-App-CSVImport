@@ -310,7 +310,7 @@ class DepartmentsFieldType(ProcessFieldType):
 
 @field_type_registry.register
 class GroupSubjectByShortNameFieldType(ProcessFieldType):
-    name = "subject_short_name"
+    name = "group_subject_short_name"
     verbose_name = _("Short name of the subject")
     models = [Group]
 
