@@ -114,29 +114,28 @@ def import_csv(
         if template.group_type and model == Group:
             update_dict["group_type"] = template.group_type
 
+        get_dict = {}
+        match_field_found = False
+        for (
+            priority,
+            match_field_type,
+        ) in field_type_registry.match_field_types:
+            if match_field_type.name in row:
+                get_dict[match_field_type.db_field] = row[match_field_type.name]
+                match_field_found = True
+                break
+
+        if not match_field_found:
+            raise ValueError(_("Missing unique reference."))
+
+        if hasattr(model, "school_term") and school_term:
+            get_dict["school_term"] = school_term
+
         if obj_is_active:
             created = False
 
             try:
-                get_dict = {"defaults": update_dict}
-
-                match_field_found = False
-                for (
-                    priority,
-                    match_field_type,
-                ) in field_type_registry.match_field_types:
-                    if match_field_type.name in row:
-                        get_dict[match_field_type.db_field] = row[match_field_type.name]
-                        match_field_found = True
-                        break
-
-                if not match_field_found:
-                    raise ValueError(_("Missing unique reference."))
-
-                if hasattr(model, "school_term") and school_term:
-                    get_dict["school_term"] = school_term
-
-                print(get_dict)
+                get_dict["defaults"] = update_dict
 
                 instance, created = model.objects.update_or_create(**get_dict)
 
@@ -180,24 +179,24 @@ def import_csv(
             recorder.set_progress(i + 1)
         else:
             # Store import refs to deactivate later
-            inactive_refs.append(
-                row[field_type_registry.match_field_types[0][1].name]
-            )  # WONT WORK AS WANTED
+            try:
+                obj = model.objects.get(**get_dict)
+                inactive_refs.append(obj.pk)
+            except model.DoesNotExist:
+                pass
 
         # Deactivate all persons that existed but are now inactive
-        # unique_field = field_type_registry.unique_references[0][1]
-        args = {f"__in"}
-        # affected = model.objects.filter(
-        #     import_ref_csv__in=inactive_refs, is_active=True
-        # ).update(is_active=False)
-        #
-        # if affected:
-        #     recorder.add_message(
-        #         messages.WARNING,
-        #         _(
-        #             f"{affected} existing {model._meta.verbose_name_plural} were deactivated."
-        #         ),
-        #     )
+        affected = model.objects.filter(
+            pk__in=inactive_refs, is_active=True
+        ).update(is_active=False)
+
+        if affected:
+            recorder.add_message(
+                messages.WARNING,
+                _(
+                    f"{affected} existing {model._meta.verbose_name_plural} were deactivated."
+                ),
+            )
 
     if created_count:
         recorder.add_message(
