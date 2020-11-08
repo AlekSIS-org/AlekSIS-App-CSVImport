@@ -8,10 +8,11 @@ class CSVImportConfig(AppConfig):
     verbose_name = "AlekSIS — CSV import"
 
     urls = {
-        "Repository": "https://edugit.org/AlekSIS/Onboarding/AlekSIS-App-CSVImport/",
+        "Repository": "https://edugit.org/AlekSIS/official/AlekSIS-App-CSVImport/",
     }
     licence = "EUPL-1.2+"
     copyright_info = (
+        ([2020], "Jonathan Weth", "dev@jonathanweth.de"),
         ([2019], "Dominik George", "dominik.george@teckids.org"),
         ([2019], "mirabilos", "thorsten.glaser@teckids.org"),
         ([2019], "Tom Teichler", "tom.teichler@teckids.org"),
