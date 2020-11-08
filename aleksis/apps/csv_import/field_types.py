@@ -16,7 +16,7 @@ from aleksis.apps.csv_import.util.import_helpers import (
     get_subject_by_short_name,
     with_prefix,
 )
-from aleksis.apps.csv_import.util.pedasos_helpers import (
+from aleksis.apps.csv_import.util.class_range_helpers import (
     get_classes_per_grade,
     get_classes_per_short_name,
     parse_class_range,
@@ -321,9 +321,9 @@ class GroupSubjectByShortNameFieldType(ProcessFieldType):
 
 
 @field_type_registry.register
-class PedasosClassRangeFieldType(ProcessFieldType):
-    name = "pedasos_class_range"
-    verbose_name = _("Pedasos: Class range (e. g. 7a-d)")
+class ClassRangeFieldType(ProcessFieldType):
+    name = "class_range"
+    verbose_name = _("Class range (e. g. 7a-d)")
     models = [Group]
 
     @classmethod

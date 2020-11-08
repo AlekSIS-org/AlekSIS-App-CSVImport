@@ -57,7 +57,7 @@ def import_csv(
     try:
         data = pandas.read_csv(
             csv,
-            sep=template.separator,
+            sep=template.parsed_separator,
             names=cols,
             header=0 if template.has_header_row else None,
             dtype=data_types,
