@@ -5,6 +5,11 @@ from django.db.models import Model
 from django.utils.functional import classproperty
 from django.utils.translation import gettext as _
 
+from aleksis.apps.csv_import.util.class_range_helpers import (
+    get_classes_per_grade,
+    get_classes_per_short_name,
+    parse_class_range,
+)
 from aleksis.apps.csv_import.util.converters import (
     parse_comma_separated_data,
     parse_date,
@@ -15,11 +20,6 @@ from aleksis.apps.csv_import.util.import_helpers import (
     bulk_get_or_create,
     get_subject_by_short_name,
     with_prefix,
-)
-from aleksis.apps.csv_import.util.class_range_helpers import (
-    get_classes_per_grade,
-    get_classes_per_short_name,
-    parse_class_range,
 )
 from aleksis.core.models import Group, Person, SchoolTerm
 from aleksis.core.util.core_helpers import get_site_preferences

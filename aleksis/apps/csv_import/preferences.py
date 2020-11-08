@@ -1,12 +1,12 @@
-import pycountry
 from django.utils.translation import gettext as _
 
+import pycountry
 from dynamic_preferences.preferences import Section
 from dynamic_preferences.types import (
-    ModelChoicePreference,
-    StringPreference,
     ChoicePreference,
+    ModelChoicePreference,
     MultipleChoicePreference,
+    StringPreference,
 )
 
 from aleksis.core.models import Group, GroupType
@@ -47,7 +47,7 @@ class GroupGuardians(ModelChoicePreference):
 
 
 @site_preferences_registry.register
-class DateLanguages(MultipleChoicePreference):
+class DateLanguages(StringPreference):
     section = csv_import
     name = "date_languages"
     required = False
