@@ -1,94 +1,34 @@
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils.decorators import classproperty
 from django.utils.translation import gettext as _
 
 from aleksis.apps.csv_import.field_types import field_type_registry
 from aleksis.core.mixins import ExtensibleModel
-from aleksis.core.models import Group, GroupType, Person
-
+from aleksis.core.models import Group, GroupType
 
 # class FieldType(models.TextChoices):
-#     UNIQUE_REFERENCE = "unique_reference", _("Unique reference")
-#     IS_ACTIVE = "is_active", _("Is active? (0/1)")
-#     NAME = "name", _("Name")
-#     FIRST_NAME = "first_name", _("First name")
-#     LAST_NAME = "last_name", _("Last name")
-#     ADDITIONAL_NAME = "additional_name", _("Additional name")
-#     SHORT_NAME = "short_name", _("Short name")
-#     EMAIL = "email", _("Email")
-#     DATE_OF_BIRTH = "date_of_birth", _("Date of birth")
-#     SEX = "sex", _("Sex")
-#     STREET = "street", _("Street")
-#     HOUSENUMBER = "housenumber", _("Housenumber")
-#     POSTAL_CODE = "postal_code", _("Postal code")
-#     PLACE = "place", _("Place")
-#     PHONE_NUMBER = "phone_number", _("Phone number")
-#     MOBILE_NUMBER = "mobile_number", _("Mobile number")
-#     IGNORE = "ignore", _("Ignore data in this field")
-#
 #     IS_ACTIVE_SCHILD_NRW_STUDENTS = (
 #         "is_active_schild_nrw_students",
 #         _("Is active? (SchILD-NRW: students)"),
-#     )
-#     DEPARTMENTS = "departments", _("Comma-separated list of departments")
-#     DATE_OF_BIRTH_DD_MM_YYYY = (
-#         "date_of_birth_dd_mm_yyy",
-#         _("Date of birth (DD.MM.YYYY)"),
 #     )
 #     GROUP_OWNER_BY_SHORT_NAME = (
 #         "group_owner_shortname",
 #         _("Short name of a single group owner"),
 #     )
-#     SUBJECT_BY_SHORT_NAME = ("subject_short_name", _("Short name of the subject"))
-#     PEDASOS_CLASS_RANGE = (
-#         "pedasos_class_range",
-#         _("Pedasos: Class range (e. g. 7a-d)"),
-#     )
 #     GROUP_BY_SHORT_NAME = (
 #         "group_short_name",
 #         _("Short name of the group the person is a member of"),
-#     )
-#     PRIMARY_GROUP_BY_SHORT_NAME = (
-#         "primary_group_short_name",
-#         _("Short name of the person's primary group"),
 #     )
 #
 #     GUARDIAN_FIRST_NAME = ("parent_first_name", _("First name of a parent"))
 #     GUARDIAN_LAST_NAME = ("parent_last_name", _("First name of a parent"))
 #     GUARDIAN_EMAIL = ("parent_email", _("Email address of a parent"))
 #
-#     @classproperty
-#     def value_dict(cls):  # noqa
-#         return {member.value: member for member in cls}
 
-
-# # All fields that can be mapped directly to database
-# FIELD_MAPPINGS = {
-#     FieldType.UNIQUE_REFERENCE: "import_ref_csv",
-#     FieldType.IS_ACTIVE: "is_active",
-#     FieldType.NAME: "name",
-#     FieldType.FIRST_NAME: "first_name",
-#     FieldType.LAST_NAME: "last_name",
-#     FieldType.ADDITIONAL_NAME: "additional_name",
-#     FieldType.SHORT_NAME: "short_name",
-#     FieldType.EMAIL: "email",
-#     FieldType.DATE_OF_BIRTH: "date_of_birth",
-#     FieldType.SEX: "sex",
-#     FieldType.STREET: "street",
-#     FieldType.HOUSENUMBER: "housenumber",
-#     FieldType.POSTAL_CODE: "postal_code",
-#     FieldType.PLACE: "place",
-#     FieldType.PHONE_NUMBER: "phone_number",
-#     FieldType.MOBILE_NUMBER: "mobile_number",
-#     FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS: "is_active",
-#     FieldType.DATE_OF_BIRTH_DD_MM_YYYY: "date_of_birth",
-# }
 
 # All other fields will use str
 # DATA_TYPES = {
-#     FieldType.IS_ACTIVE: bool,
 #     FieldType.IS_ACTIVE_SCHILD_NRW_STUDENTS: int,
 # }
 
@@ -224,7 +164,9 @@ class ImportTemplateField(ExtensibleModel):
         related_name="fields",
     )
     field_type = models.CharField(
-        max_length=255, verbose_name=_("Field type"), choices=field_type_registry.choices
+        max_length=255,
+        verbose_name=_("Field type"),
+        choices=field_type_registry.choices,
     )
 
     @property
@@ -234,7 +176,10 @@ class ImportTemplateField(ExtensibleModel):
     def clean(self):
         """Validate correct usage of field types."""
         model = self.template.content_type.model_class()
-        if self.field_type not in field_type_registry.allowed_field_types_for_models[model]:
+        if (
+            self.field_type
+            not in field_type_registry.allowed_field_types_for_models[model]
+        ):
             raise ValidationError(
                 _("You are not allowed to use this field type in this model.")
             )

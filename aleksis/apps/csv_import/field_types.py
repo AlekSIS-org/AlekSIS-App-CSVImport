@@ -1,13 +1,24 @@
-from collections import OrderedDict
-from typing import Sequence, Tuple, Optional, Callable, Type
+from typing import Callable, Optional, Sequence, Tuple, Type
 from uuid import uuid4
 
 from django.db.models import Model
-from django.utils.decorators import classproperty
-
-from aleksis.apps.csv_import.util.converters import parse_phone_number, parse_sex, parse_date
-from aleksis.core.models import Group, Person
+from django.utils.functional import classproperty
 from django.utils.translation import gettext as _
+
+from aleksis.apps.csv_import.util.converters import (
+    parse_comma_separated_data,
+    parse_date,
+    parse_phone_number,
+    parse_sex,
+)
+from aleksis.apps.csv_import.util.import_helpers import get_subject_by_short_name, with_prefix
+from aleksis.apps.csv_import.util.pedasos_helpers import (
+    get_classes_per_grade,
+    get_classes_per_short_name,
+    parse_class_range,
+)
+from aleksis.core.models import Group, Person, SchoolTerm
+from aleksis.core.util.core_helpers import get_site_preferences
 
 
 class FieldType:
@@ -21,6 +32,10 @@ class FieldType:
     @classproperty
     def column_name(cls) -> str:
         return cls.name
+
+    @classmethod
+    def prepare(cls, school_term: SchoolTerm):
+        cls.school_term = school_term
 
 
 class MatchFieldType(FieldType):
@@ -62,6 +77,7 @@ class FieldTypeRegistry:
         self.converters = {}
         self.alternatives = {}
         self.match_field_types = []
+        self.process_field_types = []
 
     def register(self, field_type: Type[FieldType]):
         """Add new :class:`FieldType` to registry.
@@ -84,6 +100,10 @@ class FieldTypeRegistry:
 
         if issubclass(field_type, MatchFieldType):
             self.match_field_types.append((field_type.priority, field_type))
+
+        if issubclass(field_type, ProcessFieldType):
+            self.process_field_types.append(field_type)
+
         return field_type
 
     def get_from_name(self, name: str) -> FieldType:
@@ -251,3 +271,85 @@ class IgnoreFieldType(FieldType):
     @classproperty
     def column_name(cls) -> str:
         return f"_ignore_{uuid4()}"
+
+
+@field_type_registry.register
+class DepartmentsFieldType(ProcessFieldType):
+    name = "departments"
+    verbose_name = _("Comma-seperated list of departments")
+    models = [Person]
+    converter = parse_comma_separated_data
+
+    def process(self, instance: Model, value):
+        group_type = get_site_preferences()["csv_import__group_type_departments"]
+        group_prefix = get_site_preferences()["csv_import__group_prefix_departments"]
+
+        groups = []
+        for subject_name in value:
+            # Get department subject
+            subject = get_subject_by_short_name(subject_name)
+
+            # Get department group
+            group, __ = Group.objects.get_or_create(
+                group_type=group_type,
+                short_name=subject.short_name,
+                defaults={"name": with_prefix(group_prefix, subject.name),},
+            )
+            group.subject = subject
+            group.save()
+
+            groups.append(group)
+
+        instance.member_of.add(*groups)
+
+
+@field_type_registry.register
+class GroupSubjectByShortNameFieldType(ProcessFieldType):
+    name = "subject_short_name"
+    verbose_name = _("Short name of the subject")
+    models = [Group]
+
+    def process(self, instance: Model, value):
+        subject = get_subject_by_short_name(value)
+        instance.subject = subject
+        instance.save()
+
+
+@field_type_registry.register
+class PedasosClassRangeFieldType(ProcessFieldType):
+    name = "pedasos_class_range"
+    verbose_name = _("Pedasos: Class range (e. g. 7a-d)")
+    models = [Group]
+
+    @classmethod
+    def prepare(cls, school_term: SchoolTerm):
+        """Prefetch class groups."""
+        cls.classes_per_short_name = get_classes_per_short_name(school_term)
+        cls.classes_per_grade = get_classes_per_grade(cls.classes_per_short_name.keys())
+
+    def process(self, instance: Model, value):
+        classes = parse_class_range(
+            self.classes_per_short_name, self.classes_per_grade, value,
+        )
+        instance.parent_groups.set(classes)
+
+
+@field_type_registry.register
+class PrimaryGroupByShortNameFieldType(ProcessFieldType):
+    name = "primary_group_short_name"
+    verbose_name = _("Short name of the person's primary group")
+    models = [Person]
+
+    def process(self, instance: Model, value):
+        try:
+            group = Group.objects.get(short_name=value, school_term=self.school_term)
+            instance.primary_group = group
+            instance.member_of.add(group)
+            instance.save()
+        except Group.DoesNotExist:
+            raise RuntimeError(
+                _(
+                    f"{instance}: Failed to import the primary group: "
+                    f"Group {value} does not exist in school term {self.school_term}."
+                )
+            )

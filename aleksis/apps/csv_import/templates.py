@@ -4,17 +4,23 @@ from django.contrib.contenttypes.models import ContentType
 from django.db.models import Model
 from django.utils.translation import gettext as _
 
+from aleksis.core.models import Group, Person
+
 from .field_types import (
-    ShortNameFieldType,
-    LastNameFieldType,
-    FirstNameFieldType,
     DateOfBirthFieldType,
-    SexFieldType,
+    DepartmentsFieldType,
+    FieldType,
+    FirstNameFieldType,
+    GroupSubjectByShortNameFieldType,
     IgnoreFieldType,
-    UniqueReferenceFieldType, FieldType,
+    LastNameFieldType,
+    PedasosClassRangeFieldType,
+    PrimaryGroupByShortNameFieldType,
+    SexFieldType,
+    ShortNameFieldType,
+    UniqueReferenceFieldType,
 )
 from .models import ImportTemplate, ImportTemplateField
-from aleksis.core.models import Group, Person
 
 
 def update_or_create_template(
@@ -52,8 +58,8 @@ def update_or_create_default_templates():
             FirstNameFieldType,
             DateOfBirthFieldType,
             SexFieldType,
-            IgnoreFieldType,  # DEPARTMENTS
-            IgnoreFieldType,  # IGNORE
+            DepartmentsFieldType,
+            IgnoreFieldType,
         ],
     )
     update_or_create_template(
@@ -74,8 +80,8 @@ def update_or_create_default_templates():
         extra_args={"has_header_row": True, "separator": "\t"},
         fields=[
             ShortNameFieldType,
-            IgnoreFieldType,  # PEDASOS_CLASS_RANGE
-            IgnoreFieldType,  # SUBJECT_BY_SHORT_NAME
+            PedasosClassRangeFieldType,
+            GroupSubjectByShortNameFieldType,
             IgnoreFieldType,  # GROUP_OWNER_BY_SHORT_NAME
         ],
     )
@@ -90,7 +96,7 @@ def update_or_create_default_templates():
             FirstNameFieldType,
             DateOfBirthFieldType,
             SexFieldType,
-            IgnoreFieldType,  # PRIMARY_GROUP_BY_SHORT_NAME
+            PrimaryGroupByShortNameFieldType,
             IgnoreFieldType,  # MOTHER GUARDIAN_LAST_NAME GUARDIAN_FIRST_NAME GUARDIAN_EMAIL
             IgnoreFieldType,
             IgnoreFieldType,

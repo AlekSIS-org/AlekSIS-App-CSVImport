@@ -8,31 +8,15 @@ import pandas
 from pandas.errors import ParserError
 
 from aleksis.apps.csv_import.field_types import (
+    DirectMappingFieldType,
     MultipleValuesFieldType,
     field_type_registry,
-    DirectMappingFieldType,
 )
 from aleksis.apps.csv_import.models import ImportTemplate
 from aleksis.apps.csv_import.settings import FALSE_VALUES, TRUE_VALUES
-from aleksis.apps.csv_import.util.import_helpers import (
-    bulk_get_or_create,
-    create_department_groups,
-    create_guardians,
-    get_subject_by_short_name,
-    has_is_active_field,
-    is_active,
-)
-from aleksis.apps.csv_import.util.pedasos_helpers import (
-    get_classes_per_grade,
-    get_classes_per_short_name,
-    parse_class_range,
-)
+from aleksis.apps.csv_import.util.import_helpers import has_is_active_field, is_active
 from aleksis.core.models import Group, Person, SchoolTerm
-from aleksis.core.util.core_helpers import (
-    DummyRecorder,
-    celery_optional_progress,
-    get_site_preferences,
-)
+from aleksis.core.util.core_helpers import DummyRecorder, celery_optional_progress
 
 
 @celery_optional_progress
@@ -65,6 +49,9 @@ def import_csv(
         # Get data type
         data_types[column_name] = field_type.data_type
 
+        # Prepare field type for import
+        field_type.prepare(school_term)
+
         cols.append(column_name)
         print(cols)
     try:
@@ -90,11 +77,6 @@ def import_csv(
 
     # Exclude all empty rows
     data = data.where(data.notnull(), None)
-
-    # Preload some data
-    # if FieldType.PEDASOS_CLASS_RANGE.value in cols:
-    #     classes_per_short_name = get_classes_per_short_name(school_term)
-    #     classes_per_grade = get_classes_per_grade(classes_per_short_name.keys())
 
     all_ok = True
     inactive_refs = []
@@ -144,9 +126,7 @@ def import_csv(
                     match_field_type,
                 ) in field_type_registry.match_field_types:
                     if match_field_type.name in row:
-                        get_dict[match_field_type.db_field] = row[
-                            match_field_type.name
-                        ]
+                        get_dict[match_field_type.db_field] = row[match_field_type.name]
                         match_field_found = True
                         break
 
@@ -168,17 +148,15 @@ def import_csv(
                         value = row[col]
                         values_for_multiple_fields[field_type].append(value)
 
-                # Create department groups
-                # if (
-                #     FieldType.DEPARTMENTS.value in row
-                #     and get_site_preferences()["csv_import__group_type_departments"]
-                # ):
-                #     subjects = row[FieldType.DEPARTMENTS.value]
-                #
-                #     departments = create_department_groups(subjects)
-                #
-                # Set current person as member of this department
-                # instance.member_of.add(*departments)
+                # Process field types with custom logic
+                for process_field_type in field_type_registry.process_field_types:
+                    if process_field_type.name in row:
+                        try:
+                            process_field_type().process(
+                                instance, row[process_field_type.name]
+                            )
+                        except RuntimeError as e:
+                            recorder.add_message(messages.ERROR, str(e))
 
                 # Group owners
                 # if FieldType.GROUP_OWNER_BY_SHORT_NAME in values_for_multiple_fields:
@@ -194,41 +172,6 @@ def import_csv(
                 #     )
                 #     instance.owners.set(group_owners)
                 #
-                # Group subject
-                # if FieldType.SUBJECT_BY_SHORT_NAME.value in row:
-                #     subject = get_subject_by_short_name(
-                #         row[FieldType.SUBJECT_BY_SHORT_NAME.value]
-                #     )
-                #     instance.subject = subject
-                #     instance.save()
-                #
-                # Class range
-                # if FieldType.PEDASOS_CLASS_RANGE.value in row:
-                #     classes = parse_class_range(
-                #         classes_per_short_name,
-                #         classes_per_grade,
-                #         row[FieldType.PEDASOS_CLASS_RANGE.value],
-                #     )
-                #     instance.parent_groups.set(classes)
-
-                # Primary group
-                # if FieldType.PRIMARY_GROUP_BY_SHORT_NAME.value in row:
-                #     short_name = row[FieldType.PRIMARY_GROUP_BY_SHORT_NAME.value]
-                #     try:
-                #         group = Group.objects.get(
-                #             short_name=short_name, school_term=school_term
-                #         )
-                #         instance.primary_group = group
-                #         instance.member_of.add(group)
-                #         instance.save()
-                #     except Group.DoesNotExist:
-                #         recorder.add_message(
-                #             messages.ERROR,
-                #             _(
-                #                 f"{instance}: Failed to import the primary group: "
-                #                 f"Group {short_name} does not exist in school term {school_term}."
-                #             ),
-                #         )
 
                 # Group memberships
                 # if FieldType.GROUP_BY_SHORT_NAME in values_for_multiple_fields:

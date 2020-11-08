@@ -3,8 +3,6 @@ from typing import List, Optional, Sequence, Union
 from django.db.models import Model
 
 from aleksis.apps.chronos.models import Subject
-
-from aleksis.apps.csv_import.field_types import field_type_registry, IsActiveFieldType
 from aleksis.apps.csv_import.settings import STATE_ACTIVE
 from aleksis.core.models import Group, Person
 from aleksis.core.util.core_helpers import get_site_preferences
@@ -20,8 +18,16 @@ def is_active(row: dict) -> bool:
 
 def has_is_active_field(model: Model) -> bool:
     """Check if this model allows importing the is_active status."""
+    from aleksis.apps.csv_import.field_types import (
+        field_type_registry,
+        IsActiveFieldType,
+    )
+
     if model in field_type_registry.allowed_field_types_for_models:
-        if IsActiveFieldType in field_type_registry.allowed_field_types_for_models[model]:
+        if (
+            IsActiveFieldType
+            in field_type_registry.allowed_field_types_for_models[model]
+        ):
             return True
     return False
 
