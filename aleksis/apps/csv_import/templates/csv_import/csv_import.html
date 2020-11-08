@@ -13,62 +13,10 @@
       <i class="material-icons left">info</i>
       {% blocktrans %}
         You can import data from several school administration software using this CSV importer. Please read the notes
-        according to your software below! Sometimes there is needed a special procedure to import the data correctly.
+        according to your software in the documentation! Sometimes there is needed a special procedure to import the data correctly.
       {% endblocktrans %}
     </p>
   </div>
-
-  <ul class="collapsible">
-    <li>
-      <div class="collapsible-header">{% trans "SchILD-NRW" %}</div>
-      <div class="collapsible-body">
-        <div class="alert info">
-          <p>
-            <i class="material-icons left">info</i>
-            {% blocktrans %}
-              SchILD-NRW provides export functions for basic data of students,
-              teachers and guardians as CSV files. To generate CSV files in the correct format for the built-in import
-              template, please use the following templates:
-            {% endblocktrans %}
-          </p>
-        </div>
-        <div class="collection">
-          <a class="collection-item" href="{% static 'csv_import/schild_nrw/schild_aleksis_schueler.txt' %}">
-            {% blocktrans %}SchILD-NRW CSV export template for students{% endblocktrans %}
-          </a>
-          <a class="collection-item" href="{% static 'csv_import/schild_nrw/schild_aleksis_lehrer.txt' %}">
-            {% blocktrans %}SchILD-NRW CSV export template for teachers{% endblocktrans %}
-          </a>
-          <a class="collection-item" href="{% static 'csv_import/schild_nrw/schild_aleksis_eltern.txt' %}">
-            {% blocktrans %}SchILD-NRW CSV export template for guardians{% endblocktrans %}
-          </a>
-        </div>
-      </div>
-    </li>
-    <li>
-      <div class="collapsible-header">{% trans "Pedasos" %}</div>
-      <div class="collapsible-body">
-        <div class="alert info">
-          <p>
-            <i class="material-icons left">info</i>
-            {% blocktrans %}
-              Pedasos has a tool called "List generator" which can be used to create own lists and export them in
-              various variants. Please define the following lists in your Pedasos instance to use the predefined import
-              templates and export them as CSV files:
-            {% endblocktrans %}
-          </p>
-        </div>
-        <table class="highlight">
-          <thead>
-          <tr>
-            <th>{% trans "Column number" %}</th>
-            <th>{% trans "Field value" %}</th>
-          </tr>
-          </thead>
-        </table>
-      </div>
-    </li>
-  </ul>
 
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
