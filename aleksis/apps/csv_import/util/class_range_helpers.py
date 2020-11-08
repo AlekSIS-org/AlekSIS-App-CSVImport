@@ -1,3 +1,5 @@
+"""Support for parsing typical German class ranges."""
+
 import re
 from collections import OrderedDict
 from typing import Dict, List, Sequence, Tuple
@@ -35,7 +37,7 @@ def get_classes_per_grade(classes: Sequence[str]):
 
 
 def get_classes_per_short_name(school_term):
-    """Get all groups which match the Pedasos schema and group them by their short names."""
+    """Get all groups which match the class range schema and group them by their short names."""
     qs = Group.objects.filter(short_name__regex=REGEX_CLASS_DB, school_term=school_term)
 
     return {obj.short_name: obj for obj in qs}
@@ -54,7 +56,7 @@ def get_max_class(classes_per_grade: Dict[str, Sequence[str]], grade: str):
 def get_grade_and_class_from_class_range(
     classes_per_grade: Dict[str, Sequence[str]], class_range: str
 ) -> Tuple[str, str, str, str]:
-    """Parse a Pedasos class range into single parts (grade, class labels) and auto-fill missing parts.
+    """Parse a class range into single parts (grade, class labels) and auto-fill missing parts.
 
     :param classes_per_grade: All available class labels grouped by grades
     :param class_range: Range to parse
@@ -84,7 +86,7 @@ def parse_class_range(
     classes_per_grade: Dict[str, Sequence[str]],
     class_range: str,
 ) -> List[Group]:
-    """Parse a Pedasos class range into AlekSIS groups.
+    """Parse a class range into AlekSIS groups.
 
     :param classes_per_short_name: All available classes in an `OrderedDict` (key is short name)
     :param classes_per_grade: All available class labels grouped by grades

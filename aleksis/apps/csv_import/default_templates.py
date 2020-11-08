@@ -67,7 +67,7 @@ def update_or_create_default_templates():
         extra_args={"has_header_row": True, "separator": "\t"},
         fields=[
             ShortNameFieldType,
-            PedasosClassRangeFieldType,
+            ClassRangeFieldType,
             GroupSubjectByShortNameFieldType,
             GroupOwnerByShortNameFieldType,
         ],
