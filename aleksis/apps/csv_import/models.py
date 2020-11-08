@@ -7,7 +7,6 @@ from aleksis.apps.csv_import.field_types import field_type_registry
 from aleksis.core.mixins import ExtensibleModel
 from aleksis.core.models import Group, GroupType
 
-
 SEPARATOR_CHOICES = [
     (",", ","),
     (";", ";"),

@@ -1,5 +1,6 @@
 from datetime import date
 
+import pytest
 from phonenumbers import PhoneNumber
 
 from aleksis.apps.csv_import.util.converters import (
@@ -8,6 +9,9 @@ from aleksis.apps.csv_import.util.converters import (
     parse_phone_number,
     parse_sex,
 )
+from aleksis.core.util.core_helpers import get_site_preferences
+
+pytestmark = pytest.mark.django_db
 
 
 def test_parse_phone_number():
@@ -40,6 +44,7 @@ def test_parse_sex_none():
 
 
 def test_parse_dd_mm_yyyy():
+    get_site_preferences()["csv_import__date_languages"] = "de"
     assert parse_date("12.01.2020") == date(2020, 1, 12)
     assert parse_date("12.12.1912") == date(1912, 12, 12)
 
@@ -47,7 +52,7 @@ def test_parse_dd_mm_yyyy():
 def test_parse_dd_mm_yyyy_none():
     assert parse_date("") is None
     assert parse_date("foo") is None
-    assert parse_date("12.14.1912") is None
+    assert parse_date("12.143.1912") is None
 
 
 def test_parse_comma_separated_data():

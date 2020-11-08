@@ -116,10 +116,7 @@ def import_csv(
 
         get_dict = {}
         match_field_found = False
-        for (
-            priority,
-            match_field_type,
-        ) in field_type_registry.match_field_types:
+        for (priority, match_field_type,) in field_type_registry.match_field_types:
             if match_field_type.name in row:
                 get_dict[match_field_type.db_field] = row[match_field_type.name]
                 match_field_found = True
@@ -186,9 +183,9 @@ def import_csv(
                 pass
 
         # Deactivate all persons that existed but are now inactive
-        affected = model.objects.filter(
-            pk__in=inactive_refs, is_active=True
-        ).update(is_active=False)
+        affected = model.objects.filter(pk__in=inactive_refs, is_active=True).update(
+            is_active=False
+        )
 
         if affected:
             recorder.add_message(

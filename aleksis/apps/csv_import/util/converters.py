@@ -5,6 +5,7 @@ import dateparser
 import phonenumbers
 
 from aleksis.apps.csv_import.settings import PHONE_NUMBER_COUNTRY, SEXES
+from aleksis.core.util.core_helpers import get_site_preferences
 
 
 def parse_phone_number(value: str) -> Union[phonenumbers.PhoneNumber, None]:
@@ -26,9 +27,11 @@ def parse_sex(value: str) -> str:
 
 def parse_date(value: str) -> Union[date, None]:
     """Parse string date."""
+    languages_raw = get_site_preferences()["csv_import__date_languages"]
+    languages = languages_raw.split(",") if languages_raw else []
     try:
-        return dateparser.parse(value)
-    except ValueError:
+        return dateparser.parse(value, languages=languages).date()
+    except (ValueError, AttributeError):
         return None
 
 

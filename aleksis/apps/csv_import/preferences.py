@@ -38,3 +38,13 @@ class GroupGuardians(ModelChoicePreference):
     model = Group
     verbose_name = _("Group for guardians")
     help_text = _("If you leave it empty, no group will be used.")
+
+
+@site_preferences_registry.register
+class DateLanguages(StringPreference):
+    section = csv_import
+    name = "date_languages"
+    required = False
+    default = ""
+    verbose_name = _("Languages for date parsing")
+    help_text = _("e. g. en,es,zh-Hant")
