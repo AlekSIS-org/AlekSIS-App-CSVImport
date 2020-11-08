@@ -1,3 +1,4 @@
+import os
 from typing import Sequence
 
 import toml
@@ -35,7 +36,7 @@ def update_or_create_template(
 
 def update_or_create_default_templates():
     """Update or create default import templates."""
-    template_defs = toml.load(os.path.join(od.path.dirname(__file__), "default_templates.toml"))
+    template_defs = toml.load(os.path.join(os.path.dirname(__file__), "default_templates.toml"))
 
     for name, defs in template_defs.items():
         model = apps.get_model(defs["model"])
