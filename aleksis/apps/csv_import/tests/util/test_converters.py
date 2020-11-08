@@ -15,11 +15,15 @@ pytestmark = pytest.mark.django_db
 
 
 def test_parse_phone_number():
+    get_site_preferences()["csv_import__phone_number_country"] = "DE"
     fake_number = PhoneNumber(country_code=49, national_number=1635550217)
     assert parse_phone_number("+49-163-555-0217") == fake_number
     assert parse_phone_number("+491635550217") == fake_number
     assert parse_phone_number("0163-555-0217") == fake_number
     assert parse_phone_number("01635550217") == fake_number
+    get_site_preferences()["csv_import__phone_number_country"] = "GB"
+    assert parse_phone_number("0163-555-0217") != fake_number
+    assert parse_phone_number("01635550217") != fake_number
 
 
 def test_parse_phone_number_none():
@@ -47,12 +51,27 @@ def test_parse_dd_mm_yyyy():
     get_site_preferences()["csv_import__date_languages"] = "de"
     assert parse_date("12.01.2020") == date(2020, 1, 12)
     assert parse_date("12.12.1912") == date(1912, 12, 12)
+    get_site_preferences()["csv_import__date_languages"] = "en-US"
+    assert parse_date("12.01.2020") != date(2020, 1, 12)
+    assert parse_date("12.12.1912") != date(1912, 12, 12)
 
 
 def test_parse_dd_mm_yyyy_none():
     assert parse_date("") is None
     assert parse_date("foo") is None
     assert parse_date("12.143.1912") is None
+
+
+def test_parse_date_iso():
+    get_site_preferences()["csv_import__date_languages"] = ""
+    assert parse_date("2020-11-12") == date(2020, 11, 12)
+
+
+def test_parse_date_en():
+    get_site_preferences()["csv_import__date_languages"] = ""
+    assert parse_date("11/12/2020") == date(2020, 11, 12)
+    get_site_preferences()["csv_import__date_languages"] = "de"
+    assert parse_date("11/12/2020") != date(2020, 11, 12)
 
 
 def test_parse_comma_separated_data():

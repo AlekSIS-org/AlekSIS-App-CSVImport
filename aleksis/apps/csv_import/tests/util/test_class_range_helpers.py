@@ -1,6 +1,6 @@
 import pytest
 
-from aleksis.apps.csv_import.util.pedasos_helpers import (
+from aleksis.apps.csv_import.util.class_range_helpers import (
     get_classes_per_grade,
     get_classes_per_short_name,
     get_grade_and_class_from_class_range,
