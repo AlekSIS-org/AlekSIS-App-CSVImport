@@ -1,3 +1,5 @@
+import codecs
+
 from django.contrib.contenttypes.models import ContentType
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -6,13 +8,6 @@ from django.utils.translation import gettext as _
 from aleksis.apps.csv_import.field_types import field_type_registry
 from aleksis.core.mixins import ExtensibleModel
 from aleksis.core.models import Group, GroupType
-
-SEPARATOR_CHOICES = [
-    (",", ","),
-    (";", ";"),
-    ("\\s+", _("Whitespace")),
-    ("\t", _("Tab")),
-]
 
 
 def get_allowed_content_types_query():
@@ -40,9 +35,9 @@ class ImportTemplate(ExtensibleModel):
     )
     separator = models.CharField(
         max_length=255,
-        choices=SEPARATOR_CHOICES,
         default=",",
         verbose_name=_("CSV separator"),
+        help_text=_("For whitespace use \\\\s+, for tab \\\\t"),
     )
 
     group = models.ForeignKey(
@@ -65,6 +60,10 @@ class ImportTemplate(ExtensibleModel):
             "If imported objects are groups, they all will get this group type after import."
         ),
     )
+
+    @property
+    def parsed_separator(self):
+        return codecs.escape_decode(bytes(self.separator, "utf-8"))[0].decode("utf-8")
 
     def save(self, *args, **kwargs):
         if not self.content_type.model == "person":
