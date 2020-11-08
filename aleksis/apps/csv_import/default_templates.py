@@ -6,24 +6,7 @@ from django.utils.translation import gettext as _
 
 from aleksis.core.models import Group, Person
 
-from .field_types import (
-    ChildByUniqueReference,
-    DateOfBirthFieldType,
-    DepartmentsFieldType,
-    EmailFieldType,
-    FieldType,
-    FirstNameFieldType,
-    GroupMembershipByShortNameFieldType,
-    GroupOwnerByShortNameFieldType,
-    GroupSubjectByShortNameFieldType,
-    IgnoreFieldType,
-    LastNameFieldType,
-    PedasosClassRangeFieldType,
-    PrimaryGroupByShortNameFieldType,
-    SexFieldType,
-    ShortNameFieldType,
-    UniqueReferenceFieldType,
-)
+from .field_types import *
 from .models import ImportTemplate, ImportTemplateField
 
 
