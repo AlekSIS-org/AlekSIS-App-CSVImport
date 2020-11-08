@@ -62,7 +62,7 @@ fields = ["child_by_unique_reference",
 	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore"
 	 ]
 
-[pedasos_guardians_1]
+[pedasos_guardians_2]
 model = "core.Person"
 verbose_name = "Pedasos: Guardians 2"
 extra_args = { "has_header_row" = true, "separator" = "\t" }
