@@ -45,7 +45,12 @@ fields = ["unique_reference",
 	  "group_membership_short_name",
 	  "group_membership_short_name",
 	  "group_membership_short_name", # Course 20
-	  "group_membership_short_name"  # Course 21
+	  "group_membership_short_name",
+	  "group_membership_short_name",
+	  "group_membership_short_name",
+	  "group_membership_short_name",
+	  "group_membership_short_name", # Course 25
+	  "group_membership_short_name",
 	 ]
 
 [pedasos_guardians_1]
