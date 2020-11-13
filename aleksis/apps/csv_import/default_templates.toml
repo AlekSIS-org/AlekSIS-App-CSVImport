@@ -64,7 +64,8 @@ fields = ["child_by_unique_reference",
 	  "ignore", "ignore", "ignore",       # FATHER
 	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore",
 	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore",
-	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore"
+	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore",
+	  "ignore", "ignore", "ignore", "ignore", "ignore",
 	 ]
 
 [pedasos_guardians_2]
@@ -78,5 +79,6 @@ fields = ["child_by_unique_reference",
 	  "last_name", "first_name", "email", # FATHER
 	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore",
 	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore",
-	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore"
+	  "ignore", "ignore", "ignore", "ignore", "ignore", "ignore", "ignore",
+	  "ignore", "ignore", "ignore", "ignore", "ignore",
 	 ]
