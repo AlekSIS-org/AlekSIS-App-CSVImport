@@ -8,9 +8,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-14 12:23+0100\n"
-"PO-Revision-Date: 2020-08-25 17:42+0000\n"
+"PO-Revision-Date: 2020-11-14 11:47+0000\n"
 "Last-Translator: Jonathan Weth <teckids@jonathanweth.de>\n"
-"Language-Team: German <https://translate.edugit.org/projects/aleksis/aleksis-app-schild-nrw/de/>\n"
+"Language-Team: German <https://translate.edugit.org/projects/aleksis/"
+"aleksis-app-csvimport/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,116 +21,116 @@ msgstr ""
 
 #: field_types.py:132
 msgid "Unique reference"
-msgstr ""
+msgstr "Eindeutige Referenz"
 
 #: field_types.py:144
 msgid "Is active? (0/1)"
-msgstr ""
+msgstr "Ist aktiv? (0/1)"
 
 #: field_types.py:153 models.py:30 models.py:31
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #: field_types.py:162
 msgid "First name"
-msgstr ""
+msgstr "Vorname"
 
 #: field_types.py:170
 msgid "Last name"
-msgstr ""
+msgstr "Nachname"
 
 #: field_types.py:178
 msgid "Additional name"
-msgstr ""
+msgstr "Zusätzlicher Name"
 
 #: field_types.py:186
 msgid "Short name"
-msgstr ""
+msgstr "Kurzname"
 
 #: field_types.py:196
 msgid "Email"
-msgstr ""
+msgstr "E-Mail"
 
 #: field_types.py:205
 msgid "Date of birth"
-msgstr ""
+msgstr "Geburtsdatum"
 
 #: field_types.py:214
 msgid "Sex"
-msgstr ""
+msgstr "Geschlecht"
 
 #: field_types.py:223
 msgid "Street"
-msgstr ""
+msgstr "Straße"
 
 #: field_types.py:231
 msgid "Housenumber"
-msgstr ""
+msgstr "Hausnummer"
 
 #: field_types.py:239
 msgid "Postal code"
-msgstr ""
+msgstr "Postleitzahl"
 
 #: field_types.py:247
 msgid "Place"
-msgstr ""
+msgstr "Ort"
 
 #: field_types.py:255
 msgid "Phone number"
-msgstr ""
+msgstr "Telefonnummer"
 
 #: field_types.py:264
 msgid "Mobile number"
-msgstr ""
+msgstr "Handynummer"
 
 #: field_types.py:273
 msgid "Ignore data in this field"
-msgstr ""
+msgstr "Daten in diesem Feld ignorieren"
 
 #: field_types.py:284
 msgid "Comma-seperated list of departments"
-msgstr ""
+msgstr "Komma-separierte Liste von Fachschaften"
 
 #: field_types.py:314
 msgid "Short name of the subject"
-msgstr ""
+msgstr "Kurzname des Faches"
 
 #: field_types.py:326
 msgid "Class range (e. g. 7a-d)"
-msgstr ""
+msgstr "Klassenauswahl (z. B. 7a-d)"
 
 #: field_types.py:345
 msgid "Short name of the person's primary group"
-msgstr ""
+msgstr "Kurzname der Primärgruppe der Person"
 
 #: field_types.py:357
 #, python-brace-format
 msgid "{instance}: Failed to import the primary group: "
-msgstr ""
+msgstr "{instance}: Fehler beim Importieren der Primärgruppe: "
 
 #: field_types.py:366
 msgid "Short name of a single group owner"
-msgstr ""
+msgstr "Kurzname eines einzelnen Gruppenbesitzers"
 
 #: field_types.py:383
 msgid "Short name of the group the person is a member of"
-msgstr ""
+msgstr "Kurzname einer Gruppe, in der die Person ein Mitglied ist"
 
 #: field_types.py:397
 msgid "Child by unique reference (from students import)"
-msgstr ""
+msgstr "Kind durch eindeutige Referenz (vom Schüler*innenimport)"
 
 #: forms.py:10
 msgid "CSV file"
-msgstr ""
+msgstr "CSV-Datei"
 
 #: forms.py:12
 msgid "Related school term"
-msgstr ""
+msgstr "Zugehöriges Schuljahr"
 
 #: forms.py:15 models.py:80 models.py:89
 msgid "Import template"
-msgstr ""
+msgstr "Import-Vorlage"
 
 #: management/commands/csv_import.py:12
 msgid "Path to CSV file with exported teachers"
@@ -137,122 +138,120 @@ msgstr "Pfad zur CSV-Datei mit den exportierten Lehrern"
 
 #: management/commands/csv_import.py:16
 msgid "Name of import template which should be used"
-msgstr ""
+msgstr "Name der Import-Vorlage, die benutzt werden soll"
 
 #: management/commands/csv_import.py:25
 msgid "The provided template does not exist."
-msgstr ""
+msgstr "Die gegebene Vorlage existiert nicht."
 
 #: menus.py:6 preferences.py:15
-#, fuzzy
-#| msgid "Import"
 msgid "CSV import"
-msgstr "Import"
+msgstr "CSV-Import"
 
 #: model_extensions.py:9
-#, fuzzy
-#| msgid "CSV export of teachers"
 msgid "CSV import reference"
-msgstr "CSV-Export der Lehrer"
+msgstr "CSV-Import-Referenz"
 
 #: models.py:27
 msgid "Content type"
-msgstr ""
+msgstr "Inhaltstyp"
 
 #: models.py:34
 msgid "Has the CSV file an own header row?"
-msgstr ""
+msgstr "Hat die CSV-Datei eine eigene Kopfzeile?"
 
 #: models.py:39
 msgid "CSV separator"
-msgstr ""
+msgstr "CSV-Trennzeichen"
 
 #: models.py:40
 msgid "For whitespace use \\\\s+, for tab \\\\t"
-msgstr ""
+msgstr "Für Leerzeichen \\\\s+ nutzen, für Tabulatoren \\\\t"
 
 #: models.py:48
 msgid "Base group"
-msgstr ""
+msgstr "Stammgruppe"
 
 #: models.py:50
 msgid "If imported objects are persons, they all will be members of this group after import."
 msgstr ""
+"Wenn die importierten Objekte Personen sind, werden sie alle als Mitglieder "
+"dieser Gruppe zugeordnet werden (nach dem Import)."
 
 #: models.py:58
 msgid "Group type"
-msgstr ""
+msgstr "Gruppentyp"
 
 #: models.py:60
 msgid "If imported objects are groups, they all will get this group type after import."
 msgstr ""
+"Wenn die importierten Objekte Gruppen sind, wird für alle dieser Gruppentyp "
+"gesetzt."
 
 #: models.py:81
 msgid "Import templates"
-msgstr ""
+msgstr "Import-Vorlagen"
 
 #: models.py:85
 msgid "Index"
-msgstr ""
+msgstr "Index"
 
 #: models.py:94
 msgid "Field type"
-msgstr ""
+msgstr "Feldtyp"
 
 #: models.py:110
 msgid "You are not allowed to use this field type in this model."
-msgstr ""
+msgstr "Sie dürfen diesen Feldtyp nicht für dieses Model benutzen."
 
 #: models.py:116
 msgid "Import template field"
-msgstr ""
+msgstr "Feld für Import-Vorlage"
 
 #: models.py:117
 msgid "Import template fields"
-msgstr ""
+msgstr "Felder für Import-Vorlagen"
 
 #: preferences.py:25
 msgid "Group type for department groups"
-msgstr ""
+msgstr "Gruppentyp für Fachschaften"
 
 #: preferences.py:26
 msgid "If you leave it empty, no group type will be used."
-msgstr ""
+msgstr "Wenn Sie das Feld frei lassen, wird kein Gruppentyp gesetzt."
 
 #: preferences.py:34
 msgid "Prefix for long names of department groups"
-msgstr ""
+msgstr "Präfix für Langnamen von Fachschaftsgruppen"
 
 #: preferences.py:35
 msgid "If you leave it empty, no prefix will be added."
-msgstr ""
+msgstr "Wenn Sie das Feld freilassen, wird kein Präfix hinzugefügt."
 
 #: preferences.py:45
 msgid "Group for guardians"
-msgstr ""
+msgstr "Gruppe für Eltern"
 
 #: preferences.py:46
 msgid "If you leave it empty, no group will be used."
-msgstr ""
+msgstr "Wenn Sie das Feld frei lassen, wird keine Gruppe gesetzt."
 
 #: preferences.py:55
 msgid "Languages for date parsing"
-msgstr ""
+msgstr "Sprachen für die Datumserkennung"
 
 #: preferences.py:56
 msgid "e. g. en,es,zh-Hant"
-msgstr ""
+msgstr "z. B. en,es,zh-Hant"
 
 #: preferences.py:66
 msgid "Country for phone number parsing"
-msgstr ""
+msgstr "Land für die Telefonnumernerkennung"
 
 #: templates/csv_import/csv_import.html:7
 #: templates/csv_import/csv_import.html:8
-#, fuzzy
-#| msgid "Import SchILD-NRW data"
 msgid "Import CSV data"
-msgstr "SchILD-NRW-Daten importieren"
+msgstr "CSV-Daten importieren"
 
 #: templates/csv_import/csv_import.html:14
 msgid ""
@@ -261,12 +260,16 @@ msgid ""
 "        according to your software in the documentation! Sometimes there is needed a special procedure to import the data correctly.\n"
 "      "
 msgstr ""
+"\n"
+"        Sie können Daten von verschiedenen Schulverwaltungssoftwares mit "
+"diesem CSV-Importer importieren. Bitte lesen die Hinweise\n"
+"zu der von Ihnen verwendeten Software in unser Dokumentation! Manchmal ist "
+"ein spezielles Verfahren notwendig, um die Daten korrekt zu importieren.\n"
+"      "
 
 #: templates/csv_import/csv_import.html:25
-#, fuzzy
-#| msgid "Import"
 msgid "Import data"
-msgstr "Import"
+msgstr "Daten importieren"
 
 #: util/process.py:74
 #, python-brace-format
@@ -274,10 +277,12 @@ msgid ""
 "There was an error while parsing the CSV file:\n"
 "{e}"
 msgstr ""
+"Es ist ein Fehler beim Lesen der CSV-Datei aufgetreten:\n"
+"{e}"
 
 #: util/process.py:126
 msgid "Missing unique reference."
-msgstr ""
+msgstr "Fehlende eindeutige Referenz."
 
 #: util/process.py:171
 #, python-brace-format
@@ -285,47 +290,46 @@ msgid ""
 "Failed to import {model._meta.verbose_name} {row}:\n"
 "{e}"
 msgstr ""
+"Fehler beim Importieren von {model._meta.verbose_name} {row}:\n"
+"{e}"
 
 #: util/process.py:194
-#, fuzzy, python-brace-format
-#| msgid "%d existing persons were deactivated."
+#, python-brace-format
 msgid "{affected} existing {model._meta.verbose_name_plural} were deactivated."
-msgstr "%d existierende Personen wurden deaktiviert."
+msgstr ""
+"{affected} existierende {model._meta.verbose_name_plural} wurden deaktiviert."
 
 #: util/process.py:201
 #, python-brace-format
 msgid "{created_count} {model._meta.verbose_name_plural} were newly created."
-msgstr ""
+msgstr "{created_count} {model._meta.verbose_name_plural} wurden neu erstellt."
 
 #: util/process.py:207
-#, fuzzy, python-brace-format
-#| msgid "All persons were imported successfully."
+#, python-brace-format
 msgid "All {model._meta.verbose_name_plural} were imported successfully."
-msgstr "Alle Personen wurden erfolgreich importiert."
+msgstr "Alle {model._meta.verbose_name_plural} wurden erfolgreich importiert."
 
 #: util/process.py:212
-#, fuzzy, python-brace-format
-#| msgid "Some persons failed to be imported."
+#, python-brace-format
 msgid "Some {model._meta.verbose_name_plural} failed to be imported."
-msgstr "Einige Personen konnten nicht importiert werden."
+msgstr ""
+"Einige {model._meta.verbose_name_plural} konnten nicht importiert werden."
 
 #: views.py:41
 msgid "Progress: Import data from CSV"
-msgstr ""
+msgstr "Fortschritt: CSV-Daten importieren"
 
 #: views.py:45
 msgid "Import objects …"
-msgstr ""
+msgstr "Objekte importieren …"
 
 #: views.py:46
-#, fuzzy
-#| msgid "All persons were imported successfully."
 msgid "The import was done successfully."
-msgstr "Alle Personen wurden erfolgreich importiert."
+msgstr "Der Import wurde erfolgreich beendet."
 
 #: views.py:47
 msgid "There was a problem while importing data."
-msgstr ""
+msgstr "Beim Importieren der Daten ist ein Fehler aufgetreten."
 
 #~ msgid "CSV export of students"
 #~ msgstr "CSV-Export der Schüler"
