@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-01 13:25+0200\n"
+"POT-Creation-Date: 2020-11-14 12:23+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,91 +16,300 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
 
-#: forms.py:6
-msgid "CSV export of teachers"
+#: field_types.py:132
+msgid "Unique reference"
 msgstr ""
 
-#: forms.py:7
-msgid "CSV export of students"
+#: field_types.py:144
+msgid "Is active? (0/1)"
 msgstr ""
 
-#: forms.py:8
-msgid "CSV export of guardians/parents"
+#: field_types.py:153 models.py:30 models.py:31
+msgid "Name"
 msgstr ""
 
-#: management/commands/schild_import.py:9
+#: field_types.py:162
+msgid "First name"
+msgstr ""
+
+#: field_types.py:170
+msgid "Last name"
+msgstr ""
+
+#: field_types.py:178
+msgid "Additional name"
+msgstr ""
+
+#: field_types.py:186
+msgid "Short name"
+msgstr ""
+
+#: field_types.py:196
+msgid "Email"
+msgstr ""
+
+#: field_types.py:205
+msgid "Date of birth"
+msgstr ""
+
+#: field_types.py:214
+msgid "Sex"
+msgstr ""
+
+#: field_types.py:223
+msgid "Street"
+msgstr ""
+
+#: field_types.py:231
+msgid "Housenumber"
+msgstr ""
+
+#: field_types.py:239
+msgid "Postal code"
+msgstr ""
+
+#: field_types.py:247
+msgid "Place"
+msgstr ""
+
+#: field_types.py:255
+msgid "Phone number"
+msgstr ""
+
+#: field_types.py:264
+msgid "Mobile number"
+msgstr ""
+
+#: field_types.py:273
+msgid "Ignore data in this field"
+msgstr ""
+
+#: field_types.py:284
+msgid "Comma-seperated list of departments"
+msgstr ""
+
+#: field_types.py:314
+msgid "Short name of the subject"
+msgstr ""
+
+#: field_types.py:326
+msgid "Class range (e. g. 7a-d)"
+msgstr ""
+
+#: field_types.py:345
+msgid "Short name of the person's primary group"
+msgstr ""
+
+#: field_types.py:357
+#, python-brace-format
+msgid "{instance}: Failed to import the primary group: "
+msgstr ""
+
+#: field_types.py:366
+msgid "Short name of a single group owner"
+msgstr ""
+
+#: field_types.py:383
+msgid "Short name of the group the person is a member of"
+msgstr ""
+
+#: field_types.py:397
+msgid "Child by unique reference (from students import)"
+msgstr ""
+
+#: forms.py:10
+msgid "CSV file"
+msgstr ""
+
+#: forms.py:12
+msgid "Related school term"
+msgstr ""
+
+#: forms.py:15 models.py:80 models.py:89
+msgid "Import template"
+msgstr ""
+
+#: management/commands/csv_import.py:12
 msgid "Path to CSV file with exported teachers"
 msgstr ""
 
-#: management/commands/schild_import.py:10
-msgid "Path to CSV file with exported students"
+#: management/commands/csv_import.py:16
+msgid "Name of import template which should be used"
 msgstr ""
 
-#: management/commands/schild_import.py:12
-msgid "Path to CSV file with exported guardians"
+#: management/commands/csv_import.py:25
+msgid "The provided template does not exist."
 msgstr ""
 
-#: menus.py:6
-msgid "SchILD-NRW import"
+#: menus.py:6 preferences.py:15
+msgid "CSV import"
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:12
+#: model_extensions.py:9
+msgid "CSV import reference"
+msgstr ""
+
+#: models.py:27
+msgid "Content type"
+msgstr ""
+
+#: models.py:34
+msgid "Has the CSV file an own header row?"
+msgstr ""
+
+#: models.py:39
+msgid "CSV separator"
+msgstr ""
+
+#: models.py:40
+msgid "For whitespace use \\\\s+, for tab \\\\t"
+msgstr ""
+
+#: models.py:48
+msgid "Base group"
+msgstr ""
+
+#: models.py:50
+msgid "If imported objects are persons, they all will be members of this group after import."
+msgstr ""
+
+#: models.py:58
+msgid "Group type"
+msgstr ""
+
+#: models.py:60
+msgid "If imported objects are groups, they all will get this group type after import."
+msgstr ""
+
+#: models.py:81
+msgid "Import templates"
+msgstr ""
+
+#: models.py:85
+msgid "Index"
+msgstr ""
+
+#: models.py:94
+msgid "Field type"
+msgstr ""
+
+#: models.py:110
+msgid "You are not allowed to use this field type in this model."
+msgstr ""
+
+#: models.py:116
+msgid "Import template field"
+msgstr ""
+
+#: models.py:117
+msgid "Import template fields"
+msgstr ""
+
+#: preferences.py:25
+msgid "Group type for department groups"
+msgstr ""
+
+#: preferences.py:26
+msgid "If you leave it empty, no group type will be used."
+msgstr ""
+
+#: preferences.py:34
+msgid "Prefix for long names of department groups"
+msgstr ""
+
+#: preferences.py:35
+msgid "If you leave it empty, no prefix will be added."
+msgstr ""
+
+#: preferences.py:45
+msgid "Group for guardians"
+msgstr ""
+
+#: preferences.py:46
+msgid "If you leave it empty, no group will be used."
+msgstr ""
+
+#: preferences.py:55
+msgid "Languages for date parsing"
+msgstr ""
+
+#: preferences.py:56
+msgid "e. g. en,es,zh-Hant"
+msgstr ""
+
+#: preferences.py:66
+msgid "Country for phone number parsing"
+msgstr ""
+
+#: templates/csv_import/csv_import.html:7
+#: templates/csv_import/csv_import.html:8
+msgid "Import CSV data"
+msgstr ""
+
+#: templates/csv_import/csv_import.html:14
 msgid ""
 "\n"
-"        SchILD-NRW provides export functions for basic data of students,\n"
-"        teachers and guardians as CSV files. You can import a set of such "
-"files\n"
-"        here.\n"
+"        You can import data from several school administration software using this CSV importer. Please read the notes\n"
+"        according to your software in the documentation! Sometimes there is needed a special procedure to import the data correctly.\n"
 "      "
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:20
+#: templates/csv_import/csv_import.html:25
+msgid "Import data"
+msgstr ""
+
+#: util/process.py:74
+#, python-brace-format
 msgid ""
-"\n"
-"        To generate CSV files in the correct format, please use the "
-"following\n"
-"        templates:\n"
-"      "
+"There was an error while parsing the CSV file:\n"
+"{e}"
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:28
-msgid "SchILD-NRW CSV export template for students"
+#: util/process.py:126
+msgid "Missing unique reference."
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:33
-msgid "SchILD-NRW CSV export template for teachers"
+#: util/process.py:171
+#, python-brace-format
+msgid ""
+"Failed to import {model._meta.verbose_name} {row}:\n"
+"{e}"
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:38
-msgid "SchILD-NRW CSV export template for guardians"
+#: util/process.py:194
+#, python-brace-format
+msgid "{affected} existing {model._meta.verbose_name_plural} were deactivated."
 msgstr ""
 
-#: templates/schild_nrw/schild_import.html:47
-msgid "Import"
+#: util/process.py:201
+#, python-brace-format
+msgid "{created_count} {model._meta.verbose_name_plural} were newly created."
 msgstr ""
 
-#: util.py:69
-#, python-format
-msgid "Failed to import person %s"
+#: util/process.py:207
+#, python-brace-format
+msgid "All {model._meta.verbose_name_plural} were imported successfully."
 msgstr ""
 
-#: util.py:95
-#, python-format
-msgid "%d existing persons were deactivated."
+#: util/process.py:212
+#, python-brace-format
+msgid "Some {model._meta.verbose_name_plural} failed to be imported."
 msgstr ""
 
-#: util.py:98
-#, python-format
-msgid "%d persons were newly created."
+#: views.py:41
+msgid "Progress: Import data from CSV"
 msgstr ""
 
-#: util.py:101
-msgid "All persons were imported successfully."
+#: views.py:45
+msgid "Import objects …"
 msgstr ""
 
-#: util.py:103
-msgid "Some persons failed to be imported."
+#: views.py:46
+msgid "The import was done successfully."
+msgstr ""
+
+#: views.py:47
+msgid "There was a problem while importing data."
 msgstr ""
