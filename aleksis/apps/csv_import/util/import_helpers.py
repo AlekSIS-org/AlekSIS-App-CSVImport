@@ -18,10 +18,7 @@ def is_active(row: dict) -> bool:
 
 def has_is_active_field(model: Model) -> bool:
     """Check if this model allows importing the is_active status."""
-    from aleksis.apps.csv_import.field_types import (
-        field_type_registry,
-        IsActiveFieldType,
-    )
+    from aleksis.apps.csv_import.field_types import IsActiveFieldType, field_type_registry
 
     if model in field_type_registry.allowed_field_types_for_models:
         if (

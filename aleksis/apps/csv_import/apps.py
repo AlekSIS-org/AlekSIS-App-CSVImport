@@ -23,9 +23,9 @@ class CSVImportConfig(AppConfig):
 
         # Create default import templates
         try:
-            from aleksis.apps.csv_import.default_templates import (
+            from aleksis.apps.csv_import.default_templates import (  # noqa
                 update_or_create_default_templates,
-            )  # noqa
+            )
 
             update_or_create_default_templates()
         except ProgrammingError:

@@ -2,12 +2,7 @@ from django.utils.translation import gettext as _
 
 import pycountry
 from dynamic_preferences.preferences import Section
-from dynamic_preferences.types import (
-    ChoicePreference,
-    ModelChoicePreference,
-    MultipleChoicePreference,
-    StringPreference,
-)
+from dynamic_preferences.types import ChoicePreference, ModelChoicePreference, StringPreference
 
 from aleksis.core.models import Group, GroupType
 from aleksis.core.registries import site_preferences_registry
