@@ -58,6 +58,9 @@ flake8-isort = "^4.0.0"
 pytest-cov = "^2.8.1"
 pytest-sugar = "^0.9.2"
 
+[tool.poetry.plugins."aleksis.app"]
+csv_import = "aleksis.apps.csv_import.apps:CSVImportConfig"
+
 [build-system]
 requires = ["poetry>=1.0"]
 build-backend = "poetry.masonry.api"
