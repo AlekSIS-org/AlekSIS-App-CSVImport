@@ -1,35 +1,34 @@
 [[package]]
-name = "alabaster"
-version = "0.7.12"
-description = "A configurable sidebar-enabled Sphinx theme"
 category = "dev"
+description = "A configurable sidebar-enabled Sphinx theme"
+name = "alabaster"
 optional = false
 python-versions = "*"
+version = "0.7.12"
 
 [[package]]
-name = "aleksis-app-chronos"
-version = "2.0a3.dev0+20201114181205.58815f85"
-description = "AlekSIS (School Information System) — App Χρόνος (digital timetables)"
 category = "main"
+description = "AlekSIS (School Information System) — App Χρόνος (digital timetables)"
+name = "aleksis-app-chronos"
 optional = false
 python-versions = ">=3.7,<4.0"
+version = "2.0a3.dev0+20201114181205.58815f85"
 
 [package.dependencies]
 aleksis-core = ">=2.0a3,<3.0"
 calendarweek = ">=0.4.6,<0.5.0"
 
 [package.source]
-type = "legacy"
-url = "https://edugit.org/api/v4/projects/461/packages/pypi/simple"
 reference = "gitlab"
+url = "https://edugit.org/api/v4/projects/461/packages/pypi/simple"
 
 [[package]]
-name = "aleksis-builddeps"
-version = "1"
-description = "AlekSIS (School Information System) — Build/Dev dependencies for apps"
 category = "dev"
+description = "AlekSIS (School Information System) — Build/Dev dependencies for apps"
+name = "aleksis-builddeps"
 optional = false
 python-versions = "*"
+version = "1"
 
 [package.dependencies]
 black = ">=19.10b0,<20.0"
@@ -57,23 +56,23 @@ sphinx-autodoc-typehints = ">=1.7,<2.0"
 sphinxcontrib-django = ">=0.5.0,<0.6.0"
 
 [package.source]
-type = "legacy"
-url = "https://edugit.org/api/v4/projects/461/packages/pypi/simple"
 reference = "gitlab"
+url = "https://edugit.org/api/v4/projects/461/packages/pypi/simple"
 
 [[package]]
-name = "aleksis-core"
-version = "2.0a3.dev0+20201114132749.88d92354"
-description = "AlekSIS (School Information System) — Core"
 category = "main"
+description = "AlekSIS (School Information System) — Core"
+name = "aleksis-core"
 optional = false
 python-versions = ">=3.7,<4.0"
+version = "2.0a3.dev0+20201114132749.88d92354"
 
 [package.dependencies]
-calendarweek = ">=0.4.3,<0.5.0"
-celery-progress = ">=0.0.12,<0.0.13"
-colour = ">=0.1.5,<0.2.0"
 Django = ">=3.0,<4.0"
+Pillow = ">=7.0,<8.0"
+calendarweek = ">=0.4.3,<0.5.0"
+celery-progress = ">=0.0.14,<0.0.15"
+colour = ">=0.1.5,<0.2.0"
 django-any-js = ">=1.0,<2.0"
 django-bleach = ">=0.6.1,<0.7.0"
 django-cache-memoize = ">=0.1.6,<0.2.0"
@@ -82,14 +81,12 @@ django-colorfield = ">=0.3.0,<0.4.0"
 django-dbbackup = ">=3.3.0,<4.0.0"
 django-debug-toolbar = ">=2.0,<3.0"
 django-dynamic-preferences = ">=1.9,<2.0"
-django-easy-audit = ">=1.2rc1,<2.0"
 django-favicon-plus-reloaded = ">=1.0.4,<2.0.0"
 django-filter = ">=2.2.0,<3.0.0"
 django-guardian = ">=2.2.0,<3.0.0"
 django-hattori = ">=0.2,<0.3"
 django-haystack = "3.0b1"
 django-health-check = ">=3.12.1,<4.0.0"
-django-image-cropping = ">=1.2,<2.0"
 django-impersonate = ">=1.4,<2.0"
 django-ipware = ">=3.0,<4.0"
 django-js-reverse = ">=0.9.1,<0.10.0"
@@ -98,25 +95,21 @@ django-maintenance-mode = ">=0.15.0,<0.16.0"
 django-material = ">=1.6.0,<2.0.0"
 django-menu-generator = ">=1.0.4,<2.0.0"
 django-middleware-global-request = ">=0.1.2,<0.2.0"
-django-phonenumber-field = {version = "<5.1", extras = ["phonenumbers"]}
+django-model-utils = ">=4.0.0,<5.0.0"
 django-polymorphic = ">=3.0.0,<4.0.0"
 django-prometheus = ">=2.1.0,<3.0.0"
 django-pwa = ">=1.0.8,<2.0.0"
 django-reversion = ">=3.0.7,<4.0.0"
 django-sass-processor = ">=0.8,<0.9"
-django_select2 = ">=7.1,<8.0"
 django-settings-context-processor = ">=0.2,<0.3"
 django-tables2 = ">=2.1,<3.0"
 django-templated-email = ">=2.3.0,<3.0.0"
-django-two-factor-auth = {version = ">=1.12.1,<2.0.0", extras = ["call", "phonenumbers", "sms", "yubikey"]}
-django_widget_tweaks = ">=1.4.5,<2.0.0"
 django-yarnpkg = ">=6.0,<7.0"
-dynaconf = {version = ">=3.1,<4.0", extras = ["ini", "toml", "yaml"]}
-easy-thumbnails = ">=2.6,<3.0"
+django_select2 = ">=7.1,<8.0"
+django_widget_tweaks = ">=1.4.5,<2.0.0"
 html2text = ">=2020.0.0,<2021.0.0"
 libsass = ">=0.20.0,<0.21.0"
 license-expression = ">=1.2,<2.0"
-Pillow = ">=7.0,<8.0"
 psutil = ">=5.7.0,<6.0.0"
 psycopg2 = ">=2.8,<3.0"
 python-memcached = ">=1.59,<2.0"
@@ -124,104 +117,105 @@ requests = ">=2.22,<3.0"
 rules = ">=2.2,<3.0"
 spdx-license-list = ">=0.5.0,<0.6.0"
 
+[package.dependencies.django-phonenumber-field]
+extras = ["phonenumbers"]
+version = "<5.1"
+
+[package.dependencies.django-two-factor-auth]
+extras = ["sms", "call", "yubikey", "phonenumbers"]
+version = ">=1.12.1,<2.0.0"
+
+[package.dependencies.dynaconf]
+extras = ["ini", "toml", "yaml"]
+version = ">=3.1,<4.0"
+
+[package.dependencies.importlib-metadata]
+python = "<3.9"
+version = ">=2.0.0,<3.0.0"
+
 [package.extras]
-celery = ["Celery[redis,django] (>=4.4.0,<5.0.0)", "celery-haystack (>=0.10.0,<0.11.0)", "django-celery-beat (>=2.0.0,<3.0.0)", "django-celery-email (>=3.0.0,<4.0.0)", "django-celery-results (>=1.1.2,<2.0.0)"]
+celery = ["Celery (>=4.4.0,<5.0.0)", "celery-haystack (>=0.10.0,<0.11.0)", "django-celery-beat (>=2.0.0,<3.0.0)", "django-celery-email (>=3.0.0,<4.0.0)", "django-celery-results (>=1.1.2,<2.0.0)"]
 ldap = ["django-auth-ldap (>=2.2,<3.0)"]
 
 [package.source]
-type = "legacy"
-url = "https://edugit.org/api/v4/projects/461/packages/pypi/simple"
 reference = "gitlab"
+url = "https://edugit.org/api/v4/projects/461/packages/pypi/simple"
 
 [[package]]
-name = "appdirs"
-version = "1.4.4"
-description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
 category = "dev"
+description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
+name = "appdirs"
 optional = false
 python-versions = "*"
+version = "1.4.4"
 
 [[package]]
-name = "asgiref"
-version = "3.3.1"
-description = "ASGI specs, helper code, and adapters"
 category = "main"
+description = "ASGI specs, helper code, and adapters"
+name = "asgiref"
 optional = false
 python-versions = ">=3.5"
+version = "3.3.1"
 
 [package.extras]
 tests = ["pytest", "pytest-asyncio"]
 
 [[package]]
-name = "atomicwrites"
-version = "1.4.0"
-description = "Atomic file writes."
 category = "dev"
+description = "Atomic file writes."
+marker = "sys_platform == \"win32\""
+name = "atomicwrites"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "1.4.0"
 
 [[package]]
-name = "attrs"
-version = "20.3.0"
-description = "Classes Without Boilerplate"
 category = "dev"
+description = "Classes Without Boilerplate"
+name = "attrs"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "20.3.0"
 
 [package.extras]
-dev = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface", "furo", "sphinx", "pre-commit"]
+dev = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface", "furo", "sphinx", "pre-commit"]
 docs = ["furo", "sphinx", "zope.interface"]
-tests = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
-tests_no_zope = ["coverage[toml] (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
+tests = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six", "zope.interface"]
+tests_no_zope = ["coverage (>=5.0.2)", "hypothesis", "pympler", "pytest (>=4.3.0)", "six"]
 
 [[package]]
-name = "babel"
-version = "2.9.0"
-description = "Internationalization utilities"
 category = "main"
+description = "Internationalization utilities"
+name = "babel"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "2.9.0"
 
 [package.dependencies]
 pytz = ">=2015.7"
 
 [[package]]
-name = "bandit"
-version = "1.6.2"
-description = "Security oriented static analyser for python code."
 category = "dev"
+description = "Security oriented static analyser for python code."
+name = "bandit"
 optional = false
 python-versions = "*"
+version = "1.6.2"
 
 [package.dependencies]
-colorama = {version = ">=0.3.9", markers = "platform_system == \"Windows\""}
 GitPython = ">=1.0.1"
 PyYAML = ">=3.13"
+colorama = ">=0.3.9"
 six = ">=1.10.0"
 stevedore = ">=1.20.0"
 
 [[package]]
-name = "beautifulsoup4"
-version = "4.9.3"
-description = "Screen-scraping library"
-category = "main"
-optional = false
-python-versions = "*"
-
-[package.dependencies]
-soupsieve = {version = ">1.2", markers = "python_version >= \"3.0\""}
-
-[package.extras]
-html5lib = ["html5lib"]
-lxml = ["lxml"]
-
-[[package]]
-name = "black"
-version = "19.10b0"
-description = "The uncompromising code formatter."
 category = "dev"
+description = "The uncompromising code formatter."
+name = "black"
 optional = false
 python-versions = ">=3.6"
+version = "19.10b0"
 
 [package.dependencies]
 appdirs = "*"
@@ -236,12 +230,12 @@ typed-ast = ">=1.4.0"
 d = ["aiohttp (>=3.3.2)", "aiohttp-cors"]
 
 [[package]]
-name = "bleach"
-version = "3.2.1"
-description = "An easy safelist-based HTML-sanitizing tool."
 category = "main"
+description = "An easy safelist-based HTML-sanitizing tool."
+name = "bleach"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "3.2.1"
 
 [package.dependencies]
 packaging = "*"
@@ -249,31 +243,31 @@ six = ">=1.9.0"
 webencodings = "*"
 
 [[package]]
-name = "boolean.py"
-version = "3.8"
-description = "Define boolean algebras, create and parse boolean expressions and create custom boolean DSL."
 category = "main"
+description = "Define boolean algebras, create and parse boolean expressions and create custom boolean DSL."
+name = "boolean.py"
 optional = false
 python-versions = "*"
+version = "3.8"
 
 [[package]]
-name = "calendarweek"
-version = "0.4.7"
-description = "Utilities for working with calendar weeks in Python and Django"
 category = "main"
+description = "Utilities for working with calendar weeks in Python and Django"
+name = "calendarweek"
 optional = false
 python-versions = ">=3.7,<4.0"
+version = "0.4.7"
 
 [package.extras]
 django = ["Django (>=2.2,<4.0)"]
 
 [[package]]
-name = "celery-progress"
-version = "0.0.12"
-description = "Drop in, configurable, dependency-free progress bars for your Django/Celery applications."
 category = "main"
+description = "Drop in, configurable, dependency-free progress bars for your Django/Celery applications."
+name = "celery-progress"
 optional = false
 python-versions = "*"
+version = "0.0.14"
 
 [package.extras]
 rabbitmq = ["channels-rabbitmq"]
@@ -281,77 +275,78 @@ redis = ["channels-redis"]
 websockets = ["channels"]
 
 [[package]]
-name = "certifi"
-version = "2020.11.8"
+category = "main"
 description = "Python package for providing Mozilla's CA Bundle."
-category = "main"
+name = "certifi"
 optional = false
 python-versions = "*"
+version = "2020.11.8"
 
 [[package]]
-name = "chardet"
-version = "3.0.4"
+category = "main"
 description = "Universal encoding detector for Python 2 and 3"
-category = "main"
+name = "chardet"
 optional = false
 python-versions = "*"
+version = "3.0.4"
 
 [[package]]
-name = "click"
-version = "7.1.2"
-description = "Composable command line interface toolkit"
 category = "dev"
+description = "Composable command line interface toolkit"
+name = "click"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "7.1.2"
 
 [[package]]
-name = "colorama"
-version = "0.4.4"
+category = "main"
 description = "Cross-platform colored terminal text."
-category = "main"
+marker = "platform_system == \"Windows\" or sys_platform == \"win32\""
+name = "colorama"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "0.4.4"
 
 [[package]]
-name = "colour"
-version = "0.1.5"
-description = "converts and manipulates various color representation (HSL, RVB, web, X11, ...)"
 category = "main"
+description = "converts and manipulates various color representation (HSL, RVB, web, X11, ...)"
+name = "colour"
 optional = false
 python-versions = "*"
+version = "0.1.5"
 
 [package.extras]
 test = ["nose"]
 
 [[package]]
-name = "configobj"
-version = "5.0.6"
-description = "Config file reading, writing and validation."
 category = "main"
+description = "Config file reading, writing and validation."
+name = "configobj"
 optional = false
 python-versions = "*"
+version = "5.0.6"
 
 [package.dependencies]
 six = "*"
 
 [[package]]
-name = "coverage"
-version = "5.3"
-description = "Code coverage measurement for Python"
 category = "dev"
+description = "Code coverage measurement for Python"
+name = "coverage"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+version = "5.3"
 
 [package.extras]
 toml = ["toml"]
 
 [[package]]
-name = "dateparser"
-version = "0.7.6"
-description = "Date parsing library designed to parse dates from HTML pages"
 category = "main"
+description = "Date parsing library designed to parse dates from HTML pages"
+name = "dateparser"
 optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+python-versions = ">=3.5"
+version = "1.0.0"
 
 [package.dependencies]
 python-dateutil = "*"
@@ -359,21 +354,24 @@ pytz = "*"
 regex = "!=2019.02.19"
 tzlocal = "*"
 
-[[package]]
-name = "dj-database-url"
-version = "0.5.0"
-description = "Use Database URLs in your Django Application."
-category = "dev"
-optional = false
-python-versions = "*"
+[package.extras]
+calendars = ["convertdate", "hijri-converter", "convertdate"]
 
 [[package]]
-name = "django"
-version = "3.1.3"
-description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+category = "dev"
+description = "Use Database URLs in your Django Application."
+name = "dj-database-url"
+optional = false
+python-versions = "*"
+version = "0.5.0"
+
+[[package]]
 category = "main"
+description = "A high-level Python Web framework that encourages rapid development and clean, pragmatic design."
+name = "django"
 optional = false
 python-versions = ">=3.6"
+version = "3.1.3"
 
 [package.dependencies]
 asgiref = ">=3.2.10,<4"
@@ -385,87 +383,87 @@ argon2 = ["argon2-cffi (>=16.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-name = "django-any-js"
-version = "1.0.3.post0"
-description = "Include JavaScript libraries with readable template tags"
 category = "main"
+description = "Include JavaScript libraries with readable template tags"
+name = "django-any-js"
 optional = false
 python-versions = "*"
+version = "1.0.3.post0"
 
 [package.dependencies]
 Django = ">=1.11"
 
 [[package]]
-name = "django-appconf"
-version = "1.0.4"
-description = "A helper class for handling configuration defaults of packaged apps gracefully."
 category = "main"
+description = "A helper class for handling configuration defaults of packaged apps gracefully."
+name = "django-appconf"
 optional = false
 python-versions = "*"
+version = "1.0.4"
 
 [package.dependencies]
 django = "*"
 
 [[package]]
-name = "django-bleach"
-version = "0.6.1"
-description = "Easily use bleach with Django models and templates"
 category = "main"
+description = "Easily use bleach with Django models and templates"
+name = "django-bleach"
 optional = false
 python-versions = "*"
+version = "0.6.1"
 
 [package.dependencies]
-bleach = ">=1.5.0"
 Django = ">=1.11"
+bleach = ">=1.5.0"
 
 [[package]]
-name = "django-bulk-update"
-version = "2.2.0"
-description = "Bulk update using one query over Django ORM."
 category = "main"
+description = "Bulk update using one query over Django ORM."
+name = "django-bulk-update"
 optional = false
 python-versions = "*"
+version = "2.2.0"
 
 [package.dependencies]
 Django = ">=1.8"
 
 [[package]]
-name = "django-cache-memoize"
-version = "0.1.7"
-description = "Django utility for a memoization decorator that uses the Django cache framework."
 category = "main"
+description = "Django utility for a memoization decorator that uses the Django cache framework."
+name = "django-cache-memoize"
 optional = false
 python-versions = ">=3.4"
+version = "0.1.7"
 
 [package.extras]
 dev = ["flake8", "tox", "twine", "therapist", "black"]
 
 [[package]]
-name = "django-ckeditor"
-version = "6.0.0"
-description = "Django admin CKEditor integration."
 category = "main"
+description = "Django admin CKEditor integration."
+name = "django-ckeditor"
 optional = false
 python-versions = "*"
+version = "6.0.0"
 
 [package.dependencies]
 django-js-asset = ">=1.2.2"
 
 [[package]]
-name = "django-colorfield"
-version = "0.3.2"
-description = "simple color field for your models with a nice color-picker in the admin-interface."
 category = "main"
+description = "simple color field for your models with a nice color-picker in the admin-interface."
+name = "django-colorfield"
 optional = false
 python-versions = "*"
+version = "0.3.2"
 
 [[package]]
-name = "django-dbbackup"
-version = "3.3.0"
-description = "Management commands to help backup and restore a project database and media"
 category = "main"
+description = "Management commands to help backup and restore a project database and media"
+name = "django-dbbackup"
 optional = false
 python-versions = "*"
+version = "3.3.0"
 
 [package.dependencies]
 Django = ">=1.5"
@@ -473,24 +471,24 @@ pytz = "*"
 six = "*"
 
 [[package]]
-name = "django-debug-toolbar"
-version = "2.2"
-description = "A configurable set of panels that display various debug information about the current request/response."
 category = "main"
+description = "A configurable set of panels that display various debug information about the current request/response."
+name = "django-debug-toolbar"
 optional = false
 python-versions = ">=3.5"
+version = "2.2"
 
 [package.dependencies]
 Django = ">=1.11"
 sqlparse = ">=0.2.0"
 
 [[package]]
-name = "django-dynamic-preferences"
-version = "1.10.1"
-description = "Dynamic global and instance settings for your django project"
 category = "main"
+description = "Dynamic global and instance settings for your django project"
+name = "django-dynamic-preferences"
 optional = false
 python-versions = "*"
+version = "1.10.1"
 
 [package.dependencies]
 django = ">=1.11"
@@ -498,202 +496,190 @@ persisting-theory = ">=0.2.1"
 six = "*"
 
 [[package]]
-name = "django-easy-audit"
-version = "1.3.1a1"
-description = "Yet another Django audit log app, hopefully the simplest one."
 category = "main"
-optional = false
-python-versions = ">=3.5"
-
-[package.dependencies]
-beautifulsoup4 = "*"
-django = ">=2.2,<3.2"
-
-[[package]]
-name = "django-favicon-plus-reloaded"
-version = "1.0.4"
 description = "simple Django app which allows you to upload a image and it renders a wide variety for html link tags to display the favicon"
-category = "main"
+name = "django-favicon-plus-reloaded"
 optional = false
 python-versions = "*"
+version = "1.0.4"
 
 [package.dependencies]
 django = "*"
 pillow = "*"
 
 [[package]]
-name = "django-filter"
-version = "2.4.0"
-description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
 category = "main"
+description = "Django-filter is a reusable Django application for allowing users to filter querysets dynamically."
+name = "django-filter"
 optional = false
 python-versions = ">=3.5"
+version = "2.4.0"
 
 [package.dependencies]
 Django = ">=2.2"
 
 [[package]]
-name = "django-formtools"
-version = "2.2"
-description = "A set of high-level abstractions for Django forms"
 category = "main"
+description = "A set of high-level abstractions for Django forms"
+name = "django-formtools"
 optional = false
 python-versions = "*"
+version = "2.2"
 
 [package.dependencies]
 Django = ">=1.11"
 
 [[package]]
-name = "django-guardian"
-version = "2.3.0"
-description = "Implementation of per object permissions for Django."
 category = "main"
+description = "Implementation of per object permissions for Django."
+name = "django-guardian"
 optional = false
 python-versions = ">=3.5"
+version = "2.3.0"
 
 [package.dependencies]
 Django = ">=2.2"
 
 [[package]]
-name = "django-hattori"
-version = "0.2.1"
-description = "Command to anonymize sensitive data."
 category = "main"
+description = "Command to anonymize sensitive data."
+name = "django-hattori"
 optional = false
 python-versions = "*"
+version = "0.2.1"
 
 [package.dependencies]
 Django = ">=1.8"
-django-bulk-update = ">=2.2.0"
 Faker = ">=0.8.13"
+django-bulk-update = ">=2.2.0"
 six = "*"
 tqdm = ">=4.23.4"
 
 [[package]]
-name = "django-haystack"
-version = "3.0b1"
-description = "Pluggable search for Django."
 category = "main"
+description = "Pluggable search for Django."
+name = "django-haystack"
 optional = false
 python-versions = "*"
+version = "3.0b1"
 
 [package.dependencies]
 Django = ">=2.2"
 
 [[package]]
-name = "django-health-check"
-version = "3.16.1"
-description = "Run checks on services like databases, queue servers, celery processes, etc."
 category = "main"
+description = "Run checks on services like databases, queue servers, celery processes, etc."
+name = "django-health-check"
 optional = false
 python-versions = "*"
+version = "3.16.1"
 
 [package.dependencies]
 django = ">=1.11"
 
 [[package]]
-name = "django-image-cropping"
-version = "1.5.0"
-description = "A reusable app for cropping images easily and non-destructively in Django"
 category = "main"
-optional = false
-python-versions = ">=3.5"
-
-[package.dependencies]
-django-appconf = ">=1.0.2"
-
-[[package]]
-name = "django-impersonate"
-version = "1.5.1"
 description = "Django app to allow superusers to impersonate other users."
-category = "main"
+name = "django-impersonate"
 optional = false
 python-versions = "*"
+version = "1.5.1"
 
 [[package]]
-name = "django-ipware"
-version = "3.0.2"
+category = "main"
 description = "A Django utility application that returns client's real IP address"
-category = "main"
+name = "django-ipware"
 optional = false
 python-versions = "*"
+version = "3.0.2"
 
 [[package]]
-name = "django-js-asset"
-version = "1.2.2"
+category = "main"
 description = "script tag with additional attributes for django.forms.Media"
-category = "main"
+name = "django-js-asset"
 optional = false
 python-versions = "*"
+version = "1.2.2"
 
 [[package]]
-name = "django-js-reverse"
-version = "0.9.1"
-description = "Javascript url handling for Django that doesn't hurt."
 category = "main"
+description = "Javascript url handling for Django that doesn't hurt."
+name = "django-js-reverse"
 optional = false
 python-versions = "*"
+version = "0.9.1"
 
 [package.dependencies]
 Django = ">=1.5"
 
 [[package]]
-name = "django-jsonstore"
-version = "0.4.1"
-description = "Expose JSONField data as a virtual django model fields."
 category = "main"
+description = "Expose JSONField data as a virtual django model fields."
+name = "django-jsonstore"
 optional = false
 python-versions = "*"
+version = "0.4.1"
 
 [package.dependencies]
 Django = ">=1.11"
 six = "*"
 
 [[package]]
-name = "django-maintenance-mode"
-version = "0.15.0"
-description = "django-maintenance-mode shows a 503 error page when maintenance-mode is on."
 category = "main"
+description = "django-maintenance-mode shows a 503 error page when maintenance-mode is on."
+name = "django-maintenance-mode"
 optional = false
 python-versions = "*"
+version = "0.15.0"
 
 [[package]]
-name = "django-material"
-version = "1.7.1"
-description = "Material design for django forms and admin"
 category = "main"
+description = "Material design for django forms and admin"
+name = "django-material"
 optional = false
 python-versions = "*"
+version = "1.7.1"
 
 [package.dependencies]
 six = "*"
 
 [[package]]
-name = "django-menu-generator"
-version = "1.0.4"
-description = "A straightforward menu generator for Django"
 category = "main"
+description = "A straightforward menu generator for Django"
+name = "django-menu-generator"
 optional = false
 python-versions = "*"
+version = "1.0.4"
 
 [[package]]
-name = "django-middleware-global-request"
-version = "0.1.2"
-description = "Django middleware that keep request instance for every thread."
 category = "main"
+description = "Django middleware that keep request instance for every thread."
+name = "django-middleware-global-request"
 optional = false
 python-versions = "*"
+version = "0.1.2"
 
 [package.dependencies]
 django = "*"
 
 [[package]]
-name = "django-otp"
-version = "1.0.2"
-description = "A pluggable framework for adding two-factor authentication to Django using one-time passwords."
 category = "main"
+description = "Django model mixins and utilities"
+name = "django-model-utils"
 optional = false
 python-versions = "*"
+version = "4.0.0"
+
+[package.dependencies]
+Django = ">=2.0.1"
+
+[[package]]
+category = "main"
+description = "A pluggable framework for adding two-factor authentication to Django using one-time passwords."
+name = "django-otp"
+optional = false
+python-versions = "*"
+version = "1.0.2"
 
 [package.dependencies]
 django = ">=2.2"
@@ -702,108 +688,107 @@ django = ">=2.2"
 qrcode = ["qrcode"]
 
 [[package]]
-name = "django-otp-yubikey"
-version = "1.0.0"
-description = "A django-otp plugin that verifies YubiKey OTP tokens."
 category = "main"
+description = "A django-otp plugin that verifies YubiKey OTP tokens."
+name = "django-otp-yubikey"
 optional = false
 python-versions = "*"
+version = "1.0.0"
 
 [package.dependencies]
-django-otp = ">=1.0.0"
 YubiOTP = ">=0.2.2"
+django-otp = ">=1.0.0"
 
 [[package]]
-name = "django-phonenumber-field"
-version = "3.0.1"
-description = "An international phone number field for django models."
 category = "main"
+description = "An international phone number field for django models."
+name = "django-phonenumber-field"
 optional = false
 python-versions = ">=3.5"
+version = "3.0.1"
 
 [package.dependencies]
-babel = "*"
 Django = ">=1.11.3"
-phonenumbers = {version = ">=7.0.2", optional = true, markers = "extra == \"phonenumbers\""}
+babel = "*"
 
 [package.extras]
 phonenumbers = ["phonenumbers (>=7.0.2)"]
 phonenumberslite = ["phonenumberslite (>=7.0.2)"]
 
 [[package]]
-name = "django-polymorphic"
-version = "3.0.0"
-description = "Seamless polymorphic inheritance for Django models"
 category = "main"
+description = "Seamless polymorphic inheritance for Django models"
+name = "django-polymorphic"
 optional = false
 python-versions = "*"
+version = "3.0.0"
 
 [package.dependencies]
 Django = ">=2.1"
 
 [[package]]
-name = "django-prometheus"
-version = "2.1.0"
-description = "Django middlewares to monitor your application with Prometheus.io."
 category = "main"
+description = "Django middlewares to monitor your application with Prometheus.io."
+name = "django-prometheus"
 optional = false
 python-versions = "*"
+version = "2.1.0"
 
 [package.dependencies]
 prometheus-client = ">=0.7"
 
 [[package]]
-name = "django-pwa"
-version = "1.0.10"
-description = "A Django app to include a manifest.json and Service Worker instance to enable progressive web app behavior"
 category = "main"
+description = "A Django app to include a manifest.json and Service Worker instance to enable progressive web app behavior"
+name = "django-pwa"
 optional = false
 python-versions = "*"
+version = "1.0.10"
 
 [package.dependencies]
 django = ">=1.8"
 
 [[package]]
-name = "django-render-block"
-version = "0.8.1"
-description = "Render a particular block from a template to a string."
 category = "main"
+description = "Render a particular block from a template to a string."
+name = "django-render-block"
 optional = false
 python-versions = ">=3.5"
+version = "0.8.1"
 
 [package.dependencies]
 django = ">=2.2"
 
 [[package]]
-name = "django-reversion"
-version = "3.0.8"
-description = "An extension to the Django web framework that provides version control for model instances."
 category = "main"
+description = "An extension to the Django web framework that provides version control for model instances."
+name = "django-reversion"
 optional = false
 python-versions = ">=3.6"
+version = "3.0.8"
 
 [package.dependencies]
 django = ">=1.11"
 
 [[package]]
-name = "django-sass-processor"
-version = "0.8.2"
-description = "SASS processor to compile SCSS files into *.css, while rendering, or offline."
 category = "main"
+description = "SASS processor to compile SCSS files into *.css, while rendering, or offline."
+name = "django-sass-processor"
 optional = false
 python-versions = "*"
+version = "0.8.2"
 
 [package.extras]
 dev = ["libsass (>=0.13)"]
 management-command = ["django-compressor (>=2.4)"]
 
 [[package]]
-name = "django-select2"
-version = "7.4.2"
-description = "Select2 option fields for Django"
 category = "main"
+description = "Select2 option fields for Django"
+name = "django-select2"
 optional = false
 python-versions = "*"
+version = "7.4.2"
 
 [package.dependencies]
 django = ">=2.2"
@@ -813,20 +798,20 @@ django-appconf = ">=0.6.0"
 test = ["pytest", "pytest-cov", "pytest-django", "selenium"]
 
 [[package]]
-name = "django-settings-context-processor"
-version = "0.2"
-description = "Makes specified django settings visible in template rendering context."
 category = "main"
+description = "Makes specified django settings visible in template rendering context."
+name = "django-settings-context-processor"
 optional = false
 python-versions = "*"
+version = "0.2"
 
 [[package]]
-name = "django-stubs"
-version = "1.7.0"
-description = "Mypy stubs for Django"
 category = "dev"
+description = "Mypy stubs for Django"
+name = "django-stubs"
 optional = false
 python-versions = ">=3.6"
+version = "1.7.0"
 
 [package.dependencies]
 django = "*"
@@ -834,12 +819,12 @@ mypy = ">=0.790"
 typing-extensions = "*"
 
 [[package]]
-name = "django-tables2"
-version = "2.3.3"
-description = "Table/data-grid framework for Django"
 category = "main"
+description = "Table/data-grid framework for Django"
+name = "django-tables2"
 optional = false
 python-versions = "*"
+version = "2.3.3"
 
 [package.dependencies]
 Django = ">=1.11"
@@ -848,34 +833,43 @@ Django = ">=1.11"
 tablib = ["tablib"]
 
 [[package]]
-name = "django-templated-email"
-version = "2.3.0"
-description = "A Django oriented templated / transaction email abstraction"
 category = "main"
+description = "A Django oriented templated / transaction email abstraction"
+name = "django-templated-email"
 optional = false
 python-versions = "*"
+version = "2.3.0"
 
 [package.dependencies]
 django-render-block = ">=0.5"
 six = ">=1"
 
 [[package]]
-name = "django-two-factor-auth"
-version = "1.13"
-description = "Complete Two-Factor Authentication for Django"
 category = "main"
+description = "Complete Two-Factor Authentication for Django"
+name = "django-two-factor-auth"
 optional = false
 python-versions = "*"
+version = "1.13"
 
 [package.dependencies]
 Django = ">=2.2"
 django-formtools = "*"
 django-otp = ">=0.8.0"
-django-otp-yubikey = {version = "*", optional = true, markers = "extra == \"yubikey\""}
 django-phonenumber-field = ">=1.1.0,<3.99"
-phonenumbers = {version = ">=7.0.9,<8.99", optional = true, markers = "extra == \"phonenumbers\""}
 qrcode = ">=4.0.0,<6.99"
-twilio = {version = ">=6.0", optional = true, markers = "extra == \"call\""}
+
+[package.dependencies.django-otp-yubikey]
+optional = true
+version = "*"
+
+[package.dependencies.phonenumbers]
+optional = true
+version = ">=7.0.9,<8.99"
+
+[package.dependencies.twilio]
+optional = true
+version = ">=6.0"
 
 [package.extras]
 call = ["twilio (>=6.0)"]
@@ -885,40 +879,40 @@ sms = ["twilio (>=6.0)"]
 yubikey = ["django-otp-yubikey"]
 
 [[package]]
-name = "django-widget-tweaks"
-version = "1.4.8"
-description = "Tweak the form field rendering in templates, not in python-level form definitions."
 category = "main"
+description = "Tweak the form field rendering in templates, not in python-level form definitions."
+name = "django-widget-tweaks"
 optional = false
 python-versions = "*"
+version = "1.4.8"
 
 [[package]]
-name = "django-yarnpkg"
-version = "6.0.1"
-description = "Integrate django with yarnpkg"
 category = "main"
+description = "Integrate django with yarnpkg"
+name = "django-yarnpkg"
 optional = false
 python-versions = "*"
+version = "6.0.1"
 
 [package.dependencies]
 django = "*"
 six = "*"
 
 [[package]]
-name = "docutils"
-version = "0.16"
-description = "Docutils -- Python Documentation Utilities"
 category = "dev"
+description = "Docutils -- Python Documentation Utilities"
+name = "docutils"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "0.16"
 
 [[package]]
-name = "dparse"
-version = "0.5.1"
-description = "A parser for Python dependency files"
 category = "dev"
+description = "A parser for Python dependency files"
+name = "dparse"
 optional = false
 python-versions = ">=3.5"
+version = "0.5.1"
 
 [package.dependencies]
 packaging = "*"
@@ -929,17 +923,25 @@ toml = "*"
 pipenv = ["pipenv"]
 
 [[package]]
-name = "dynaconf"
-version = "3.1.2"
-description = "The dynamic configurator for your Python Project"
 category = "main"
+description = "The dynamic configurator for your Python Project"
+name = "dynaconf"
 optional = false
 python-versions = "*"
+version = "3.1.2"
 
 [package.dependencies]
-configobj = {version = "*", optional = true, markers = "extra == \"ini\""}
-"ruamel.yaml" = {version = "*", optional = true, markers = "extra == \"yaml\""}
-toml = {version = "*", optional = true, markers = "extra == \"toml\""}
+[package.dependencies.configobj]
+optional = true
+version = "*"
+
+[package.dependencies."ruamel.yaml"]
+optional = true
+version = "*"
+
+[package.dependencies.toml]
+optional = true
+version = "*"
 
 [package.extras]
 all = ["redis", "ruamel.yaml", "configobj", "hvac"]
@@ -951,50 +953,41 @@ vault = ["hvac"]
 yaml = ["ruamel.yaml"]
 
 [[package]]
-name = "easy-thumbnails"
-version = "2.7"
-description = "Easy thumbnails for Django"
 category = "main"
-optional = false
-python-versions = ">=3.5"
-
-[package.dependencies]
-django = ">=1.11,<4.0"
-pillow = "*"
-
-[[package]]
-name = "faker"
-version = "4.14.2"
 description = "Faker is a Python package that generates fake data for you."
-category = "main"
+name = "faker"
 optional = false
 python-versions = ">=3.5"
+version = "4.14.2"
 
 [package.dependencies]
 python-dateutil = ">=2.4"
 text-unidecode = "1.3"
 
 [[package]]
-name = "flake8"
-version = "3.8.4"
-description = "the modular source code checker: pep8 pyflakes and co"
 category = "dev"
+description = "the modular source code checker: pep8 pyflakes and co"
+name = "flake8"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,>=2.7"
+version = "3.8.4"
 
 [package.dependencies]
-importlib-metadata = {version = "*", markers = "python_version < \"3.8\""}
 mccabe = ">=0.6.0,<0.7.0"
 pycodestyle = ">=2.6.0a1,<2.7.0"
 pyflakes = ">=2.2.0,<2.3.0"
 
+[package.dependencies.importlib-metadata]
+python = "<3.8"
+version = "*"
+
 [[package]]
-name = "flake8-bandit"
-version = "2.1.2"
-description = "Automated security testing with bandit and flake8."
 category = "dev"
+description = "Automated security testing with bandit and flake8."
+name = "flake8-bandit"
 optional = false
 python-versions = "*"
+version = "2.1.2"
 
 [package.dependencies]
 bandit = "*"
@@ -1003,24 +996,24 @@ flake8-polyfill = "*"
 pycodestyle = "*"
 
 [[package]]
-name = "flake8-black"
-version = "0.2.1"
-description = "flake8 plugin to call black as a code style validator"
 category = "dev"
+description = "flake8 plugin to call black as a code style validator"
+name = "flake8-black"
 optional = false
 python-versions = "*"
+version = "0.2.1"
 
 [package.dependencies]
 black = "*"
 flake8 = ">=3.0.0"
 
 [[package]]
-name = "flake8-builtins"
-version = "1.5.3"
-description = "Check for python builtins being used as variables or parameters."
 category = "dev"
+description = "Check for python builtins being used as variables or parameters."
+name = "flake8-builtins"
 optional = false
 python-versions = "*"
+version = "1.5.3"
 
 [package.dependencies]
 flake8 = "*"
@@ -1029,43 +1022,43 @@ flake8 = "*"
 test = ["coverage", "coveralls", "mock", "pytest", "pytest-cov"]
 
 [[package]]
-name = "flake8-django"
-version = "1.1.1"
-description = "Plugin to catch bad style specific to Django Projects"
 category = "dev"
+description = "Plugin to catch bad style specific to Django Projects"
+name = "flake8-django"
 optional = false
 python-versions = "*"
+version = "1.1.1"
 
 [package.dependencies]
 flake8 = "*"
 
 [[package]]
-name = "flake8-docstrings"
-version = "1.5.0"
-description = "Extension for flake8 which uses pydocstyle to check docstrings"
 category = "dev"
+description = "Extension for flake8 which uses pydocstyle to check docstrings"
+name = "flake8-docstrings"
 optional = false
 python-versions = "*"
+version = "1.5.0"
 
 [package.dependencies]
 flake8 = ">=3"
 pydocstyle = ">=2.1"
 
 [[package]]
-name = "flake8-fixme"
-version = "1.1.1"
-description = "Check for FIXME, TODO and other temporary developer notes. Plugin for flake8."
 category = "dev"
+description = "Check for FIXME, TODO and other temporary developer notes. Plugin for flake8."
+name = "flake8-fixme"
 optional = false
 python-versions = "*"
+version = "1.1.1"
 
 [[package]]
-name = "flake8-isort"
-version = "4.0.0"
-description = "flake8 plugin that integrates isort ."
 category = "dev"
+description = "flake8 plugin that integrates isort ."
+name = "flake8-isort"
 optional = false
 python-versions = "*"
+version = "4.0.0"
 
 [package.dependencies]
 flake8 = ">=3.2.1,<4"
@@ -1076,12 +1069,12 @@ testfixtures = ">=6.8.0,<7"
 test = ["pytest (>=4.0.2,<6)", "toml"]
 
 [[package]]
-name = "flake8-mypy"
-version = "17.8.0"
-description = "A plugin for flake8 integrating mypy."
 category = "dev"
+description = "A plugin for flake8 integrating mypy."
+name = "flake8-mypy"
 optional = false
 python-versions = "*"
+version = "17.8.0"
 
 [package.dependencies]
 attrs = "*"
@@ -1089,81 +1082,82 @@ flake8 = ">=3.0.0"
 mypy = "*"
 
 [[package]]
-name = "flake8-polyfill"
-version = "1.0.2"
-description = "Polyfill package for Flake8 plugins"
 category = "dev"
+description = "Polyfill package for Flake8 plugins"
+name = "flake8-polyfill"
 optional = false
 python-versions = "*"
+version = "1.0.2"
 
 [package.dependencies]
 flake8 = "*"
 
 [[package]]
-name = "flake8-rst-docstrings"
-version = "0.0.13"
-description = "Python docstring reStructuredText (RST) validator"
 category = "dev"
+description = "Python docstring reStructuredText (RST) validator"
+name = "flake8-rst-docstrings"
 optional = false
 python-versions = "*"
+version = "0.0.13"
 
 [package.dependencies]
 flake8 = ">=3.0.0"
 restructuredtext_lint = "*"
 
 [[package]]
-name = "gitdb"
-version = "4.0.5"
-description = "Git Object Database"
 category = "dev"
+description = "Git Object Database"
+name = "gitdb"
 optional = false
 python-versions = ">=3.4"
+version = "4.0.5"
 
 [package.dependencies]
 smmap = ">=3.0.1,<4"
 
 [[package]]
-name = "gitpython"
-version = "3.1.11"
-description = "Python Git Library"
 category = "dev"
+description = "Python Git Library"
+name = "gitpython"
 optional = false
 python-versions = ">=3.4"
+version = "3.1.11"
 
 [package.dependencies]
 gitdb = ">=4.0.1,<5"
 
 [[package]]
-name = "html2text"
-version = "2020.1.16"
-description = "Turn HTML into equivalent Markdown-structured text."
 category = "main"
+description = "Turn HTML into equivalent Markdown-structured text."
+name = "html2text"
 optional = false
 python-versions = ">=3.5"
+version = "2020.1.16"
 
 [[package]]
-name = "idna"
-version = "2.10"
-description = "Internationalized Domain Names in Applications (IDNA)"
 category = "main"
+description = "Internationalized Domain Names in Applications (IDNA)"
+name = "idna"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "2.10"
 
 [[package]]
-name = "imagesize"
-version = "1.2.0"
+category = "dev"
 description = "Getting image size from png/jpeg/jpeg2000/gif file"
-category = "dev"
+name = "imagesize"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "1.2.0"
 
 [[package]]
-name = "importlib-metadata"
-version = "2.0.0"
+category = "main"
 description = "Read metadata from Python packages"
-category = "dev"
+marker = "python_version < \"3.9\""
+name = "importlib-metadata"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,>=2.7"
+version = "2.0.0"
 
 [package.dependencies]
 zipp = ">=0.5"
@@ -1173,33 +1167,33 @@ docs = ["sphinx", "rst.linker"]
 testing = ["packaging", "pep517", "importlib-resources (>=1.3)"]
 
 [[package]]
-name = "iniconfig"
-version = "1.1.1"
-description = "iniconfig: brain-dead simple config-ini parsing"
 category = "dev"
+description = "iniconfig: brain-dead simple config-ini parsing"
+name = "iniconfig"
 optional = false
 python-versions = "*"
+version = "1.1.1"
 
 [[package]]
-name = "isort"
-version = "5.6.4"
-description = "A Python utility / library to sort Python imports."
 category = "dev"
+description = "A Python utility / library to sort Python imports."
+name = "isort"
 optional = false
 python-versions = ">=3.6,<4.0"
+version = "5.6.4"
 
 [package.extras]
+colors = ["colorama (>=0.4.3,<0.5.0)"]
 pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
 requirements_deprecated_finder = ["pipreqs", "pip-api"]
-colors = ["colorama (>=0.4.3,<0.5.0)"]
 
 [[package]]
-name = "jinja2"
-version = "2.11.2"
-description = "A very fast and expressive template engine."
 category = "dev"
+description = "A very fast and expressive template engine."
+name = "jinja2"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "2.11.2"
 
 [package.dependencies]
 MarkupSafe = ">=0.23"
@@ -1208,50 +1202,50 @@ MarkupSafe = ">=0.23"
 i18n = ["Babel (>=0.8)"]
 
 [[package]]
-name = "libsass"
-version = "0.20.1"
-description = "Sass for Python: A straightforward binding of libsass for Python."
 category = "main"
+description = "Sass for Python: A straightforward binding of libsass for Python."
+name = "libsass"
 optional = false
 python-versions = "*"
+version = "0.20.1"
 
 [package.dependencies]
 six = "*"
 
 [[package]]
-name = "license-expression"
-version = "1.2"
-description = "license-expression is small utility library to parse, compare, simplify and normalize license expressions (such as SPDX license expressions) using boolean logic."
 category = "main"
+description = "license-expression is small utility library to parse, compare, simplify and normalize license expressions (such as SPDX license expressions) using boolean logic."
+name = "license-expression"
 optional = false
 python-versions = "*"
+version = "1.2"
 
 [package.dependencies]
 "boolean.py" = ">=3.6,<4.0.0"
 
 [[package]]
-name = "markupsafe"
-version = "1.1.1"
-description = "Safely add untrusted strings to HTML/XML markup."
 category = "dev"
+description = "Safely add untrusted strings to HTML/XML markup."
+name = "markupsafe"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
+version = "1.1.1"
 
 [[package]]
-name = "mccabe"
-version = "0.6.1"
-description = "McCabe checker, plugin for flake8"
 category = "dev"
+description = "McCabe checker, plugin for flake8"
+name = "mccabe"
 optional = false
 python-versions = "*"
+version = "0.6.1"
 
 [[package]]
-name = "mypy"
-version = "0.790"
-description = "Optional static typing for Python"
 category = "dev"
+description = "Optional static typing for Python"
+name = "mypy"
 optional = false
 python-versions = ">=3.5"
+version = "0.790"
 
 [package.dependencies]
 mypy-extensions = ">=0.4.3,<0.5.0"
@@ -1262,40 +1256,40 @@ typing-extensions = ">=3.7.4"
 dmypy = ["psutil (>=4.0)"]
 
 [[package]]
-name = "mypy-extensions"
-version = "0.4.3"
-description = "Experimental type system extensions for programs checked with the mypy typechecker."
 category = "dev"
+description = "Experimental type system extensions for programs checked with the mypy typechecker."
+name = "mypy-extensions"
 optional = false
 python-versions = "*"
+version = "0.4.3"
 
 [[package]]
-name = "numpy"
-version = "1.19.4"
-description = "NumPy is the fundamental package for array computing with Python."
 category = "main"
+description = "NumPy is the fundamental package for array computing with Python."
+name = "numpy"
 optional = false
 python-versions = ">=3.6"
+version = "1.19.4"
 
 [[package]]
-name = "packaging"
-version = "20.4"
-description = "Core utilities for Python packages"
 category = "main"
+description = "Core utilities for Python packages"
+name = "packaging"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "20.4"
 
 [package.dependencies]
 pyparsing = ">=2.0.2"
 six = "*"
 
 [[package]]
-name = "pandas"
-version = "1.1.4"
-description = "Powerful data structures for data analysis, time series, and statistics"
 category = "main"
+description = "Powerful data structures for data analysis, time series, and statistics"
+name = "pandas"
 optional = false
 python-versions = ">=3.6.1"
+version = "1.1.4"
 
 [package.dependencies]
 numpy = ">=1.15.4"
@@ -1306,166 +1300,168 @@ pytz = ">=2017.2"
 test = ["pytest (>=4.0.2)", "pytest-xdist", "hypothesis (>=3.58)"]
 
 [[package]]
-name = "pathspec"
-version = "0.8.1"
-description = "Utility library for gitignore style pattern matching of file paths."
 category = "dev"
+description = "Utility library for gitignore style pattern matching of file paths."
+name = "pathspec"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "0.8.1"
 
 [[package]]
-name = "pbr"
-version = "5.5.1"
-description = "Python Build Reasonableness"
 category = "dev"
+description = "Python Build Reasonableness"
+name = "pbr"
 optional = false
 python-versions = ">=2.6"
+version = "5.5.1"
 
 [[package]]
-name = "persisting-theory"
-version = "0.2.1"
-description = "Registries that can autodiscover values accross your project apps"
 category = "main"
+description = "Registries that can autodiscover values accross your project apps"
+name = "persisting-theory"
 optional = false
 python-versions = "*"
+version = "0.2.1"
 
 [[package]]
-name = "pg8000"
-version = "1.16.6"
-description = "PostgreSQL interface library"
 category = "dev"
+description = "PostgreSQL interface library"
+name = "pg8000"
 optional = false
 python-versions = ">=3.5"
+version = "1.16.6"
 
 [package.dependencies]
 scramp = "1.2.0"
 
 [[package]]
-name = "phonenumbers"
-version = "8.12.13"
-description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
 category = "main"
+description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
+name = "phonenumbers"
 optional = false
 python-versions = "*"
+version = "8.12.13"
 
 [[package]]
-name = "pillow"
-version = "7.2.0"
-description = "Python Imaging Library (Fork)"
 category = "main"
+description = "Python Imaging Library (Fork)"
+name = "pillow"
 optional = false
 python-versions = ">=3.5"
+version = "7.2.0"
 
 [[package]]
-name = "pluggy"
-version = "0.13.1"
-description = "plugin and hook calling mechanisms for python"
 category = "dev"
+description = "plugin and hook calling mechanisms for python"
+name = "pluggy"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "0.13.1"
 
 [package.dependencies]
-importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
+[package.dependencies.importlib-metadata]
+python = "<3.8"
+version = ">=0.12"
 
 [package.extras]
 dev = ["pre-commit", "tox"]
 
 [[package]]
-name = "prometheus-client"
-version = "0.8.0"
-description = "Python client for the Prometheus monitoring system."
 category = "main"
+description = "Python client for the Prometheus monitoring system."
+name = "prometheus-client"
 optional = false
 python-versions = "*"
+version = "0.8.0"
 
 [package.extras]
 twisted = ["twisted"]
 
 [[package]]
-name = "psutil"
-version = "5.7.3"
-description = "Cross-platform lib for process and system monitoring in Python."
 category = "main"
+description = "Cross-platform lib for process and system monitoring in Python."
+name = "psutil"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "5.7.3"
 
 [package.extras]
 test = ["ipaddress", "mock", "unittest2", "enum34", "pywin32", "wmi"]
 
 [[package]]
-name = "psycopg2"
-version = "2.8.6"
-description = "psycopg2 - Python-PostgreSQL Database Adapter"
 category = "main"
+description = "psycopg2 - Python-PostgreSQL Database Adapter"
+name = "psycopg2"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
+version = "2.8.6"
 
 [[package]]
-name = "py"
-version = "1.9.0"
+category = "dev"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
-category = "dev"
+name = "py"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "1.9.0"
 
 [[package]]
-name = "pycodestyle"
-version = "2.6.0"
+category = "dev"
 description = "Python style guide checker"
-category = "dev"
+name = "pycodestyle"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "2.6.0"
 
 [[package]]
-name = "pycountry"
-version = "20.7.3"
-description = "ISO country, subdivision, language, currency and script definitions and their translations"
 category = "main"
+description = "ISO country, subdivision, language, currency and script definitions and their translations"
+name = "pycountry"
 optional = false
 python-versions = "*"
+version = "20.7.3"
 
 [[package]]
-name = "pycryptodome"
-version = "3.9.9"
-description = "Cryptographic library for Python"
 category = "main"
+description = "Cryptographic library for Python"
+name = "pycryptodome"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "3.9.9"
 
 [[package]]
-name = "pydocstyle"
-version = "5.1.1"
-description = "Python docstring style checker"
 category = "dev"
+description = "Python docstring style checker"
+name = "pydocstyle"
 optional = false
 python-versions = ">=3.5"
+version = "5.1.1"
 
 [package.dependencies]
 snowballstemmer = "*"
 
 [[package]]
-name = "pyflakes"
-version = "2.2.0"
-description = "passive checker of Python programs"
 category = "dev"
+description = "passive checker of Python programs"
+name = "pyflakes"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "2.2.0"
 
 [[package]]
-name = "pygments"
-version = "2.7.2"
-description = "Pygments is a syntax highlighting package written in Python."
 category = "dev"
+description = "Pygments is a syntax highlighting package written in Python."
+name = "pygments"
 optional = false
 python-versions = ">=3.5"
+version = "2.7.2"
 
 [[package]]
-name = "pyjwt"
-version = "1.7.1"
-description = "JSON Web Token implementation in Python"
 category = "main"
+description = "JSON Web Token implementation in Python"
+name = "pyjwt"
 optional = false
 python-versions = "*"
+version = "1.7.1"
 
 [package.extras]
 crypto = ["cryptography (>=1.4)"]
@@ -1473,58 +1469,61 @@ flake8 = ["flake8", "flake8-import-order", "pep8-naming"]
 test = ["pytest (>=4.0.1,<5.0.0)", "pytest-cov (>=2.6.0,<3.0.0)", "pytest-runner (>=4.2,<5.0.0)"]
 
 [[package]]
-name = "pyparsing"
-version = "2.4.7"
-description = "Python parsing module"
 category = "main"
+description = "Python parsing module"
+name = "pyparsing"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "2.4.7"
 
 [[package]]
-name = "pytest"
-version = "6.1.2"
-description = "pytest: simple powerful testing with Python"
 category = "dev"
+description = "pytest: simple powerful testing with Python"
+name = "pytest"
 optional = false
 python-versions = ">=3.5"
+version = "6.1.2"
 
 [package.dependencies]
-atomicwrites = {version = ">=1.0", markers = "sys_platform == \"win32\""}
+atomicwrites = ">=1.0"
 attrs = ">=17.4.0"
-colorama = {version = "*", markers = "sys_platform == \"win32\""}
-importlib-metadata = {version = ">=0.12", markers = "python_version < \"3.8\""}
+colorama = "*"
 iniconfig = "*"
 packaging = "*"
 pluggy = ">=0.12,<1.0"
 py = ">=1.8.2"
 toml = "*"
 
+[package.dependencies.importlib-metadata]
+python = "<3.8"
+version = ">=0.12"
+
 [package.extras]
-checkqa_mypy = ["mypy (==0.780)"]
+checkqa_mypy = ["mypy (0.780)"]
 testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "requests", "xmlschema"]
 
 [[package]]
-name = "pytest-cov"
-version = "2.10.1"
-description = "Pytest plugin for measuring coverage."
 category = "dev"
+description = "Pytest plugin for measuring coverage."
+name = "pytest-cov"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "2.10.1"
 
 [package.dependencies]
 coverage = ">=4.4"
 pytest = ">=4.6"
 
 [package.extras]
-testing = ["fields", "hunter", "process-tests (==2.0.2)", "six", "pytest-xdist", "virtualenv"]
+testing = ["fields", "hunter", "process-tests (2.0.2)", "six", "pytest-xdist", "virtualenv"]
 
 [[package]]
-name = "pytest-django"
-version = "3.10.0"
-description = "A Django plugin for pytest."
 category = "dev"
+description = "A Django plugin for pytest."
+name = "pytest-django"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "3.10.0"
 
 [package.dependencies]
 pytest = ">=3.6"
@@ -1534,24 +1533,24 @@ docs = ["sphinx", "sphinx-rtd-theme"]
 testing = ["django", "django-configurations (>=2.0)", "six"]
 
 [[package]]
-name = "pytest-django-testing-postgresql"
-version = "0.1.post0"
-description = "Use a temporary PostgreSQL database with pytest-django"
 category = "dev"
+description = "Use a temporary PostgreSQL database with pytest-django"
+name = "pytest-django-testing-postgresql"
 optional = false
 python-versions = "*"
+version = "0.1.post0"
 
 [package.dependencies]
 dj-database-url = "*"
 "testing.postgresql" = "*"
 
 [[package]]
-name = "pytest-sugar"
-version = "0.9.4"
-description = "pytest-sugar is a plugin for pytest that changes the default look and feel of pytest (e.g. progressbar, show tests that fail instantly)."
 category = "dev"
+description = "pytest-sugar is a plugin for pytest that changes the default look and feel of pytest (e.g. progressbar, show tests that fail instantly)."
+name = "pytest-sugar"
 optional = false
 python-versions = "*"
+version = "0.9.4"
 
 [package.dependencies]
 packaging = ">=14.1"
@@ -1559,53 +1558,53 @@ pytest = ">=2.9"
 termcolor = ">=1.1.0"
 
 [[package]]
-name = "python-dateutil"
-version = "2.8.1"
-description = "Extensions to the standard Python datetime module"
 category = "main"
+description = "Extensions to the standard Python datetime module"
+name = "python-dateutil"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
+version = "2.8.1"
 
 [package.dependencies]
 six = ">=1.5"
 
 [[package]]
-name = "python-memcached"
-version = "1.59"
-description = "Pure python memcached client"
 category = "main"
+description = "Pure python memcached client"
+name = "python-memcached"
 optional = false
 python-versions = "*"
+version = "1.59"
 
 [package.dependencies]
 six = ">=1.4.0"
 
 [[package]]
-name = "pytz"
-version = "2020.4"
-description = "World timezone definitions, modern and historical"
 category = "main"
+description = "World timezone definitions, modern and historical"
+name = "pytz"
 optional = false
 python-versions = "*"
+version = "2020.4"
 
 [[package]]
-name = "pyyaml"
-version = "5.3.1"
-description = "YAML parser and emitter for Python"
 category = "dev"
+description = "YAML parser and emitter for Python"
+name = "pyyaml"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "5.3.1"
 
 [[package]]
-name = "qrcode"
-version = "6.1"
-description = "QR Code image generator"
 category = "main"
+description = "QR Code image generator"
+name = "qrcode"
 optional = false
 python-versions = "*"
+version = "6.1"
 
 [package.dependencies]
-colorama = {version = "*", markers = "platform_system == \"Windows\""}
+colorama = "*"
 six = "*"
 
 [package.extras]
@@ -1615,20 +1614,20 @@ pil = ["pillow"]
 test = ["pytest", "pytest-cov", "mock"]
 
 [[package]]
-name = "regex"
-version = "2020.11.13"
-description = "Alternative regular expression module, to replace re."
 category = "main"
+description = "Alternative regular expression module, to replace re."
+name = "regex"
 optional = false
 python-versions = "*"
+version = "2020.11.13"
 
 [[package]]
-name = "requests"
-version = "2.25.0"
-description = "Python HTTP for Humans."
 category = "main"
+description = "Python HTTP for Humans."
+name = "requests"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
+version = "2.25.0"
 
 [package.dependencies]
 certifi = ">=2017.4.17"
@@ -1638,141 +1637,138 @@ urllib3 = ">=1.21.1,<1.27"
 
 [package.extras]
 security = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)"]
-socks = ["PySocks (>=1.5.6,!=1.5.7)", "win-inet-pton"]
+socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7)", "win-inet-pton"]
 
 [[package]]
-name = "restructuredtext-lint"
-version = "1.3.1"
-description = "reStructuredText linter"
 category = "dev"
+description = "reStructuredText linter"
+name = "restructuredtext-lint"
 optional = false
 python-versions = "*"
+version = "1.3.1"
 
 [package.dependencies]
 docutils = ">=0.11,<1.0"
 
 [[package]]
-name = "ruamel.yaml"
-version = "0.16.12"
-description = "ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order"
 category = "main"
+description = "ruamel.yaml is a YAML parser/emitter that supports roundtrip preservation of comments, seq/map flow style, and map key order"
+name = "ruamel.yaml"
 optional = false
 python-versions = "*"
+version = "0.16.12"
 
 [package.dependencies]
-"ruamel.yaml.clib" = {version = ">=0.1.2", markers = "platform_python_implementation == \"CPython\" and python_version < \"3.9\""}
+[package.dependencies."ruamel.yaml.clib"]
+python = "<3.9"
+version = ">=0.1.2"
 
 [package.extras]
 docs = ["ryd"]
 jinja2 = ["ruamel.yaml.jinja2 (>=0.2)"]
 
 [[package]]
-name = "ruamel.yaml.clib"
-version = "0.2.2"
+category = "main"
 description = "C version of reader, parser and emitter for ruamel.yaml derived from libyaml"
-category = "main"
+marker = "platform_python_implementation == \"CPython\" and python_version < \"3.9\""
+name = "ruamel.yaml.clib"
 optional = false
 python-versions = "*"
+version = "0.2.2"
 
 [[package]]
-name = "rules"
-version = "2.2"
+category = "main"
 description = "Awesome Django authorization, without the database"
-category = "main"
+name = "rules"
 optional = false
 python-versions = "*"
+version = "2.2"
 
 [[package]]
-name = "safety"
-version = "1.9.0"
-description = "Checks installed dependencies for known vulnerabilities."
 category = "dev"
+description = "Checks installed dependencies for known vulnerabilities."
+name = "safety"
 optional = false
 python-versions = ">=3.5"
+version = "1.9.0"
 
 [package.dependencies]
 Click = ">=6.0"
 dparse = ">=0.5.1"
 packaging = "*"
 requests = "*"
+setuptools = "*"
 
 [[package]]
-name = "scramp"
-version = "1.2.0"
-description = "An implementation of the SCRAM protocol."
 category = "dev"
+description = "An implementation of the SCRAM protocol."
+name = "scramp"
 optional = false
 python-versions = ">=3.5"
+version = "1.2.0"
 
 [[package]]
-name = "selenium"
-version = "3.141.0"
-description = "Python bindings for Selenium"
 category = "dev"
+description = "Python bindings for Selenium"
+name = "selenium"
 optional = false
 python-versions = "*"
+version = "3.141.0"
 
 [package.dependencies]
 urllib3 = "*"
 
 [[package]]
-name = "six"
-version = "1.15.0"
-description = "Python 2 and 3 compatibility utilities"
 category = "main"
+description = "Python 2 and 3 compatibility utilities"
+name = "six"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "1.15.0"
 
 [[package]]
-name = "smmap"
-version = "3.0.4"
-description = "A pure Python implementation of a sliding window memory map manager"
 category = "dev"
+description = "A pure Python implementation of a sliding window memory map manager"
+name = "smmap"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
+version = "3.0.4"
 
 [[package]]
-name = "snowballstemmer"
-version = "2.0.0"
+category = "dev"
 description = "This package provides 26 stemmers for 25 languages generated from Snowball algorithms."
-category = "dev"
+name = "snowballstemmer"
 optional = false
 python-versions = "*"
+version = "2.0.0"
 
 [[package]]
-name = "soupsieve"
-version = "2.0.1"
-description = "A modern CSS selector implementation for Beautiful Soup."
 category = "main"
-optional = false
-python-versions = ">=3.5"
-
-[[package]]
-name = "spdx-license-list"
-version = "0.5.1"
 description = "A simple tool/library for working with SPDX license definitions."
-category = "main"
+name = "spdx-license-list"
 optional = false
 python-versions = "*"
+version = "0.5.1"
 
 [[package]]
-name = "sphinx"
-version = "3.3.1"
-description = "Python documentation generator"
 category = "dev"
+description = "Python documentation generator"
+name = "sphinx"
 optional = false
 python-versions = ">=3.5"
+version = "3.3.1"
 
 [package.dependencies]
+Jinja2 = ">=2.3"
+Pygments = ">=2.0"
 alabaster = ">=0.7,<0.8"
 babel = ">=1.3"
-colorama = {version = ">=0.3.5", markers = "sys_platform == \"win32\""}
+colorama = ">=0.3.5"
 docutils = ">=0.12"
 imagesize = "*"
-Jinja2 = ">=2.3"
 packaging = "*"
-Pygments = ">=2.0"
 requests = ">=2.5.0"
+setuptools = "*"
 snowballstemmer = ">=1.1"
 sphinxcontrib-applehelp = "*"
 sphinxcontrib-devhelp = "*"
@@ -1787,12 +1783,12 @@ lint = ["flake8 (>=3.5.0)", "flake8-import-order", "mypy (>=0.790)", "docutils-s
 test = ["pytest", "pytest-cov", "html5lib", "typed-ast", "cython"]
 
 [[package]]
-name = "sphinx-autodoc-typehints"
-version = "1.11.1"
-description = "Type hints (PEP 484) support for the Sphinx autodoc extension"
 category = "dev"
+description = "Type hints (PEP 484) support for the Sphinx autodoc extension"
+name = "sphinx-autodoc-typehints"
 optional = false
 python-versions = ">=3.5.2"
+version = "1.11.1"
 
 [package.dependencies]
 Sphinx = ">=3.0"
@@ -1802,119 +1798,122 @@ test = ["pytest (>=3.1.0)", "typing-extensions (>=3.5)", "sphobjinv (>=2.0)", "S
 type_comments = ["typed-ast (>=1.4.0)"]
 
 [[package]]
-name = "sphinxcontrib-applehelp"
-version = "1.0.2"
+category = "dev"
 description = "sphinxcontrib-applehelp is a sphinx extension which outputs Apple help books"
-category = "dev"
+name = "sphinxcontrib-applehelp"
 optional = false
 python-versions = ">=3.5"
-
-[package.extras]
-lint = ["flake8", "mypy", "docutils-stubs"]
-test = ["pytest"]
-
-[[package]]
-name = "sphinxcontrib-devhelp"
 version = "1.0.2"
-description = "sphinxcontrib-devhelp is a sphinx extension which outputs Devhelp document."
-category = "dev"
-optional = false
-python-versions = ">=3.5"
 
 [package.extras]
 lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
 
 [[package]]
-name = "sphinxcontrib-django"
-version = "0.5.1"
-description = "Improve the Sphinx autodoc for Django classes."
 category = "dev"
+description = "sphinxcontrib-devhelp is a sphinx extension which outputs Devhelp document."
+name = "sphinxcontrib-devhelp"
+optional = false
+python-versions = ">=3.5"
+version = "1.0.2"
+
+[package.extras]
+lint = ["flake8", "mypy", "docutils-stubs"]
+test = ["pytest"]
+
+[[package]]
+category = "dev"
+description = "Improve the Sphinx autodoc for Django classes."
+name = "sphinxcontrib-django"
 optional = false
 python-versions = "*"
+version = "0.5.1"
 
 [[package]]
-name = "sphinxcontrib-htmlhelp"
-version = "1.0.3"
-description = "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files"
 category = "dev"
+description = "sphinxcontrib-htmlhelp is a sphinx extension which renders HTML help files"
+name = "sphinxcontrib-htmlhelp"
 optional = false
 python-versions = ">=3.5"
+version = "1.0.3"
 
 [package.extras]
 lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest", "html5lib"]
 
 [[package]]
-name = "sphinxcontrib-jsmath"
-version = "1.0.1"
-description = "A sphinx extension which renders display math in HTML via JavaScript"
 category = "dev"
+description = "A sphinx extension which renders display math in HTML via JavaScript"
+name = "sphinxcontrib-jsmath"
 optional = false
 python-versions = ">=3.5"
+version = "1.0.1"
 
 [package.extras]
 test = ["pytest", "flake8", "mypy"]
 
 [[package]]
-name = "sphinxcontrib-qthelp"
-version = "1.0.3"
+category = "dev"
 description = "sphinxcontrib-qthelp is a sphinx extension which outputs QtHelp document."
-category = "dev"
+name = "sphinxcontrib-qthelp"
 optional = false
 python-versions = ">=3.5"
+version = "1.0.3"
 
 [package.extras]
 lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
 
 [[package]]
-name = "sphinxcontrib-serializinghtml"
-version = "1.1.4"
+category = "dev"
 description = "sphinxcontrib-serializinghtml is a sphinx extension which outputs \"serialized\" HTML files (json and pickle)."
-category = "dev"
+name = "sphinxcontrib-serializinghtml"
 optional = false
 python-versions = ">=3.5"
+version = "1.1.4"
 
 [package.extras]
 lint = ["flake8", "mypy", "docutils-stubs"]
 test = ["pytest"]
 
 [[package]]
-name = "sqlparse"
-version = "0.4.1"
-description = "A non-validating SQL parser."
 category = "main"
+description = "A non-validating SQL parser."
+name = "sqlparse"
 optional = false
 python-versions = ">=3.5"
+version = "0.4.1"
 
 [[package]]
-name = "stevedore"
-version = "3.2.2"
-description = "Manage dynamic plugins for Python applications"
 category = "dev"
+description = "Manage dynamic plugins for Python applications"
+name = "stevedore"
 optional = false
 python-versions = ">=3.6"
+version = "3.2.2"
 
 [package.dependencies]
-importlib-metadata = {version = ">=1.7.0", markers = "python_version < \"3.8\""}
 pbr = ">=2.0.0,<2.1.0 || >2.1.0"
 
-[[package]]
-name = "termcolor"
-version = "1.1.0"
-description = "ANSII Color formatting for output in terminal."
-category = "dev"
-optional = false
-python-versions = "*"
+[package.dependencies.importlib-metadata]
+python = "<3.8"
+version = ">=1.7.0"
 
 [[package]]
-name = "testfixtures"
-version = "6.15.0"
-description = "A collection of helpers and mock objects for unit tests and doc tests."
 category = "dev"
+description = "ANSII Color formatting for output in terminal."
+name = "termcolor"
 optional = false
 python-versions = "*"
+version = "1.1.0"
+
+[[package]]
+category = "dev"
+description = "A collection of helpers and mock objects for unit tests and doc tests."
+name = "testfixtures"
+optional = false
+python-versions = "*"
+version = "6.15.0"
 
 [package.extras]
 build = ["setuptools-git", "wheel", "twine"]
@@ -1922,23 +1921,23 @@ docs = ["sphinx", "zope.component", "sybil", "twisted", "mock", "django (<2)", "
 test = ["pytest (>=3.6)", "pytest-cov", "pytest-django", "zope.component", "sybil", "twisted", "mock", "django (<2)", "django"]
 
 [[package]]
-name = "testing.common.database"
-version = "2.0.3"
-description = "utilities for testing.* packages"
 category = "dev"
+description = "utilities for testing.* packages"
+name = "testing.common.database"
 optional = false
 python-versions = "*"
+version = "2.0.3"
 
 [package.extras]
 testing = ["nose"]
 
 [[package]]
-name = "testing.postgresql"
-version = "1.3.0"
-description = "automatically setups a postgresql instance in a temporary directory, and destroys it after testing"
 category = "dev"
+description = "automatically setups a postgresql instance in a temporary directory, and destroys it after testing"
+name = "testing.postgresql"
 optional = false
 python-versions = "*"
+version = "1.3.0"
 
 [package.dependencies]
 pg8000 = ">=1.10"
@@ -1948,121 +1947,124 @@ pg8000 = ">=1.10"
 testing = ["sqlalchemy", "nose", "psycopg2"]
 
 [[package]]
-name = "text-unidecode"
-version = "1.3"
-description = "The most basic Text::Unidecode port"
 category = "main"
+description = "The most basic Text::Unidecode port"
+name = "text-unidecode"
 optional = false
 python-versions = "*"
+version = "1.3"
 
 [[package]]
-name = "toml"
-version = "0.10.2"
-description = "Python Library for Tom's Obvious, Minimal Language"
 category = "main"
+description = "Python Library for Tom's Obvious, Minimal Language"
+name = "toml"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
+version = "0.10.2"
 
 [[package]]
-name = "tqdm"
-version = "4.51.0"
-description = "Fast, Extensible Progress Meter"
 category = "main"
+description = "Fast, Extensible Progress Meter"
+name = "tqdm"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*"
+version = "4.51.0"
 
 [package.extras]
 dev = ["py-make (>=0.1.0)", "twine", "argopt", "pydoc-markdown"]
 
 [[package]]
-name = "twilio"
-version = "6.47.0"
-description = "Twilio API client and TwiML generator"
 category = "main"
+description = "Twilio API client and TwiML generator"
+name = "twilio"
 optional = false
 python-versions = "*"
+version = "6.47.0"
 
 [package.dependencies]
 PyJWT = ">=1.4.2"
 pytz = "*"
-requests = {version = ">=2.0.0", markers = "python_version >= \"3.0\""}
 six = "*"
 
+[package.dependencies.requests]
+python = ">=3.0"
+version = ">=2.0.0"
+
 [[package]]
-name = "typed-ast"
-version = "1.4.1"
+category = "dev"
 description = "a fork of Python 2 and 3 ast modules with type comment support"
-category = "dev"
+name = "typed-ast"
 optional = false
 python-versions = "*"
+version = "1.4.1"
 
 [[package]]
-name = "typing-extensions"
-version = "3.7.4.3"
+category = "dev"
 description = "Backported and Experimental Type Hints for Python 3.5+"
-category = "dev"
+name = "typing-extensions"
 optional = false
 python-versions = "*"
+version = "3.7.4.3"
 
 [[package]]
-name = "tzlocal"
-version = "2.1"
-description = "tzinfo object for the local timezone"
 category = "main"
+description = "tzinfo object for the local timezone"
+name = "tzlocal"
 optional = false
 python-versions = "*"
+version = "2.1"
 
 [package.dependencies]
 pytz = "*"
 
 [[package]]
-name = "urllib3"
-version = "1.26.2"
-description = "HTTP library with thread-safe connection pooling, file post, and more."
 category = "main"
+description = "HTTP library with thread-safe connection pooling, file post, and more."
+name = "urllib3"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4"
+version = "1.26.2"
 
 [package.extras]
 brotli = ["brotlipy (>=0.6.0)"]
 secure = ["pyOpenSSL (>=0.14)", "cryptography (>=1.3.4)", "idna (>=2.0.0)", "certifi", "ipaddress"]
-socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
+socks = ["PySocks (>=1.5.6,<1.5.7 || >1.5.7,<2.0)"]
 
 [[package]]
-name = "webencodings"
-version = "0.5.1"
+category = "main"
 description = "Character encoding aliases for legacy web content"
-category = "main"
+name = "webencodings"
 optional = false
 python-versions = "*"
+version = "0.5.1"
 
 [[package]]
-name = "yubiotp"
-version = "1.0.0.post1"
-description = "A library for verifying YubiKey OTP tokens, both locally and through a Yubico web service."
 category = "main"
+description = "A library for verifying YubiKey OTP tokens, both locally and through a Yubico web service."
+name = "yubiotp"
 optional = false
 python-versions = "*"
+version = "1.0.0.post1"
 
 [package.dependencies]
 pycryptodome = "*"
 
 [[package]]
-name = "zipp"
-version = "3.4.0"
+category = "main"
 description = "Backport of pathlib-compatible object wrapper for zip files"
-category = "dev"
+marker = "python_version < \"3.9\""
+name = "zipp"
 optional = false
 python-versions = ">=3.6"
+version = "3.4.0"
 
 [package.extras]
 docs = ["sphinx", "jaraco.packaging (>=3.2)", "rst.linker (>=1.9)"]
-testing = ["pytest (>=3.5,!=3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
+testing = ["pytest (>=3.5,<3.7.3 || >3.7.3)", "pytest-checkdocs (>=1.2.3)", "pytest-flake8", "pytest-cov", "jaraco.test (>=3.2.0)", "jaraco.itertools", "func-timeout", "pytest-black (>=0.3.7)", "pytest-mypy"]
 
 [metadata]
-lock-version = "1.1"
+content-hash = "7f3b79bc42c32dcbd5fa0a9304affe7bf3353eb1b0de2d941857c39e113c24b0"
 python-versions = "^3.7"
-content-hash = "1f48acdec5a563a75fda0ffb7012752838caba31e90214a09ee2f7186063d165"
 
 [metadata.files]
 alabaster = [
@@ -2071,7 +2073,27 @@ alabaster = [
 ]
 aleksis-app-chronos = [
     {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201114181205.58815f85.tar.gz", hash = "sha256:3b4e7d78a3996c40a4817830c8cfe2adeb6a47e3414b7eeec52c30d24cd6020f"},
+    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201114223246.32e3c906.tar.gz", hash = "sha256:7ea6db3d01f655e6ce03387d0aeda03d592084b5081b3e697daf8ee83958fd4f"},
+    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201114235246.65bf857a.tar.gz", hash = "sha256:778cce20425cab84920ec1686918069e12a5244dddd67c980219112e403ccb98"},
+    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201115122918.3d28dd8a.tar.gz", hash = "sha256:efa696d355379454503acbd0f9597f5c822d0369dd6a1b7e22b9acaf13cd6f6d"},
+    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201115140200.765291db.tar.gz", hash = "sha256:917495eff2d91bb1a3d097a453d7a954226aa96ead7265b7bff9e29cd441cac8"},
+    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201115195358.7b86df4c.tar.gz", hash = "sha256:0341c9a625cfe8474bb9dffa8a9cd1faec561c6a20c1fb853c61d69572f71f2a"},
+    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201117201204.ca84c2c6.tar.gz", hash = "sha256:b1281b0e5c802dc3bf22461230ef4819be147117403b3097e83a6daa35786b27"},
+    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201118191856.e492d537.tar.gz", hash = "sha256:9e3bf61fca08707b85d9beded170689c037c6b7875d9cdd03d27b90c5d8c2568"},
+    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201119232658.ebb8e175.tar.gz", hash = "sha256:ad1344a750925c81ac6fcf5665ea940920a272f89dc989de24044d7df7747681"},
+    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201121110708.8f6bfbea.tar.gz", hash = "sha256:996600db5d13a6b3178f4d957f68a65cc0d5d8143dd6ead5839a9b63b85bd3a8"},
+    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201121171621.ad73a375.tar.gz", hash = "sha256:203dd8f30f3150c223d8f25210438f54cb30c75917416fb556e3ea24af6ce334"},
     {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201114181205.58815f85-py3-none-any.whl", hash = "sha256:93ef99384f5b593618f83d21005c45231aad9035afbaf6b6889e33e9d1a5c175"},
+    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201114223246.32e3c906-py3-none-any.whl", hash = "sha256:35550f0990aceed1932a37b935ea423796bea5e7995a8d6494bec17a0b17bf00"},
+    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201114235246.65bf857a-py3-none-any.whl", hash = "sha256:9e3343f9c63536a99b3fcbd230dda1e4e6cde15a1bfcbb948ac05ad5f88033f2"},
+    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201115122918.3d28dd8a-py3-none-any.whl", hash = "sha256:96df0735d58d9bae2bdb6ff69287e85bb4622d9dc8807f6f858e771b93e68752"},
+    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201115140200.765291db-py3-none-any.whl", hash = "sha256:04b7ec138f82bdd50849bbc8818a0ffae1639377d03024bedb23f6beb23ac458"},
+    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201115195358.7b86df4c-py3-none-any.whl", hash = "sha256:1e35e710a2e5ddf7da2a38f9505e38914376ba9860096c4c64ffd6a1f17ffea3"},
+    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201117201204.ca84c2c6-py3-none-any.whl", hash = "sha256:5eb111b589ed418e57ccad3e571b653baede81895cc639e6884594cefd6969d9"},
+    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201118191856.e492d537-py3-none-any.whl", hash = "sha256:e6ebf40b0cff6dfec2ca43dbea513f85cb3ea26dd81bbb00b0fc4bf0e11a1604"},
+    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201119232658.ebb8e175-py3-none-any.whl", hash = "sha256:b6c2a408e50d62a2dcfba638bac914c54bfa33af280ec0bb4063f01d674e7075"},
+    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201121110708.8f6bfbea-py3-none-any.whl", hash = "sha256:0371a182048034e1908a597232d9d83a3b15892e2874a0104f6644ac69fcbe30"},
+    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201121171621.ad73a375-py3-none-any.whl", hash = "sha256:f4216323befe44e743fdfdf53338ad879ce5fb7f74fe604904cbf917ca293f47"},
 ]
 aleksis-builddeps = [
     {file = "AlekSIS-Builddeps-1.tar.gz", hash = "sha256:97a19597f422593cbdc438aabf17f95748126c8951df6ac7db7991fc99c108c4"},
@@ -2079,8 +2101,38 @@ aleksis-builddeps = [
 aleksis-core = [
     {file = "AlekSIS-Core-2.0a3.dev0+20201114132749.88d92354.tar.gz", hash = "sha256:be16d8b6478029ec86cc92389a5f679be85112cb20d18996c8ae95adf86690ba"},
     {file = "AlekSIS-Core-2.0a3.dev0+20201114154746.9129dcd7.tar.gz", hash = "sha256:89bf9908411953eb337cc40b702f00394d4ff137fcd5160c538608c0a867a294"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201115003323.d1ff5fff.tar.gz", hash = "sha256:ffada26ef5593fd3f0f392bc8ea1cd9142875d08607e4737c38d84dea3ac3533"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201115124223.ce62cc6a.tar.gz", hash = "sha256:358e9c2cd292d0b23d8bffd02f777e3fb9a764ce4c70148ef94cf6ca83e2aeef"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201115134935.59be5513.tar.gz", hash = "sha256:3452fc7572df2e1bed31d5df20573f050f47d3d3ccd084c8597e327667f0219d"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201115135217.fa0090db.tar.gz", hash = "sha256:f9113d35d677533580131eb274331ab6590cba222a2bd28c2384936b00eaf5cf"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201115201946.7653194e.tar.gz", hash = "sha256:54f54726c246be4d9d34b80e312d7f00cd6386a1a1cf0d627b3c270519e90887"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201115211916.abdb1339.tar.gz", hash = "sha256:79c1d5b8e046b09ab3d067d1c184667e821345efb0af728078659618fdd5fb87"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201116130248.b43c5df0.tar.gz", hash = "sha256:d505a4c16b549c81c8fa560ab06aedf6ee25a6fb72c4af93af6df270393cddeb"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201116193913.bd210f05.tar.gz", hash = "sha256:51478d613a380ed835e61f4a597867403f119d5505f067c0da328261adf62137"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201117163528.6a08e619.tar.gz", hash = "sha256:a04ef5749edf04b84e47b7b5e22219995c648b94385d9e3a366beed6f832e417"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201118190221.43646b16.tar.gz", hash = "sha256:8bb25f6604a9bcc44b130cb506360efd8cb3e8f7ddf4a042a2a5e7baa31d5d2b"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201119232703.0ff3ebb4.tar.gz", hash = "sha256:be02c8375bba1d8253f98ba4e6c632ad7d71799da418106ef841000ace09e943"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201121155044.63c08165.tar.gz", hash = "sha256:1638eac991a1a4c77db3e9e6af5424f8e1e0a2e0ccab6be35cf6c82378164513"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201121155823.3e40fb3b.tar.gz", hash = "sha256:ce992b62607441beb2183c7585a845a5b27dc2e62e15a6a8f64a4a966f262c67"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201121170417.96b6c6a2.tar.gz", hash = "sha256:7f4a7d0a7309537e4903e48b5d294d5eeb5044e2880b4fa80483713d0e09f57c"},
+    {file = "AlekSIS-Core-2.0a3.dev0+20201121172328.fb519417.tar.gz", hash = "sha256:4f0e9547cce5d1e58605a8d7facc7a94cde78f2cd98cd8618920b3acfcf35c00"},
     {file = "AlekSIS_Core-2.0a3.dev0+20201114132749.88d92354-py3-none-any.whl", hash = "sha256:180477173a1e23f9ca42b6b79383b556dbd97868e3f3079c8b090466aeba256c"},
     {file = "AlekSIS_Core-2.0a3.dev0+20201114154746.9129dcd7-py3-none-any.whl", hash = "sha256:a60b456a300f1fa7786567cb0b948690422c95492a0cec936a0b99d6109afed5"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201115003323.d1ff5fff-py3-none-any.whl", hash = "sha256:e16da1f4895f7d1b7c595a9a3fd9800ccad401a2a8a0ce146774f8b01e63f089"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201115124223.ce62cc6a-py3-none-any.whl", hash = "sha256:d4ce35f02210f3d08f953e67d74c77bc64f54956c808407946531afb88d25628"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201115134935.59be5513-py3-none-any.whl", hash = "sha256:98f097859b3ee4eb3e54e6f3c34ee2b0d1857998000e60f6324d3b6eebe6c9b5"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201115135217.fa0090db-py3-none-any.whl", hash = "sha256:4a30a3c0419453ba3e5e1a3f200554c91972ec752d99a6cc0b13fba482e93aa3"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201115201946.7653194e-py3-none-any.whl", hash = "sha256:5f96e0a72714e259bbd3f813980cd96589e4cbcf922f9f2e7b76fb59e2475eae"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201115211916.abdb1339-py3-none-any.whl", hash = "sha256:1b9cca2f3e8c4373f9a8d2139136c70545993ae081a3ba1028c951cf49c2dcff"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201116130248.b43c5df0-py3-none-any.whl", hash = "sha256:94671f93ebf1319f6a50fafdf3246462e61fa6767594af0e0a93a608de669cee"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201116193913.bd210f05-py3-none-any.whl", hash = "sha256:e37ebecd99248400033fb7862b437130ecf8af8e473edf3cd47d77488251221f"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201117163528.6a08e619-py3-none-any.whl", hash = "sha256:96761ef36df011d8073052c701003fe629fa23ba807669afaaf1a115412f2fb8"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201118190221.43646b16-py3-none-any.whl", hash = "sha256:fa48082bd6aa2735676def1ea1e8620252272889967fe4fd1a53da130c9d2ec6"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201119232703.0ff3ebb4-py3-none-any.whl", hash = "sha256:7345a1a7ddb674bba07bab89a19a8d3f85b9a3099c65db79834dcfc9ec43861a"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201121155044.63c08165-py3-none-any.whl", hash = "sha256:2fffd06596255985e8eeb4946e30854ff8afa288be9f135874814149c376fc6b"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201121155823.3e40fb3b-py3-none-any.whl", hash = "sha256:35e5538b4021fc6181e9021d483060a1591c40f20e68b18278dbb7e4821262d3"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201121170417.96b6c6a2-py3-none-any.whl", hash = "sha256:839090fd4fad8b694731f75246e46e0e1bf2a1e7351067f68a913ed5148e6ea0"},
+    {file = "AlekSIS_Core-2.0a3.dev0+20201121172328.fb519417-py3-none-any.whl", hash = "sha256:b94603527501917fbeda8bbcea8df3632a40ded05848690702b9348d2dcfbc7e"},
 ]
 appdirs = [
     {file = "appdirs-1.4.4-py2.py3-none-any.whl", hash = "sha256:a841dacd6b99318a741b166adb07e19ee71a274450e68237b4650ca1055ab128"},
@@ -2106,11 +2158,6 @@ bandit = [
     {file = "bandit-1.6.2-py2.py3-none-any.whl", hash = "sha256:336620e220cf2d3115877685e264477ff9d9abaeb0afe3dc7264f55fa17a3952"},
     {file = "bandit-1.6.2.tar.gz", hash = "sha256:41e75315853507aa145d62a78a2a6c5e3240fe14ee7c601459d0df9418196065"},
 ]
-beautifulsoup4 = [
-    {file = "beautifulsoup4-4.9.3-py2-none-any.whl", hash = "sha256:4c98143716ef1cb40bf7f39a8e3eec8f8b009509e74904ba3a7b315431577e35"},
-    {file = "beautifulsoup4-4.9.3-py3-none-any.whl", hash = "sha256:fff47e031e34ec82bf17e00da8f592fe7de69aeea38be00523c04623c04fb666"},
-    {file = "beautifulsoup4-4.9.3.tar.gz", hash = "sha256:84729e322ad1d5b4d25f805bfa05b902dd96450f43842c4e99067d5e1369eb25"},
-]
 black = [
     {file = "black-19.10b0-py36-none-any.whl", hash = "sha256:1b30e59be925fafc1ee4565e5e08abef6b03fe455102883820fe5ee2e4734e0b"},
     {file = "black-19.10b0.tar.gz", hash = "sha256:c2edb73a08e9e0e6f65a0e6af18b059b8b1cdd5bef997d7a0b181df93dc81539"},
@@ -2128,8 +2175,8 @@ calendarweek = [
     {file = "calendarweek-0.4.7.tar.gz", hash = "sha256:7655d6a4c3b4f6a4e01aa7d23b49cd121db0399050e9c08cd8d1210155be25dd"},
 ]
 celery-progress = [
-    {file = "celery-progress-0.0.12.tar.gz", hash = "sha256:df61d61ac2b29e51b61a2cbd070d28b69f9f538d31e5f4b8076d9721251d6c59"},
-    {file = "celery_progress-0.0.12-py3-none-any.whl", hash = "sha256:b3727b1b65c79ec072513eb42f1903eaec64a75d2f691b5664fa660f2bd319ad"},
+    {file = "celery-progress-0.0.14.tar.gz", hash = "sha256:002ead0d3fa3602bd74cf328206b8e2352994ab599711dc20058a5cf2b4db2d1"},
+    {file = "celery_progress-0.0.14-py3-none-any.whl", hash = "sha256:6d95c01fe044dd5dbb1e2d507724f9ace70bde796bc6db51ba19c8a95e94da07"},
 ]
 certifi = [
     {file = "certifi-2020.11.8-py2.py3-none-any.whl", hash = "sha256:1f422849db327d534e3d0c5f02a263458c3955ec0aae4ff09b95f195c59f4edd"},
@@ -2191,8 +2238,8 @@ coverage = [
     {file = "coverage-5.3.tar.gz", hash = "sha256:280baa8ec489c4f542f8940f9c4c2181f0306a8ee1a54eceba071a449fb870a0"},
 ]
 dateparser = [
-    {file = "dateparser-0.7.6-py2.py3-none-any.whl", hash = "sha256:7552c994f893b5cb8fcf103b4cd2ff7f57aab9bfd2619fdf0cf571c0740fd90b"},
-    {file = "dateparser-0.7.6.tar.gz", hash = "sha256:e875efd8c57c85c2d02b238239878db59ff1971f5a823457fcc69e493bf6ebfa"},
+    {file = "dateparser-1.0.0-py2.py3-none-any.whl", hash = "sha256:17202df32c7a36e773136ff353aa3767e987f8b3e27374c39fd21a30a803d6f8"},
+    {file = "dateparser-1.0.0.tar.gz", hash = "sha256:159cc4e01a593706a15cd4e269a0b3345edf3aef8bf9278a57dac8adf5bf1e4a"},
 ]
 dj-database-url = [
     {file = "dj-database-url-0.5.0.tar.gz", hash = "sha256:4aeaeb1f573c74835b0686a2b46b85990571159ffc21aa57ecd4d1e1cb334163"},
@@ -2240,10 +2287,6 @@ django-dynamic-preferences = [
     {file = "django-dynamic-preferences-1.10.1.tar.gz", hash = "sha256:e4b2bb7b2563c5064ba56dd76441c77e06b850ff1466a386a1cd308909a6c7de"},
     {file = "django_dynamic_preferences-1.10.1-py2.py3-none-any.whl", hash = "sha256:9419fa925fd2cbb665269ae72059eb3058bf080913d853419b827e4e7a141902"},
 ]
-django-easy-audit = [
-    {file = "django-easy-audit-1.3.1a1.tar.gz", hash = "sha256:1aaa7f19a5a6d7f31698661b061e662df50d2506e0828a1cfb681a95c3b34fea"},
-    {file = "django_easy_audit-1.3.1a1-py3-none-any.whl", hash = "sha256:64448dce510673939825b6d5dec674f6c2ac069ab4b4b95cff7f3f796da7c786"},
-]
 django-favicon-plus-reloaded = [
     {file = "django-favicon-plus-reloaded-1.0.4.tar.gz", hash = "sha256:90c761c636a338e6e9fb1d086649d82095085f92cff816c9cf074607f28c85a5"},
     {file = "django_favicon_plus_reloaded-1.0.4-py3-none-any.whl", hash = "sha256:26e4316d41328a61ced52c7fc0ead795f0eb194d6a30311c34a9833c6fe30a7c"},
@@ -2271,10 +2314,6 @@ django-haystack = [
 django-health-check = [
     {file = "django-health-check-3.16.1.tar.gz", hash = "sha256:2cb3944e313e435bdf299288e109f398b6c08b610e09cc90d7f5f6a2bcf469fc"},
     {file = "django_health_check-3.16.1-py2.py3-none-any.whl", hash = "sha256:8b0835f04ebaeb0d12498a5ef47dd22196237c3987ff28bcce9ed28b5a169d5e"},
-]
-django-image-cropping = [
-    {file = "django-image-cropping-1.5.0.tar.gz", hash = "sha256:59744e8df88db7e46e37b526fc715fdde665d9efa345922745f50411a6dadb3f"},
-    {file = "django_image_cropping-1.5.0-py3-none-any.whl", hash = "sha256:81dbcabb6421c5a1e88fac9d96f336d6109a23dcb8fa6c678329d3688c9973c4"},
 ]
 django-impersonate = [
     {file = "django-impersonate-1.5.1.tar.gz", hash = "sha256:7c786ffaa7a5dd430f9277b53a64676c470b684eee5aa52c3b483298860d09b4"},
@@ -2306,6 +2345,10 @@ django-menu-generator = [
 ]
 django-middleware-global-request = [
     {file = "django-middleware-global-request-0.1.2.tar.gz", hash = "sha256:f6490759bc9f7dbde4001709554e29ca715daf847f2222914b4e47117dca9313"},
+]
+django-model-utils = [
+    {file = "django-model-utils-4.0.0.tar.gz", hash = "sha256:adf09e5be15122a7f4e372cb5a6dd512bbf8d78a23a90770ad0983ee9d909061"},
+    {file = "django_model_utils-4.0.0-py2.py3-none-any.whl", hash = "sha256:9cf882e5b604421b62dbe57ad2b18464dc9c8f963fc3f9831badccae66c1139c"},
 ]
 django-otp = [
     {file = "django-otp-1.0.2.tar.gz", hash = "sha256:f523fb9dec420f28a29d3e2ad72ac06f64588956ed4f2b5b430d8e957ebb8287"},
@@ -2382,9 +2425,6 @@ dparse = [
 dynaconf = [
     {file = "dynaconf-3.1.2-py2.py3-none-any.whl", hash = "sha256:808adfe964f10695846dbf8dad7632e47fc3bc38860fd1887ed57dddffc4eff2"},
     {file = "dynaconf-3.1.2.tar.gz", hash = "sha256:9b34ab2f811a81755f5eb4beac77a69e1e0887528c7e37fc4bc83fed52dcf502"},
-]
-easy-thumbnails = [
-    {file = "easy-thumbnails-2.7.tar.gz", hash = "sha256:e4e7a0dd4001f56bfd4058428f2c91eafe27d33ef3b8b33ac4e013b159b9ff91"},
 ]
 faker = [
     {file = "Faker-4.14.2-py3-none-any.whl", hash = "sha256:ce1c38823eb0f927567cde5bf2e7c8ca565c7a70316139342050ce2ca74b4026"},
@@ -2655,6 +2695,8 @@ pillow = [
     {file = "Pillow-7.2.0-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:5e51ee2b8114def244384eda1c82b10e307ad9778dac5c83fb0943775a653cd8"},
     {file = "Pillow-7.2.0-cp38-cp38-win32.whl", hash = "sha256:725aa6cfc66ce2857d585f06e9519a1cc0ef6d13f186ff3447ab6dff0a09bc7f"},
     {file = "Pillow-7.2.0-cp38-cp38-win_amd64.whl", hash = "sha256:a060cf8aa332052df2158e5a119303965be92c3da6f2d93b6878f0ebca80b2f6"},
+    {file = "Pillow-7.2.0-pp36-pypy36_pp73-macosx_10_10_x86_64.whl", hash = "sha256:9c87ef410a58dd54b92424ffd7e28fd2ec65d2f7fc02b76f5e9b2067e355ebf6"},
+    {file = "Pillow-7.2.0-pp36-pypy36_pp73-manylinux2010_x86_64.whl", hash = "sha256:e901964262a56d9ea3c2693df68bc9860b8bdda2b04768821e4c44ae797de117"},
     {file = "Pillow-7.2.0-pp36-pypy36_pp73-win32.whl", hash = "sha256:25930fadde8019f374400f7986e8404c8b781ce519da27792cbe46eabec00c4d"},
     {file = "Pillow-7.2.0.tar.gz", hash = "sha256:97f9e7953a77d5a70f49b9a48da7776dc51e9b738151b22dacf101641594a626"},
 ]
@@ -2692,6 +2734,8 @@ psycopg2 = [
     {file = "psycopg2-2.8.6-cp37-cp37m-win_amd64.whl", hash = "sha256:56fee7f818d032f802b8eed81ef0c1232b8b42390df189cab9cfa87573fe52c5"},
     {file = "psycopg2-2.8.6-cp38-cp38-win32.whl", hash = "sha256:ad2fe8a37be669082e61fb001c185ffb58867fdbb3e7a6b0b0d2ffe232353a3e"},
     {file = "psycopg2-2.8.6-cp38-cp38-win_amd64.whl", hash = "sha256:56007a226b8e95aa980ada7abdea6b40b75ce62a433bd27cec7a8178d57f4051"},
+    {file = "psycopg2-2.8.6-cp39-cp39-win32.whl", hash = "sha256:2c93d4d16933fea5bbacbe1aaf8fa8c1348740b2e50b3735d1b0bf8154cbf0f3"},
+    {file = "psycopg2-2.8.6-cp39-cp39-win_amd64.whl", hash = "sha256:d5062ae50b222da28253059880a871dc87e099c25cb68acf613d9d227413d6f7"},
     {file = "psycopg2-2.8.6.tar.gz", hash = "sha256:fb23f6c71107c37fd667cb4ea363ddeb936b348bbd6449278eb92c189699f543"},
 ]
 py = [
@@ -2804,6 +2848,8 @@ pyyaml = [
     {file = "PyYAML-5.3.1-cp37-cp37m-win_amd64.whl", hash = "sha256:73f099454b799e05e5ab51423c7bcf361c58d3206fa7b0d555426b1f4d9a3eaf"},
     {file = "PyYAML-5.3.1-cp38-cp38-win32.whl", hash = "sha256:06a0d7ba600ce0b2d2fe2e78453a470b5a6e000a985dd4a4e54e436cc36b0e97"},
     {file = "PyYAML-5.3.1-cp38-cp38-win_amd64.whl", hash = "sha256:95f71d2af0ff4227885f7a6605c37fd53d3a106fcab511b8860ecca9fcf400ee"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win32.whl", hash = "sha256:ad9c67312c84def58f3c04504727ca879cb0013b2517c85a9a253f0cb6380c0a"},
+    {file = "PyYAML-5.3.1-cp39-cp39-win_amd64.whl", hash = "sha256:6034f55dab5fea9e53f436aa68fa3ace2634918e8b5994d82f3621c04ff5ed2e"},
     {file = "PyYAML-5.3.1.tar.gz", hash = "sha256:b8eac752c5e14d3eca0e6dd9199cd627518cb5ec06add0de9d32baeee6fe645d"},
 ]
 qrcode = [
@@ -2872,22 +2918,29 @@ restructuredtext-lint = [
     {file = "ruamel.yaml.clib-0.2.2-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:73b3d43e04cc4b228fa6fa5d796409ece6fcb53a6c270eb2048109cbcbc3b9c2"},
     {file = "ruamel.yaml.clib-0.2.2-cp35-cp35m-macosx_10_6_intel.whl", hash = "sha256:53b9dd1abd70e257a6e32f934ebc482dac5edb8c93e23deb663eac724c30b026"},
     {file = "ruamel.yaml.clib-0.2.2-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:839dd72545ef7ba78fd2aa1a5dd07b33696adf3e68fae7f31327161c1093001b"},
+    {file = "ruamel.yaml.clib-0.2.2-cp35-cp35m-manylinux2014_aarch64.whl", hash = "sha256:1236df55e0f73cd138c0eca074ee086136c3f16a97c2ac719032c050f7e0622f"},
     {file = "ruamel.yaml.clib-0.2.2-cp35-cp35m-win32.whl", hash = "sha256:b1e981fe1aff1fd11627f531524826a4dcc1f26c726235a52fcb62ded27d150f"},
     {file = "ruamel.yaml.clib-0.2.2-cp35-cp35m-win_amd64.whl", hash = "sha256:4e52c96ca66de04be42ea2278012a2342d89f5e82b4512fb6fb7134e377e2e62"},
     {file = "ruamel.yaml.clib-0.2.2-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:a873e4d4954f865dcb60bdc4914af7eaae48fb56b60ed6daa1d6251c72f5337c"},
     {file = "ruamel.yaml.clib-0.2.2-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:ab845f1f51f7eb750a78937be9f79baea4a42c7960f5a94dde34e69f3cce1988"},
+    {file = "ruamel.yaml.clib-0.2.2-cp36-cp36m-manylinux2014_aarch64.whl", hash = "sha256:2fd336a5c6415c82e2deb40d08c222087febe0aebe520f4d21910629018ab0f3"},
     {file = "ruamel.yaml.clib-0.2.2-cp36-cp36m-win32.whl", hash = "sha256:e9f7d1d8c26a6a12c23421061f9022bb62704e38211fe375c645485f38df34a2"},
     {file = "ruamel.yaml.clib-0.2.2-cp36-cp36m-win_amd64.whl", hash = "sha256:2602e91bd5c1b874d6f93d3086f9830f3e907c543c7672cf293a97c3fabdcd91"},
     {file = "ruamel.yaml.clib-0.2.2-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:44c7b0498c39f27795224438f1a6be6c5352f82cb887bc33d962c3a3acc00df6"},
     {file = "ruamel.yaml.clib-0.2.2-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:8e8fd0a22c9d92af3a34f91e8a2594eeb35cba90ab643c5e0e643567dc8be43e"},
+    {file = "ruamel.yaml.clib-0.2.2-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:75f0ee6839532e52a3a53f80ce64925ed4aed697dd3fa890c4c918f3304bd4f4"},
     {file = "ruamel.yaml.clib-0.2.2-cp37-cp37m-win32.whl", hash = "sha256:464e66a04e740d754170be5e740657a3b3b6d2bcc567f0c3437879a6e6087ff6"},
     {file = "ruamel.yaml.clib-0.2.2-cp37-cp37m-win_amd64.whl", hash = "sha256:52ae5739e4b5d6317b52f5b040b1b6639e8af68a5b8fd606a8b08658fbd0cab5"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:4df5019e7783d14b79217ad9c56edf1ba7485d614ad5a385d1b3c768635c81c0"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:5254af7d8bdf4d5484c089f929cb7f5bafa59b4f01d4f48adda4be41e6d29f99"},
+    {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:8be05be57dc5c7b4a0b24edcaa2f7275866d9c907725226cdde46da09367d923"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-win32.whl", hash = "sha256:74161d827407f4db9072011adcfb825b5258a5ccb3d2cd518dd6c9edea9e30f1"},
     {file = "ruamel.yaml.clib-0.2.2-cp38-cp38-win_amd64.whl", hash = "sha256:058a1cc3df2a8aecc12f983a48bda99315cebf55a3b3a5463e37bb599b05727b"},
     {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:c6ac7e45367b1317e56f1461719c853fd6825226f45b835df7436bb04031fd8a"},
     {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:b4b0d31f2052b3f9f9b5327024dc629a253a83d8649d4734ca7f35b60ec3e9e5"},
+    {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:1f8c0a4577c0e6c99d208de5c4d3fd8aceed9574bb154d7a2b21c16bb924154c"},
+    {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-win32.whl", hash = "sha256:46d6d20815064e8bb023ea8628cfb7402c0f0e83de2c2227a88097e239a7dffd"},
+    {file = "ruamel.yaml.clib-0.2.2-cp39-cp39-win_amd64.whl", hash = "sha256:6c0a5dc52fc74eb87c67374a4e554d4761fd42a4d01390b7e868b30d21f4b8bb"},
     {file = "ruamel.yaml.clib-0.2.2.tar.gz", hash = "sha256:2d24bd98af676f4990c4d715bcdc2a60b19c56a3fb3a763164d2d8ca0e806ba7"},
 ]
 rules = [
@@ -2916,10 +2969,6 @@ smmap = [
 snowballstemmer = [
     {file = "snowballstemmer-2.0.0-py2.py3-none-any.whl", hash = "sha256:209f257d7533fdb3cb73bdbd24f436239ca3b2fa67d56f6ff88e86be08cc5ef0"},
     {file = "snowballstemmer-2.0.0.tar.gz", hash = "sha256:df3bac3df4c2c01363f3dd2cfa78cce2840a79b9f1c2d2de9ce8d31683992f52"},
-]
-soupsieve = [
-    {file = "soupsieve-2.0.1-py3-none-any.whl", hash = "sha256:1634eea42ab371d3d346309b93df7870a88610f0725d47528be902a0d95ecc55"},
-    {file = "soupsieve-2.0.1.tar.gz", hash = "sha256:a59dc181727e95d25f781f0eb4fd1825ff45590ec8ff49eadfd7f1a537cc0232"},
 ]
 spdx-license-list = [
     {file = "spdx_license_list-0.5.1-py3-none-any.whl", hash = "sha256:32f1401e0077b46ba8b3d9c648b6503ef1d49c41aab51aa13816be2dde3b4a13"},
@@ -3007,19 +3056,28 @@ typed-ast = [
     {file = "typed_ast-1.4.1-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:269151951236b0f9a6f04015a9004084a5ab0d5f19b57de779f908621e7d8b75"},
     {file = "typed_ast-1.4.1-cp36-cp36m-manylinux1_i686.whl", hash = "sha256:24995c843eb0ad11a4527b026b4dde3da70e1f2d8806c99b7b4a7cf491612652"},
     {file = "typed_ast-1.4.1-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:fe460b922ec15dd205595c9b5b99e2f056fd98ae8f9f56b888e7a17dc2b757e7"},
+    {file = "typed_ast-1.4.1-cp36-cp36m-manylinux2014_aarch64.whl", hash = "sha256:fcf135e17cc74dbfbc05894ebca928ffeb23d9790b3167a674921db19082401f"},
     {file = "typed_ast-1.4.1-cp36-cp36m-win32.whl", hash = "sha256:4e3e5da80ccbebfff202a67bf900d081906c358ccc3d5e3c8aea42fdfdfd51c1"},
     {file = "typed_ast-1.4.1-cp36-cp36m-win_amd64.whl", hash = "sha256:249862707802d40f7f29f6e1aad8d84b5aa9e44552d2cc17384b209f091276aa"},
     {file = "typed_ast-1.4.1-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:8ce678dbaf790dbdb3eba24056d5364fb45944f33553dd5869b7580cdbb83614"},
     {file = "typed_ast-1.4.1-cp37-cp37m-manylinux1_i686.whl", hash = "sha256:c9e348e02e4d2b4a8b2eedb48210430658df6951fa484e59de33ff773fbd4b41"},
     {file = "typed_ast-1.4.1-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:bcd3b13b56ea479b3650b82cabd6b5343a625b0ced5429e4ccad28a8973f301b"},
+    {file = "typed_ast-1.4.1-cp37-cp37m-manylinux2014_aarch64.whl", hash = "sha256:f208eb7aff048f6bea9586e61af041ddf7f9ade7caed625742af423f6bae3298"},
     {file = "typed_ast-1.4.1-cp37-cp37m-win32.whl", hash = "sha256:d5d33e9e7af3b34a40dc05f498939f0ebf187f07c385fd58d591c533ad8562fe"},
     {file = "typed_ast-1.4.1-cp37-cp37m-win_amd64.whl", hash = "sha256:0666aa36131496aed8f7be0410ff974562ab7eeac11ef351def9ea6fa28f6355"},
     {file = "typed_ast-1.4.1-cp38-cp38-macosx_10_15_x86_64.whl", hash = "sha256:d205b1b46085271b4e15f670058ce182bd1199e56b317bf2ec004b6a44f911f6"},
     {file = "typed_ast-1.4.1-cp38-cp38-manylinux1_i686.whl", hash = "sha256:6daac9731f172c2a22ade6ed0c00197ee7cc1221aa84cfdf9c31defeb059a907"},
     {file = "typed_ast-1.4.1-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:498b0f36cc7054c1fead3d7fc59d2150f4d5c6c56ba7fb150c013fbc683a8d2d"},
+    {file = "typed_ast-1.4.1-cp38-cp38-manylinux2014_aarch64.whl", hash = "sha256:7e4c9d7658aaa1fc80018593abdf8598bf91325af6af5cce4ce7c73bc45ea53d"},
     {file = "typed_ast-1.4.1-cp38-cp38-win32.whl", hash = "sha256:715ff2f2df46121071622063fc7543d9b1fd19ebfc4f5c8895af64a77a8c852c"},
     {file = "typed_ast-1.4.1-cp38-cp38-win_amd64.whl", hash = "sha256:fc0fea399acb12edbf8a628ba8d2312f583bdbdb3335635db062fa98cf71fca4"},
     {file = "typed_ast-1.4.1-cp39-cp39-macosx_10_15_x86_64.whl", hash = "sha256:d43943ef777f9a1c42bf4e552ba23ac77a6351de620aa9acf64ad54933ad4d34"},
+    {file = "typed_ast-1.4.1-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:92c325624e304ebf0e025d1224b77dd4e6393f18aab8d829b5b7e04afe9b7a2c"},
+    {file = "typed_ast-1.4.1-cp39-cp39-manylinux1_i686.whl", hash = "sha256:d648b8e3bf2fe648745c8ffcee3db3ff903d0817a01a12dd6a6ea7a8f4889072"},
+    {file = "typed_ast-1.4.1-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:fac11badff8313e23717f3dada86a15389d0708275bddf766cca67a84ead3e91"},
+    {file = "typed_ast-1.4.1-cp39-cp39-manylinux2014_aarch64.whl", hash = "sha256:0d8110d78a5736e16e26213114a38ca35cb15b6515d535413b090bd50951556d"},
+    {file = "typed_ast-1.4.1-cp39-cp39-win32.whl", hash = "sha256:b52ccf7cfe4ce2a1064b18594381bccf4179c2ecf7f513134ec2f993dd4ab395"},
+    {file = "typed_ast-1.4.1-cp39-cp39-win_amd64.whl", hash = "sha256:3742b32cf1c6ef124d57f95be609c473d7ec4c14d0090e5a5e05a15269fb4d0c"},
     {file = "typed_ast-1.4.1.tar.gz", hash = "sha256:8c8aaad94455178e3187ab22c8b01a3837f8ee50e09cf31f1ba129eb293ec30b"},
 ]
 typing-extensions = [
