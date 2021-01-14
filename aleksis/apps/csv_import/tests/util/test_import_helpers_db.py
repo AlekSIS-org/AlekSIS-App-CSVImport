@@ -57,11 +57,7 @@ def test_bulk_get_or_create_person_defaults_default_attrs():
     defaults = {"last_name": "foo"}
 
     r = bulk_get_or_create(
-        Person,
-        short_names,
-        "short_name",
-        default_attrs=["first_name"],
-        defaults=defaults,
+        Person, short_names, "short_name", default_attrs=["first_name"], defaults=defaults,
     )
 
     for person in r:

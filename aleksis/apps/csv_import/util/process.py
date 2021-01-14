@@ -100,10 +100,7 @@ def import_csv(
                     update_dict[field_type.db_field] = value
 
         # Set alternatives for some fields
-        for (
-            field_type_origin,
-            alternative_name,
-        ) in field_type_registry.alternatives.items():
+        for (field_type_origin, alternative_name,) in field_type_registry.alternatives.items():
             if (
                 model in field_type_origin.models
                 and field_type_origin.name not in row
@@ -145,17 +142,13 @@ def import_csv(
                         values_for_multiple_fields[field_type].append(value)
 
                     # Process
-                    field_type().process(
-                        instance, values_for_multiple_fields[field_type]
-                    )
+                    field_type().process(instance, values_for_multiple_fields[field_type])
 
                 # Process field types with custom logic
                 for process_field_type in field_type_registry.process_field_types:
                     if process_field_type.name in row:
                         try:
-                            process_field_type().process(
-                                instance, row[process_field_type.name]
-                            )
+                            process_field_type().process(instance, row[process_field_type.name])
                         except RuntimeError as e:
                             recorder.add_message(messages.ERROR, str(e))
 
@@ -190,9 +183,7 @@ def import_csv(
         if affected:
             recorder.add_message(
                 messages.WARNING,
-                _(
-                    f"{affected} existing {model._meta.verbose_name_plural} were deactivated."
-                ),
+                _(f"{affected} existing {model._meta.verbose_name_plural} were deactivated."),
             )
 
     if created_count:
@@ -208,6 +199,5 @@ def import_csv(
         )
     else:
         recorder.add_message(
-            messages.WARNING,
-            _(f"Some {model._meta.verbose_name_plural} failed to be imported."),
+            messages.WARNING, _(f"Some {model._meta.verbose_name_plural} failed to be imported."),
         )

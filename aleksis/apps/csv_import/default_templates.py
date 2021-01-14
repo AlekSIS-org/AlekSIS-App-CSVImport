@@ -12,17 +12,12 @@ from .models import ImportTemplate, ImportTemplateField
 
 
 def update_or_create_template(
-    model: Model,
-    name: str,
-    verbose_name: str,
-    extra_args: dict,
-    fields: Sequence[FieldType],
+    model: Model, name: str, verbose_name: str, extra_args: dict, fields: Sequence[FieldType],
 ):
     """Update or create an import template in database."""
     ct = ContentType.objects.get_for_model(model)
     template, updated = ImportTemplate.objects.update_or_create(
-        name=name,
-        defaults={"verbose_name": verbose_name, "content_type": ct, **extra_args},
+        name=name, defaults={"verbose_name": verbose_name, "content_type": ct, **extra_args},
     )
 
     for i, field in enumerate(fields):
@@ -35,16 +30,11 @@ def update_or_create_template(
 
 def update_or_create_default_templates():
     """Update or create default import templates."""
-    template_defs = toml.load(
-        os.path.join(os.path.dirname(__file__), "default_templates.toml")
-    )
+    template_defs = toml.load(os.path.join(os.path.dirname(__file__), "default_templates.toml"))
 
     for name, defs in template_defs.items():
         model = apps.get_model(defs["model"])
-        fields = [
-            field_type_registry.get_from_name(field_type)
-            for field_type in defs["fields"]
-        ]
+        fields = [field_type_registry.get_from_name(field_type) for field_type in defs["fields"]]
 
         update_or_create_template(
             model,

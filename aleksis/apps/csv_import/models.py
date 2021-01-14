@@ -84,15 +84,10 @@ class ImportTemplate(ExtensibleModel):
 class ImportTemplateField(ExtensibleModel):
     index = models.IntegerField(verbose_name=_("Index"))
     template = models.ForeignKey(
-        ImportTemplate,
-        models.CASCADE,
-        verbose_name=_("Import template"),
-        related_name="fields",
+        ImportTemplate, models.CASCADE, verbose_name=_("Import template"), related_name="fields",
     )
     field_type = models.CharField(
-        max_length=255,
-        verbose_name=_("Field type"),
-        choices=field_type_registry.choices,
+        max_length=255, verbose_name=_("Field type"), choices=field_type_registry.choices,
     )
 
     @property
@@ -102,13 +97,8 @@ class ImportTemplateField(ExtensibleModel):
     def clean(self):
         """Validate correct usage of field types."""
         model = self.template.content_type.model_class()
-        if (
-            self.field_type
-            not in field_type_registry.allowed_field_types_for_models[model]
-        ):
-            raise ValidationError(
-                _("You are not allowed to use this field type in this model.")
-            )
+        if self.field_type not in field_type_registry.allowed_field_types_for_models[model]:
+            raise ValidationError(_("You are not allowed to use this field type in this model."))
 
     class Meta:
         ordering = ["template", "index"]
