@@ -71,12 +71,8 @@ def get_grade_and_class_from_class_range(
 
     grade_stop = grade_stop if grade_stop else grade_start
 
-    class_start = (
-        class_start if class_start else get_min_class(classes_per_grade, grade_start)
-    )
-    class_stop = (
-        class_stop if class_stop else get_max_class(classes_per_grade, grade_stop)
-    )
+    class_start = class_start if class_start else get_min_class(classes_per_grade, grade_start)
+    class_stop = class_stop if class_stop else get_max_class(classes_per_grade, grade_stop)
 
     return (grade_start, class_start, grade_stop, class_stop)
 
@@ -98,12 +94,9 @@ def parse_class_range(
         return [classes_per_short_name[class_range]]
     else:
         # Class range
-        (
-            grade_start,
-            group_start,
-            grade_stop,
-            group_stop,
-        ) = get_grade_and_class_from_class_range(classes_per_grade, class_range)
+        (grade_start, group_start, grade_stop, group_stop,) = get_grade_and_class_from_class_range(
+            classes_per_grade, class_range
+        )
 
         class_a = f"{grade_start}{group_start}"
         class_b = f"{grade_stop}{group_stop}"

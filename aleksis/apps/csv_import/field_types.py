@@ -84,7 +84,7 @@ class FieldTypeRegistry:
         self.process_field_types = []
 
     def register(self, field_type: Type[FieldType]):
-        """Add new :class:`FieldType` to registry.
+        """Add new `FieldType` to registry.
 
         Can be used as decorator, too.
         """
@@ -111,7 +111,7 @@ class FieldTypeRegistry:
         return field_type
 
     def get_from_name(self, name: str) -> FieldType:
-        """Get :class:`FieldType` by its name."""
+        """Get `FieldType` by its name."""
         return self.field_types[name]
 
     @property
@@ -333,9 +333,7 @@ class ClassRangeFieldType(ProcessFieldType):
         cls.classes_per_grade = get_classes_per_grade(cls.classes_per_short_name.keys())
 
     def process(self, instance: Model, value):
-        classes = parse_class_range(
-            self.classes_per_short_name, self.classes_per_grade, value,
-        )
+        classes = parse_class_range(self.classes_per_short_name, self.classes_per_grade, value,)
         instance.parent_groups.set(classes)
 
 
@@ -385,9 +383,7 @@ class GroupMembershipByShortNameFieldType(MultipleValuesFieldType):
     models = [Person]
 
     def process(self, instance: Model, values: Sequence):
-        groups = Group.objects.filter(
-            short_name__in=values, school_term=self.school_term
-        )
+        groups = Group.objects.filter(short_name__in=values, school_term=self.school_term)
         instance.member_of.add(*groups)
 
 

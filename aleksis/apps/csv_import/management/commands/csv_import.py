@@ -12,9 +12,7 @@ class Command(BaseCommand):
             "csv_path", help=_("Path to CSV file with exported teachers"), required=True
         )
         parser.add_argument(
-            "template",
-            help=_("Name of import template which should be used"),
-            required=True,
+            "template", help=_("Name of import template which should be used"), required=True,
         )
 
     def handle(self, *args, **options):

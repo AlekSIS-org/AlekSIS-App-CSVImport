@@ -27,18 +27,14 @@ def test_limit_content_types():
 
 def test_import_template_str():
     template = ImportTemplate.objects.create(
-        content_type=ContentType.objects.get_for_model(Person),
-        name="foo",
-        verbose_name="Bar",
+        content_type=ContentType.objects.get_for_model(Person), name="foo", verbose_name="Bar",
     )
     assert str(template) == "Bar"
 
 
 def test_import_template_field():
     template = ImportTemplate.objects.create(
-        content_type=ContentType.objects.get_for_model(Person),
-        name="foo",
-        verbose_name="Bar",
+        content_type=ContentType.objects.get_for_model(Person), name="foo", verbose_name="Bar",
     )
     field_0 = template.fields.create(field_type=UniqueReferenceFieldType.name, index=0)
     field_1 = template.fields.create(field_type=ShortNameFieldType.name, index=1)

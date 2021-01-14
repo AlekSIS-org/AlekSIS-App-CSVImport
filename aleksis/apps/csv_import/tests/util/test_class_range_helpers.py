@@ -87,30 +87,10 @@ def test_get_min_max_class():
 
 
 def test_get_grade_and_class_from_class_range():
-    assert get_grade_and_class_from_class_range(CLASSES_PER_GRADE, "5-Q2") == (
-        "5",
-        "a",
-        "Q2",
-        "d",
-    )
-    assert get_grade_and_class_from_class_range(CLASSES_PER_GRADE, "5a-7b") == (
-        "5",
-        "a",
-        "7",
-        "b",
-    )
-    assert get_grade_and_class_from_class_range(CLASSES_PER_GRADE, "5a-d") == (
-        "5",
-        "a",
-        "5",
-        "d",
-    )
-    assert get_grade_and_class_from_class_range(CLASSES_PER_GRADE, "7-8") == (
-        "7",
-        "a",
-        "8",
-        "d",
-    )
+    assert get_grade_and_class_from_class_range(CLASSES_PER_GRADE, "5-Q2") == ("5", "a", "Q2", "d",)
+    assert get_grade_and_class_from_class_range(CLASSES_PER_GRADE, "5a-7b") == ("5", "a", "7", "b",)
+    assert get_grade_and_class_from_class_range(CLASSES_PER_GRADE, "5a-d") == ("5", "a", "5", "d",)
+    assert get_grade_and_class_from_class_range(CLASSES_PER_GRADE, "7-8") == ("7", "a", "8", "d",)
 
 
 def test_get_classes_per_short_name():
