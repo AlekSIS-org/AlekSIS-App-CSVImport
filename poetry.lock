@@ -8,7 +8,7 @@ python-versions = "*"
 
 [[package]]
 name = "aleksis-app-chronos"
-version = "2.0a3.dev0+20201114181205.58815f85"
+version = "2.0a4.dev0+20210112212026.c6be335f"
 description = "AlekSIS (School Information System) — App Χρόνος (digital timetables)"
 category = "main"
 optional = false
@@ -126,7 +126,7 @@ rules = ">=2.2,<3.0"
 spdx-license-list = ">=0.5.0,<0.6.0"
 
 [package.extras]
-celery = ["Celery[django,redis] (>=5.0.0,<6.0.0)", "celery-haystack (>=0.10.0,<0.11.0)", "django-celery-beat (>=2.0.0,<3.0.0)", "django-celery-email (>=3.0.0,<4.0.0)", "django-celery-results (>=2.0.0,<3.0.0)"]
+celery = ["Celery[redis,django] (>=5.0.0,<6.0.0)", "celery-haystack (>=0.10.0,<0.11.0)", "django-celery-beat (>=2.0.0,<3.0.0)", "django-celery-email (>=3.0.0,<4.0.0)", "django-celery-results (>=2.0.0,<3.0.0)"]
 ldap = ["django-auth-ldap (>=2.2,<3.0)"]
 
 [package.source]
@@ -966,7 +966,7 @@ yaml = ["ruamel.yaml"]
 
 [[package]]
 name = "faker"
-version = "5.5.0"
+version = "5.6.0"
 description = "Faker is a Python package that generates fake data for you."
 category = "main"
 optional = false
@@ -1463,17 +1463,16 @@ python-versions = ">=3.5"
 
 [[package]]
 name = "pyjwt"
-version = "2.0.0"
+version = "1.7.1"
 description = "JSON Web Token implementation in Python"
 category = "main"
 optional = false
-python-versions = ">=3.6"
+python-versions = "*"
 
 [package.extras]
-crypto = ["cryptography (>=3.3.1,<4.0.0)"]
-dev = ["sphinx", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.3.1,<4.0.0)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "mypy", "pre-commit"]
-docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
-tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
+crypto = ["cryptography (>=1.4)"]
+flake8 = ["flake8", "flake8-import-order", "pep8-naming"]
+test = ["pytest (>=4.0.1,<5.0.0)", "pytest-cov (>=2.6.0,<3.0.0)", "pytest-runner (>=4.2,<5.0.0)"]
 
 [[package]]
 name = "pyparsing"
@@ -1686,7 +1685,7 @@ python-versions = "*"
 
 [[package]]
 name = "safety"
-version = "1.10.2"
+version = "1.10.2.post1"
 description = "Checks installed dependencies for known vulnerabilities."
 category = "dev"
 optional = false
@@ -1912,7 +1911,7 @@ python-versions = "*"
 
 [[package]]
 name = "testfixtures"
-version = "6.17.0"
+version = "6.17.1"
 description = "A collection of helpers and mock objects for unit tests and doc tests."
 category = "dev"
 optional = false
@@ -1979,14 +1978,14 @@ telegram = ["requests"]
 
 [[package]]
 name = "twilio"
-version = "6.50.1"
+version = "6.51.0"
 description = "Twilio API client and TwiML generator"
 category = "main"
 optional = false
 python-versions = "*"
 
 [package.dependencies]
-PyJWT = ">=1.4.2"
+PyJWT = "1.7.1"
 pytz = "*"
 requests = {version = ">=2.0.0", markers = "python_version >= \"3.0\""}
 six = "*"
@@ -2073,54 +2072,8 @@ alabaster = [
     {file = "alabaster-0.7.12.tar.gz", hash = "sha256:a661d72d58e6ea8a57f7a86e37d86716863ee5e92788398526d58b26a4e4dc02"},
 ]
 aleksis-app-chronos = [
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201114181205.58815f85.tar.gz", hash = "sha256:3b4e7d78a3996c40a4817830c8cfe2adeb6a47e3414b7eeec52c30d24cd6020f"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201114223246.32e3c906.tar.gz", hash = "sha256:7ea6db3d01f655e6ce03387d0aeda03d592084b5081b3e697daf8ee83958fd4f"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201114235246.65bf857a.tar.gz", hash = "sha256:778cce20425cab84920ec1686918069e12a5244dddd67c980219112e403ccb98"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201115122918.3d28dd8a.tar.gz", hash = "sha256:efa696d355379454503acbd0f9597f5c822d0369dd6a1b7e22b9acaf13cd6f6d"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201115140200.765291db.tar.gz", hash = "sha256:917495eff2d91bb1a3d097a453d7a954226aa96ead7265b7bff9e29cd441cac8"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201115195358.7b86df4c.tar.gz", hash = "sha256:0341c9a625cfe8474bb9dffa8a9cd1faec561c6a20c1fb853c61d69572f71f2a"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201117201204.ca84c2c6.tar.gz", hash = "sha256:b1281b0e5c802dc3bf22461230ef4819be147117403b3097e83a6daa35786b27"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201118191856.e492d537.tar.gz", hash = "sha256:9e3bf61fca08707b85d9beded170689c037c6b7875d9cdd03d27b90c5d8c2568"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201119232658.ebb8e175.tar.gz", hash = "sha256:ad1344a750925c81ac6fcf5665ea940920a272f89dc989de24044d7df7747681"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201121110708.8f6bfbea.tar.gz", hash = "sha256:996600db5d13a6b3178f4d957f68a65cc0d5d8143dd6ead5839a9b63b85bd3a8"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201121171621.ad73a375.tar.gz", hash = "sha256:203dd8f30f3150c223d8f25210438f54cb30c75917416fb556e3ea24af6ce334"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201127194104.60ad9b7d.tar.gz", hash = "sha256:baee1f0e14c1567d70f82cb1f2eb2e3e2c19aca1c2678b92c834dc4d5503030d"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201204221402.140ebf3d.tar.gz", hash = "sha256:89af63a9e2bb2b1ec4426d7abd412d3c5ede2e3735da118cbd6c5ad651296425"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201204221732.2bab9c2c.tar.gz", hash = "sha256:79b7c5539b4beb6733c842cac8288fb33afc7958940a6727418afca6e3782d07"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201204221817.bb81a493.tar.gz", hash = "sha256:9d1a644bf3c775f338554915fffe04d18c569fbde9843aea2595841c7319c102"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201204221949.94c3c73d.tar.gz", hash = "sha256:2ccd9566f3b656cd9109f20420c0a0d6b0f6946cd8bb0f51a0791a06bce27d91"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201205202657.5765af48.tar.gz", hash = "sha256:85e31e6c1c62cc0ec92088b4ae0d3adab12c9bd5e4cc693f1c26b8ce9a198d24"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201205204611.44c782ac.tar.gz", hash = "sha256:0ca23ff006dea168c1e3c22197fdcce96197aa2520e685e92b468ec3b9459fad"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201205205140.284b8d33.tar.gz", hash = "sha256:41317a51077f42584ff5c7c5dfb1639f408e9de9a3611e6bb941ffb46a77dbf2"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201229194727.9a4a180d.tar.gz", hash = "sha256:2c3c76bede4799152d424a4329a305ace07a94db0d8ac47b7ea0f8f404cc2651"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20201229232708.f2571145.tar.gz", hash = "sha256:fad740e9ecc6a65d2144216c4a8ce3397f6698ef2f0fc5103ee654f7565ef901"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20210103123350.6e35c3e5.tar.gz", hash = "sha256:51df965e262c313e27c3184a53e29cf29fde149409a018f2956d1dc64fd90e33"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20210104143843.2f5a13a9.tar.gz", hash = "sha256:bc17931cbcaf5533fae807733d6e0f8bf7db45494c033c35d532889e26763f2c"},
-    {file = "AlekSIS-App-Chronos-2.0a3.dev0+20210107205912.8482c680.tar.gz", hash = "sha256:e38ce766a9df23b771c57d3dbf74903c29a2051d1912521a797159a28cfe68cd"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201114181205.58815f85-py3-none-any.whl", hash = "sha256:93ef99384f5b593618f83d21005c45231aad9035afbaf6b6889e33e9d1a5c175"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201114223246.32e3c906-py3-none-any.whl", hash = "sha256:35550f0990aceed1932a37b935ea423796bea5e7995a8d6494bec17a0b17bf00"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201114235246.65bf857a-py3-none-any.whl", hash = "sha256:9e3343f9c63536a99b3fcbd230dda1e4e6cde15a1bfcbb948ac05ad5f88033f2"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201115122918.3d28dd8a-py3-none-any.whl", hash = "sha256:96df0735d58d9bae2bdb6ff69287e85bb4622d9dc8807f6f858e771b93e68752"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201115140200.765291db-py3-none-any.whl", hash = "sha256:04b7ec138f82bdd50849bbc8818a0ffae1639377d03024bedb23f6beb23ac458"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201115195358.7b86df4c-py3-none-any.whl", hash = "sha256:1e35e710a2e5ddf7da2a38f9505e38914376ba9860096c4c64ffd6a1f17ffea3"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201117201204.ca84c2c6-py3-none-any.whl", hash = "sha256:5eb111b589ed418e57ccad3e571b653baede81895cc639e6884594cefd6969d9"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201118191856.e492d537-py3-none-any.whl", hash = "sha256:e6ebf40b0cff6dfec2ca43dbea513f85cb3ea26dd81bbb00b0fc4bf0e11a1604"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201119232658.ebb8e175-py3-none-any.whl", hash = "sha256:b6c2a408e50d62a2dcfba638bac914c54bfa33af280ec0bb4063f01d674e7075"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201121110708.8f6bfbea-py3-none-any.whl", hash = "sha256:0371a182048034e1908a597232d9d83a3b15892e2874a0104f6644ac69fcbe30"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201121171621.ad73a375-py3-none-any.whl", hash = "sha256:f4216323befe44e743fdfdf53338ad879ce5fb7f74fe604904cbf917ca293f47"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201127194104.60ad9b7d-py3-none-any.whl", hash = "sha256:c93909b02108adbb044e0d3e02ad880f7bee29f42d62ac464736f76a3bfe850c"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201204221402.140ebf3d-py3-none-any.whl", hash = "sha256:a59aaa62712ffe4f17107f1a94caf4bc3328f8a3af8e8400f2be9e74b4cf591c"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201204221732.2bab9c2c-py3-none-any.whl", hash = "sha256:7e79f28578bf0dbd3e6f04ec77e68dfc15fb9247b2e7555c0c27c6db2e0655fc"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201204221817.bb81a493-py3-none-any.whl", hash = "sha256:63072d1d9efbeeb6b473e5132a177b7d9c27d75c2cf5fa52e828437679ed0ce9"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201204221949.94c3c73d-py3-none-any.whl", hash = "sha256:2680e73c4cf0e7be2a56dc68f9ca79618f036182b03066263db28c0364dc48b5"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201205202657.5765af48-py3-none-any.whl", hash = "sha256:e2f9bdbc5979309256063fa01aa75accf1d9ce365e0f985864dce3b65bd1caf0"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201205204611.44c782ac-py3-none-any.whl", hash = "sha256:116db0300a473d28cc0f8e6a572b8f148d99f45e99c52f570ef4ef930017c91a"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201205205140.284b8d33-py3-none-any.whl", hash = "sha256:e28671a079cf5582f444ea7dde04f79ea1580c74019c46f75a005cbe656b5e80"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201229194727.9a4a180d-py3-none-any.whl", hash = "sha256:dc37dee05906ef1f1b45f59581acb0a5bd9474aecea474ce511d60a20fc89d77"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20201229232708.f2571145-py3-none-any.whl", hash = "sha256:d24be0a19fb3aadc6d23031090cbe92c132dfe9994f405081f0473f021d5bd79"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20210103123350.6e35c3e5-py3-none-any.whl", hash = "sha256:deed4c21dc8b6191b4b098694b38bd51e9eca7ecf99a31d193badda7a550e510"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20210104143843.2f5a13a9-py3-none-any.whl", hash = "sha256:f0abce056bbf497e5362b2f62d5f9a73afae41f07c5a3f8696d883556f6ed267"},
-    {file = "AlekSIS_App_Chronos-2.0a3.dev0+20210107205912.8482c680-py3-none-any.whl", hash = "sha256:59f62d7a6850f68a3b969cd28d8e042a16981c45bde12bb9cf3a39ff4874f609"},
+    {file = "AlekSIS-App-Chronos-2.0a4.dev0+20210112212026.c6be335f.tar.gz", hash = "sha256:0a8e394881cf9092668175d7304e4a540e6d8f8157d85282fa0001b933ce2c7b"},
+    {file = "AlekSIS_App_Chronos-2.0a4.dev0+20210112212026.c6be335f-py3-none-any.whl", hash = "sha256:8fb0386cbf2bb82b5895851c076f64827e670dddc847a56a7457df91f9d2f5c0"},
 ]
 aleksis-builddeps = [
     {file = "AlekSIS-Builddeps-1.tar.gz", hash = "sha256:97a19597f422593cbdc438aabf17f95748126c8951df6ac7db7991fc99c108c4"},
@@ -2456,8 +2409,8 @@ dynaconf = [
     {file = "dynaconf-3.1.2.tar.gz", hash = "sha256:9b34ab2f811a81755f5eb4beac77a69e1e0887528c7e37fc4bc83fed52dcf502"},
 ]
 faker = [
-    {file = "Faker-5.5.0-py3-none-any.whl", hash = "sha256:6bc44606d44f711e1d89ad9a5b42394cc6f7eedaffc765ddb5b2d22084c15733"},
-    {file = "Faker-5.5.0.tar.gz", hash = "sha256:47ac7d62d5bad8c16422a91f121430ab7656d40ca8fea9c84bcdbdf92e739b03"},
+    {file = "Faker-5.6.0-py3-none-any.whl", hash = "sha256:eb14d0c6b8f7c9902bb07dedc2ad405237edbf808d4ead9f17b9567e586cabee"},
+    {file = "Faker-5.6.0.tar.gz", hash = "sha256:3d8ba3e4a3700962a1bf5599a43797b286d1ac52b3dd90c1e8a2625f73c46bd6"},
 ]
 flake8 = [
     {file = "flake8-3.8.4-py2.py3-none-any.whl", hash = "sha256:749dbbd6bfd0cf1318af27bf97a14e28e5ff548ef8e5b1566ccfb25a11e7c839"},
@@ -2843,8 +2796,8 @@ pygments = [
     {file = "Pygments-2.7.4.tar.gz", hash = "sha256:df49d09b498e83c1a73128295860250b0b7edd4c723a32e9bc0d295c7c2ec337"},
 ]
 pyjwt = [
-    {file = "PyJWT-2.0.0-py3-none-any.whl", hash = "sha256:5c2ff2eb27d7e342dfc3cafcc16412781f06db2690fbef81922b0172598f085b"},
-    {file = "PyJWT-2.0.0.tar.gz", hash = "sha256:7a2b271c6dac2fda9e0c33d176c4253faba2c6c6b3a99c7f28a32c3c97522779"},
+    {file = "PyJWT-1.7.1-py2.py3-none-any.whl", hash = "sha256:5c6eca3c2940464d106b99ba83b00c6add741c9becaec087fb7ccdefea71350e"},
+    {file = "PyJWT-1.7.1.tar.gz", hash = "sha256:8d59a976fb773f3e6a39c85636357c4f0e242707394cadadd9814f5cbaa20e96"},
 ]
 pyparsing = [
     {file = "pyparsing-2.4.7-py2.py3-none-any.whl", hash = "sha256:ef9d7589ef3c200abe66653d3f1ab1033c3c419ae9b9bdb1240a85b024efc88b"},
@@ -2982,8 +2935,8 @@ rules = [
     {file = "rules-2.2.tar.gz", hash = "sha256:9bae429f9d4f91a375402990da1541f9e093b0ac077221d57124d06eeeca4405"},
 ]
 safety = [
-    {file = "safety-1.10.2-py2.py3-none-any.whl", hash = "sha256:66972e94bc7252d156386ffbe89ceeecdf82cebe1f2bf4e1375cc7fe473b54fe"},
-    {file = "safety-1.10.2.tar.gz", hash = "sha256:9e35be579f7589cde300faaf947eefb6a4c1a63ae2a79edb370805ef99487c5f"},
+    {file = "safety-1.10.2.post1-py2.py3-none-any.whl", hash = "sha256:6f50edff1c5162d096cacd9557406b32c021c77fe8d2229750eeff22a3e10dfe"},
+    {file = "safety-1.10.2.post1.tar.gz", hash = "sha256:1d8f904c7df7c99f094154a6d2c3ae9703fd2fa58914bd80e005e860a9f4045c"},
 ]
 scramp = [
     {file = "scramp-1.2.0-py3-none-any.whl", hash = "sha256:74815c25aad1fe0b5fb994e96c3de63e8695164358a80138352aaadfa4760350"},
@@ -3061,8 +3014,8 @@ termcolor = [
     {file = "termcolor-1.1.0.tar.gz", hash = "sha256:1d6d69ce66211143803fbc56652b41d73b4a400a2891d7bf7a1cdf4c02de613b"},
 ]
 testfixtures = [
-    {file = "testfixtures-6.17.0-py2.py3-none-any.whl", hash = "sha256:ebcc3e024d47bb58a60cdc678604151baa0c920ae2814004c89ac9066de31b2c"},
-    {file = "testfixtures-6.17.0.tar.gz", hash = "sha256:fa7c170df68ca6367eda061e9ec339ae3e6d3679c31e04033f83ef97a7d7d0ce"},
+    {file = "testfixtures-6.17.1-py2.py3-none-any.whl", hash = "sha256:9ed31e83f59619e2fa17df053b241e16e0608f4580f7b5a9333a0c9bdcc99137"},
+    {file = "testfixtures-6.17.1.tar.gz", hash = "sha256:5ec3a0dd6f71cc4c304fbc024a10cc293d3e0b852c868014b9f233203e149bda"},
 ]
 "testing.common.database" = [
     {file = "testing.common.database-2.0.3-py2.py3-none-any.whl", hash = "sha256:e3ed492bf480a87f271f74c53b262caf5d85c8bc09989a8f534fa2283ec52492"},
@@ -3085,7 +3038,7 @@ tqdm = [
     {file = "tqdm-4.56.0.tar.gz", hash = "sha256:fe3d08dd00a526850568d542ff9de9bbc2a09a791da3c334f3213d8d0bbbca65"},
 ]
 twilio = [
-    {file = "twilio-6.50.1.tar.gz", hash = "sha256:dd8371c9b4ea422d6de7526b63b587da82e8488f2b3f6b1258d2cad6e4006a65"},
+    {file = "twilio-6.51.0.tar.gz", hash = "sha256:de98a05858e6efdf87bfa4c8f7e773adf1885cfcbb6531356840bcd17dc4c444"},
 ]
 typed-ast = [
     {file = "typed_ast-1.4.2-cp35-cp35m-manylinux1_i686.whl", hash = "sha256:7703620125e4fb79b64aa52427ec192822e9f45d37d4b6625ab37ef403e1df70"},
