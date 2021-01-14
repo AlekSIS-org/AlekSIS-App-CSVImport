@@ -1,4 +1,4 @@
-from django.db import ProgrammingError
+from django.db import OperationalError, ProgrammingError
 
 from aleksis.core.util.apps import AppConfig
 
@@ -28,6 +28,6 @@ class CSVImportConfig(AppConfig):
             )
 
             update_or_create_default_templates()
-        except ProgrammingError:
+        except (ProgrammingError, OperationalError):
             # Catch if there are no migrations yet
             pass  # noqa
