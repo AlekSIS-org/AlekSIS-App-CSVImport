@@ -176,9 +176,11 @@ def import_csv(
                 pass
 
         # Deactivate all persons that existed but are now inactive
-        affected = model.objects.filter(pk__in=inactive_refs, is_active=True).update(
-            is_active=False
-        )
+        affected = None
+        if has_is_active_field(model):
+            affected = model.objects.filter(pk__in=inactive_refs, is_active=True).update(
+                is_active=False
+            )
 
         if affected:
             recorder.add_message(
