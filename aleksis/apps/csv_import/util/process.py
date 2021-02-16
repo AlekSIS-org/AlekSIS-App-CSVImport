@@ -16,12 +16,12 @@ from aleksis.apps.csv_import.models import ImportTemplate
 from aleksis.apps.csv_import.settings import FALSE_VALUES, TRUE_VALUES
 from aleksis.apps.csv_import.util.import_helpers import has_is_active_field, is_active
 from aleksis.core.models import Group, Person, SchoolTerm
-from aleksis.core.util.celery_progress import ProgressRecorder
+from aleksis.core.util.celery_progress import ProgressRecorder, recorded_task
 
 
-@ProgressRecorder.record
+@recorded_task
 def import_csv(
-    recorder: ProgressRecorder, template: int, filename: str, school_term: Optional[int] = None,
+    template: int, filename: str, recorder: ProgressRecorder, school_term: Optional[int] = None,
 ) -> None:
     csv = open(filename, "rb")
 
@@ -80,9 +80,8 @@ def import_csv(
     created_count = 0
 
     data_as_dict = data.transpose().to_dict().values()
-    recorder.total = len(data_as_dict)
 
-    for i, row in enumerate(data_as_dict):
+    for row in recorder.iterate(data_as_dict):
         # Fill the is_active field from other fields if necessary
         obj_is_active = is_active(row)
         if has_is_active_field(model):
@@ -157,13 +156,10 @@ def import_csv(
 
             except (ValueError, ValidationError) as e:
                 recorder.add_message(
-                    messages.ERROR,
-                    _(f"Failed to import {model._meta.verbose_name} {row}:\n{e}"),
-                    fail_silently=True,
+                    messages.ERROR, _(f"Failed to import {model._meta.verbose_name} {row}:\n{e}"),
                 )
                 all_ok = False
 
-            recorder.set_progress(i + 1)
         else:
             # Store import refs to deactivate later
             try:
