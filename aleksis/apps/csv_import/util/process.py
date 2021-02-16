@@ -1,4 +1,4 @@
-from typing import Optional, Union
+from typing import Optional
 
 from django.contrib import messages
 from django.core.exceptions import ValidationError
@@ -16,15 +16,12 @@ from aleksis.apps.csv_import.models import ImportTemplate
 from aleksis.apps.csv_import.settings import FALSE_VALUES, TRUE_VALUES
 from aleksis.apps.csv_import.util.import_helpers import has_is_active_field, is_active
 from aleksis.core.models import Group, Person, SchoolTerm
-from aleksis.core.util.core_helpers import DummyRecorder, celery_optional_progress
+from aleksis.core.util.celery_progress import ProgressRecorder
 
 
-@celery_optional_progress
+@ProgressRecorder.record
 def import_csv(
-    recorder: Union["ProgressRecorder", DummyRecorder],
-    template: int,
-    filename: str,
-    school_term: Optional[int] = None,
+    recorder: ProgressRecorder, template: int, filename: str, school_term: Optional[int] = None,
 ) -> None:
     csv = open(filename, "rb")
 
