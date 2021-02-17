@@ -23,4 +23,4 @@ class Command(BaseCommand):
             messages.error(None, _("The provided template does not exist."))
             return
 
-        import_csv(None, template, options["csv_path"])
+        import_csv.delay(template, options["csv_path"])
