@@ -30,24 +30,23 @@ def csv_import(request: HttpRequest) -> HttpResponse:
             )
             handle_uploaded_file(request.FILES["csv"], filename)
 
-            result = import_csv(
+            result = import_csv.delay(
                 upload_form.cleaned_data["template"].pk,
                 filename,
                 school_term=upload_form.cleaned_data["school_term"].pk,
             )
 
-            if result:
-                context = {
-                    "title": _("Progress: Import data from CSV"),
-                    "back_url": reverse("csv_import"),
-                    "progress": {
-                        "task_id": result.task_id,
-                        "title": _("Import objects …"),
-                        "success": _("The import was done successfully."),
-                        "error": _("There was a problem while importing data."),
-                    },
-                }
-                return render(request, "core/pages/progress.html", context)
+            context = {
+                "title": _("Progress: Import data from CSV"),
+                "back_url": reverse("csv_import"),
+                "progress": {
+                    "task_id": result.task_id,
+                    "title": _("Import objects …"),
+                    "success": _("The import was done successfully."),
+                    "error": _("There was a problem while importing data."),
+                },
+            }
+            return render(request, "core/pages/progress.html", context)
 
     context["upload_form"] = upload_form
 
