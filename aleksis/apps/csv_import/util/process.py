@@ -154,7 +154,12 @@ def import_csv(
                 if created:
                     created_count += 1
 
-            except (ValueError, ValidationError) as e:
+            except (
+                ValueError,
+                ValidationError,
+                model.MultipleObjectsReturned,
+                model.DoesNotExist,
+            ) as e:
                 recorder.add_message(
                     messages.ERROR, _(f"Failed to import {model._meta.verbose_name} {row}:\n{e}"),
                 )
