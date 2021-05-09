@@ -8,6 +8,7 @@ from django.utils.translation import gettext as _
 
 from rules.contrib.views import permission_required
 
+from aleksis.core.util.celery_progress import render_progress_page
 from aleksis.core.util.core_helpers import handle_uploaded_file, path_and_rename
 
 from .forms import CSVUploadForm
@@ -36,17 +37,15 @@ def csv_import(request: HttpRequest) -> HttpResponse:
                 school_term=upload_form.cleaned_data["school_term"].pk,
             )
 
-            context = {
-                "title": _("Progress: Import data from CSV"),
-                "back_url": reverse("csv_import"),
-                "progress": {
-                    "task_id": result.task_id,
-                    "title": _("Import objects …"),
-                    "success": _("The import was done successfully."),
-                    "error": _("There was a problem while importing data."),
-                },
-            }
-            return render(request, "core/pages/progress.html", context)
+            return render_progress_page(
+                request,
+                result,
+                title=_("Progress: Import data from CSV"),
+                progress_title=_("Import objects …"),
+                success_message=_("The import was done successfully."),
+                error_message=_("There was a problem while importing data."),
+                back_url=reverse("csv_import"),
+            )
 
     context["upload_form"] = upload_form
 
