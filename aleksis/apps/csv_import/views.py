@@ -15,7 +15,7 @@ from .forms import CSVUploadForm
 from .util.process import import_csv
 
 
-@permission_required("csv_import.import_data")
+@permission_required("csv_import.import_data_rule")
 def csv_import(request: HttpRequest) -> HttpResponse:
     context = {}
 
