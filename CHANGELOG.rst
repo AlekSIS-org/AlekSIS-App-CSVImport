@@ -13,6 +13,7 @@ Added
 ~~~~~
 
 * Introduce a generic, customisable CSV importer based on import templates and field types.
+* Add import templates for Pedasos (students, teachers, classes, courses, parents).
 
 Removed
 ~~~~~~~
