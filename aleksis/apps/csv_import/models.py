@@ -108,6 +108,7 @@ class ImportTemplateField(ExtensibleModel):
 
 
 class ImportJob(ExtensibleModel):
+    """Job definition for one import, to track import history and files."""
     template = models.ForeignKey(
         ImportTemplate,
         on_delete=models.CASCADE,
