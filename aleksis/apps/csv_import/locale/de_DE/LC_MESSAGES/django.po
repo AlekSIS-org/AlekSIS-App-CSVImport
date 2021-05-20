@@ -7,11 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-11-14 12:23+0100\n"
+"POT-Creation-Date: 2021-05-20 21:05+0200\n"
 "PO-Revision-Date: 2021-03-17 02:16+0000\n"
 "Last-Translator: Dominik George <dominik.george@teckids.org>\n"
-"Language-Team: German <https://translate.edugit.org/projects/aleksis/"
-"aleksis-app-csvimport/de/>\n"
+"Language-Team: German <https://translate.edugit.org/projects/aleksis/aleksis-app-csvimport/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,241 +18,257 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 4.4\n"
 
-#: field_types.py:132
+#: aleksis/apps/csv_import/field_types.py:132
 msgid "Unique reference"
 msgstr "Eindeutige Referenz"
 
-#: field_types.py:144
+#: aleksis/apps/csv_import/field_types.py:144
 msgid "Is active? (0/1)"
 msgstr "Ist aktiv? (0/1)"
 
-#: field_types.py:153 models.py:30 models.py:31
+#: aleksis/apps/csv_import/field_types.py:153
+#: aleksis/apps/csv_import/models.py:30 aleksis/apps/csv_import/models.py:31
 msgid "Name"
 msgstr "Name"
 
-#: field_types.py:162
+#: aleksis/apps/csv_import/field_types.py:162
 msgid "First name"
 msgstr "Vorname"
 
-#: field_types.py:170
+#: aleksis/apps/csv_import/field_types.py:170
 msgid "Last name"
 msgstr "Nachname"
 
-#: field_types.py:178
+#: aleksis/apps/csv_import/field_types.py:178
 msgid "Additional name"
 msgstr "Zusätzlicher Name"
 
-#: field_types.py:186
+#: aleksis/apps/csv_import/field_types.py:186
 msgid "Short name"
 msgstr "Kurzname"
 
-#: field_types.py:196
+#: aleksis/apps/csv_import/field_types.py:196
 msgid "Email"
 msgstr "E-Mail"
 
-#: field_types.py:205
+#: aleksis/apps/csv_import/field_types.py:205
 msgid "Date of birth"
 msgstr "Geburtsdatum"
 
-#: field_types.py:214
+#: aleksis/apps/csv_import/field_types.py:214
 msgid "Sex"
 msgstr "Geschlecht"
 
-#: field_types.py:223
+#: aleksis/apps/csv_import/field_types.py:223
 msgid "Street"
 msgstr "Straße"
 
-#: field_types.py:231
+#: aleksis/apps/csv_import/field_types.py:231
 msgid "Housenumber"
 msgstr "Hausnummer"
 
-#: field_types.py:239
+#: aleksis/apps/csv_import/field_types.py:239
 msgid "Postal code"
 msgstr "Postleitzahl"
 
-#: field_types.py:247
+#: aleksis/apps/csv_import/field_types.py:247
 msgid "Place"
 msgstr "Ort"
 
-#: field_types.py:255
+#: aleksis/apps/csv_import/field_types.py:255
 msgid "Phone number"
 msgstr "Telefonnummer"
 
-#: field_types.py:264
+#: aleksis/apps/csv_import/field_types.py:264
 msgid "Mobile number"
 msgstr "Handynummer"
 
-#: field_types.py:273
+#: aleksis/apps/csv_import/field_types.py:273
 msgid "Ignore data in this field"
 msgstr "Daten in diesem Feld ignorieren"
 
-#: field_types.py:284
+#: aleksis/apps/csv_import/field_types.py:284
 msgid "Comma-seperated list of departments"
 msgstr "Komma-separierte Liste von Fachschaften"
 
-#: field_types.py:314
+#: aleksis/apps/csv_import/field_types.py:314
 msgid "Short name of the subject"
 msgstr "Kurzname des Faches"
 
-#: field_types.py:326
+#: aleksis/apps/csv_import/field_types.py:326
 msgid "Class range (e. g. 7a-d)"
 msgstr "Klassenauswahl (z. B. 7a-d)"
 
-#: field_types.py:345
+#: aleksis/apps/csv_import/field_types.py:343
 msgid "Short name of the person's primary group"
 msgstr "Kurzname der Primärgruppe der Person"
 
-#: field_types.py:357
+#: aleksis/apps/csv_import/field_types.py:355
 #, python-brace-format
 msgid "{instance}: Failed to import the primary group: "
 msgstr "{instance}: Fehler beim Importieren der Primärgruppe: "
 
-#: field_types.py:366
+#: aleksis/apps/csv_import/field_types.py:364
 msgid "Short name of a single group owner"
 msgstr "Kurzname eines einzelnen Gruppenbesitzers"
 
-#: field_types.py:383
+#: aleksis/apps/csv_import/field_types.py:381
 msgid "Short name of the group the person is a member of"
 msgstr "Kurzname einer Gruppe, in der die Person ein Mitglied ist"
 
-#: field_types.py:397
+#: aleksis/apps/csv_import/field_types.py:393
 msgid "Child by unique reference (from students import)"
 msgstr "Kind durch eindeutige Referenz (vom Schüler-Import)"
 
-#: forms.py:10
+#: aleksis/apps/csv_import/forms.py:10
 msgid "CSV file"
 msgstr "CSV-Datei"
 
-#: forms.py:12
+#: aleksis/apps/csv_import/forms.py:12
 msgid "Related school term"
 msgstr "Zugehöriges Schuljahr"
 
-#: forms.py:15 models.py:80 models.py:89
+#: aleksis/apps/csv_import/forms.py:15 aleksis/apps/csv_import/models.py:80
+#: aleksis/apps/csv_import/models.py:87 aleksis/apps/csv_import/models.py:116
 msgid "Import template"
 msgstr "Import-Vorlage"
 
-#: management/commands/csv_import.py:12
+#: aleksis/apps/csv_import/management/commands/csv_import.py:12
 msgid "Path to CSV file with exported teachers"
 msgstr "Pfad zur CSV-Datei mit den exportierten Lehrern"
 
-#: management/commands/csv_import.py:16
+#: aleksis/apps/csv_import/management/commands/csv_import.py:15
 msgid "Name of import template which should be used"
 msgstr "Name der Import-Vorlage, die benutzt werden soll"
 
-#: management/commands/csv_import.py:25
+#: aleksis/apps/csv_import/management/commands/csv_import.py:23
 msgid "The provided template does not exist."
 msgstr "Die gegebene Vorlage existiert nicht."
 
-#: menus.py:6 preferences.py:15
+#: aleksis/apps/csv_import/menus.py:6 aleksis/apps/csv_import/preferences.py:10
 msgid "CSV import"
 msgstr "CSV-Import"
 
-#: model_extensions.py:9
+#: aleksis/apps/csv_import/model_extensions.py:8
 msgid "CSV import reference"
 msgstr "CSV-Import-Referenz"
 
-#: models.py:27
+#: aleksis/apps/csv_import/models.py:27
 msgid "Content type"
 msgstr "Inhaltstyp"
 
-#: models.py:34
+#: aleksis/apps/csv_import/models.py:34
 msgid "Has the CSV file an own header row?"
 msgstr "Hat die CSV-Datei eine eigene Kopfzeile?"
 
-#: models.py:39
+#: aleksis/apps/csv_import/models.py:39
 msgid "CSV separator"
 msgstr "CSV-Trennzeichen"
 
-#: models.py:40
+#: aleksis/apps/csv_import/models.py:40
 msgid "For whitespace use \\\\s+, for tab \\\\t"
 msgstr "Für Leerzeichen \\\\s+ nutzen, für Tabulatoren \\\\t"
 
-#: models.py:48
+#: aleksis/apps/csv_import/models.py:48
 msgid "Base group"
 msgstr "Stammgruppe"
 
-#: models.py:50
+#: aleksis/apps/csv_import/models.py:50
 msgid "If imported objects are persons, they all will be members of this group after import."
-msgstr ""
-"Wenn die importierten Objekte Personen sind, werden sie alle als Mitglieder "
-"dieser Gruppe zugeordnet werden (nach dem Import)."
+msgstr "Wenn die importierten Objekte Personen sind, werden sie alle als Mitglieder dieser Gruppe zugeordnet werden (nach dem Import)."
 
-#: models.py:58
+#: aleksis/apps/csv_import/models.py:58
 msgid "Group type"
 msgstr "Gruppentyp"
 
-#: models.py:60
+#: aleksis/apps/csv_import/models.py:60
 msgid "If imported objects are groups, they all will get this group type after import."
-msgstr ""
-"Wenn die importierten Objekte Gruppen sind, wird für alle dieser Gruppentyp "
-"gesetzt."
+msgstr "Wenn die importierten Objekte Gruppen sind, wird für alle dieser Gruppentyp gesetzt."
 
-#: models.py:81
+#: aleksis/apps/csv_import/models.py:81
 msgid "Import templates"
 msgstr "Import-Vorlagen"
 
-#: models.py:85
+#: aleksis/apps/csv_import/models.py:85
 msgid "Index"
 msgstr "Index"
 
-#: models.py:94
+#: aleksis/apps/csv_import/models.py:90
 msgid "Field type"
 msgstr "Feldtyp"
 
-#: models.py:110
+#: aleksis/apps/csv_import/models.py:101
 msgid "You are not allowed to use this field type in this model."
 msgstr "Sie dürfen diesen Feldtyp nicht für dieses Model benutzen."
 
-#: models.py:116
+#: aleksis/apps/csv_import/models.py:106
 msgid "Import template field"
 msgstr "Feld für Import-Vorlage"
 
-#: models.py:117
+#: aleksis/apps/csv_import/models.py:107
 msgid "Import template fields"
 msgstr "Felder für Import-Vorlagen"
 
-#: preferences.py:25
+#: aleksis/apps/csv_import/models.py:123
+#, fuzzy
+#| msgid "Related school term"
+msgid "School term"
+msgstr "Zugehöriges Schuljahr"
+
+#: aleksis/apps/csv_import/models.py:130
+#, fuzzy
+#| msgid "Import data"
+msgid "Import job"
+msgstr "Daten importieren"
+
+#: aleksis/apps/csv_import/models.py:131
+#, fuzzy
+#| msgid "Import objects …"
+msgid "Import jobs"
+msgstr "Objekte importieren …"
+
+#: aleksis/apps/csv_import/preferences.py:20
 msgid "Group type for department groups"
 msgstr "Gruppentyp für Fachschaften"
 
-#: preferences.py:26
+#: aleksis/apps/csv_import/preferences.py:21
 msgid "If you leave it empty, no group type will be used."
 msgstr "Wenn Sie das Feld frei lassen, wird kein Gruppentyp gesetzt."
 
-#: preferences.py:34
+#: aleksis/apps/csv_import/preferences.py:29
 msgid "Prefix for long names of department groups"
 msgstr "Präfix für Langnamen von Fachschaftsgruppen"
 
-#: preferences.py:35
+#: aleksis/apps/csv_import/preferences.py:30
 msgid "If you leave it empty, no prefix will be added."
 msgstr "Wenn Sie das Feld freilassen, wird kein Präfix hinzugefügt."
 
-#: preferences.py:45
+#: aleksis/apps/csv_import/preferences.py:40
 msgid "Group for guardians"
 msgstr "Gruppe für Eltern"
 
-#: preferences.py:46
+#: aleksis/apps/csv_import/preferences.py:41
 msgid "If you leave it empty, no group will be used."
 msgstr "Wenn Sie das Feld frei lassen, wird keine Gruppe gesetzt."
 
-#: preferences.py:55
+#: aleksis/apps/csv_import/preferences.py:50
 msgid "Languages for date parsing"
 msgstr "Sprachen für die Datumserkennung"
 
-#: preferences.py:56
+#: aleksis/apps/csv_import/preferences.py:51
 msgid "e. g. en,es,zh-Hant"
 msgstr "z. B. en,es,zh-Hant"
 
-#: preferences.py:66
+#: aleksis/apps/csv_import/preferences.py:61
 msgid "Country for phone number parsing"
 msgstr "Land für die Telefonnumernerkennung"
 
-#: templates/csv_import/csv_import.html:7
-#: templates/csv_import/csv_import.html:8
+#: aleksis/apps/csv_import/templates/csv_import/csv_import.html:7
+#: aleksis/apps/csv_import/templates/csv_import/csv_import.html:8
 msgid "Import CSV data"
 msgstr "CSV-Daten importieren"
 
-#: templates/csv_import/csv_import.html:14
+#: aleksis/apps/csv_import/templates/csv_import/csv_import.html:14
 msgid ""
 "\n"
 "        You can import data from several school administration software using this CSV importer. Please read the notes\n"
@@ -261,17 +276,15 @@ msgid ""
 "      "
 msgstr ""
 "\n"
-"        Sie können Daten von verschiedenen Schulverwaltungssoftwares mit "
-"diesem CSV-Importer importieren. Bitte lesen die Hinweise\n"
-"zu der von Ihnen verwendeten Software in unser Dokumentation! Manchmal ist "
-"ein spezielles Verfahren notwendig, um die Daten korrekt zu importieren.\n"
+"        Sie können Daten von verschiedenen Schulverwaltungssoftwares mit diesem CSV-Importer importieren. Bitte lesen die Hinweise\n"
+"zu der von Ihnen verwendeten Software in unser Dokumentation! Manchmal ist ein spezielles Verfahren notwendig, um die Daten korrekt zu importieren.\n"
 "      "
 
-#: templates/csv_import/csv_import.html:25
+#: aleksis/apps/csv_import/templates/csv_import/csv_import.html:25
 msgid "Import data"
 msgstr "Daten importieren"
 
-#: util/process.py:74
+#: aleksis/apps/csv_import/util/process.py:66
 #, python-brace-format
 msgid ""
 "There was an error while parsing the CSV file:\n"
@@ -280,11 +293,11 @@ msgstr ""
 "Es ist ein Fehler beim Lesen der CSV-Datei aufgetreten:\n"
 "{e}"
 
-#: util/process.py:126
+#: aleksis/apps/csv_import/util/process.py:114
 msgid "Missing unique reference."
 msgstr "Fehlende eindeutige Referenz."
 
-#: util/process.py:171
+#: aleksis/apps/csv_import/util/process.py:159
 #, python-brace-format
 msgid ""
 "Failed to import {model._meta.verbose_name} {row}:\n"
@@ -293,41 +306,39 @@ msgstr ""
 "Fehler beim Importieren von {model._meta.verbose_name} {row}:\n"
 "{e}"
 
-#: util/process.py:194
+#: aleksis/apps/csv_import/util/process.py:181
 #, python-brace-format
 msgid "{affected} existing {model._meta.verbose_name_plural} were deactivated."
-msgstr ""
-"{affected} existierende {model._meta.verbose_name_plural} wurden deaktiviert."
+msgstr "{affected} existierende {model._meta.verbose_name_plural} wurden deaktiviert."
 
-#: util/process.py:201
+#: aleksis/apps/csv_import/util/process.py:187
 #, python-brace-format
 msgid "{created_count} {model._meta.verbose_name_plural} were newly created."
 msgstr "{created_count} {model._meta.verbose_name_plural} wurden neu erstellt."
 
-#: util/process.py:207
+#: aleksis/apps/csv_import/util/process.py:193
 #, python-brace-format
 msgid "All {model._meta.verbose_name_plural} were imported successfully."
 msgstr "Alle {model._meta.verbose_name_plural} wurden erfolgreich importiert."
 
-#: util/process.py:212
+#: aleksis/apps/csv_import/util/process.py:197
 #, python-brace-format
 msgid "Some {model._meta.verbose_name_plural} failed to be imported."
-msgstr ""
-"Einige {model._meta.verbose_name_plural} konnten nicht importiert werden."
+msgstr "Einige {model._meta.verbose_name_plural} konnten nicht importiert werden."
 
-#: views.py:41
+#: aleksis/apps/csv_import/views.py:37
 msgid "Progress: Import data from CSV"
 msgstr "Fortschritt: CSV-Daten importieren"
 
-#: views.py:45
+#: aleksis/apps/csv_import/views.py:38
 msgid "Import objects …"
 msgstr "Objekte importieren …"
 
-#: views.py:46
+#: aleksis/apps/csv_import/views.py:39
 msgid "The import was done successfully."
 msgstr "Der Import wurde erfolgreich beendet."
 
-#: views.py:47
+#: aleksis/apps/csv_import/views.py:40
 msgid "There was a problem while importing data."
 msgstr "Beim Importieren der Daten ist ein Fehler aufgetreten."
 
