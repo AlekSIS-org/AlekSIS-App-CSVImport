@@ -7,7 +7,7 @@ packages = [
 readme = "README.rst"
 include = ["CHANGELOG.rst", "LICENCE.rst", "aleksis/**/locale/*.mo"]
 
-description = "AlekSIS (School Information System) — App for SchILD-NRW interaction"
+description = "AlekSIS (School Information System) — App for CSV import"
 authors = ["Dominik George <dominik.george@teckids.org>", "Jonathan Weth <dev@jonathanweth.de>"]
 license = "EUPL-1.2"
 homepage = "https://aleksis.org/"
