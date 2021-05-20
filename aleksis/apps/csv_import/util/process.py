@@ -1,5 +1,3 @@
-from typing import Optional
-
 from django.contrib import messages
 from django.core.exceptions import ValidationError
 from django.utils.translation import gettext as _
@@ -12,24 +10,21 @@ from aleksis.apps.csv_import.field_types import (
     MultipleValuesFieldType,
     field_type_registry,
 )
-from aleksis.apps.csv_import.models import ImportTemplate
 from aleksis.apps.csv_import.settings import FALSE_VALUES, TRUE_VALUES
 from aleksis.apps.csv_import.util.import_helpers import has_is_active_field, is_active
-from aleksis.core.models import Group, Person, SchoolTerm
+from aleksis.core.models import Group, Person
 from aleksis.core.util.celery_progress import ProgressRecorder, recorded_task
+
+from ..models import ImportJob
 
 
 @recorded_task
-def import_csv(
-    template: int, filename: str, recorder: ProgressRecorder, school_term: Optional[int] = None,
-) -> None:
-    csv = open(filename, "rb")
-
-    template = ImportTemplate.objects.get(pk=template)
+def import_csv(import_job: int, recorder: ProgressRecorder,) -> None:
+    import_job = ImportJob.objects.get(pk=import_job)
+    template = import_job.template
     model = template.content_type.model_class()
-
-    if school_term:
-        school_term = SchoolTerm.objects.get(pk=school_term)
+    school_term = import_job.school_term
+    csv = import_job.data_file.open("rb")
 
     data_types = {}
     cols = []

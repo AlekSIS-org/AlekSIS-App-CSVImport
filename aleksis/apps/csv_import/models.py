@@ -7,7 +7,7 @@ from django.utils.translation import gettext as _
 
 from aleksis.apps.csv_import.field_types import field_type_registry
 from aleksis.core.mixins import ExtensibleModel
-from aleksis.core.models import Group, GroupType
+from aleksis.core.models import Group, GroupType, SchoolTerm
 
 
 def get_allowed_content_types_query():
@@ -105,3 +105,27 @@ class ImportTemplateField(ExtensibleModel):
         unique_together = ["template", "index"]
         verbose_name = _("Import template field")
         verbose_name_plural = _("Import template fields")
+
+
+class ImportJob(ExtensibleModel):
+    """Job definition for one import, to track import history and files."""
+
+    template = models.ForeignKey(
+        ImportTemplate,
+        on_delete=models.CASCADE,
+        verbose_name=_("Import template"),
+        related_name="import_jobs",
+    )
+    data_file = models.FileField(upload_to="csv_import/")
+    school_term = models.ForeignKey(
+        SchoolTerm,
+        on_delete=models.CASCADE,
+        verbose_name=_("School term"),
+        related_name="import_jobs",
+        blank=True,
+        null=True,
+    )
+
+    class Meta:
+        verbose_name = _("Import job")
+        verbose_name_plural = _("Import jobs")
