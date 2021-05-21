@@ -8,9 +8,10 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-20 21:05+0200\n"
-"PO-Revision-Date: 2021-03-17 02:16+0000\n"
-"Last-Translator: Dominik George <dominik.george@teckids.org>\n"
-"Language-Team: German <https://translate.edugit.org/projects/aleksis/aleksis-app-csvimport/de/>\n"
+"PO-Revision-Date: 2021-05-21 17:30+0000\n"
+"Last-Translator: Lloyd Meins <teckids@lloydmeins.de>\n"
+"Language-Team: German <https://translate.edugit.org/projects/aleksis/"
+"aleksis-app-csvimport/de/>\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -57,7 +58,7 @@ msgstr "Geburtsdatum"
 
 #: aleksis/apps/csv_import/field_types.py:214
 msgid "Sex"
-msgstr "Geschlecht"
+msgstr "Geschlecht (biologisches)"
 
 #: aleksis/apps/csv_import/field_types.py:223
 msgid "Street"
@@ -199,7 +200,7 @@ msgstr "Feldtyp"
 
 #: aleksis/apps/csv_import/models.py:101
 msgid "You are not allowed to use this field type in this model."
-msgstr "Sie dürfen diesen Feldtyp nicht für dieses Model benutzen."
+msgstr "Sie dürfen diesen Feldtyp nicht für dieses Datenmodel benutzen."
 
 #: aleksis/apps/csv_import/models.py:106
 msgid "Import template field"
@@ -210,22 +211,16 @@ msgid "Import template fields"
 msgstr "Felder für Import-Vorlagen"
 
 #: aleksis/apps/csv_import/models.py:123
-#, fuzzy
-#| msgid "Related school term"
 msgid "School term"
-msgstr "Zugehöriges Schuljahr"
+msgstr "Schuljahr"
 
 #: aleksis/apps/csv_import/models.py:130
-#, fuzzy
-#| msgid "Import data"
 msgid "Import job"
-msgstr "Daten importieren"
+msgstr "Aufgabe importieren"
 
 #: aleksis/apps/csv_import/models.py:131
-#, fuzzy
-#| msgid "Import objects …"
 msgid "Import jobs"
-msgstr "Objekte importieren …"
+msgstr "Aufgaben importieren"
 
 #: aleksis/apps/csv_import/preferences.py:20
 msgid "Group type for department groups"
@@ -245,7 +240,7 @@ msgstr "Wenn Sie das Feld freilassen, wird kein Präfix hinzugefügt."
 
 #: aleksis/apps/csv_import/preferences.py:40
 msgid "Group for guardians"
-msgstr "Gruppe für Eltern"
+msgstr "Gruppe für Erziehungsberechtigte"
 
 #: aleksis/apps/csv_import/preferences.py:41
 msgid "If you leave it empty, no group will be used."
@@ -257,7 +252,7 @@ msgstr "Sprachen für die Datumserkennung"
 
 #: aleksis/apps/csv_import/preferences.py:51
 msgid "e. g. en,es,zh-Hant"
-msgstr "z. B. en,es,zh-Hant"
+msgstr "z. B. en, es , zh-Hant"
 
 #: aleksis/apps/csv_import/preferences.py:61
 msgid "Country for phone number parsing"
@@ -276,8 +271,10 @@ msgid ""
 "      "
 msgstr ""
 "\n"
-"        Sie können Daten von verschiedenen Schulverwaltungssoftwares mit diesem CSV-Importer importieren. Bitte lesen die Hinweise\n"
-"zu der von Ihnen verwendeten Software in unser Dokumentation! Manchmal ist ein spezielles Verfahren notwendig, um die Daten korrekt zu importieren.\n"
+"        Sie können Daten von verschiedenen Schulverwaltungssoftwares mit "
+"diesem CSV-Importer importieren. Bitte lesen Sie die Hinweise\n"
+"zu der von Ihnen verwendeten Software in unser Dokumentation! Manchmal ist "
+"ein spezielles Verfahren notwendig, um die Daten korrekt zu importieren.\n"
 "      "
 
 #: aleksis/apps/csv_import/templates/csv_import/csv_import.html:25
