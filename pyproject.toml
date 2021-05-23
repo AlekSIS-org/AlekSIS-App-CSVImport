@@ -1,11 +1,11 @@
 [tool.poetry]
 name = "AlekSIS-App-CSVImport"
-version = "2.0a1"
+version = "2.0b0"
 packages = [
     { include = "aleksis" }
 ]
 readme = "README.rst"
-include = ["CHANGELOG.rst", "LICENCE.rst", "aleksis/**/locale/*.mo"]
+include = ["CHANGELOG.rst", "LICENCE.rst", "aleksis/**/*.mo"]
 
 description = "AlekSIS (School Information System) — App for CSV import"
 authors = ["Dominik George <dominik.george@teckids.org>", "Jonathan Weth <dev@jonathanweth.de>"]
@@ -25,13 +25,13 @@ url = "https://edugit.org/api/v4/projects/461/packages/pypi/simple"
 secondary = true
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.9"
 pandas = "^1.0.0"
 phonenumbers = "^8.10"
 dateparser = "^1.0.0"
 pycountry = "^20.7.3"
-aleksis-core = "^2.0a3.dev0"
-aleksis-app-chronos = "^2.0a3.dev0"
+aleksis-core = "^2.0b0"
+aleksis-app-chronos = "^2.0b0"
 
 [tool.poetry.dev-dependencies]
 aleksis-builddeps = "*"
