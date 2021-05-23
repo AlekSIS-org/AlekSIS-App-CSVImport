@@ -27,7 +27,7 @@ class ImportTemplate(ExtensibleModel):
         verbose_name=_("Content type"),
         limit_choices_to=get_allowed_content_types_query,
     )
-    name = models.CharField(max_length=255, verbose_name=_("Name"), unique=True)
+    name = models.CharField(max_length=255, verbose_name=_("Name"))
     verbose_name = models.CharField(max_length=255, verbose_name=_("Name"))
 
     has_header_row = models.BooleanField(
@@ -79,6 +79,11 @@ class ImportTemplate(ExtensibleModel):
         ordering = ["name"]
         verbose_name = _("Import template")
         verbose_name_plural = _("Import templates")
+        constraints = [
+            models.UniqueConstraint(
+                fields=("site_id", "name"), name="unique_template_name_per_site"
+            ),
+        ]
 
 
 class ImportTemplateField(ExtensibleModel):
