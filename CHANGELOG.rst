@@ -6,6 +6,15 @@ All notable changes to this project will be documented in this file.
 The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
+Unreleased
+----------
+
+Changed
+~~~~~~~
+
+* Make Chronos optional:
+  * Department group creation works without Chronos now.
+
 `2.0b0`_ - 2021-05-21
 ---------------------
 
