@@ -1,6 +1,7 @@
 from typing import Callable, Optional, Sequence, Tuple, Type
 from uuid import uuid4
 
+from django.apps import apps
 from django.db.models import Model
 from django.utils.functional import classproperty
 from django.utils.translation import gettext as _
@@ -16,11 +17,7 @@ from aleksis.apps.csv_import.util.converters import (
     parse_phone_number,
     parse_sex,
 )
-from aleksis.apps.csv_import.util.import_helpers import (
-    bulk_get_or_create,
-    get_subject_by_short_name,
-    with_prefix,
-)
+from aleksis.apps.csv_import.util.import_helpers import bulk_get_or_create, with_prefix
 from aleksis.core.models import Group, Person, SchoolTerm
 from aleksis.core.util.core_helpers import get_site_preferences
 
@@ -286,21 +283,34 @@ class DepartmentsFieldType(ProcessFieldType):
     converter = parse_comma_separated_data
 
     def process(self, instance: Model, value):
+        with_chronos = apps.is_installed("aleksis.apps.chronos")
+        if with_chronos:
+            Subject = apps.get_model("chronos", "Subject")
+
         group_type = get_site_preferences()["csv_import__group_type_departments"]
         group_prefix = get_site_preferences()["csv_import__group_prefix_departments"]
 
         groups = []
         for subject_name in value:
-            # Get department subject
-            subject = get_subject_by_short_name(subject_name)
+            if with_chronos:
+                # Get department subject
+                subject, __ = Subject.objects.get_or_create(
+                    short_name=subject_name, defaults={"name": subject_name}
+                )
+                name = subject.name
+                short_name = subject.short_name
+            else:
+                name = subject_name
+                short_name = subject_name
 
             # Get department group
             group, __ = Group.objects.get_or_create(
                 group_type=group_type,
-                short_name=subject.short_name,
-                defaults={"name": with_prefix(group_prefix, subject.name),},
+                short_name=short_name,
+                defaults={"name": with_prefix(group_prefix, name)},
             )
-            group.subject = subject
+            if with_chronos:
+                group.subject = subject
             group.save()
 
             groups.append(group)

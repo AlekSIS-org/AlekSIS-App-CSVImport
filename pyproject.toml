@@ -31,7 +31,6 @@ phonenumbers = "^8.10"
 dateparser = "^1.0.0"
 pycountry = "^20.7.3"
 aleksis-core = "^2.0b0"
-aleksis-app-chronos = "^2.0b0"
 
 [tool.poetry.dev-dependencies]
 aleksis-builddeps = "*"
