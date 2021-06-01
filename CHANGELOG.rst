@@ -6,8 +6,8 @@ All notable changes to this project will be documented in this file.
 The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
-Unreleased
-----------
+`2.0b1`_ - 2021-06-01
+---------------------
 
 Changed
 ~~~~~~~
@@ -62,3 +62,4 @@ Fixed
 .. _1.0a1: https://edugit.org/Teckids/AlekSIS/AlekSIS-App-CSVImport/-/tags/1.0a1
 .. _1.0a2: https://edugit.org/Teckids/AlekSIS/AlekSIS-App-CSVImport/-/tags/1.0a2
 .. _2.0b0: https://edugit.org/Teckids/AlekSIS/AlekSIS-App-CSVImport/-/tags/2.0b0
+.. _2.0b1: https://edugit.org/Teckids/AlekSIS/AlekSIS-App-CSVImport/-/tags/2.0b1
