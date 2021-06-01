@@ -1,6 +1,7 @@
 from typing import Callable, Optional, Sequence, Tuple, Type
 from uuid import uuid4
 
+from django.apps import apps
 from django.db.models import Model
 from django.utils.functional import classproperty
 from django.utils.translation import gettext as _
@@ -282,12 +283,9 @@ class DepartmentsFieldType(ProcessFieldType):
     converter = parse_comma_separated_data
 
     def process(self, instance: Model, value):
-        try:
-            from aleksis.apps.chronos.models import Subject  # noqa
-
-            with_chronos = True
-        except ModuleNotFoundError:
-            with_chronos = False
+        with_chronos = apps.is_installed("aleksis.apps.chronos")
+        if with_chronos:
+            Subject = apps.get_model("chronos", "Subject")
 
         group_type = get_site_preferences()["csv_import__group_type_departments"]
         group_prefix = get_site_preferences()["csv_import__group_prefix_departments"]
