@@ -15,6 +15,13 @@ Changed
 * Make Chronos optional:
   * Department group creation works without Chronos now.
 
+
+Fixed
+~~~~~
+
+* Preference section verbose names were displayed in server language and not
+  user language (fixed by using gettext_lazy).
+
 `2.0b0`_ - 2021-05-21
 ---------------------
 
