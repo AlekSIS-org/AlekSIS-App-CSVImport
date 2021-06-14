@@ -21,6 +21,7 @@ Fixed
 
 * Preference section verbose names were displayed in server language and not
   user language (fixed by using gettext_lazy).
+* Fix distribution name discovery for AlekSIS about page
 
 `2.0b0`_ - 2021-05-21
 ---------------------
