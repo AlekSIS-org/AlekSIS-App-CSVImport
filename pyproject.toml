@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "AlekSIS-App-CSVImport"
-version = "2.0b1"
+version = "2.0rc1"
 packages = [
     { include = "aleksis" }
 ]
