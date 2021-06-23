@@ -6,6 +6,17 @@ All notable changes to this project will be documented in this file.
 The format is based on `Keep a Changelog`_,
 and this project adheres to `Semantic Versioning`_.
 
+`2.0rc1`_ - 2021-06-23
+----------------------
+
+Fixed
+~~~~~
+
+* Preference section verbose names were displayed in server language and not
+  user language (fixed by using gettext_lazy).
+* Fix distribution name discovery for AlekSIS about page
+
+
 `2.0b1`_ - 2021-06-01
 ---------------------
 
@@ -14,14 +25,6 @@ Changed
 
 * Make Chronos optional:
   * Department group creation works without Chronos now.
-
-
-Fixed
-~~~~~
-
-* Preference section verbose names were displayed in server language and not
-  user language (fixed by using gettext_lazy).
-* Fix distribution name discovery for AlekSIS about page
 
 `2.0b0`_ - 2021-05-21
 ---------------------
