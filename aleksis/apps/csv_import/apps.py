@@ -5,6 +5,7 @@ from aleksis.core.util.apps import AppConfig
 
 class CSVImportConfig(AppConfig):
     name = "aleksis.apps.csv_import"
+    dist_name = "AlekSIS-App-CSVImport"
     verbose_name = "AlekSIS — CSV import"
 
     urls = {
